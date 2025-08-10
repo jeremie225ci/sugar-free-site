@@ -5,9 +5,9 @@ import './globals.css'
 import FirebaseAnalytics from '@/components/firebase-analytics'
 
 export const metadata: Metadata = {
-  title: 'v0 App',
-  description: 'Created with v0',
-  generator: 'v0.dev',
+  title: 'Sugarfree',
+  description: 'Sitio oficial de Sugarfree: descarga la app y contáctanos.',
+  generator: 'Next.js',
 }
 
 export default function RootLayout({
