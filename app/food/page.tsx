@@ -1,6 +1,7 @@
 'use client';
 
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect, Suspense } from 'react';
+import { useSearchParams } from 'next/navigation';
 import { getAllRecipes, getCategory, Recipe } from '@/data';
 import FoodCard from '@/components/FoodCard';
 import StickyDownloadBar from '@/components/StickyDownloadBar';
@@ -8,9 +9,18 @@ import Link from 'next/link';
 
 type Category = 'all' | 'breakfast' | 'snack' | 'dinner';
 
-export default function FoodListPage() {
+function FoodListContent() {
+    const searchParams = useSearchParams();
+    const categoryParam = searchParams.get('category') as Category;
+
     const [selectedCategory, setSelectedCategory] = useState<Category>('all');
     const [searchQuery, setSearchQuery] = useState('');
+
+    useEffect(() => {
+        if (categoryParam && ['breakfast', 'snack', 'dinner'].includes(categoryParam)) {
+            setSelectedCategory(categoryParam);
+        }
+    }, [categoryParam]);
 
     const recipes = getAllRecipes();
 
@@ -113,5 +123,13 @@ export default function FoodListPage() {
 
             <StickyDownloadBar />
         </main>
+    );
+}
+
+export default function FoodListPage() {
+    return (
+        <Suspense fallback={<div className="min-h-screen bg-black" />}>
+            <FoodListContent />
+        </Suspense>
     );
 }

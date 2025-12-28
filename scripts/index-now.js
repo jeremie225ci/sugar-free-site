@@ -9,10 +9,13 @@ const path = require('path');
 // 4. Add the service account email to your Search Console as an Owner
 
 const KEY_FILE = path.join(__dirname, '../google-services.json');
+const RECIPES_FILE = path.join(__dirname, '../data/recipes.json');
+const BLOG_FILE = path.join(__dirname, '../data/blog.ts');
 
 async function indexUrls() {
     if (!fs.existsSync(KEY_FILE)) {
         console.error('Error: google-services.json not found in root directory.');
+        console.log('Follow steps in comments to generate one.');
         process.exit(1);
     }
 
@@ -26,20 +29,44 @@ async function indexUrls() {
         auth,
     });
 
-    // Example: Getting URLs from your sitemap logic
-    // For Sukali, we want to notify Google about all food pages
     const baseUrl = 'https://sukali.app';
-
-    // You would ideally fetch slugs from your data file here
-    // For now, this is a template script.
     const urls = [
         `${baseUrl}/`,
         `${baseUrl}/blog`,
         `${baseUrl}/food`,
-        // Add dynamic URLs here
     ];
 
-    for (const url of urls) {
+    // 1. Add Food URLs from recipes.json
+    if (fs.existsSync(RECIPES_FILE)) {
+        console.log('Parsing recipes database...');
+        try {
+            const recipes = JSON.parse(fs.readFileSync(RECIPES_FILE, 'utf8'));
+            recipes.forEach(recipe => {
+                if (recipe.slug) urls.push(`${baseUrl}/food/${recipe.slug}`);
+            });
+        } catch (e) {
+            console.error('Error parsing recipes.json:', e.message);
+        }
+    }
+
+    // 2. Add Blog URLs from blog.ts (Simple Regex Parse)
+    if (fs.existsSync(BLOG_FILE)) {
+        console.log('Parsing blog articles...');
+        try {
+            const blogContent = fs.readFileSync(BLOG_FILE, 'utf8');
+            const slugMatches = blogContent.matchAll(/slug:\s*["']([^"']+)["']/g);
+            for (const match of slugMatches) {
+                urls.push(`${baseUrl}/blog/${match[1]}`);
+            }
+        } catch (e) {
+            console.error('Error parsing blog.ts:', e.message);
+        }
+    }
+
+    const uniqueUrls = [...new Set(urls)];
+    console.log(`🚀 Starting bulk indexing for ${uniqueUrls.length} URLs...`);
+
+    for (const url of uniqueUrls) {
         try {
             const res = await indexing.urlNotifications.publish({
                 requestBody: {
@@ -47,11 +74,12 @@ async function indexUrls() {
                     type: 'URL_UPDATED',
                 },
             });
-            console.log(`Indexed: ${url} -> Status: ${res.status}`);
+            console.log(`✅ Indexed: ${url} -> Status: ${res.status}`);
         } catch (err) {
-            console.error(`Failed to index: ${url}`, err.message);
+            console.error(`❌ Failed to index: ${url}`, err.response?.data?.error?.message || err.message);
         }
     }
+    console.log('🏁 Indexing process completed.');
 }
 
 indexUrls();
