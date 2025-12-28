@@ -564,6 +564,276 @@ Not all coconut milks are created equal. Some are pure, while others are full of
         author: "Dr. Sarah Chen",
         date: "2024-12-28",
         readTime: 4
+    },
+    {
+        title: "Soft Chocolate Chip Cookies No Brown Sugar Recipe",
+        slug: "chocolate-chip-cookies-no-brown-sugar",
+        date: "2025-12-28",
+        category: "Recipes",
+        excerpt: "Looking for the perfect soft chocolate chip cookies without brown sugar? This recipe uses natural alternatives to keep that chewy texture without the insulin spike.",
+        image: "/assets/images/no-brown-sugar-cookies.png",
+        author: "Sukali Chef",
+        readTime: 5,
+        content: `Most traditional cookie recipes rely on brown sugar for moisture and chewiness. However, if you are avoiding refined sugars to prevent acne flare-ups, you need a smarter approach. 
+
+### Why skip brown sugar?
+Brown sugar is essentially white sugar with molasses. It has a high glycemic index that can trigger sebum production and worsen hormonal acne. In this recipe, we use a combination of almond flour and a touch of honey or monk fruit to achieve that classic cookie texture.
+
+### Ingredients
+- 2 cups almond flour
+- 1/4 cup coconut oil (solidified)
+- 1/2 cup sugar-free chocolate chips
+- 1 egg
+- 1 tsp vanilla extract
+- 1/4 cup honey or maple syrup alternative
+
+### Instructions
+1. Preheat your oven to 350°F (175°C).
+2. Mix the wet ingredients first (egg, oil, honey).
+3. Fold in the almond flour until a dough forms.
+4. Add chocolate chips and chill the dough for 10 minutes.
+5. Scoop onto a baking sheet and bake for 10-12 minutes.
+
+Pair these with our [Sugar-Free Milk Analysis](https://www.sugar-frees.com/food/almond-milk) for a skin-safe treat.`
+    },
+    {
+        title: "Perfect Sugar Cookie Recipe No Eggs Needed",
+        slug: "sugar-cookie-recipe-no-eggs",
+        date: "2025-12-28",
+        category: "Recipes",
+        excerpt: "Egg-free and sugar-free? Yes! Learn how to make these delicious, no-spread sugar cookies that are safe for both your skin and your diet.",
+        image: "/assets/images/eggless-sugar-cookies.png",
+        author: "Sukali Chef",
+        readTime: 6,
+        content: `For those with egg allergies or following a specific clear-skin protocol, eggs can sometimes be a hidden source of inflammation. This recipe replaces eggs with a flax-egg or extra healthy fats to keep the cookies stable and delicious.
+
+### The Science of Eggless Baking
+Eggs provide structure, but so does applesauce or flax meal. For a crispy edge and soft center, we recommend using a small amount of Greek yogurt or a vegan alternative.
+
+### Ingredients
+- 1.5 cups oat flour
+- 1/2 cup butter (grass-fed) or coconut oil
+- 1/3 cup erythritol or monk fruit
+- 1 tbsp flax meal mixed with 3 tbsp water
+- 1/2 tsp almond extract
+
+### Instructions
+1. Prepare the flax-egg and let it sit for 5 minutes.
+2. Cream the butter and sweetener together.
+3. Add the flax-egg and almond extract.
+4. Gradually add the oat flour.
+5. Roll out and cut into shapes. Bake at 350°F for 8-10 minutes.
+
+Check out why [Butter might be better than margarine](https://www.sugar-frees.com/food/butter) for your skin.`
+    },
+    {
+        title: "Moist Banana Bread No Sugar Recipe (Dermatologist Approved)",
+        slug: "banana-bread-no-sugar-recipe",
+        date: "2025-12-28",
+        category: "Recipes",
+        excerpt: "The ultimate no sugar banana bread recipe. We use the natural sweetness of overripe bananas to create a moist, delicious loaf without the skin-damaging sugar rush.",
+        image: "/assets/images/no-sugar-banana-bread.png",
+        author: "Dr. Sarah Chen",
+        readTime: 8,
+        content: `Bananas are naturally sweet, making them the perfect base for sugar-free baking. Unlike store-bought banana bread which is essentially cake, this recipe is a nutrient-dense fuel for your skin health.
+
+### Why this is Dermatologist Approved
+Conventional banana bread uses up to 1 cup of white sugar. This spikes your blood glucose, leading to glycation—a process where sugar molecules attach to collagen, causing premature aging and acne. Our version keeps the fiber and vitamins while ditching the white stuff.
+
+### Ingredients
+- 3 very ripe bananas
+- 1/3 cup melted coconut oil
+- 1 egg (or flax egg)
+- 1 tsp baking soda
+- 1.5 cups whole grain or almond flour
+- Pinch of salt
+
+### Instructions
+1. Mash the bananas until completely smooth.
+2. Stir in the melted oil and egg.
+3. Add the dry ingredients and mix until just combined.
+4. Pour into a greased loaf pan.
+5. Bake at 350°F (175°C) for 50-60 minutes.
+
+Compare this with the [Sugar Content of Regular Bananas](https://www.sugar-frees.com/food/banana).`
+    },
+    {
+        title: "Healthy Homemade No Sugar Ketchup Recipe",
+        slug: "sugar-free-ketchup-recipe",
+        date: "2025-12-28",
+        category: "Recipes",
+        excerpt: "Stop eating hidden sugars in your condiments. This easy no sugar ketchup recipe is savory, tangy, and won't cause breakouts.",
+        image: "/assets/images/sugar-free-ketchup.png",
+        author: "Sukali Chef",
+        readTime: 4,
+        content: `Did you know that standard ketchup is nearly 25% sugar? One tablespoon contains about 4 grams of sugar. If you're trying to clear your skin, your favorite condiment might be the enemy. 
+
+### The Ketchup Trap
+Condiments are the most common source of hidden sugars. They don't taste 'sweet' like candy, so we eat them in large quantities. This homemade version uses apple cider vinegar and tomato paste for deep flavor.
+
+### Ingredients
+- 6 oz tomato paste
+- 1/2 cup water
+- 1/3 cup apple cider vinegar
+- 1/2 tsp garlic powder
+- 1/4 tsp onion powder
+- Salt and pepper
+
+### Instructions
+1. Combine all ingredients in a small saucepan.
+2. Whisk until smooth.
+3. Simmer on low heat for 10-15 minutes to let flavors meld.
+4. Let it cool before storing in a glass jar.
+
+Learn more about [Tomato and Sebum Production](https://www.sugar-frees.com/food/tomato).`
+    },
+    {
+        title: "Spicy No Sugar BBQ Sauce Recipe for Clear Skin",
+        slug: "no-sugar-bbq-sauce-recipe",
+        date: "2025-12-28",
+        category: "Recipes",
+        excerpt: "BBQ season doesn't have to mean acne season. Our no sugar BBQ sauce recipe is thick, smoky, and 100% acne-safe.",
+        image: "/assets/images/no-sugar-bbq-sauce.png",
+        author: "Sukali Chef",
+        readTime: 4,
+        content: `Most BBQ sauces are basically liquid candy. If you're grilling chicken or ribs, you're often glazing them in high-fructose corn syrup. This recipe gives you that smoky, sweet-savory profile using natural liquid smoke and spices.
+
+### Ingredients
+- 1 cup tomato sauce (no sugar added)
+- 2 tbsp apple cider vinegar
+- 1 tbsp liquid smoke
+- 1 tbsp smoked paprika
+- 1 tsp cayenne pepper
+- A few drops of stevia (optional)
+
+### Instructions
+1. Whisk all ingredients in a pan.
+2. Bring to a slow simmer.
+3. Cook until the sauce thickens to your liking.
+4. Use it as a marinade or dipping sauce for [Grilled Chicken](https://www.sugar-frees.com/food/herbed-grilled-chicken).`
+    },
+    {
+        title: "Easy Applesauce Recipe No Sugar Added",
+        slug: "applesauce-recipe-no-sugar",
+        date: "2025-12-28",
+        category: "Recipes",
+        excerpt: "Naturally sweet and fiber-rich. This applesauce recipe no sugar is perfect for kids, baking, or a healthy skin-safe snack.",
+        image: "/assets/images/no-sugar-applesauce.png",
+        author: "Sukali Chef",
+        readTime: 3,
+        content: `Apples are high in vitamins and fiber, but store-bought applesauce is often loaded with extra sugar. Our version highlights the fruit's natural sugars while keeping the glycemic load manageable.
+
+### Ingredients
+- 4 Large apples (Fuji or Gala work best)
+- 1/2 cup water
+- 1 tsp cinnamon
+- Squeeze of lemon juice
+
+### Instructions
+1. Peel, core, and chop the apples.
+2. Place in a pot with water and cinnamon.
+3. Cover and cook over medium heat for 20 minutes.
+4. Mash with a fork or blend for a smooth texture.
+
+Check the [Sugar Verdict for Apples](https://www.sugar-frees.com/food/apple).`
+    },
+    {
+        title: "Fluffy No Sugar Pancake Recipe (Breakfast Goal)",
+        slug: "no-sugar-pancake-recipe",
+        date: "2025-12-28",
+        category: "Recipes",
+        excerpt: "Start your morning without the sugar crash. Our no sugar pancake recipe uses fiber-rich flours to keep you full and your skin clear.",
+        image: "/assets/images/no-sugar-pancake.png",
+        author: "Sukali Chef",
+        readTime: 5,
+        content: `Pancakes are usually a sugar bomb—white flour, white sugar, and maple syrup. By swapping for almond or oat flour and skipping the sugar in the batter, you can enjoy this classic breakfast without worrying about your pores.
+
+### Ingredients
+- 1 cup oat flour
+- 1/2 cup Greek yogurt (plain)
+- 2 eggs
+- 1/2 tsp cinnamon
+- 1 tsp baking powder
+
+### Instructions
+1. Whisk eggs and yogurt together.
+2. Mix in dry ingredients.
+3. Cook small portions on a medium skillet until bubbles form.
+4. Flip and cook for another minute.
+
+Pair with our [Sugar-Free Greek Yogurt Analysis](https://www.sugar-frees.com/food/greek-yogurt-parfait).`
+    },
+    {
+        title: "Healthy No Sugar Granola Recipe (Crunchy & Clear)",
+        slug: "healthy-no-sugar-granola",
+        date: "2025-12-28",
+        category: "Recipes",
+        excerpt: "Most granola is just disguised cereal. This healthy granola recipe no sugar is packed with nuts, seeds, and healthy fats for glowing skin.",
+        image: "/assets/images/no-sugar-granola.png",
+        author: "Sukali Chef",
+        readTime: 5,
+        content: `Cereal and granola are often the worst offenders when it comes to blood sugar spikes. Our skin-safe granola uses nuts and seeds to provide crunch without the carb load.
+
+### Ingredients
+- 2 cups rolled oats
+- 1 cup mixed nuts (almonds, walnuts)
+- 1/4 cup chia seeds
+- 1/4 cup melted coconut oil
+- 1 tsp vanilla extract
+
+### Instructions
+1. Mix all dry ingredients in a bowl.
+2. Toss with coconut oil and vanilla.
+3. Spread on a baking sheet and bake at 300°F for 20-30 minutes, tossing occasionally.
+
+Read why [Mixed Nuts](https://www.sugar-frees.com/food/mixed-nuts-snack) are a superfood for acne.`
+    },
+    {
+        title: "Creamy No Sugar Ice Cream Recipe (Guilt-Free)",
+        slug: "no-sugar-ice-cream-recipe",
+        date: "2025-12-28",
+        category: "Recipes",
+        excerpt: "Missing dessert? This no sugar ice cream recipe uses frozen fruit and coconut milk for a rich, satisfying, and acne-safe treat.",
+        image: "/assets/images/no-sugar-ice-cream.png",
+        author: "Sukali Chef",
+        readTime: 4,
+        content: `Dairy and sugar are the two biggest dietary triggers for acne. This 'nice cream' solves both problems by using plant-based fats and natural fruit sugars.
+
+### Ingredients
+- 2 frozen bananas
+- 1/2 cup full-fat coconut milk
+- 1 tsp vanilla extract
+- Pinch of sea salt
+
+### Instructions
+1. Place all ingredients in a high-speed blender.
+2. Pulse until thick and creamy.
+3. Serve immediately for soft-serve or freeze for 1 hour for scoops.`
+    },
+    {
+        title: "Easy No Sugar Bread Recipe (Standard Loaf)",
+        slug: "no-sugar-bread-recipe",
+        date: "2025-12-28",
+        category: "Recipes",
+        excerpt: "Bread doesn't need sugar to rise. This no sugar bread recipe is perfect for sandwiches, toast, and keeping your skin inflammation-free.",
+        image: "/assets/images/no-sugar-bread.png",
+        author: "Sukali Chef",
+        readTime: 10,
+        content: `Commercial bread often contains sugar to help the yeast rise faster and to keep it shelf-stable. By making your own, you control the ingredients and avoid the inflammatory response caused by refined sugars.
+
+### Ingredients
+- 3 cups whole wheat flour
+- 1.25 cups warm water
+- 1 package active dry yeast
+- 1 tsp salt
+- 2 tbsp olive oil
+
+### Instructions
+1. Dissolve yeast in warm water and let it foam.
+2. Mix in flour, salt, and oil.
+3. Knead for 10 minutes until elastic.
+4. Let it rise for 1 hour.
+5. Bake at 375°F for 30-35 minutes.`
     }
 ];
 
