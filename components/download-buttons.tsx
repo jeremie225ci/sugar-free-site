@@ -10,7 +10,7 @@ export default function DownloadButtons({ align = "left" }: { align?: "left" | "
   return (
     <div className={`flex flex-wrap gap-3 ${align === "center" ? "justify-center" : ""}`}>
       <Button asChild size="lg" className="bg-emerald-600 hover:bg-emerald-700 w-full sm:w-auto">
-        <Link href="https://apps.apple.com/" aria-label={t("cta.ios")}>
+        <Link href="https://apps.apple.com/us/app/sukali-umax-no-sugar/id6749379303" aria-label={t("cta.ios")}>
           <Apple className="mr-2 size-5" />
           {t("cta.ios")}
         </Link>

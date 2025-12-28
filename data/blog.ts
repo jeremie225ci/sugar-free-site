@@ -1,0 +1,576 @@
+export interface BlogPost {
+    slug: string;
+    title: string;
+    excerpt: string;
+    content: string;
+    image: string;
+    category: string;
+    author: string;
+    date: string;
+    readTime: number;
+}
+
+export const blogPosts: BlogPost[] = [
+    {
+        slug: "how-sugar-free-diet-cleared-my-cystic-acne",
+        title: "How I Cleared My Cystic Acne by Quitting Sugar: A 30-Day Journey",
+        excerpt: "Real results from a sugar-free lifestyle. Watch how eliminating processed sugar transformed this skin from inflamed to glowing.",
+        content: `
+## The Reality of Cystic Acne
+
+Cystic acne is one of the most painful and frustrating skin conditions to deal with. For years, many people try expensive creams and antibiotics without success. The truth is that the root cause is often internal, specifically tied to insulin spikes from sugar.
+
+## The Transformation
+
+In this viral success story, you can see the dramatic shift in skin texture and inflammation after strictly removing added sugars and soda from the daily routine. The redness subsided, and the deep, painful cysts stopped forming within just a few weeks.
+
+[![Transformation Results](/assets/images/transformation_1.png)](https://vm.tiktok.com/ZNRjctaXt/)
+
+*Click the image above to watch the full transformation on TikTok.*
+
+## Why It Works
+
+By cutting out processed sugar, you lower your body's overall inflammatory markers. This stabilization of insulin levels allows the skin to heal naturally without the constant interference of hormonal spikes. If you want to see similar results, the first step is tracking your hidden sugar intake.
+
+## Start Your Own Journey
+
+Success stories like this are possible for everyone. The Sukali app helps you identify the hidden sugars in your favorite foods so you can make skin-safe choices every single day.
+        `,
+        image: "/assets/images/transformation_1.png",
+        category: "Skin Health",
+        author: "Sukali Community",
+        date: "2024-12-28",
+        readTime: 4
+    },
+    {
+        slug: "insane-face-fat-loss-transformation",
+        title: "Insane Face Fat Loss: Why Quitting Sugar Defined This Jawline",
+        excerpt: "Quitting sugar isn't just for acne. Discover how reducing inflammation led to incredible face de-bloating and fat loss.",
+        content: `
+## Beyond the Breakouts
+
+Sugar consumption leads to systematic inflammation and water retention, often manifesting as a 'round face' or general bloating. When you eliminate these triggers, the body releases excess water and inflammation, revealing your natural bone structure.
+
+## The Jawline Reveal
+
+This transformation shows an incredible shift from a rounded profile to a sharply defined jawline. This wasn't just about weight loss; it was about the 'de-bloating' effect that happens when you stop poisoning your system with high-fructose corn syrup and refined white sugars.
+
+[![Jawline Transformation](/assets/images/transformation_2.jpg)](https://vm.tiktok.com/ZNRjcCWRQ/)
+
+*Click the image above to watch the full journey on TikTok.*
+
+## Science of De-bloating
+
+High sugar intake forces the body to hold onto water and causes facial puffiness. By maintaining stable blood glucose levels, your metabolism functions more efficiently, and the persistent swelling in your face disappears.
+
+## Track Your Progress
+
+Are you ready to see your real face? Use the Sukali app to scan your groceries and stay consistent with your sugar-free goals. The results on your skin and your jawline will speak for themselves.
+        `,
+        image: "/assets/images/transformation_2.jpg",
+        category: "Lifestyle",
+        author: "Sukali Community",
+        date: "2024-12-28",
+        readTime: 3
+    },
+    {
+        slug: "stop-wasting-money-on-skincare",
+        title: "Stop Wasting Money on Skincare: Fix Your Diet First",
+        excerpt: "Before you buy another expensive serum, look at your plate. See how this transformation happened without expensive products.",
+        content: `
+## The Skincare Industry Lie
+
+The skincare industry wants you to believe that a $100 serum will fix your acne. But if you are still drinking soda and eating fast food, no cream in the world can stop the internal inflammation that causes breakouts.
+
+## Real Skin Recovery
+
+This transformation highlights how a clean, sugar-free diet can do more for your complexion than years of expensive treatments. By removing processed sugar, fast food, and soda, the skin recovered its natural clarity and radiance.
+
+[![Skin Recovery](/assets/images/transformation_3.png)](https://vm.tiktok.com/ZNRjcpT6a/)
+
+*Click the image above to watch the full credit on TikTok.*
+
+## The Action Plan
+
+Clear skin starts with small, daily decisions. Replace your soda with water, swap fast food for whole proteins, and get enough sleep. Your skin is a reflection of your internal health.
+
+## Use Sukali to Stay Consistent
+
+Staying on track is the hardest part. The Sukali app acts as your personal health coach, scanning every food item and protecting your skin from hidden triggers. Download Sukali today and start fixing your skin from the inside out.
+        `,
+        image: "/assets/images/transformation_3.png",
+        category: "Education",
+        author: "Sukali Community",
+        date: "2024-12-28",
+        readTime: 4
+    },
+    {
+        slug: "best-breakfast-for-clear-skin",
+        title: "5 Breakfast Recipes That Fight Acne",
+        excerpt: "Start your day with these skin-clearing breakfast ideas that are delicious and sugar-free.",
+        content: `
+## Morning Fuel for Clear Skin
+
+What you eat for breakfast sets the tone for your skin's health all day. Here are 5 recipes that fight inflammation and prevent breakouts.
+
+### 1. Green Detox Smoothie
+
+A powerhouse of antioxidants:
+- Spinach (vitamin A)
+- Banana (potassium)
+- Almond milk
+- Chia seeds (omega-3s)
+
+Only 9g of natural sugar, zero added sugar.
+
+### 2. Avocado Power Toast
+
+Healthy fats meet complex carbs:
+- Whole grain bread
+- Fresh avocado
+- Lemon juice
+- Sea salt
+
+Just 1g of natural sugar!
+
+### 3. Greek Yogurt Parfait
+
+Probiotic-rich for gut health:
+- Plain Greek yogurt
+- Fresh berries
+- Rolled oats
+- Crushed almonds
+
+A balanced 7g of natural sugar from fruit.
+
+### 4. Egg & Spinach Scramble
+
+Pure protein power:
+- Farm fresh eggs
+- Baby spinach
+- Olive oil
+- Fresh herbs
+
+Zero sugar, high protein!
+
+### 5. Coconut Chia Pudding
+
+Prepare the night before:
+- Coconut milk
+- Chia seeds
+- Vanilla extract
+- Berry topping
+
+Only 6g of natural sugar.
+
+### The Science Behind It
+
+These breakfasts work because they:
+- Keep blood sugar stable
+- Provide sustained energy
+- Deliver skin-loving nutrients
+- Reduce inflammation
+
+Download Sukali to get the full recipes with step-by-step instructions.
+    `,
+        image: "/assets/images/avocado_power_toast.jpg",
+        category: "Recipes",
+        author: "Chef Michel",
+        date: "2024-12-18",
+        readTime: 4
+    },
+    {
+        slug: "understanding-glycemic-index",
+        title: "Glycemic Index Explained: What It Means for Your Skin",
+        excerpt: "Learn how the glycemic index affects blood sugar and why it matters for acne prevention.",
+        content: `
+## What is the Glycemic Index?
+
+The Glycemic Index (GI) measures how quickly foods raise blood sugar levels on a scale of 0-100.
+
+### GI Categories
+
+- **Low GI (0-55):** Slow, steady energy release
+- **Medium GI (56-69):** Moderate blood sugar impact
+- **High GI (70+):** Rapid blood sugar spikes
+
+### Why It Matters for Skin
+
+High GI foods cause:
+1. Rapid insulin spikes
+2. Increased inflammation
+3. Excess oil production
+4. Hormonal imbalances
+
+Studies show that low-GI diets can reduce acne by up to 50%.
+
+### Low-GI Food Swaps
+
+| Instead of... | Try... | GI Difference |
+|--------------|--------|---------------|
+| White rice | Quinoa | 73 → 53 |
+| White bread | Whole grain | 75 → 51 |
+| Potato | Sweet potato | 78 → 54 |
+| Cornflakes | Oatmeal | 81 → 55 |
+
+### Practical Tips
+
+1. Pair carbs with protein
+2. Add healthy fats to meals
+3. Choose whole foods over processed
+4. Include fiber-rich vegetables
+
+### Your Personal GI Tracker
+
+Sukali's AI scanner calculates the glycemic impact of any meal. Just take a photo and get instant feedback on how your food choices affect your skin.
+    `,
+        image: "/assets/images/chickpea-curry.jpg",
+        category: "Education",
+        author: "Nutritionist Amy",
+        date: "2024-12-15",
+        readTime: 6
+    },
+    {
+        slug: "meal-prep-sugar-free",
+        title: "Weekly Meal Prep Guide: 7 Days of Sugar-Free Eating",
+        excerpt: "Save time and stay on track with this complete meal prep guide for a sugar-free week.",
+        content: `
+## Your Sugar-Free Week Starts Here
+
+Meal prep is the secret to maintaining a sugar-free lifestyle. Here's how to prepare a full week of delicious, skin-friendly meals.
+
+### Shopping List
+
+**Proteins:**
+- Chicken breast
+- Salmon fillets
+- Eggs
+- Greek yogurt
+
+**Vegetables:**
+- Spinach
+- Broccoli
+- Bell peppers
+- Zucchini
+- Cauliflower
+
+**Pantry Staples:**
+- Olive oil
+- Quinoa
+- Almond butter
+- Chia seeds
+
+### Sunday Prep Session (2 hours)
+
+1. **Cook proteins** - Grill 4 chicken breasts
+2. **Prep vegetables** - Chop and store in containers
+3. **Make bases** - Cook quinoa and cauliflower rice
+4. **Prepare snacks** - Portion nuts and hummus
+
+### Daily Meals
+
+**Breakfast options:**
+- Overnight oats
+- Egg scramble
+- Smoothie packs
+
+**Lunch options:**
+- Quinoa veggie bowl
+- Chicken salad
+- Cauliflower rice bowl
+
+**Dinner options:**
+- Grilled salmon
+- Stuffed bell peppers
+- Chicken stir-fry
+
+### Pro Tips
+
+- Use glass containers for freshness
+- Label everything with dates
+- Freeze portions for later
+- Prep sauces separately
+
+One week of clean eating can transform your skin. Start today!
+    `,
+        image: "/assets/images/mediterranean quinoa bowl.webp",
+        category: "Lifestyle",
+        author: "Coach Maria",
+        date: "2024-12-12",
+        readTime: 7
+    },
+    {
+        slug: "does-banana-cause-acne",
+        title: "Does Banana Cause Acne? The Shocking Truth About Your Favorite Fruit",
+        excerpt: "Think bananas are safe for your skin? Discover how their high sugar content could be triggering your breakouts and what to eat instead.",
+        content: `
+## The Hidden Sugar in Bananas
+
+Bananas are often hailed as a healthy snack, but for those struggling with acne-prone skin, they might be a hidden enemy. A single banana contains roughly 12 to 15 grams of sugar, which can cause a rapid spike in your blood glucose levels. When your blood sugar rises, your body produces more insulin, which in turn stimulates the production of sebum and inflammation.
+
+## The Insulin Connection
+
+High insulin levels are directly linked to the activation of the IGF-1 hormone. This hormone is known to increase oil production in your pores, creating the perfect breeding ground for acne-causing bacteria. If you find yourself breaking out after your morning smoothie, the banana might be the culprit.
+
+## How to Clear Your Skin
+
+To maintain clear skin, you should consider swapping high-sugar fruits like bananas for low-glycemic index alternatives such as berries or green apples. These options provide the same vitamins without the heavy sugar load that triggers inflammation.
+
+## Take Control of Your Diet
+
+Understanding how every food affects your skin is the first step toward a clear complexion. The Sukali app helps you scan your groceries and identify which items are safe for your specific skin type and which ones you should avoid to prevent future breakouts.
+        `,
+        image: "/assets/images/Green-Detox-Smoothie.jpg",
+        category: "Skin Health",
+        author: "Dr. Sarah Chen",
+        date: "2024-12-28",
+        readTime: 5
+    },
+    {
+        slug: "avocado-acne-verdict",
+        title: "Does Avocado Cause Acne? Dermatologist Verdict on Healthy Fats",
+        excerpt: "Avocados are packed with fats, but do they clog your pores? We analyze the science behind avocados and skin inflammation.",
+        content: `
+## Healthy Fats vs Skin Inflammation
+
+Avocados are a staple in many healthy diets due to their high concentration of monounsaturated fats and vitamins. But many people wonder if the fat content in avocados contributes to oily skin and acne. The good news is that avocados are actually very low in sugar, with less than 1 gram per serving, making them a skin-friendly choice for most people.
+
+## The Benefits of Vitamin E and C
+
+Avocados are rich in antioxidants like Vitamin E and Vitamin C, which help combat oxidative stress and reduce inflammation in the body. Unlike sugary foods that spike insulin, avocados provide stable energy and help maintain a healthy skin barrier. The healthy fats in avocados actually help your body absorb fat-soluble vitamins that are essential for skin repair.
+
+## When to Be Careful
+
+While avocados themselves do not cause acne, how you eat them matters. Pairing them with high-glycemic foods like white bread can negate their benefits by triggering an overall inflammatory response. Focus on eating avocados with lean proteins and whole grains to maximize their skin-clearing potential.
+
+## Scan Your Meals With Sukali
+
+If you are unsure if your current diet is causing your breakouts, use the Sukali app. Our AI analyzes the nutritional profile of your meals to ensure you are getting the right balance of fats and sugars for a clear, glowing complexion.
+        `,
+        image: "/assets/images/avocado_power_toast.jpg",
+        category: "Skin Health",
+        author: "Dr. Sarah Chen",
+        date: "2024-12-28",
+        readTime: 4
+    },
+    {
+        slug: "greek-yogurt-acne-trigger",
+        title: "Does Greek Yogurt Cause Acne? The Truth About Dairy and Breakouts",
+        excerpt: "Dairy is a famous acne trigger, but is Greek yogurt an exception? Learn how probiotics and dairy proteins affect your skin.",
+        content: `
+## The Problem With Dairy
+
+For many acne sufferers, dairy is the number one trigger for inflammation. Milk contains hormones and proteins like whey and casein that are known to increase insulin levels and stimulate oil production. Greek yogurt, while fermented, still contains these dairy proteins and can be problematic for those with sensitive skin.
+
+## Probiotics vs Hormones
+
+Greek yogurt is often praised for its probiotics, which are beneficial for gut health and can indirectly improve skin quality. However, the hormonal impact of the dairy itself often outweighs the benefits of the probiotics for people prone to cystic acne. Many commercial Greek yogurts also contain significant amounts of added sugar, which further exacerbates the problem.
+
+## Skin-Safe Alternatives
+
+If you suspect dairy is ruining your skin, try switching to coconut-based or almond-based yogurts. These alternatives provide the same creamy texture and probiotics without the hormonal baggage of cow's milk. Always check the label for added sugars, as many dairy-free options are still high in glucose.
+
+## Track Your Triggers
+
+Identifying your personal acne triggers can be a long process of trial and error. The Sukali app simplifies this by allowing you to track your diet and skin progress in one place. Scan your favorite yogurt today to see its sugar and dairy impact on your skin health.
+        `,
+        image: "/assets/images/yogurt-parfait-4.jpg",
+        category: "Skin Health",
+        author: "Dr. Sarah Chen",
+        date: "2024-12-28",
+        readTime: 6
+    },
+    {
+        slug: "do-eggs-cause-breakouts",
+        title: "Do Eggs Cause Acne? Analyzing the Link Between Biotin and Breakouts",
+        excerpt: "Eggs are a protein powerhouse, but could the biotin and progesterone in eggs be causing your acne? We look at the latest research.",
+        content: `
+## Protein vs Pore Clogging
+
+Eggs are one of the most complete protein sources available, frequently used in fitness and health diets. However, some people report an increase in breakouts when consuming eggs daily. This is often attributed to the presence of progesterone and biotin, which can stimulate oil production in certain individuals.
+
+## The Role of Biotin
+
+Biotin is famous for hair and nail growth, but in high doses, it can interfere with the absorption of other vitamins like Vitamin B5 (pantothenic acid), which is crucial for preventing acne. When B5 levels drop, the skin struggles to regulate its oil production, leading to clogged pores and inflammation.
+
+## Should You Quit Eggs?
+
+Not everyone will experience acne from eggs. If you suspect they are a problem, try elimination for two weeks and monitor your skin carefully. For most, eggs are a safe, sugar-free breakfast option that helps maintain stable blood glucose, which is generally good for the skin.
+
+## Personalized Skin Advice
+
+Everyone's skin reacts differently to food. What works for some might cause issues for others. Use the Sukali app to get personalized recommendations based on your unique skin profile and dietary habits. Scan your breakfast and see if it's contributing to your skin goals.
+        `,
+        image: "/assets/images/spinach-scrambled-eggs-recipe-8-scaled.jpg",
+        category: "Skin Health",
+        author: "Dr. Sarah Chen",
+        date: "2024-12-28",
+        readTime: 5
+    },
+    {
+        slug: "salmon-for-clear-skin",
+        title: "Does Salmon Cause Acne? Why This Fatty Fish Is Your Skin's Best Friend",
+        excerpt: "Can't get enough of salmon? Find out why the Omega-3 fatty acids in salmon are the ultimate weapon against acne and inflammation.",
+        content: `
+## The Power of Omega-3s
+
+Unlike many other protein sources, salmon is packed with Omega-3 fatty acids. These healthy fats are some of the most powerful natural anti-inflammatories available. Since acne is essentially an inflammatory disease of the skin, consuming salmon can help reduce the redness and swelling associated with breakouts.
+
+## Reducing Sebum Production
+
+Research has shown that Omega-3s can help regulate sebum production. By keeping your skin's oil levels in check, salmon helps prevent the clogging of pores before a pimple can even form. Additionally, salmon is zero-sugar and does not cause the insulin spikes that are so damaging to the skin.
+
+## How Much Should You Eat?
+
+Including fatty fish like salmon in your diet at least twice a week can lead to visible improvements in skin texture and clarity. It provides high-quality protein and essential nutrients that support the skin's natural repair processes without any of the risks associated with sugar or dairy.
+
+## Optimize Your Meals
+
+Building a skin-clearing diet requires consistency and the right information. The Sukali app makes it easy to find recipes and food items that support clear skin. Download Sukali today to scan your next meal and see how its anti-inflammatory properties can help you achieve the skin you've always wanted.
+        `,
+        image: "/assets/images/Salmon-and-Asparagus-3.jpg",
+        category: "Skin Health",
+        author: "Dr. Sarah Chen",
+        date: "2024-12-28",
+        readTime: 5
+    },
+    {
+        slug: "lentils-and-skin-health",
+        title: "Do Lentils Cause Acne? The Fiber Factor in Clear Skin",
+        excerpt: "Lentils are a staple for many, but are they safe for acne? We examine how fiber and low glycemic index foods help fight breakouts.",
+        content: `
+## Stable Blood Sugar with Lentils
+
+Lentils are an excellent source of complex carbohydrates and fiber. For those looking to clear their skin, this is great news. High-fiber foods like lentils are digested slowly, meaning they don't cause the rapid insulin spikes that lead to oil production and acne. They have a very low glycemic index, making them a safe carb choice.
+
+## Detoxifying the Gut
+
+The fiber in lentils also supports a healthy digestive system, which is closely linked to skin health. A healthy gut helps the body eliminate toxins more efficiently, reducing the burden on your skin. When your internal systems are running smoothly, it often reflects in a clearer, more radiant complexion.
+
+## Balanced Nutrition
+
+Lentils also provide essential minerals like zinc, which is known for its skin-healing properties. Zinc helps reduce inflammation and can even help heal existing acne scars. Incorporating lentils into your diet as a replacement for high-GI grains like white rice is a major win for your skin.
+
+## Plan Your Skin-Safe Routine
+
+Moving to a low-sugar, low-GI diet is the most effective way to beat acne from the inside out. The Sukali app provides you with the tools to scan any ingredient and see its impact on your skin health immediately. Start your journey to better skin by scanning your favorite pulse today.
+        `,
+        image: "/assets/images/lentil-soup-.jpg",
+        category: "Skin Health",
+        author: "Dr. Sarah Chen",
+        date: "2024-12-28",
+        readTime: 4
+    },
+    {
+        slug: "chicken-and-hormonal-acne",
+        title: "Does Chicken Cause Acne? Checking for Hormones in Your Meat",
+        excerpt: "Is your grilled chicken actually good for your skin? Discover if the hormones in meat are contributing to your hormonal acne.",
+        content: `
+## Lean Protein and Skin
+
+Chicken is generally considered a safe protein for acne sufferers because it is ultra-low in sugar and does not affect insulin levels. However, the quality of the chicken you buy can make a difference. Some industrial poultry may contain traces of hormones that can interfere with your own endocrine system, potentially triggering hormonal breakouts.
+
+## The Importance of Organic
+
+Whenever possible, choosing organic, hormone-free chicken can reduce the risk of environmental toxins affecting your skin. Chicken itself provides essential amino acids that the skin uses to produce collagen and repair damage. It is a much safer alternative than red meat, which can be more inflammatory for some individuals.
+
+## Avoid Sugary Sauces
+
+One common mistake is coating healthy chicken in sugary marinades or BBQ sauces. These hidden sugars are the true acne triggers, not the meat itself. Stick to fresh herbs, garlic, and lemon juice to flavor your chicken without risking a skin flare-up.
+
+## Scan for Hidden Sugars
+
+Sauces and processed meats are often loaded with sugars that ruin your skin. Use the Sukali app's AI scanner to check the ingredients of your favorite marinades. Ensure your meals are truly skin-safe by downloading Sukali and scanning your groceries before you buy.
+        `,
+        image: "/assets/images/zesty-lemon-chicken.jpg",
+        category: "Skin Health",
+        author: "Dr. Sarah Chen",
+        date: "2024-12-28",
+        readTime: 5
+    },
+    {
+        slug: "almond-flour-versus-acne",
+        title: "Does Almond Flour Cause Acne? A Better Alternative to White Flour",
+        excerpt: "Thinking about switching to almond flour? Find out why this low-carb alternative is a game-changer for people with acne-prone skin.",
+        content: `
+## Breaking Free from Gluten and Sugar
+
+Traditional white flour is one of the worst offenders for skin health. It is highly refined, has a high glycemic index, and causes immediate insulin spikes. Almond flour, on the other hand, is made from ground almonds and is naturally low in carbohydrates and high in healthy fats and protein.
+
+## The Vitamin E Multiplier
+
+Almonds are one of the best sources of Vitamin E, a potent antioxidant that protects skin cells from damage and keeps inflammation at bay. Using almond flour instead of wheat flour in your recipes can significantly lower the overall glycemic load of your diet, leading to fewer breakouts and smoother skin.
+
+## A Word on Calories and Omega-6
+
+While almond flour is great for blood sugar, it is high in calories and Omega-6 fatty acids. If your diet is already high in Omega-6, you should balance it with extra Omega-3s from fish. For most people, however, the switch to almond flour is a huge improvement over processed grains.
+
+## Find Skin-Safe Recipes
+
+Cooking without sugar and white flour can be challenging at first. The Sukali app features dozens of keto and sugar-free recipes that use almond flour and other skin-safe ingredients. Download Sukali today to find your new favorite skin-clearing pancake or bread recipe.
+        `,
+        image: "/assets/images/Almond-flour-pancakes.jpg",
+        category: "Skin Health",
+        author: "Dr. Sarah Chen",
+        date: "2024-12-28",
+        readTime: 4
+    },
+    {
+        slug: "cauliflower-acne-benefits",
+        title: "Does Cauliflower Cause Acne? The Skin-Clearing Power of Cruciferous Veggies",
+        excerpt: "Is cauliflower the secret to clear skin? Learn how this versatile vegetable helps detoxify your body and prevent acne breakouts.",
+        content: `
+## Hormonal Balance and Cauliflower
+
+Cauliflower belongs to the cruciferous vegetable family, which is famous for its skin benefits. It contains a compound called indole-3-carbinol, which helps the body process and eliminate excess estrogen. Since hormonal imbalances are a leading cause of adult acne, especially along the jawline, cauliflower is a powerful dietary ally.
+
+## Low Glycemic King
+
+With a glycemic index close to zero, cauliflower is the perfect replacement for high-GI foods like potatoes or rice. It allows you to feel full and satisfied without triggering the insulin spikes that lead to oily skin and clogged pores. It is also packed with Vitamin C, which supports collagen production and skin healing.
+
+## Detoxification Support
+
+The sulfur compounds in cauliflower support the liver's natural detoxification processes. By helping your liver clear out toxins and waste products, cauliflower reduces the amount of work your skin has to do, leading to a clearer and more radiant appearance over time.\n\n## Meal Prep for Better Skin\n\nIncorporating more cauliflower into your weekly meal prep is one of the easiest ways to improve your skin health. The Sukali app makes it easy to find healthy meal ideas and scan ingredients for hidden sugars. Take the first step toward clear skin by downloading Sukali and discovering our cauliflower-based recipes.
+        `,
+        image: "/assets/images/coliflower-rice-bowl.jpg",
+        category: "Skin Health",
+        author: "Dr. Sarah Chen",
+        date: "2024-12-28",
+        readTime: 5
+    },
+    {
+        slug: "coconut-milk-acne-safety",
+        title: "Does Coconut Milk Cause Acne? Switching to Dairy-Free Skin Care",
+        excerpt: "Is coconut milk a safe alternative to dairy for your skin? Discover the facts about coconut fat and its effect on acne-prone skin.",
+        content: `
+## A Safe Haven From Dairy
+
+For most people avoiding dairy-induced acne, coconut milk is an excellent alternative. It is completely free from the hormones and dairy proteins that trigger oil production and inflammation. It provides a rich, creamy texture without the high glycemic impact of many other milk alternatives.
+
+## Lauric Acid and Skin Health
+
+Coconut contains lauric acid, which has natural antimicrobial and anti-inflammatory properties. While most of the benefits come from topical application, consuming healthy fats from coconut can support your overall immune system and help your body fight off skin infections more effectively.
+
+## Watch the Label
+
+The main risk with coconut milk is the added sugar found in many 'original' or 'vanilla' flavored cartons. These sugars will cause the same insulin spikes as any other sweet food, leading to breakouts. Always opt for the 'unsweetened' version to keep your skin safe.
+
+## AI Food Analysis with Sukali
+
+Not all coconut milks are created equal. Some are pure, while others are full of thickeners and sugars. The Sukali app allows you to scan the barcode of any product to see its nutritional impact on your skin health instantly. Download Sukali today and make sure your dairy-free choices are truly skin-friendly.
+        `,
+        image: "/assets/images/coconut_chia_pudding.jpg",
+        category: "Skin Health",
+        author: "Dr. Sarah Chen",
+        date: "2024-12-28",
+        readTime: 4
+    }
+];
+
+export function getAllPosts(): BlogPost[] {
+    return blogPosts;
+}
+
+export function getPostBySlug(slug: string): BlogPost | undefined {
+    return blogPosts.find(p => p.slug === slug);
+}

@@ -1,65 +1,130 @@
 "use client"
 
-import { Camera, ChefHat, MessageSquare } from "lucide-react"
+import { getAllRecipes, getImagePath, getTotalSugar, getCategory } from "@/data"
 import Image from "next/image"
-import { useI18n } from "./i18n-provider"
+import Link from "next/link"
 
-export default function FeatureCards({}: {}) {
-  const { t } = useI18n()
-  const features = [
-    {
-      title: t("feature.camera.title"),
-      desc: t("feature.camera.desc"),
-      icon: Camera,
-      color: "bg-emerald-100 text-emerald-700",
-    },
-    {
-      title: t("feature.recipes.title"),
-      desc: t("feature.recipes.desc"),
-      icon: ChefHat,
-      color: "bg-orange-100 text-orange-700",
-    },
-    {
-      title: t("feature.ai.title"),
-      desc: t("feature.ai.desc"),
-      icon: MessageSquare,
-      color: "bg-purple-100 text-purple-700",
-    },
-  ]
+export default function FeatureCards() {
+  const recipes = getAllRecipes()
+  const breakfastRecipes = recipes.filter(r => getCategory(r) === 'breakfast').slice(0, 3)
+  const dinnerRecipes = recipes.filter(r => getCategory(r) === 'dinner').slice(0, 3)
 
   return (
-    <section id="features" className="mx-auto w-full max-w-6xl px-3 py-12 md:px-4 md:py-16">
-      <div className="mx-auto max-w-2xl text-center">
-        <h2 className="text-2xl font-bold tracking-tight sm:text-3xl">{t("features.title")}</h2>
-        <p className="mt-2 text-sm text-muted-foreground sm:text-base">{t("features.subtitle")}</p>
-      </div>
-
-      <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {features.map((f) => (
-          <div key={f.title} className="rounded-2xl border bg-card p-5 shadow-sm">
-            <div className={`mb-4 inline-flex size-10 items-center justify-center rounded-xl ${f.color}`}>
-              <f.icon className="size-5" />
-            </div>
-            <h3 className="text-base font-semibold sm:text-lg">{f.title}</h3>
-            <p className="mt-2 text-sm text-muted-foreground">{f.desc}</p>
-          </div>
-        ))}
-      </div>
-
-      <div className="mt-10 grid items-center gap-6 md:grid-cols-2">
-        <div className="rounded-2xl border p-3">
-          <Image
-            src="/images/sugarfree-app-screen.png"
-            alt="SugarFree app screen"
-            width={414}
-            height={896}
-            className="mx-auto h-auto w-full max-w-[320px] rounded-xl shadow"
-            priority
-          />
+    <section id="features" className="bg-black py-16 md:py-24">
+      <div className="mx-auto max-w-6xl px-4">
+        {/* Section Header */}
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+            Recipes for Every Moment
+          </h2>
+          <p className="text-[#8E8E93] max-w-2xl mx-auto">
+            Each recipe is analyzed for sugar content and acne risk, so you can make informed choices.
+          </p>
         </div>
-        <div>
-          <h3 className="text-xl font-semibold sm:text-2xl">Tips y métricas</h3>
-          <p className="mt-2 text-muted-foreground">{t("features.subtitle")}</p>
+
+        {/* Feature Grid */}
+        <div className="grid md:grid-cols-3 gap-6 mb-12">
+          {/* Feature 1 */}
+          <div className="bg-[#1C1C1E] rounded-3xl border border-[#38383A] p-6">
+            <div className="w-12 h-12 rounded-2xl bg-[#22c55e]/15 flex items-center justify-center mb-4">
+              <span className="text-2xl">📸</span>
+            </div>
+            <h3 className="text-xl font-bold text-white mb-2">AI Food Scanner</h3>
+            <p className="text-[#8E8E93] text-sm">
+              Take a photo of any meal. Our AI instantly calculates sugar content and acne risk.
+            </p>
+          </div>
+
+          {/* Feature 2 */}
+          <div className="bg-[#1C1C1E] rounded-3xl border border-[#38383A] p-6">
+            <div className="w-12 h-12 rounded-2xl bg-[#22c55e]/15 flex items-center justify-center mb-4">
+              <span className="text-2xl">🔥</span>
+            </div>
+            <h3 className="text-xl font-bold text-white mb-2">Daily Streaks</h3>
+            <p className="text-[#8E8E93] text-sm">
+              Build healthy habits with streak tracking. Stay motivated on your sugar-free journey.
+            </p>
+          </div>
+
+          {/* Feature 3 */}
+          <div className="bg-[#1C1C1E] rounded-3xl border border-[#38383A] p-6">
+            <div className="w-12 h-12 rounded-2xl bg-[#22c55e]/15 flex items-center justify-center mb-4">
+              <span className="text-2xl">✨</span>
+            </div>
+            <h3 className="text-xl font-bold text-white mb-2">Clear Skin Tips</h3>
+            <p className="text-[#8E8E93] text-sm">
+              Personalized advice based on your diet. See how food affects your skin health.
+            </p>
+          </div>
+        </div>
+
+        {/* Recipe Categories */}
+        <div className="grid md:grid-cols-2 gap-8">
+          {/* Breakfast */}
+          <div>
+            <div className="flex items-center justify-between mb-4">
+              <h3 className="text-xl font-bold text-white">🌅 Breakfast</h3>
+              <Link href="/food?category=breakfast" className="text-[#22c55e] text-sm font-medium">
+                View all →
+              </Link>
+            </div>
+            <div className="space-y-3">
+              {breakfastRecipes.map(recipe => (
+                <Link
+                  key={recipe.slug}
+                  href={`/food/${recipe.slug}`}
+                  className="flex items-center gap-4 bg-[#1C1C1E] rounded-2xl p-3 border border-[#38383A] hover:border-[#22c55e] transition-colors"
+                >
+                  <div className="relative w-16 h-16 rounded-xl overflow-hidden flex-shrink-0">
+                    <Image
+                      src={getImagePath(recipe.image_id)}
+                      alt={recipe.recipe_name}
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <p className="text-white font-medium text-sm truncate">{recipe.recipe_name}</p>
+                    <p className="text-[#8E8E93] text-xs">{recipe.total_time} min</p>
+                  </div>
+                  <span className="text-[#22c55e] text-sm font-medium">{getTotalSugar(recipe)}g</span>
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          {/* Dinner */}
+          <div>
+            <div className="flex items-center justify-between mb-4">
+              <h3 className="text-xl font-bold text-white">🍽️ Dinner</h3>
+              <Link href="/food?category=dinner" className="text-[#22c55e] text-sm font-medium">
+                View all →
+              </Link>
+            </div>
+            <div className="space-y-3">
+              {dinnerRecipes.map(recipe => (
+                <Link
+                  key={recipe.slug}
+                  href={`/food/${recipe.slug}`}
+                  className="flex items-center gap-4 bg-[#1C1C1E] rounded-2xl p-3 border border-[#38383A] hover:border-[#22c55e] transition-colors"
+                >
+                  <div className="relative w-16 h-16 rounded-xl overflow-hidden flex-shrink-0">
+                    <Image
+                      src={getImagePath(recipe.image_id)}
+                      alt={recipe.recipe_name}
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <p className="text-white font-medium text-sm truncate">{recipe.recipe_name}</p>
+                    <p className="text-[#8E8E93] text-xs">{recipe.total_time} min</p>
+                  </div>
+                  <span className="text-[#22c55e] text-sm font-medium">{getTotalSugar(recipe)}g</span>
+                </Link>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>

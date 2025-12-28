@@ -1,136 +1,90 @@
 "use client"
 
 import Link from "next/link"
-import Image from "next/image"
 import { useState } from "react"
-import { Button } from "@/components/ui/button"
-import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet"
-import { Menu, Apple, Smartphone, FileText, Mail } from "lucide-react"
-import LanguageSwitcher from "./language-switcher"
-import { useI18n } from "./i18n-provider"
+import { Menu, X } from "lucide-react"
 
-export default function SiteHeader({}: {}) {
-  const [open, setOpen] = useState(false)
-  const { t, locale } = useI18n()
-  const hideHome = locale === "es" || locale === "pt"
+export default function SiteHeader() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   const nav = [
-    ...(!hideHome ? [{ href: "/", label: t("nav.home") }] : []),
-    { href: "/#features", label: t("nav.features") },
-    { href: "/#download", label: t("nav.download") },
-    { href: "/contact", label: t("nav.contact") },
-    { href: "/legal/privacy-policy", label: t("nav.privacy") },
-    { href: "/legal/terms", label: t("nav.terms") },
+    { href: "/", label: "Home" },
+    { href: "/food", label: "Recipes" },
+    { href: "/blog", label: "Blog" },
+    { href: "/contact", label: "Contact" },
   ]
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/80 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="mx-auto flex h-14 w-full max-w-6xl items-center justify-between px-3 sm:h-16 sm:px-4">
-        {/* Marca: solo logo, sin texto visible */}
-        <Link href="/" className="flex items-center gap-0">
-          <Image
-            src="/images/logo.png"
-            alt="SugarFree logo"
-            width={32}
-            height={32}
-            priority
-            className="h-7 w-7 rounded-md sm:h-8 sm:w-8"
-          />
-          <span className="sr-only">{t("appName")}</span>
+    <header className="sticky top-0 z-50 w-full border-b border-[#38383A] bg-black/90 backdrop-blur-xl">
+      <div className="mx-auto flex h-16 w-full max-w-6xl items-center justify-between px-4">
+        {/* Logo */}
+        <Link href="/" className="flex items-center gap-3">
+          <div className="w-9 h-9 rounded-xl bg-[#22c55e] flex items-center justify-center">
+            <span className="text-black font-bold text-lg">S</span>
+          </div>
+          <span className="text-white font-bold text-xl">Sugar Free <span className="text-[#22c55e]">AI</span></span>
         </Link>
 
-        {/* Nav desktop grande */}
-        <nav className={`hidden items-center gap-3 whitespace-nowrap lg:flex ${hideHome ? "lg:-ml-8 xl:-ml-10" : ""}`}>
+        {/* Desktop Nav */}
+        <nav className="hidden md:flex items-center gap-8">
           {nav.map((item) => (
-            <Link key={item.href} href={item.href} className="text-sm text-muted-foreground hover:text-foreground">
+            <Link
+              key={item.href}
+              href={item.href}
+              className="text-[#8E8E93] hover:text-white transition-colors text-sm font-medium"
+            >
               {item.label}
             </Link>
           ))}
-          <div className={`${hideHome ? "ml-0" : "ml-1"} flex items-center gap-2`}>
-            <Button asChild size="sm" className="bg-emerald-600 hover:bg-emerald-700">
-              <Link href="/#download">
-                <Apple className="mr-2 size-4" />
-                {t("cta.ios")}
-              </Link>
-            </Button>
-            <Button asChild size="sm" variant="outline">
-              <Link href="/#download">
-                <Smartphone className="mr-2 size-4" />
-                {t("cta.android")}
-              </Link>
-            </Button>
-            <LanguageSwitcher />
-          </div>
         </nav>
 
-        {/* CTAs compactos en tablet/portátil */}
-        <div className="hidden items-center gap-2 md:flex lg:hidden">
-          <Button asChild size="sm" className="bg-emerald-600 hover:bg-emerald-700">
-            <Link href="/#download">
-              <Apple className="mr-2 size-4" />
-              {t("cta.ios")}
-            </Link>
-          </Button>
-          <Button asChild size="sm" variant="outline">
-            <Link href="/#download">
-              <Smartphone className="mr-2 size-4" />
-              {t("cta.android")}
-            </Link>
-          </Button>
-          <LanguageSwitcher />
+        {/* Desktop CTA - Subtle */}
+        <div className="hidden md:flex items-center gap-3">
+          <a
+            href="https://apps.apple.com/us/app/sukali-umax-no-sugar/id6749379303"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-4 py-2 border border-[#38383A] text-[#8E8E93] font-medium text-sm rounded-full hover:border-[#22c55e] hover:text-white transition-colors"
+          >
+            📱 Sukali App
+          </a>
         </div>
 
-        {/* Menú móvil */}
-        <div className="md:hidden flex items-center gap-2">
-          <LanguageSwitcher />
-          <Sheet open={open} onOpenChange={setOpen}>
-            <SheetTrigger asChild>
-              <Button variant="ghost" size="icon" aria-label="Open menu">
-                <Menu className="size-5" />
-              </Button>
-            </SheetTrigger>
-            <SheetContent side="right" className="w-80">
-              <SheetHeader className="text-left">
-                <SheetTitle>{t("appName")}</SheetTitle>
-              </SheetHeader>
-              <div className="mt-4 flex flex-col gap-3">
-                {nav.map((item) => (
-                  <Link
-                    key={item.href}
-                    href={item.href}
-                    className="text-sm text-foreground"
-                    onClick={() => setOpen(false)}
-                  >
-                    {item.label}
-                  </Link>
-                ))}
-                <div className="mt-2 grid grid-cols-2 gap-2">
-                  <Button asChild className="bg-emerald-600 hover:bg-emerald-700">
-                    <Link href="/#download">
-                      <Apple className="mr-2 size-4" />
-                      {t("cta.ios")}
-                    </Link>
-                  </Button>
-                  <Button asChild variant="outline">
-                    <Link href="/#download">
-                      <Smartphone className="mr-2 size-4" />
-                      {t("cta.android")}
-                    </Link>
-                  </Button>
-                </div>
-                <div className="mt-4 flex items-center gap-2 text-sm text-muted-foreground">
-                  <FileText className="size-4" />
-                  <span>{t("footer.legal")}</span>
-                </div>
-                <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                  <Mail className="size-4" />
-                  <span>{t("nav.contact")}</span>
-                </div>
-              </div>
-            </SheetContent>
-          </Sheet>
-        </div>
+        {/* Mobile Menu Button */}
+        <button
+          className="md:hidden p-2 text-white"
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          aria-label="Toggle menu"
+        >
+          {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+        </button>
       </div>
+
+      {/* Mobile Menu */}
+      {mobileMenuOpen && (
+        <div className="md:hidden bg-black border-t border-[#38383A]">
+          <div className="px-4 py-4 space-y-4">
+            {nav.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="block text-white text-lg font-medium py-2"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                {item.label}
+              </Link>
+            ))}
+            <a
+              href="https://apps.apple.com/us/app/sukali-umax-no-sugar/id6749379303"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block w-full text-center px-5 py-3 border border-[#22c55e] text-[#22c55e] font-bold rounded-full mt-4"
+            >
+              📱 Download Sukali
+            </a>
+          </div>
+        </div>
+      )}
     </header>
   )
 }

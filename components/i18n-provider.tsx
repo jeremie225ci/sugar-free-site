@@ -18,12 +18,12 @@ const I18nContext = createContext<I18nContextType | null>(null)
 const SUPPORTED: Locale[] = ["en", "es", "it", "pt"]
 
 function normalizeLocale(input?: string): Locale {
-  if (!input) return "es"
+  if (!input) return "en"
   const lc = input.toLowerCase()
   for (const l of SUPPORTED) {
     if (lc === l || lc.startsWith(l + "-")) return l
   }
-  return "es"
+  return "en"
 }
 
 async function loadMessages(locale: Locale): Promise<Messages> {
@@ -32,14 +32,14 @@ async function loadMessages(locale: Locale): Promise<Messages> {
     if (!res.ok) throw new Error("not ok")
     return (await res.json()) as Messages
   } catch {
-    // Fallback to ES if something goes wrong
-    const res = await fetch(`/locales/es.json`, { cache: "force-cache" })
+    // Fallback to EN if something goes wrong
+    const res = await fetch(`/locales/en.json`, { cache: "force-cache" })
     return (await res.json()) as Messages
   }
 }
 
 export function I18nProvider({ children }: { children: React.ReactNode }) {
-  const [locale, setLocale] = useState<Locale>("es")
+  const [locale, setLocale] = useState<Locale>("en")
   const [messages, setMessages] = useState<Messages>({})
   const [ready, setReady] = useState(false)
 
