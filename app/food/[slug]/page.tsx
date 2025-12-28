@@ -49,16 +49,16 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
             ...semanticKeywords
         ],
         alternates: {
-            canonical: `https://sukali.app/food/${slug}`,
+            canonical: `https://www.sugar-frees.com/food/${slug}`,
         },
         openGraph: {
             title: `Does ${foodName} Cause Acne? Dermatologist Verdict`,
             description: `Glycemic index: ${glycemicIndex} | Total sugar: ${totalSugar}g. ${verdict.message}`,
             type: 'article',
-            url: `https://sukali.app/food/${slug}`,
+            url: `https://www.sugar-frees.com/food/${slug}`,
             images: [
                 {
-                    url: `https://sukali.app${getImagePath(recipe.image_id)}`,
+                    url: `https://www.sugar-frees.com${getImagePath(recipe.image_id)}`,
                     width: 1200,
                     height: 630,
                     alt: `Analysis of ${foodName} for acne triggers`,
@@ -69,7 +69,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
             card: 'summary_large_image',
             title: `Does ${foodName} Cause Acne?`,
             description: verdict.message,
-            images: [`https://sukali.app${getImagePath(recipe.image_id)}`],
+            images: [`https://www.sugar-frees.com${getImagePath(recipe.image_id)}`],
         }
     };
 }
@@ -122,13 +122,13 @@ function generateJsonLd(recipe: Recipe) {
                 "@type": "ListItem",
                 "position": 1,
                 "name": "Home",
-                "item": "https://sukali.app"
+                "item": "https://www.sugar-frees.com"
             },
             {
                 "@type": "ListItem",
                 "position": 2,
                 "name": "Foods",
-                "item": "https://sukali.app/food"
+                "item": "https://www.sugar-frees.com/food"
             },
             {
                 "@type": "ListItem",

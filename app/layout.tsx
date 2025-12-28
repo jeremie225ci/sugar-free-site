@@ -17,7 +17,7 @@ export const viewport: Viewport = {
 }
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://sukali.app'),
+  metadataBase: new URL('https://www.sugar-frees.com'),
   title: {
     default: 'Sukali - Quit Sugar & Clear Acne: Guide, Recipes & Tips',
     template: '%s | Sukali'
@@ -28,10 +28,13 @@ export const metadata: Metadata = {
   creator: 'Sukali',
   publisher: 'Sukali',
   robots: 'index, follow',
+  verification: {
+    google: 'TEcMMwHrrfKXl4v4xkumaxpRUNdoufDnJLks3Ezg60Q',
+  },
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://sukali.app',
+    url: 'https://www.sugar-frees.com',
     siteName: 'Sukali',
     title: 'Sukali - Quit Sugar & Clear Acne',
     description: 'The #1 App to Quit Sugar and Clear Acne. 74+ recipes and AI food analysis.',

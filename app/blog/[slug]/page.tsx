@@ -36,7 +36,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
         description: `${post.excerpt} ${semanticKeywords.join(', ')}.`,
         keywords: [post.category, 'acne-free', 'sugar analysis', ...semanticKeywords],
         alternates: {
-            canonical: `https://sukali.app/blog/${slug}`,
+            canonical: `https://www.sugar-frees.com/blog/${slug}`,
         },
         openGraph: {
             title: post.title,
@@ -80,25 +80,25 @@ function generateJsonLd(post: any) {
                 "@type": "ListItem",
                 "position": 1,
                 "name": "Home",
-                "item": "https://sukali.app"
+                "item": "https://www.sugar-frees.com"
             },
             {
                 "@type": "ListItem",
                 "position": 2,
                 "name": "Blog",
-                "item": "https://sukali.app/blog"
+                "item": "https://www.sugar-frees.com/blog"
             },
             {
                 "@type": "ListItem",
                 "position": 3,
                 "name": post.category,
-                "item": `https://sukali.app/blog?category=${post.category}`
+                "item": `https://www.sugar-frees.com/blog?category=${post.category}`
             },
             {
                 "@type": "ListItem",
                 "position": 4,
                 "name": post.title,
-                "item": `https://sukali.app/blog/${post.slug}`
+                "item": `https://www.sugar-frees.com/blog/${post.slug}`
             }
         ]
     };

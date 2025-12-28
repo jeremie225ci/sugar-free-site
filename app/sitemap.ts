@@ -2,8 +2,8 @@ import { MetadataRoute } from 'next';
 import { getAllRecipes } from '@/data';
 import { getAllPosts } from '@/data/blog';
 
-export default function sitemap(): MetadataRoute.Sitemap {
-    const baseUrl = 'https://sukali.app';
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+    const baseUrl = 'https://www.sugar-frees.com';
     const recipes = getAllRecipes();
     const posts = getAllPosts();
 

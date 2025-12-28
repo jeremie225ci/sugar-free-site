@@ -29,7 +29,7 @@ async function indexUrls() {
         auth,
     });
 
-    const baseUrl = 'https://sukali.app';
+    const baseUrl = 'https://www.sugar-frees.com';
     const urls = [
         `${baseUrl}/`,
         `${baseUrl}/blog`,
