@@ -61,6 +61,12 @@ export default function RootLayout({
       <head>
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+        {/* Ahrefs Web Analytics */}
+        <script
+          src="https://analytics.ahrefs.com/analytics.js"
+          data-key="V/NVTb3PYFA/RUZ8xNDpPA"
+          async
+        />
       </head>
       <body className={`${inter.variable} font-sans min-h-screen bg-black text-white`}>
         {children}
