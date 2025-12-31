@@ -61,10 +61,10 @@ export default function AppPromoPopup() {
                 {/* Content */}
                 <div className="relative text-center">
                     <h2 className="text-2xl font-bold text-white mb-3">
-                        Want to lose weight fast?
+                        Want to lose face fat?
                     </h2>
                     <p className="text-[#8E8E93] mb-6">
-                        Quit sugar in 30 days using <span className="text-[#22c55e] font-semibold">Sukali</span>. Scan your meals and track hidden sugars that make you gain weight.
+                        Download <span className="text-[#22c55e] font-semibold">Sukali</span> and quit sugar in 30 days. Track hidden sugars that cause facial bloating.
                     </p>
 
                     {/* Download buttons */}
