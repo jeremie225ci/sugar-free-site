@@ -149,7 +149,7 @@ Track your sugar intake to make sure you are not consuming hidden sugars.
         image: "/assets/images/blog-images/facefat.JPG",
         category: "Weight Loss",
         author: "Sukali Team",
-        date: "2024-12-31",
+        date: "2025-12-31",
         readTime: 10
     },
     {
@@ -216,7 +216,7 @@ Lizzo proved that cutting sugar works. Now you have the tool to do it yourself.
         image: "/assets/images/blog-images/lillybeforeafter.JPG",
         category: "Weight Loss",
         author: "Sukali Team",
-        date: "2024-12-31",
+        date: "2025-12-31",
         readTime: 6
     },
     {
@@ -301,7 +301,7 @@ Your body already knows how to be healthy. You just have to stop poisoning it wi
         image: "/assets/images/pink-salt-trick-weight-loss.png",
         category: "Weight Loss",
         author: "Sukali Team",
-        date: "2024-12-31",
+        date: "2025-12-31",
         readTime: 8
     },
     {
