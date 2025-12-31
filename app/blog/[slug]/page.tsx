@@ -234,55 +234,23 @@ export default async function BlogPostPage({ params }: PageProps) {
                                 </div>
                             );
                         }
-                        // Handle highlight boxes > [!TIP] or > [!IMPORTANT]
-                        if (paragraph.startsWith('> ')) {
-                            const content = paragraph.replace(/^> /, '');
-                            return (
-                                <div key={i} className="my-6 p-4 bg-[#22c55e]/10 border-l-4 border-[#22c55e] rounded-r-lg">
-                                    <p className="text-white font-medium">{content}</p>
-                                </div>
-                            );
-                        }
                         if (paragraph.startsWith('## ')) {
-                            return <h2 key={i} className="mt-12 mb-6">{paragraph.replace('## ', '')}</h2>;
+                            return <h2 key={i}>{paragraph.replace('## ', '')}</h2>;
                         }
                         if (paragraph.startsWith('### ')) {
-                            return <h3 key={i} className="mt-8 mb-4">{paragraph.replace('### ', '')}</h3>;
+                            return <h3 key={i}>{paragraph.replace('### ', '')}</h3>;
                         }
-                        // Handle fully bold paragraphs
                         if (paragraph.startsWith('**') && paragraph.endsWith('**')) {
-                            return <p key={i} className="text-[#22c55e] font-semibold my-4">{paragraph.replace(/\*\*/g, '')}</p>;
+                            return <p key={i}><strong>{paragraph.replace(/\*\*/g, '')}</strong></p>;
                         }
-                        // Handle bullet lists with proper styling
                         if (paragraph.startsWith('- ')) {
-                            return (
-                                <li key={i} className="ml-6 mb-2 list-disc text-[#8E8E93]">
-                                    {paragraph.replace('- ', '')}
-                                </li>
-                            );
+                            return <li key={i}>{paragraph.replace('- ', '')}</li>;
                         }
-                        // Handle numbered lists
-                        if (paragraph.match(/^\d+\. /)) {
-                            return (
-                                <li key={i} className="ml-6 mb-2 list-decimal text-[#8E8E93]">
-                                    {paragraph.replace(/^\d+\. /, '')}
-                                </li>
-                            );
+                        if (paragraph.startsWith('1. ') || paragraph.startsWith('2. ') || paragraph.startsWith('3. ') || paragraph.startsWith('4. ') || paragraph.startsWith('5. ')) {
+                            return <li key={i}>{paragraph.replace(/^\d+\. /, '')}</li>;
                         }
-                        // Regular paragraphs with inline bold support
                         if (paragraph.trim()) {
-                            // Replace inline **text** with styled spans
-                            const parts = paragraph.split(/(\*\*.*?\*\*)/g);
-                            return (
-                                <p key={i} className="mb-4">
-                                    {parts.map((part, j) => {
-                                        if (part.startsWith('**') && part.endsWith('**')) {
-                                            return <span key={j} className="text-[#22c55e] font-semibold">{part.replace(/\*\*/g, '')}</span>;
-                                        }
-                                        return part;
-                                    })}
-                                </p>
-                            );
+                            return <p key={i}>{paragraph}</p>;
                         }
                         return null;
                     })}
