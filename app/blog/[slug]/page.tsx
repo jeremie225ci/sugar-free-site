@@ -6,6 +6,7 @@ import { getAllPosts, getPostBySlug } from "@/data/blog";
 import SiteHeader from "@/components/site-header";
 import SiteFooter from "@/components/site-footer";
 import StickyDownloadBar from "@/components/StickyDownloadBar";
+import AppPromoPopup from "@/components/AppPromoPopup";
 
 interface PageProps {
     params: Promise<{ slug: string }>;
@@ -271,6 +272,7 @@ export default async function BlogPostPage({ params }: PageProps) {
 
             <SiteFooter />
             <StickyDownloadBar />
+            <AppPromoPopup />
         </main>
     );
 }
