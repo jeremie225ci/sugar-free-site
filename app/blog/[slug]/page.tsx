@@ -259,10 +259,14 @@ export default async function BlogPostPage({ params }: PageProps) {
                 {/* CTA */}
                 <div className="bg-gradient-to-br from-[#22c55e]/20 to-[#22c55e]/5 rounded-3xl border border-[#22c55e]/30 p-8 text-center mb-16">
                     <h3 className="text-2xl font-bold text-white mb-3">
-                        Track Your Sugar-Free Journey
+                        {post.slug === 'how-to-lose-face-fat'
+                            ? 'Want to Lose Face Fat?'
+                            : 'Track Your Sugar-Free Journey'}
                     </h3>
                     <p className="text-[#8E8E93] mb-6">
-                        Download Sukali to scan your food and get personalized skin health advice.
+                        {post.slug === 'how-to-lose-face-fat'
+                            ? 'Download Sukali to track hidden sugars that cause facial bloating. See results in 30 days.'
+                            : 'Download Sukali to scan your food and get personalized skin health advice.'}
                     </p>
                     <a
                         href="https://apps.apple.com/us/app/sukali-umax-no-sugar/id6749379303"
