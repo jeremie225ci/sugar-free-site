@@ -16,7 +16,7 @@ export const blogPosts: BlogPost[] = [
         title: "Lizzo Weight Loss 2024: How She Lost 16% Body Fat by Cutting Sugar",
         excerpt: "Lizzo reveals her weight loss secrets and denies Ozempic rumors. See her transformation and learn how cutting liquid sugar changed everything.",
         content: `
-![Lizzo Before and After Transformation](/assets/images/blog image/lillybeforeafter.JPG)
+![Lizzo Before and After Transformation](/assets/images/blog-images/lillybeforeafter.JPG)
 
 Lizzo just shocked the world with her incredible transformation. The Grammy-winning artist dropped 16% body fat and reached her goal weight in 2024. Everyone wants to know how she did it.
 
@@ -24,7 +24,7 @@ In a recent interview, Lizzo opened up about her journey. She admitted she has t
 
 ## What Lizzo Looked Like Before
 
-![Lizzo Before Weight Loss](/assets/images/blog image/lizzobefore.jpg)
+![Lizzo Before Weight Loss](/assets/images/blog-images/lizzobefore.jpg)
 
 Before her transformation, Lizzo was consuming between 3,000 and 5,000 calories a day. As a vegan, she was eating a lot of fake meats, bread, and rice just to feel full. The problem was not the food itself. It was how much she needed to eat to stay satisfied.
 
@@ -40,7 +40,7 @@ She also stopped being a strict vegan. Adding more protein to her meals helped h
 
 ## What Lizzo Looks Like Now
 
-![Lizzo After Weight Loss](/assets/images/blog image/lizoafter.jpg)
+![Lizzo After Weight Loss](/assets/images/blog-images/lizoafter.jpg)
 
 The results speak for themselves. Lizzo lost 16% body fat and says she feels better than ever. In her own words, she is on another level now.
 
@@ -72,7 +72,7 @@ No more guessing. No more hidden calories sabotaging your progress. You see the 
 
 Lizzo proved that cutting sugar works. Now you have the tool to do it yourself.
         `,
-        image: "/assets/images/blog image/lillybeforeafter.JPG",
+        image: "/assets/images/blog-images/lillybeforeafter.JPG",
         category: "Weight Loss",
         author: "Sukali Team",
         date: "2024-12-31",

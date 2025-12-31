@@ -141,12 +141,32 @@ export default async function BlogPostPage({ params }: PageProps) {
 
             <article className="max-w-4xl mx-auto px-4 py-12">
                 {/* Breadcrumb */}
-                <div className="flex items-center gap-2 text-sm mb-8">
+                <div className="flex items-center gap-2 text-sm mb-4">
                     <Link href="/blog" className="text-[#8E8E93] hover:text-white">
                         Blog
                     </Link>
                     <span className="text-[#8E8E93]">/</span>
                     <span className="text-[#22c55e]">{post.category}</span>
+                </div>
+
+                {/* App Download Banner */}
+                <div className="bg-gradient-to-r from-[#22c55e]/20 to-[#22c55e]/5 rounded-2xl border border-[#22c55e]/30 p-4 mb-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+                    <div className="flex items-center gap-3">
+                        <div className="w-10 h-10 rounded-xl bg-[#22c55e] flex items-center justify-center flex-shrink-0">
+                            <span className="text-black font-bold">S</span>
+                        </div>
+                        <p className="text-white text-sm">
+                            <span className="font-semibold">Lose weight in 30 days</span> by tracking sugar with Sukali
+                        </p>
+                    </div>
+                    <a
+                        href="https://apps.apple.com/us/app/sukali-umax-no-sugar/id6749379303"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="px-4 py-2 bg-[#22c55e] text-black font-bold rounded-full text-sm whitespace-nowrap hover:bg-[#16a34a] transition-colors"
+                    >
+                        Download Free
+                    </a>
                 </div>
 
                 {/* Header */}
@@ -198,6 +218,22 @@ export default async function BlogPostPage({ params }: PageProps) {
           prose-td:p-3 prose-td:border-[#38383A]
         ">
                     {post.content.split('\n').map((paragraph, i) => {
+                        // Handle markdown images ![alt](src)
+                        const imageMatch = paragraph.match(/^!\[(.*?)\]\((.*?)\)$/);
+                        if (imageMatch) {
+                            const altText = imageMatch[1];
+                            const src = imageMatch[2];
+                            return (
+                                <div key={i} className="my-8 relative aspect-video rounded-2xl overflow-hidden">
+                                    <Image
+                                        src={src}
+                                        alt={altText}
+                                        fill
+                                        className="object-contain"
+                                    />
+                                </div>
+                            );
+                        }
                         if (paragraph.startsWith('## ')) {
                             return <h2 key={i}>{paragraph.replace('## ', '')}</h2>;
                         }
