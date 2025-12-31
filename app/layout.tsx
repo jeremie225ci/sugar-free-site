@@ -38,6 +38,12 @@ export const metadata: Metadata = {
     siteName: 'Sukali',
     title: 'Sukali - Quit Sugar & Clear Acne',
     description: 'The #1 App to Quit Sugar and Clear Acne. 74+ recipes and AI food analysis.',
+    images: [{
+      url: 'https://www.sugar-frees.com/images/logo.png',
+      width: 512,
+      height: 512,
+      alt: 'Sukali App Logo',
+    }],
   },
   twitter: {
     card: 'summary_large_image',

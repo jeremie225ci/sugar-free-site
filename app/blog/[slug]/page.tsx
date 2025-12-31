@@ -32,8 +32,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
         : ['healthy lifestyle', 'no sugar diet', 'skin glowing', 'Sukali app'];
 
     return {
-        title: `${post.title} | Dermatologist Approved Advice`,
-        description: `${post.excerpt} ${semanticKeywords.join(', ')}.`,
+        title: post.title,
+        description: post.excerpt.length > 155 ? post.excerpt.slice(0, 152) + '...' : post.excerpt,
         keywords: [post.category, 'acne-free', 'sugar analysis', ...semanticKeywords],
         alternates: {
             canonical: `https://www.sugar-frees.com/blog/${slug}`,

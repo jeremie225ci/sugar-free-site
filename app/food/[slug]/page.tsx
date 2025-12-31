@@ -38,8 +38,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
         : ['skin-safe', 'low glycemic', 'clear skin diet', 'anti-inflammatory'];
 
     return {
-        title: `Does ${foodName} Cause Acne? Dermatologist Verdict & Sugar Level`,
-        description: `Is ${foodName} safe for acne-prone skin? We analyze the glycemic index (${glycemicIndex}) and sugar content of ${foodName} to see if it triggers breakouts. ${semanticKeywords.join(', ')}.`,
+        title: `${foodName}: Sugar & Acne Analysis`,
+        description: `Is ${foodName} safe for acne? GI: ${glycemicIndex}, Sugar: ${totalSugar}g. ${verdict.message}`,
         keywords: [
             `${foodName} acne`,
             `${foodName} glycemic index`,
@@ -134,13 +134,13 @@ function generateJsonLd(recipe: Recipe) {
                 "@type": "ListItem",
                 "position": 3,
                 "name": category,
-                "item": `https://sukali.app/food?category=${category}`
+                "item": `https://www.sugar-frees.com/food?category=${category}`
             },
             {
                 "@type": "ListItem",
                 "position": 4,
                 "name": recipe.recipe_name,
-                "item": `https://sukali.app/food/${recipe.slug}`
+                "item": `https://www.sugar-frees.com/food/${recipe.slug}`
             }
         ]
     };
@@ -237,7 +237,7 @@ export default async function FoodPage({ params }: PageProps) {
                             <span className="text-white">←</span>
                         </Link>
                         <div className="flex-1 min-w-0">
-                            <h1 className="text-white font-semibold truncate">{recipe.recipe_name}</h1>
+                            <p className="text-white font-semibold truncate">{recipe.recipe_name}</p>
                             <p className="text-[#8E8E93] text-sm">{category} • {recipe.diet_type}</p>
                         </div>
                     </div>
