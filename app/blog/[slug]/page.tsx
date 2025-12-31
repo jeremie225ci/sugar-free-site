@@ -235,22 +235,36 @@ export default async function BlogPostPage({ params }: PageProps) {
                             );
                         }
                         if (paragraph.startsWith('## ')) {
-                            return <h2 key={i}>{paragraph.replace('## ', '')}</h2>;
+                            return <h2 key={i} className="text-2xl font-bold text-white mt-12 mb-6">{paragraph.replace('## ', '')}</h2>;
                         }
                         if (paragraph.startsWith('### ')) {
-                            return <h3 key={i}>{paragraph.replace('### ', '')}</h3>;
+                            return <h3 key={i} className="text-xl font-bold text-white mt-8 mb-4">{paragraph.replace('### ', '')}</h3>;
                         }
                         if (paragraph.startsWith('**') && paragraph.endsWith('**')) {
-                            return <p key={i}><strong>{paragraph.replace(/\*\*/g, '')}</strong></p>;
+                            return <p key={i} className="text-[#22c55e] font-semibold mb-6">{paragraph.replace(/\*\*/g, '')}</p>;
                         }
                         if (paragraph.startsWith('- ')) {
-                            return <li key={i}>{paragraph.replace('- ', '')}</li>;
+                            return <li key={i} className="text-[#8E8E93] mb-2 ml-6">{paragraph.replace('- ', '')}</li>;
                         }
-                        if (paragraph.startsWith('1. ') || paragraph.startsWith('2. ') || paragraph.startsWith('3. ') || paragraph.startsWith('4. ') || paragraph.startsWith('5. ')) {
-                            return <li key={i}>{paragraph.replace(/^\d+\. /, '')}</li>;
+                        if (paragraph.match(/^\d+\. /)) {
+                            return <li key={i} className="text-[#8E8E93] mb-2 ml-6">{paragraph.replace(/^\d+\. /, '')}</li>;
                         }
                         if (paragraph.trim()) {
-                            return <p key={i}>{paragraph}</p>;
+                            // Check if paragraph contains inline bold **text**
+                            if (paragraph.includes('**')) {
+                                const parts = paragraph.split(/(\*\*.*?\*\*)/g);
+                                return (
+                                    <p key={i} className="text-[#8E8E93] leading-relaxed mb-6">
+                                        {parts.map((part, j) => {
+                                            if (part.startsWith('**') && part.endsWith('**')) {
+                                                return <span key={j} className="text-[#22c55e] font-semibold">{part.replace(/\*\*/g, '')}</span>;
+                                            }
+                                            return part;
+                                        })}
+                                    </p>
+                                );
+                            }
+                            return <p key={i} className="text-[#8E8E93] leading-relaxed mb-6">{paragraph}</p>;
                         }
                         return null;
                     })}
