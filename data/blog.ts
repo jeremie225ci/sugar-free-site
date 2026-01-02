@@ -12,6 +12,387 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
     {
+        slug: "no-sugar-challenge",
+        title: "No Sugar Challenge: What Happened When I Quit Sugar for 30 Days",
+        excerpt: "I quit sugar for 30 days and documented everything. Here's what happened to my body, my energy, and my cravings.",
+        content: `
+![No Sugar Challenge](/assets/images/blog-images/no-sugar-challenge.png)
+
+Last year I developed a bad habit of snacking. I had lost all self-control in the face of a free donut or plate of cookies.
+
+I made excuses like **"Well I did go to the gym today"** or **"Overall I eat pretty healthy"** or **"It's not like I do this every day"**... until I started to do it every day.
+
+I knew something had to change when even though I exercise often I noticed I was developing early onset dad-gut.
+
+**So I decided to quit sugar for 30 days.**
+
+## Why Sugar Is So Bad For You
+
+Most of us know that too much sugar is a bad thing. It is something we have been taught since we were kids.
+
+But apart from simply putting a little bit of weight on your gut there are a lot more serious problems that come with eating too much sugar:
+
+**Metabolism damage** - Sugar can wreck your metabolism over time.
+
+**Type 2 diabetes** - High sugar intake dramatically increases your risk.
+
+**Liver and kidney damage** - Your organs take a beating from processing all that sugar.
+
+**Skin inflammation** - Sugar causes breakouts and premature aging.
+
+**Joint pain** - Inflammation from sugar affects your joints.
+
+**Tooth decay** - Your dentist was right all along.
+
+On top of all these bad things it does to your body **sugar is also highly addictive.** A study found that sugar releases dopamine in a similar way to cocaine. That is why it feels so hard to quit.
+
+## Step 1: Clear Out Your Kitchen
+
+The first thing I did was go through my entire apartment and find all the things with added sugar.
+
+There were some no-brainers. Ice cream is loaded. Chocolate snacks are packed. My once a month energy drink had tons of sugar.
+
+**But I was surprised to find sugar hiding everywhere:**
+
+My protein bars had more sugar than I expected.
+
+My breakfast cereal was basically a dessert.
+
+Even the bread I was buying had 5 grams per slice.
+
+**If you have very little self-control the only thing you can do is completely change your environment.** It is impossible to eat snacks that you refuse to purchase and bring into your home in the first place.
+
+All this stuff needs to go.
+
+## The Cravings Were Real
+
+The cravings were the worst for the first couple days. But even a week in I was struggling late at night.
+
+One night around day 7 I had a bit of a sugar craving and instinctively went to my snack cabinet. Here is what I found: organic rice cakes. Nothing sweet.
+
+**Before I started this challenge I did not realize how much sugar I was really eating.** Most people when they try to cut out sugar are talking about added sugar. Sugar that gets added to processed food like table sugar honey or high fructose corn syrup.
+
+It is recommended that you get under 5% of your calories from added sugar. For a 2000 calorie diet that is only 25 grams of added sugar.
+
+**Added sugar adds up quick.** An average bottle of Coke has around 55 grams. Most of us consume 160 to 200 grams per day without realizing it.
+
+## What I Changed In My Diet
+
+I started preparing healthier meals. Fish with brown rice and sauteed kale. Salads became my go-to because they were convenient and easy to prepare.
+
+I found workarounds and substitutes for meals that included sugar. Instead of fig jam sauce I used mustard. Instead of vinegar I used olive oil with a healthy squeeze of lemon topped with salt and pepper.
+
+**The key is you do not need sugar to make food taste good.** You just need to retrain your taste buds.
+
+## The Results After 30 Days
+
+**Energy levels stabilized.** No longer did I have huge swings of high to low energy throughout the day. When you have lots of added sugar in your diet you get big fluctuations in blood sugar which make you feel like you have energy then you crash.
+
+**My dad-gut started disappearing.** It did not vanish completely but the tide had turned. I was definitely feeling leaner.
+
+**Cravings disappeared.** After about 14 days the cravings started to go away. I saw sugar for what it is: a short term buzz that creates no long term benefit.
+
+## Track Your Sugar Intake
+
+The hardest part is knowing which foods contain hidden sugar. **The Sukali app makes this easy.**
+
+Just scan your food with your phone camera. The AI tells you exactly how much sugar is in it. When you see the numbers cutting sugar becomes simple.
+
+## Take The Challenge
+
+Going forward I am not giving up sweets completely. In this life we need to enjoy things. But I am bringing sugar back in moderation.
+
+**Start your own no sugar challenge today.** Get rid of all sugary things from your house. Drink more water. Eat fruits for natural sweetness. Track everything you eat.
+
+Your body will thank you. And who knows maybe you will finally lose that dad-gut too.
+        `,
+        image: "/assets/images/blog-images/no-sugar-challenge.png",
+        category: "Weight Loss",
+        author: "Sukali Team",
+        date: "2025-01-02",
+        readTime: 8
+    },
+    {
+        slug: "14-day-no-sugar-diet-food-list",
+        title: "14-Day No Sugar Diet Food List: Complete Meal Plan With Recipes",
+        excerpt: "Your complete 14-day no sugar diet food list with breakfast, lunch, dinner and snack ideas. Plus links to our favorite sugar-free recipes.",
+        content: `
+![14 Day No Sugar Diet Food List](/assets/images/blog-images/sugar-free-foods.png)
+
+Starting a no sugar diet can feel overwhelming. What can you actually eat? What should you avoid?
+
+**This is your complete 14-day no sugar diet food list.** We have organized everything by meal type and included links to our favorite recipes to make your journey easier.
+
+## Foods You CAN Eat
+
+### Proteins (Eat Freely)
+
+**Chicken** - Grilled, baked, or sauteed without sweet sauces.
+
+**Fish** - Salmon, cod, tuna, shrimp. Try our [Herb Baked Salmon](/food/herb-baked-salmon) or [Garlic Shrimp Skillet](/food/garlic-shrimp-skillet).
+
+**Eggs** - Scrambled, fried, poached. Check out our [Egg & Spinach Scramble](/food/egg-spinach-scramble) or [Veggie Omelette](/food/veggie-omelette).
+
+**Turkey** - Ground turkey, turkey breast, turkey bacon.
+
+**Beef** - Grass-fed when possible. Try our [Beef & Broccoli Stir-Fry](/food/beef-broccoli-stir-fry).
+
+**Tofu** - Great protein source for vegetarians. Try our [Spicy Tofu Stir-Fry](/food/spicy-tofu-stir-fry).
+
+### Vegetables (Eat Unlimited)
+
+**Leafy greens** - Spinach, kale, arugula, lettuce.
+
+**Cruciferous vegetables** - Broccoli, cauliflower, cabbage, Brussels sprouts.
+
+**Other vegetables** - Zucchini, bell peppers, mushrooms, asparagus, green beans.
+
+Try our [Roasted Vegetable Medley](/food/roasted-vegetable-medley) or [Stuffed Bell Peppers](/food/stuffed-bell-peppers).
+
+### Healthy Fats
+
+**Avocado** - One of the best foods for a no sugar diet. Try our [Avocado Power Toast](/food/avocado-power-toast) or [Chicken Avocado Salad](/food/chicken-avocado-salad).
+
+**Olive oil** - Use for cooking and salad dressings.
+
+**Nuts** - Almonds, walnuts, pecans, macadamia nuts.
+
+**Coconut oil** - Great for cooking at high heat.
+
+### Complex Carbohydrates
+
+**Quinoa** - High protein grain. Try our [Mediterranean Quinoa Bowl](/food/mediterranean-quinoa-bowl).
+
+**Brown rice** - Better than white rice for blood sugar.
+
+**Sweet potato** - Naturally sweet without added sugar. Try our [Baked Sweet Potato Fries](/food/baked-sweet-potato-fries).
+
+**Lentils** - Great source of fiber and protein. Try our [Lentil & Veggie Soup](/food/lentil-veggie-soup).
+
+## 14-Day Meal Plan
+
+### Day 1-3: Getting Started
+
+**Breakfast:** [Egg & Spinach Scramble](/food/egg-spinach-scramble) or [Green Detox Smoothie](/food/green-detox-smoothie)
+
+**Lunch:** [Greek Salad Bowl](/food/greek-salad-bowl) or [Chicken Avocado Salad](/food/chicken-avocado-salad)
+
+**Dinner:** [Herb Baked Salmon](/food/herb-baked-salmon) with steamed vegetables
+
+**Snack:** [Beetroot Hummus](/food/beetroot-hummus) with raw veggies
+
+### Day 4-7: Building Momentum
+
+**Breakfast:** [Almond Flour Pancakes](/food/almond-flour-pancakes) or [Veggie Omelette](/food/veggie-omelette)
+
+**Lunch:** [Mediterranean Quinoa Bowl](/food/mediterranean-quinoa-bowl) or [Avocado Tuna Salad](/food/avocado-tuna-salad)
+
+**Dinner:** [Zucchini Noodles with Pesto](/food/zucchini-noodles-with-pesto) or [Chickpea Curry](/food/chickpea-curry)
+
+**Snack:** Mixed nuts or [Cucumber Mint Water](/food/cucumber-mint-water)
+
+### Day 8-11: Hitting Your Stride
+
+**Breakfast:** [Coconut Chia Pudding](/food/coconut-chia-pudding) or [Greek Yogurt Parfait](/food/greek-yogurt-parfait)
+
+**Lunch:** [Cauliflower Rice Bowl](/food/cauliflower-rice-bowl) or [Kale & Quinoa Power Salad](/food/kale-quinoa-power-salad)
+
+**Dinner:** [Garlic Shrimp Skillet](/food/garlic-shrimp-skillet) or [Stuffed Bell Peppers](/food/stuffed-bell-peppers)
+
+**Snack:** [Zucchini Fritters](/food/zucchini-fritters)
+
+### Day 12-14: Finishing Strong
+
+**Breakfast:** [Mushroom & Spinach Frittata](/food/mushroom-spinach-frittata) or [Protein Power Bowl](/food/protein-power-bowl)
+
+**Lunch:** [Spinach Detox Soup](/food/spinach-detox-soup) or [Tuna & White Bean Salad](/food/tuna-white-bean-salad)
+
+**Dinner:** [Zesty Lemon Chicken](/food/zesty-lemon-chicken) or [Coconut Curry Vegetables](/food/coconut-curry-vegetables)
+
+**Snack:** Hard boiled eggs or raw vegetables
+
+## Foods To AVOID
+
+**Obvious sugars:** Candy, cookies, cakes, ice cream, donuts.
+
+**Hidden sugars:** Bread, pasta sauce, salad dressings, ketchup, BBQ sauce.
+
+**Drinks:** Soda, fruit juice, sweetened coffee, energy drinks.
+
+**Breakfast foods:** Most cereals, granola bars, flavored yogurt, pancake syrup.
+
+**Condiments:** Check the labels. Many sauces contain high fructose corn syrup.
+
+## Tips For Success
+
+**Read every label.** Sugar hides in foods you would never expect.
+
+**Prep meals in advance.** When you are hungry you make bad decisions.
+
+**Drink lots of water.** Often when you think you are hungry you are actually thirsty.
+
+**Use the Sukali app** to scan foods and track your sugar intake. It makes everything so much easier.
+
+## Track Your Progress
+
+The hardest part of a no sugar diet is knowing which foods secretly contain sugar.
+
+**The Sukali app makes this easy.** Just scan your food with your phone camera. The AI tells you exactly how much sugar is in it.
+
+When you can see the numbers cutting sugar becomes simple. You know exactly which foods to keep and which to avoid.
+
+**Start your 14-day challenge today.**
+        `,
+        image: "/assets/images/blog-images/sugar-free-foods.png",
+        category: "Diet Plans",
+        author: "Sukali Team",
+        date: "2025-01-02",
+        readTime: 10
+    },
+    {
+        slug: "no-sugar-drinks",
+        title: "No Sugar Drinks: The Truth About Zero Calorie Beverages",
+        excerpt: "Are zero sugar drinks actually healthy? A doctor explains what artificial sweeteners do to your body and which drinks are truly safe.",
+        content: `
+![No Sugar Drinks Guide](/assets/images/blog-images/zero-sugar-drinks.png)
+
+Zero calorie. Zero sugar. Diet drinks. They sound perfect for anyone trying to cut sugar from their diet.
+
+**But are they actually healthy?**
+
+Let me be clear upfront. I am not here to bash these drinks or tell you they are terrible for you. They are in my home. I drink them. And I am willing to bet that you do too.
+
+**My goal is to educate you about what actually gets put in these drinks and how they affect your body** in both positive and negative ways.
+
+## What Are Artificial Sweeteners?
+
+Food companies are smart. They realize that if they take away the sugar from a drink it will not be as appealing to those of us who like drinking something sweet.
+
+To make up for the loss of sugar **companies add artificial sweeteners to their products.**
+
+Some common ones you might recognize:
+
+**Sucralose** - Also known as Splenda
+
+**Saccharin** - Also known as Sweet N Low
+
+**Aspartame** - Found in many diet sodas
+
+**Stevia** - A natural alternative
+
+Here is the crazy part. Some of these sweeteners have up to **37000 times the sweetness of regular sugar.**
+
+## The Hidden Label Problem
+
+What is frustrating is that the FDA does not require companies to put the amounts of these products on labels.
+
+The bottles will say "zero sugar" which is technically true. **But if you read the list of ingredients you will often see sucralose or sorbitol hidden in there.**
+
+Here is an example. A popular sparkling water brand says:
+
+- Naturally flavored sparkling water
+- Antioxidants and vitamins
+- Zero sugar
+
+Sounds healthy right? But when you look at the ingredients list you see sucralose. **The drink is sweet because of artificial sweeteners not because it is "natural."**
+
+## Positive Effects On Your Body
+
+### Better For Your Teeth
+
+One really nice benefit of artificial sweeteners is that **bacteria in your mouth cannot feed off them.**
+
+This is especially true for sorbitol which you will often see in sugar-free gum. It gives gum that sweet taste while decreasing the risk of cavities.
+
+**However keep in mind that many artificially sweetened drinks are carbonated.** The acid can still wear down your enamel even without sugar.
+
+So artificial sweeteners are better for teeth than sugar but not as good as water.
+
+## Negative Effects On Your Body
+
+### Gut Health Issues
+
+Artificial sweeteners have a **direct impact on the healthy bacteria living in your gut.** They actually change the whole composition of bacteria throughout your digestive system.
+
+This can cause symptoms like:
+
+**Bloating** - Many people report increased bloating.
+
+**Flatulence** - Gas is a common complaint.
+
+**Diarrhea** - Some sweeteners are known to cause digestive issues.
+
+For anyone with underlying GI issues like inflammatory bowel disease or gluten sensitivity **artificial sweeteners can aggravate all of your symptoms.**
+
+### Other Known Negative Effects
+
+**Alcohol intoxication** - Artificial sweeteners quicken how fast you get drunk. Combining zero calorie drinks with alcohol is not recommended.
+
+**Migraines** - Some people experience headaches. If you have been having migraines these drinks might be a trigger.
+
+**Heart health concerns** - Some studies have shown that artificial sweeteners may be associated with higher risk of heart attacks and strokes. More research is needed but it is concerning.
+
+## Do They Actually Help You Lose Weight?
+
+This is the big question everyone wants answered.
+
+**The honest answer is we do not know for sure.**
+
+Studies show mixed results. Some show people losing weight. Some show weight unchanged. Some show people actually gaining weight.
+
+My overall impression is that zero sugar drinks seem healthier than sugary drinks. **But they are definitely not as good as drinking water or other non-sweetened beverages.**
+
+## The Best No Sugar Drink Options
+
+If you want to cut sugar from your drinks here are the truly healthy options:
+
+**Water** - Still the best choice. Add lemon or cucumber for flavor.
+
+**Sparkling water** - Plain sparkling water without sweeteners is fine.
+
+**Unsweetened tea** - Green tea, black tea, herbal tea.
+
+**Black coffee** - No sugar or sweetened creamers.
+
+**Infused water** - Add fruits or herbs for natural flavor without sugar.
+
+Try our [Cucumber Mint Water](/food/cucumber-mint-water) or [Turmeric Golden Milk](/food/turmeric-golden-milk) for delicious sugar-free drink options.
+
+## Who Should Use Zero Sugar Drinks?
+
+Zero sugar drinks can be a good choice for people in certain situations.
+
+**If you are used to drinking large amounts of sugary drinks** this is a great alternative to help wean off sugar.
+
+**If you occasionally want something sweet** having a diet drink once in a while is not going to hurt you.
+
+**But if you are trying to make the absolute healthiest choices** I would stay away from these drinks altogether.
+
+## The Bottom Line
+
+As long as the FDA lets companies freely advertise these drinks as zero calorie zero sugar and a healthy option **you have to do your due diligence.**
+
+Look at the food labels. Recognize if they have added artificial sweeteners.
+
+These products are far from being the worst thing you can drink. **But there are hidden products and hidden sweeteners that can have impacts on your health.**
+
+The best drink for your health is still plain water. Everything else is a compromise.
+
+## Track What You Drink
+
+The Sukali app is not just for food. **You can also scan your drinks** to see exactly what is in them.
+
+Many drinks marketed as healthy contain hidden sugars or artificial sweeteners. When you can see exactly what you are consuming making healthy choices becomes simple.
+
+Download Sukali and start tracking today.
+        `,
+        image: "/assets/images/blog-images/zero-sugar-drinks.png",
+        category: "Health",
+        author: "Sukali Team",
+        date: "2025-01-02",
+        readTime: 9
+    },
+    {
         slug: "how-much-weight-can-you-lose-in-a-month",
         title: "How Much Weight Can You Lose in a Month? 30 Days No Sugar Results",
         excerpt: "Real results from a 30-day no sugar challenge. See how much weight you can actually lose in one month by cutting sugar completely.",
