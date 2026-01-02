@@ -177,7 +177,7 @@ function generateJsonLd(recipe: Recipe) {
         "@type": "Recipe",
         "name": recipe.recipe_name,
         "description": `${recipe.recipe_name} - A ${recipe.diet_type} recipe with ${totalSugar}g sugar. ${verdict.message}`,
-        "image": getImagePath(recipe.image_id),
+        "image": `https://www.sugar-frees.com${getImagePath(recipe.image_id)}`,
         "prepTime": `PT${recipe.prep_time}M`,
         "cookTime": `PT${recipe.cook_time}M`,
         "totalTime": `PT${recipe.total_time}M`,
