@@ -12,6 +12,248 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
     {
+        slug: "mediterranean-diet-for-weight-loss",
+        title: "Mediterranean Diet for Weight Loss: The Complete 2025 Guide",
+        excerpt: "Discover why the Mediterranean diet is ranked #1 for weight loss. Science backed strategies, meal ideas, and how to lose 3 to 5 kg in just one month.",
+        content: `
+![Mediterranean Diet Spread](/assets/images/blog-images/mediterranean-diet-spread.png)
+
+The Mediterranean diet has been crowned the best overall diet for weight loss in 2024 and 2025 by US News and World Report. This is not just another trendy eating plan. It is backed by decades of scientific research and real world results.
+
+But here is what makes it different from every other diet you have tried. The Mediterranean diet does not feel like a diet at all. You eat delicious food, you feel satisfied, and the weight comes off naturally.
+
+Let me show you exactly how this works and why it might be the last diet you ever need.
+
+## What Is the Mediterranean Diet
+
+The Mediterranean diet is based on the traditional eating patterns of countries like Greece, Italy, and Spain. People in these regions have some of the lowest rates of heart disease and obesity in the world.
+
+The core principles are simple. You eat mostly whole foods. Vegetables, fruits, whole grains, legumes, nuts, and olive oil form the foundation. Fish and seafood appear several times a week. Poultry, eggs, and dairy are consumed in moderation. Red meat is limited to a few times per month.
+
+What you avoid is equally important. Processed foods, refined sugars, and artificial ingredients have no place in this eating pattern. This alone eliminates most of the foods that cause weight gain and inflammation.
+
+## The Science Behind Mediterranean Weight Loss
+
+A 2025 study published in Preventive Medicine Reports followed older adults with obesity for 14 months. Those following a calorie restricted Mediterranean diet lost an average of 3.8 kg and reduced their BMI by 1.4 points. But here is what is really impressive. They also lost significant amounts of visceral fat, the dangerous fat that wraps around your organs.
+
+The PREDIMED Plus clinical trial, one of the largest studies ever conducted on this diet, showed that participants reduced their risk of type 2 diabetes by 31 percent. The average weight loss was 3.3 kg without feeling deprived or hungry.
+
+Why does this happen? The Mediterranean diet works on multiple levels.
+
+First, it improves insulin sensitivity. When your cells respond better to insulin, your body stops storing excess energy as fat. Second, it reduces inflammation throughout your body. Chronic inflammation is linked to weight gain, especially around the midsection. Third, the high fiber content keeps you full for hours, naturally reducing your calorie intake without counting every bite.
+
+## What to Eat on the Mediterranean Diet
+
+Here is your complete food guide.
+
+**Eat Daily**
+
+Vegetables should fill half your plate at every meal. Focus on leafy greens, tomatoes, peppers, onions, and eggplant. Olive oil is your primary fat source. Use it for cooking and dressings. Whole grains like quinoa, brown rice, oats, and whole wheat bread provide sustained energy. Fruits make the perfect snack or dessert. Nuts and seeds add healthy fats and protein.
+
+**Eat Several Times Per Week**
+
+Fish and seafood are central to this diet. Salmon, sardines, mackerel, and shrimp are excellent choices. Try our [Herb Baked Salmon](/food/herb-baked-salmon) or [Garlic Shrimp Skillet](/food/garlic-shrimp-skillet). Legumes like lentils, chickpeas, and beans provide plant based protein. Our [Chickpea Curry](/food/chickpea-curry) and [Lentil Veggie Soup](/food/lentil-veggie-soup) are perfect examples.
+
+**Eat in Moderation**
+
+Poultry like chicken and turkey a few times per week. Eggs provide protein and are incredibly versatile. Try our [Egg Spinach Scramble](/food/egg-spinach-scramble). Greek yogurt and cheese in small amounts.
+
+**Limit or Avoid**
+
+Red meat should be rare, maybe once or twice per month. Processed foods including chips, cookies, and packaged snacks should be eliminated. Sugary drinks and desserts are occasional treats, not daily staples.
+
+## A Sample Mediterranean Day
+
+Let me show you what a typical day looks like.
+
+**Breakfast**
+
+A Greek yogurt parfait with fresh berries, a drizzle of honey, and a handful of walnuts. Or try our [Coconut Chia Pudding](/food/coconut-chia-pudding) topped with fruit. Pair it with green tea or black coffee.
+
+**Lunch**
+
+A large salad with mixed greens, cherry tomatoes, cucumbers, olives, feta cheese, and grilled chicken. Dress it with extra virgin olive oil and lemon juice. Our [Greek Salad Bowl](/food/greek-salad-bowl) is a perfect example.
+
+**Dinner**
+
+Grilled fish with roasted vegetables and a side of quinoa. Drizzle everything with olive oil and fresh herbs. Try our [Mediterranean Quinoa Bowl](/food/mediterranean-quinoa-bowl) or [Zucchini Noodles with Pesto](/food/zucchini-noodles-with-pesto).
+
+**Snacks**
+
+A handful of almonds. Fresh fruit. Hummus with vegetable sticks. Our [Beetroot Hummus](/food/beetroot-hummus) is delicious.
+
+## Why Mediterranean Beats Other Diets
+
+Research shows that people who follow the Mediterranean diet are two times more likely to maintain their weight loss compared to other diets. The reason is sustainability.
+
+Most diets fail because they are too restrictive. You can only eat boiled chicken and steamed broccoli for so long before you crack. The Mediterranean diet includes foods that actually taste good. Olive oil, cheese, wine in moderation, and delicious seasonings make every meal satisfying.
+
+The social aspect matters too. In Mediterranean culture, meals are shared experiences. You eat slowly, enjoy your food, and connect with others. This naturally prevents overeating because you are paying attention to your body's signals.
+
+## The Hidden Sugar Problem
+
+Here is something most Mediterranean diet guides do not tell you. Even healthy foods can contain hidden sugars that sabotage your weight loss.
+
+Store bought hummus might have added sweeteners. Whole grain bread can contain high fructose corn syrup. Even olive oil dressings from the supermarket often include sugar.
+
+This is why tracking what you eat matters. The Sukali app makes this easy. Scan any food with your phone camera and see exactly what is inside. You might be surprised how many hidden sugars are lurking in foods you thought were healthy.
+
+## How to Start Today
+
+The Mediterranean diet does not require a complete kitchen overhaul. Start with these simple changes.
+
+Week one, switch your cooking oil to extra virgin olive oil. Week two, add a salad to your lunch every day. Week three, replace red meat with fish twice per week. Week four, stock your pantry with nuts, legumes, and whole grains.
+
+Small changes compound over time. In one month, you will have transformed your eating habits without feeling deprived.
+
+## Track Your Progress with Sukali
+
+The key to Mediterranean diet success is knowing exactly what you eat. Hidden sugars in packaged foods can undo all your hard work.
+
+Sukali makes tracking simple. Scan your food and see the sugar content instantly. No more guessing. No more accidentally eating foods that spike your insulin and store fat.
+
+Download Sukali today and start your Mediterranean journey with complete confidence. The best diet in the world works even better when you have the right tools.
+        `,
+        image: "/assets/images/blog-images/mediterranean-diet-spread.png",
+        category: "Diet Plans",
+        author: "Sukali Team",
+        date: "2026-01-04",
+        readTime: 12
+    },
+    {
+        slug: "healthy-meal-plans-for-weight-loss",
+        title: "Healthy Meal Plans for Weight Loss: Your Complete Weekly Guide",
+        excerpt: "Get a science backed healthy meal plan for weight loss. Includes breakfast, lunch, dinner, and snack ideas plus a full 7 day meal prep guide.",
+        content: `
+![Healthy Meal Prep](/assets/images/blog-images/healthy-meal-prep.png)
+
+Creating a healthy meal plan for weight loss changed everything for me. I used to wonder why I could not lose weight despite trying so hard. The answer was simple. I had no plan.
+
+When you wake up without knowing what you will eat, you make bad decisions. You grab whatever is convenient. You snack mindlessly. You order takeout because cooking feels like too much effort.
+
+A meal plan eliminates all of that. You know exactly what to eat, when to eat it, and how to prepare it. The weight loss happens almost automatically.
+
+Let me share the exact framework that works based on scientific research and real world results.
+
+## The Science of Meal Planning for Weight Loss
+
+Research from the National Weight Control Registry studied people who lost significant weight and kept it off. One common habit stood out. They all followed consistent eating patterns.
+
+Studies show that meal planning reduces impulsive eating by 80 percent. When healthy food is already prepared and waiting in your fridge, you eat healthy food. It sounds obvious but most people skip this step.
+
+The Mayo Clinic developed a Healthy Weight Pyramid based on decades of clinical research. Vegetables and fruits form the base. These can be eaten in unlimited quantities. Whole grains and lean proteins come next. Healthy fats are included in moderation. Sweets and processed foods sit at the tiny top, meant for rare occasions only.
+
+This pyramid is the foundation of every effective meal plan.
+
+## The Perfect Plate Formula
+
+Before we dive into specific meals, you need to understand the plate formula. This makes building any meal simple.
+
+Fill half your plate with vegetables. These provide fiber, vitamins, and volume with minimal calories. You feel full without overeating.
+
+Fill one quarter of your plate with lean protein. This could be chicken, fish, eggs, tofu, or legumes. Protein keeps you satisfied and preserves muscle mass during weight loss.
+
+Fill the remaining quarter with complex carbohydrates. Brown rice, quinoa, sweet potato, or whole grain bread. These provide sustained energy without blood sugar spikes.
+
+Add a small amount of healthy fat. A drizzle of olive oil, a few slices of avocado, or a handful of nuts. Fat slows digestion and helps your body absorb nutrients.
+
+This formula works for any cuisine, any meal, any lifestyle.
+
+## Your 7 Day Meal Plan
+
+Here is a complete week of healthy eating designed for weight loss.
+
+**Monday**
+
+Breakfast starts with our [Egg Spinach Scramble](/food/egg-spinach-scramble) served with a slice of whole grain toast. Lunch is a [Greek Salad Bowl](/food/greek-salad-bowl) with grilled chicken. For dinner, try [Herb Baked Salmon](/food/herb-baked-salmon) with steamed broccoli and quinoa. Snack on raw almonds and an apple.
+
+**Tuesday**
+
+Morning begins with a [Green Detox Smoothie](/food/green-detox-smoothie) packed with spinach, banana, and almond butter. Lunch features [Avocado Tuna Salad](/food/avocado-tuna-salad) over mixed greens. Dinner is [Chickpea Curry](/food/chickpea-curry) served with cauliflower rice. For snacks, enjoy [Beetroot Hummus](/food/beetroot-hummus) with carrot sticks.
+
+**Wednesday**
+
+Start with a [Veggie Omelette](/food/veggie-omelette) filled with bell peppers, onions, and mushrooms. Lunch is leftover chickpea curry from last night. Dinner showcases [Garlic Shrimp Skillet](/food/garlic-shrimp-skillet) with zucchini noodles. Snack on Greek yogurt with berries.
+
+**Thursday**
+
+Breakfast is [Almond Flour Pancakes](/food/almond-flour-pancakes) topped with fresh fruit. Lunch brings a [Kale Quinoa Power Salad](/food/kale-quinoa-power-salad) with lemon tahini dressing. Dinner features [Stuffed Bell Peppers](/food/stuffed-bell-peppers) with lean ground turkey. Snack on a small handful of walnuts.
+
+**Friday**
+
+Morning starts with [Coconut Chia Pudding](/food/coconut-chia-pudding) prepared the night before. Lunch is [Mediterranean Quinoa Bowl](/food/mediterranean-quinoa-bowl) with extra vegetables. Dinner is [Zesty Lemon Chicken](/food/zesty-lemon-chicken) with roasted vegetables. Enjoy sliced cucumber with guacamole as a snack.
+
+**Saturday**
+
+Breakfast is a [Mushroom Spinach Frittata](/food/mushroom-spinach-frittata) perfect for a relaxed weekend morning. Lunch features [Lentil Veggie Soup](/food/lentil-veggie-soup) with whole grain bread. Dinner is [Beef Broccoli Stir Fry](/food/beef-broccoli-stir-fry) over brown rice. Snack on fresh fruit salad.
+
+**Sunday**
+
+Start with [Greek Yogurt Parfait](/food/greek-yogurt-parfait) layered with granola and fresh berries. Lunch is [Chicken Avocado Salad](/food/chicken-avocado-salad) in lettuce wraps. Dinner features [Coconut Curry Vegetables](/food/coconut-curry-vegetables) with jasmine rice. Prepare your meal prep for the week ahead.
+
+## Meal Prep Strategies That Work
+
+Spending one to two hours on Sunday preparing food saves countless hours during the week. Here is how to do it efficiently.
+
+Cook your proteins in bulk. Grill four chicken breasts, bake a large piece of salmon, and boil a dozen eggs. Store them in separate containers.
+
+Prepare your grains. Cook a large batch of quinoa and brown rice. These keep well in the fridge for five days.
+
+Chop your vegetables. Wash and cut bell peppers, cucumbers, carrots, and celery. Store them in water to keep them crisp.
+
+Make your sauces and dressings. Blend a batch of hummus. Whisk together olive oil and lemon juice. Prepare pesto or tahini dressing.
+
+Portion everything into containers. Each container should follow the plate formula. When hunger strikes, you grab a container, heat it if needed, and eat well without any effort.
+
+## Common Meal Planning Mistakes
+
+Most people fail at meal planning for predictable reasons. Avoid these traps.
+
+Planning too many complicated recipes leads to burnout. Keep it simple. Grilled protein, roasted vegetables, and a grain. That is a complete meal prepared in 30 minutes.
+
+Not accounting for leftovers wastes food and money. Make extra at dinner and pack it for tomorrow's lunch.
+
+Forgetting about snacks sabotages your progress. Hunger between meals leads to vending machines and convenience stores. Plan your snacks just like you plan your meals.
+
+Being too rigid causes rebellion. If you hate broccoli, do not force yourself to eat it every day. Build meals around foods you actually enjoy.
+
+## The Hidden Sugar Trap in Meal Planning
+
+Here is the biggest secret to meal planning success. You must watch out for hidden sugars.
+
+Sauces are the worst offenders. Barbecue sauce, teriyaki sauce, and even pasta sauce often contain more sugar than a candy bar. A single serving of store bought salad dressing can have 8 grams of added sugar.
+
+Yogurt marketed as healthy can have 25 grams of sugar per serving. Granola often contains as much sugar as cookies. Protein bars are frequently candy bars in disguise.
+
+This is where most healthy meal plans fail. You think you are eating well but hidden sugars spike your insulin and block fat burning.
+
+## Track Everything with Sukali
+
+The Sukali app solves the hidden sugar problem. Before you buy any packaged food, scan it with your phone camera. The app shows you exactly how much sugar is inside.
+
+This changes everything about meal planning. You stop buying products that sabotage your efforts. You find truly healthy alternatives. You see your sugar intake add up throughout the day.
+
+When you combine a solid meal plan with sugar awareness, weight loss becomes inevitable. You are eating the right foods in the right amounts at the right times. Your body has no choice but to burn fat.
+
+Download Sukali and start building your perfect meal plan today. The combination of prepared meals and sugar tracking is the most powerful weight loss system available.
+
+## Start Your Transformation Now
+
+You do not need a perfect plan to start. You need to take action today.
+
+Pick three recipes from this article. Shop for the ingredients. Prepare them this weekend. Follow the meal plan for one week.
+
+One week of eating well leads to another. Before you know it, healthy eating becomes automatic. The weight comes off. Your energy increases. You feel better than you have in years.
+
+Your transformation starts with a single planned meal. Make it happen.
+        `,
+        image: "/assets/images/blog-images/healthy-meal-prep.png",
+        category: "Diet Plans",
+        author: "Sukali Team",
+        date: "2026-01-04",
+        readTime: 14
+    },
+    {
         slug: "best-weight-loss-programs-sugar-fasting",
         title: "The Best Weight Loss Programs for 2026: Why Sugar Fasting Is #1",
         excerpt: "Searching for effective weight loss programs? Discover why the sugar fast—eating only fruits and juices—is the quickest way to lose 17 lbs in just 2 weeks.",
