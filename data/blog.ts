@@ -23,6 +23,17 @@ export const blogPosts: BlogPost[] = [
         readTime: 8
     },
     {
+        slug: "low-sugar-fruits",
+        title: "Low Sugar Fruits: 15 Best Fruits for Weight Loss & Blood Sugar Control",
+        excerpt: "Discover the best low sugar fruits to eat for weight loss and blood sugar control. Complete guide with sugar content and health benefits.",
+        content: "",
+        image: "/assets/images/blog-images/low-sugar-fruits.png",
+        category: "Nutrition",
+        author: "Sukali Team",
+        date: "2026-01-05",
+        readTime: 10
+    },
+    {
         slug: "mediterranean-diet-for-weight-loss",
         title: "Mediterranean Diet for Weight Loss: The Complete 2025 Guide",
         excerpt: "Discover why the Mediterranean diet is ranked #1 for weight loss. Science backed strategies, meal ideas, and how to lose 3 to 5 kg in just one month.",
