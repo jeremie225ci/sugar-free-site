@@ -10,14 +10,6 @@ export const metadata = {
     description: "Expert articles on the dangers of sugar, how to quit, and sugar-free tips for a healthier life.",
 };
 
-// Function to get the correct link for each post
-function getPostLink(slug: string): string {
-    // BMI calculator article links directly to the calculator page
-    if (slug === "bmi-calculator-women") {
-        return "/bmi-calculator";
-    }
-    return `/blog/${slug}`;
-}
 
 export default function BlogPage() {
     const posts = getAllPosts();
@@ -41,7 +33,7 @@ export default function BlogPage() {
 
                 {/* Featured Post */}
                 <Link
-                    href={getPostLink(featuredPost.slug)}
+                    href={`/blog/${featuredPost.slug}`}
                     className="block mb-12 group"
                 >
                     <article className="grid md:grid-cols-2 gap-6 bg-[#1C1C1E] rounded-3xl border border-[#38383A] overflow-hidden hover:border-[#22c55e] transition-colors">
@@ -77,7 +69,7 @@ export default function BlogPage() {
                     {otherPosts.map((post) => (
                         <Link
                             key={post.slug}
-                            href={getPostLink(post.slug)}
+                            href={`/blog/${post.slug}`}
                             className="group"
                         >
                             <article className="bg-[#1C1C1E] rounded-3xl border border-[#38383A] overflow-hidden hover:border-[#22c55e] transition-colors h-full">

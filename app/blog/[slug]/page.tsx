@@ -1,12 +1,13 @@
 import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { notFound, redirect } from "next/navigation";
+import { notFound } from "next/navigation";
 import { getAllPosts, getPostBySlug } from "@/data/blog";
 import SiteHeader from "@/components/site-header";
 import SiteFooter from "@/components/site-footer";
 import StickyDownloadBar from "@/components/StickyDownloadBar";
 import AppPromoPopup from "@/components/AppPromoPopup";
+import BMICalculatorWidget from "@/components/BMICalculatorWidget";
 
 interface PageProps {
     params: Promise<{ slug: string }>;
@@ -121,17 +122,14 @@ function generateJsonLd(post: any) {
 
 export default async function BlogPostPage({ params }: PageProps) {
     const { slug } = await params;
-
-    // Redirect BMI calculator article to the actual calculator page
-    if (slug === "bmi-calculator-women") {
-        redirect("/bmi-calculator");
-    }
-
     const post = getPostBySlug(slug);
 
     if (!post) {
         notFound();
     }
+
+    // Check if this is the BMI calculator article
+    const isBMICalculator = slug === "bmi-calculator-women";
 
     const allPosts = getAllPosts();
     const relatedPosts = allPosts.filter(p => p.slug !== post.slug).slice(0, 2);
@@ -209,6 +207,9 @@ export default async function BlogPostPage({ params }: PageProps) {
                         className="object-cover"
                     />
                 </div>
+
+                {/* BMI Calculator Widget - only for BMI article */}
+                {isBMICalculator && <BMICalculatorWidget />}
 
                 {/* Content */}
                 <div className="prose prose-invert prose-lg max-w-none mb-16
