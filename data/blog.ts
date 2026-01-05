@@ -12,6 +12,17 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
     {
+        slug: "bmi-calculator-women",
+        title: "BMI Calculator for Women: Calculate Your Body Mass Index Free",
+        excerpt: "Free BMI calculator designed for women. Calculate your Body Mass Index instantly, understand your results, and get personalized tips for reaching a healthy weight.",
+        content: "",
+        image: "/assets/images/blog-images/bmi-calculator-women.png",
+        category: "Tools",
+        author: "Sukali Team",
+        date: "2026-01-05",
+        readTime: 8
+    },
+    {
         slug: "mediterranean-diet-for-weight-loss",
         title: "Mediterranean Diet for Weight Loss: The Complete 2025 Guide",
         excerpt: "Discover why the Mediterranean diet is ranked #1 for weight loss. Science backed strategies, meal ideas, and how to lose 3 to 5 kg in just one month.",
