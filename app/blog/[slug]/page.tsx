@@ -7,7 +7,6 @@ import SiteHeader from "@/components/site-header";
 import SiteFooter from "@/components/site-footer";
 import StickyDownloadBar from "@/components/StickyDownloadBar";
 import AppPromoPopup from "@/components/AppPromoPopup";
-import BMICalculatorWidget from "@/components/BMICalculatorWidget";
 
 interface PageProps {
     params: Promise<{ slug: string }>;
@@ -128,9 +127,6 @@ export default async function BlogPostPage({ params }: PageProps) {
         notFound();
     }
 
-    // Check if this is the BMI calculator article
-    const isBMICalculator = slug === "bmi-calculator-women";
-
     const allPosts = getAllPosts();
     const relatedPosts = allPosts.filter(p => p.slug !== post.slug).slice(0, 2);
     const jsonLd = generateJsonLd(post);
@@ -207,9 +203,6 @@ export default async function BlogPostPage({ params }: PageProps) {
                         className="object-cover"
                     />
                 </div>
-
-                {/* BMI Calculator Widget - only for BMI article */}
-                {isBMICalculator && <BMICalculatorWidget />}
 
                 {/* Content */}
                 <div className="prose prose-invert prose-lg max-w-none mb-16
