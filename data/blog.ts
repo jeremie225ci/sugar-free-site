@@ -479,47 +479,45 @@ Starting a no sugar diet can feel overwhelming. What can you actually eat? What 
 
 ### Proteins (Eat Freely)
 
-**Chicken** - Grilled, baked, or sauteed without sweet sauces.
+**Chicken** - A lean protein powerhouse with zero sugar. Chicken breast contains about 31 grams of protein per serving and keeps you full for hours. Avoid pre-marinated versions which often contain hidden sugars. Grill, bake, or sautee with olive oil and herbs.
 
-**Fish** - Salmon, cod, tuna, shrimp. Try our [Herb Baked Salmon](/food/herb-baked-salmon) or [Garlic Shrimp Skillet](/food/garlic-shrimp-skillet).
+**Fish** - Salmon is one of the best proteins you can eat. It contains zero sugar, high omega-3 fatty acids that reduce inflammation, and keeps your brain sharp. Wild-caught is ideal but any fresh fish works. Cod and tuna are also excellent choices. Shrimp is naturally sweet-tasting without any sugar, making it perfect for satisfying cravings.
 
-**Eggs** - Scrambled, fried, poached. Check out our [Egg & Spinach Scramble](/food/egg-spinach-scramble) or [Veggie Omelette](/food/veggie-omelette).
+**Eggs** - The perfect no sugar food. One egg has 6 grams of protein, essential vitamins, and exactly zero grams of sugar. They keep you full until lunch and prevent mid-morning cravings. Scrambled, fried, poached, or hard-boiled, eggs are your best friend on this diet.
 
-**Turkey** - Ground turkey, turkey breast, turkey bacon.
+**Turkey** - Leaner than chicken with the same zero sugar content. Ground turkey works great for burgers and meatballs. Turkey breast is perfect for meal prep. Even turkey bacon is an option, though check labels for added sugars in some brands.
 
-**Beef** - Grass-fed when possible. Try our [Beef & Broccoli Stir-Fry](/food/beef-broccoli-stir-fry).
+**Beef** - Red meat contains no sugar and is packed with iron, B12, and zinc. Grass-fed beef has better omega-3 ratios. Great for steaks, stir-fries, and slow-cooked dishes. Avoid pre-seasoned or processed beef products which may contain sugar.
 
-**Tofu** - Great protein source for vegetarians. Try our [Spicy Tofu Stir-Fry](/food/spicy-tofu-stir-fry).
+**Tofu** - An excellent protein source for vegetarians with less than 1 gram of sugar per serving. Firm tofu works best for stir-fries and grilling. It absorbs flavors beautifully, so season it well with garlic, ginger, and soy sauce.
 
 ### Vegetables (Eat Unlimited)
 
-**Leafy greens** - Spinach, kale, arugula, lettuce.
+**Leafy greens** - Spinach, kale, arugula, and lettuce have virtually zero sugar and are packed with fiber. They fill your stomach without adding calories. The fiber slows digestion and helps maintain stable blood sugar levels throughout the day.
 
-**Cruciferous vegetables** - Broccoli, cauliflower, cabbage, Brussels sprouts.
+**Cruciferous vegetables** - Broccoli, cauliflower, cabbage, and Brussels sprouts are nutritional powerhouses. They contain compounds that support liver detoxification, which is especially important when quitting sugar. Roast them with olive oil for the best flavor.
 
-**Other vegetables** - Zucchini, bell peppers, mushrooms, asparagus, green beans.
-
-Try our [Roasted Vegetable Medley](/food/roasted-vegetable-medley) or [Stuffed Bell Peppers](/food/stuffed-bell-peppers).
+**Other vegetables** - Zucchini, bell peppers, mushrooms, asparagus, and green beans are all excellent choices. They add volume to meals, provide essential vitamins, and contain minimal natural sugars. Aim for variety and color on your plate.
 
 ### Healthy Fats
 
-**Avocado** - One of the best foods for a no sugar diet. Try our [Avocado Power Toast](/food/avocado-power-toast) or [Chicken Avocado Salad](/food/chicken-avocado-salad).
+**Avocado** - Perhaps the best food for a no sugar diet. Avocados contain healthy monounsaturated fats that keep you satisfied, fiber that aids digestion, and potassium for energy. They help your body absorb nutrients from vegetables and calm sugar cravings.
 
-**Olive oil** - Use for cooking and salad dressings.
+**Olive oil** - Extra virgin olive oil is liquid gold for no sugar eating. Use it for cooking at medium heat and for homemade salad dressings. It adds richness to meals without any sugar.
 
-**Nuts** - Almonds, walnuts, pecans, macadamia nuts.
+**Nuts** - Almonds, walnuts, pecans, and macadamia nuts are perfect snacks. They provide healthy fats, protein, and fiber to keep hunger at bay. Watch portions as they are calorie-dense. Avoid honey-roasted or flavored varieties which contain added sugar.
 
-**Coconut oil** - Great for cooking at high heat.
+**Coconut oil** - Excellent for high-heat cooking. Contains medium-chain triglycerides (MCTs) that provide quick energy. Great for sautéing vegetables and adding richness to dishes.
 
 ### Complex Carbohydrates
 
-**Quinoa** - High protein grain. Try our [Mediterranean Quinoa Bowl](/food/mediterranean-quinoa-bowl).
+**Quinoa** - A complete protein containing all nine essential amino acids. Quinoa has a low glycemic index meaning it releases energy slowly without spiking blood sugar. Perfect base for bowls and salads.
 
-**Brown rice** - Better than white rice for blood sugar.
+**Brown rice** - The fiber in brown rice slows sugar absorption compared to white rice. It provides sustained energy and keeps you full longer. Pair it with protein and vegetables for balanced meals.
 
-**Sweet potato** - Naturally sweet without added sugar. Try our [Baked Sweet Potato Fries](/food/baked-sweet-potato-fries).
+**Sweet potato** - Naturally sweet without added sugar. Sweet potatoes are rich in fiber, vitamin A, and antioxidants. Their natural sweetness satisfies cravings while the fiber prevents blood sugar spikes. Bake them whole or make fries with olive oil.
 
-**Lentils** - Great source of fiber and protein. Try our [Lentil & Veggie Soup](/food/lentil-veggie-soup).
+**Lentils** - High in fiber and protein, lentils are incredibly filling. One cup provides 16 grams of fiber, which is more than half your daily needs. They stabilize blood sugar and keep you satisfied for hours.
 
 ## 14-Day Meal Plan
 
