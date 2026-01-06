@@ -332,7 +332,7 @@ export default function LowSugarFruitsPage() {
 
                         <p className="text-[#c4c4c4] mb-6">
                             <strong className="text-white">Breakfast:</strong> Add mixed berries to Greek yogurt or oatmeal. The protein and fiber will keep you satisfied until lunch. Try our{" "}
-                            <Link href="/food/berry-breakfast-bowl" className="text-[#22c55e] hover:underline">Berry Breakfast Bowl</Link> recipe for inspiration.
+                            <Link href="/food/berry-overnight-oats" className="text-[#22c55e] hover:underline">Berry Overnight Oats</Link> recipe for inspiration.
                         </p>
 
                         <p className="text-[#c4c4c4] mb-6">
