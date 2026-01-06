@@ -12,6 +12,17 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
     {
+        slug: "aspartame",
+        title: "Aspartame: The Complete Guide to This Controversial Sweetener",
+        excerpt: "Is aspartame safe? What did the WHO really say? We break down the science, the controversy, and healthier alternatives.",
+        content: "",
+        image: "/assets/images/blog-images/aspartame.png",
+        category: "Health & Science",
+        author: "Sukali Team",
+        date: "2026-01-06",
+        readTime: 15
+    },
+    {
         slug: "bmi-calculator-women",
         title: "BMI Calculator for Women: Calculate Your Body Mass Index Free",
         excerpt: "Free BMI calculator designed for women. Calculate your Body Mass Index instantly, understand your results, and get personalized tips for reaching a healthy weight.",
