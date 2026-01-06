@@ -3,6 +3,7 @@ import Link from "next/link"
 import SiteHeader from "@/components/site-header"
 import SiteFooter from "@/components/site-footer"
 import StickyDownloadBar from "@/components/StickyDownloadBar"
+import AppPromoPopup from "@/components/AppPromoPopup"
 
 export default function NoSugarDietFoodListPage() {
     const articleSchema = {
@@ -112,7 +113,7 @@ export default function NoSugarDietFoodListPage() {
                                     The perfect no sugar food. One egg has 6 grams of protein, essential vitamins, and exactly zero grams of sugar. They keep you full until lunch and prevent mid-morning cravings.
                                 </p>
                                 <div className="flex flex-wrap gap-2">
-                                    <Link href="/food/egg-spinach-scramble" className="inline-flex items-center gap-1 px-3 py-1.5 bg-[#22c55e]/20 text-[#22c55e] rounded-full text-sm hover:bg-[#22c55e]/30 transition">
+                                    <Link href="/food/egg-and-spinach-scramble" className="inline-flex items-center gap-1 px-3 py-1.5 bg-[#22c55e]/20 text-[#22c55e] rounded-full text-sm hover:bg-[#22c55e]/30 transition">
                                         → Egg & Spinach Scramble
                                     </Link>
                                     <Link href="/food/veggie-omelette" className="inline-flex items-center gap-1 px-3 py-1.5 bg-[#22c55e]/20 text-[#22c55e] rounded-full text-sm hover:bg-[#22c55e]/30 transition">
@@ -134,7 +135,7 @@ export default function NoSugarDietFoodListPage() {
                                     Red meat contains no sugar and is packed with iron, B12, and zinc. Grass-fed beef has better omega-3 ratios. Great for steaks, stir-fries, and slow-cooked dishes.
                                 </p>
                                 <div className="flex flex-wrap gap-2">
-                                    <Link href="/food/beef-broccoli-stir-fry" className="inline-flex items-center gap-1 px-3 py-1.5 bg-[#22c55e]/20 text-[#22c55e] rounded-full text-sm hover:bg-[#22c55e]/30 transition">
+                                    <Link href="/food/beef-and-broccoli-stir-fry" className="inline-flex items-center gap-1 px-3 py-1.5 bg-[#22c55e]/20 text-[#22c55e] rounded-full text-sm hover:bg-[#22c55e]/30 transition">
                                         → Beef & Broccoli Stir-Fry
                                     </Link>
                                 </div>
@@ -245,7 +246,7 @@ export default function NoSugarDietFoodListPage() {
                                     High in fiber and protein, lentils are incredibly filling. One cup provides 16 grams of fiber, which is more than half your daily needs. They stabilize blood sugar and keep you satisfied for hours.
                                 </p>
                                 <div className="flex flex-wrap gap-2">
-                                    <Link href="/food/lentil-veggie-soup" className="inline-flex items-center gap-1 px-3 py-1.5 bg-[#22c55e]/20 text-[#22c55e] rounded-full text-sm hover:bg-[#22c55e]/30 transition">
+                                    <Link href="/food/lentil-and-veggie-soup" className="inline-flex items-center gap-1 px-3 py-1.5 bg-[#22c55e]/20 text-[#22c55e] rounded-full text-sm hover:bg-[#22c55e]/30 transition">
                                         → Lentil & Veggie Soup
                                     </Link>
                                 </div>
@@ -258,7 +259,7 @@ export default function NoSugarDietFoodListPage() {
                             <div className="bg-gradient-to-br from-[#22c55e]/20 to-[#22c55e]/5 rounded-2xl border border-[#22c55e]/30 p-6">
                                 <h3 className="text-xl font-bold text-white mb-4">Day 1-3: Getting Started</h3>
                                 <div className="space-y-3">
-                                    <p className="text-[#c4c4c4]"><strong className="text-white">Breakfast:</strong> <Link href="/food/egg-spinach-scramble" className="text-[#22c55e] hover:underline">Egg & Spinach Scramble</Link> or <Link href="/food/green-detox-smoothie" className="text-[#22c55e] hover:underline">Green Detox Smoothie</Link></p>
+                                    <p className="text-[#c4c4c4]"><strong className="text-white">Breakfast:</strong> <Link href="/food/egg-and-spinach-scramble" className="text-[#22c55e] hover:underline">Egg & Spinach Scramble</Link> or <Link href="/food/green-detox-smoothie" className="text-[#22c55e] hover:underline">Green Detox Smoothie</Link></p>
                                     <p className="text-[#c4c4c4]"><strong className="text-white">Lunch:</strong> <Link href="/food/greek-salad-bowl" className="text-[#22c55e] hover:underline">Greek Salad Bowl</Link> or <Link href="/food/chicken-avocado-salad" className="text-[#22c55e] hover:underline">Chicken Avocado Salad</Link></p>
                                     <p className="text-[#c4c4c4]"><strong className="text-white">Dinner:</strong> <Link href="/food/herb-baked-salmon" className="text-[#22c55e] hover:underline">Herb Baked Salmon</Link> with steamed vegetables</p>
                                     <p className="text-[#c4c4c4]"><strong className="text-white">Snack:</strong> <Link href="/food/beetroot-hummus" className="text-[#22c55e] hover:underline">Beetroot Hummus</Link> with raw veggies</p>
@@ -279,7 +280,7 @@ export default function NoSugarDietFoodListPage() {
                                 <h3 className="text-xl font-bold text-white mb-4">Day 8-11: Hitting Your Stride</h3>
                                 <div className="space-y-3">
                                     <p className="text-[#c4c4c4]"><strong className="text-white">Breakfast:</strong> <Link href="/food/coconut-chia-pudding" className="text-[#22c55e] hover:underline">Coconut Chia Pudding</Link> or <Link href="/food/greek-yogurt-parfait" className="text-[#22c55e] hover:underline">Greek Yogurt Parfait</Link></p>
-                                    <p className="text-[#c4c4c4]"><strong className="text-white">Lunch:</strong> <Link href="/food/cauliflower-rice-bowl" className="text-[#22c55e] hover:underline">Cauliflower Rice Bowl</Link> or <Link href="/food/kale-quinoa-power-salad" className="text-[#22c55e] hover:underline">Kale & Quinoa Power Salad</Link></p>
+                                    <p className="text-[#c4c4c4]"><strong className="text-white">Lunch:</strong> <Link href="/food/cauliflower-rice-bowl" className="text-[#22c55e] hover:underline">Cauliflower Rice Bowl</Link> or <Link href="/food/kale-and-quinoa-power-salad" className="text-[#22c55e] hover:underline">Kale & Quinoa Power Salad</Link></p>
                                     <p className="text-[#c4c4c4]"><strong className="text-white">Dinner:</strong> <Link href="/food/garlic-shrimp-skillet" className="text-[#22c55e] hover:underline">Garlic Shrimp Skillet</Link> or <Link href="/food/stuffed-bell-peppers" className="text-[#22c55e] hover:underline">Stuffed Bell Peppers</Link></p>
                                     <p className="text-[#c4c4c4]"><strong className="text-white">Snack:</strong> <Link href="/food/zucchini-fritters" className="text-[#22c55e] hover:underline">Zucchini Fritters</Link></p>
                                 </div>
@@ -288,8 +289,8 @@ export default function NoSugarDietFoodListPage() {
                             <div className="bg-gradient-to-br from-[#22c55e]/20 to-[#22c55e]/5 rounded-2xl border border-[#22c55e]/30 p-6">
                                 <h3 className="text-xl font-bold text-white mb-4">Day 12-14: Finishing Strong</h3>
                                 <div className="space-y-3">
-                                    <p className="text-[#c4c4c4]"><strong className="text-white">Breakfast:</strong> <Link href="/food/mushroom-spinach-frittata" className="text-[#22c55e] hover:underline">Mushroom & Spinach Frittata</Link> or <Link href="/food/protein-power-bowl" className="text-[#22c55e] hover:underline">Protein Power Bowl</Link></p>
-                                    <p className="text-[#c4c4c4]"><strong className="text-white">Lunch:</strong> <Link href="/food/spinach-detox-soup" className="text-[#22c55e] hover:underline">Spinach Detox Soup</Link> or <Link href="/food/tuna-white-bean-salad" className="text-[#22c55e] hover:underline">Tuna & White Bean Salad</Link></p>
+                                    <p className="text-[#c4c4c4]"><strong className="text-white">Breakfast:</strong> <Link href="/food/mushroom-and-spinach-frittata" className="text-[#22c55e] hover:underline">Mushroom & Spinach Frittata</Link> or <Link href="/food/protein-power-bowl" className="text-[#22c55e] hover:underline">Protein Power Bowl</Link></p>
+                                    <p className="text-[#c4c4c4]"><strong className="text-white">Lunch:</strong> <Link href="/food/spinach-detox-soup" className="text-[#22c55e] hover:underline">Spinach Detox Soup</Link> or <Link href="/food/tuna-and-white-bean-salad" className="text-[#22c55e] hover:underline">Tuna & White Bean Salad</Link></p>
                                     <p className="text-[#c4c4c4]"><strong className="text-white">Dinner:</strong> <Link href="/food/zesty-lemon-chicken" className="text-[#22c55e] hover:underline">Zesty Lemon Chicken</Link> or <Link href="/food/coconut-curry-vegetables" className="text-[#22c55e] hover:underline">Coconut Curry Vegetables</Link></p>
                                     <p className="text-[#c4c4c4]"><strong className="text-white">Snack:</strong> Hard boiled eggs or raw vegetables</p>
                                 </div>
@@ -405,6 +406,10 @@ export default function NoSugarDietFoodListPage() {
 
             <SiteFooter />
             <StickyDownloadBar />
+            <AppPromoPopup
+                title="Get All Recipes + Personal Meal Plan"
+                description="Download the Sukali app to access all our sugar-free recipes, personalized meal plans, and a step-by-step guide to quit sugar for good."
+            />
         </main>
     )
 }

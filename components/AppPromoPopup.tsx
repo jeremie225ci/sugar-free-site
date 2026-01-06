@@ -3,7 +3,15 @@
 import { useState, useEffect } from "react"
 import { X } from "lucide-react"
 
-export default function AppPromoPopup() {
+interface AppPromoPopupProps {
+    title?: string
+    description?: string
+}
+
+export default function AppPromoPopup({
+    title = "Want to lose face fat?",
+    description = "Download Sukali and quit sugar in 30 days. Track hidden sugars that cause facial bloating."
+}: AppPromoPopupProps) {
     const [isOpen, setIsOpen] = useState(false)
 
     useEffect(() => {
@@ -61,10 +69,10 @@ export default function AppPromoPopup() {
                 {/* Content */}
                 <div className="relative text-center">
                     <h2 className="text-2xl font-bold text-white mb-3">
-                        Want to lose face fat?
+                        {title}
                     </h2>
                     <p className="text-[#8E8E93] mb-6">
-                        Download <span className="text-[#22c55e] font-semibold">Sukali</span> and quit sugar in 30 days. Track hidden sugars that cause facial bloating.
+                        {description}
                     </p>
 
                     {/* Download buttons */}
