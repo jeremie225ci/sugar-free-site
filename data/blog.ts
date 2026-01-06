@@ -12,6 +12,17 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
     {
+        slug: "natural-sweeteners",
+        title: "Natural Sweeteners: The Complete 2026 Guide to Healthy Sugar Alternatives",
+        excerpt: "Discover the best natural sweeteners: stevia, monk fruit, allulose, erythritol and more. Compare benefits, taste, and find your perfect match.",
+        content: "",
+        image: "/assets/images/blog-images/natural-sweeteners.png",
+        category: "Nutrition",
+        author: "Sukali Team",
+        date: "2026-01-06",
+        readTime: 12
+    },
+    {
         slug: "aspartame",
         title: "Aspartame: The Complete Guide to This Controversial Sweetener",
         excerpt: "Is aspartame safe? What did the WHO really say? We break down the science, the controversy, and healthier alternatives.",
