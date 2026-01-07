@@ -9,8 +9,8 @@ export default function NoSugarDietFoodListPage() {
     const articleSchema = {
         "@context": "https://schema.org",
         "@type": "Article",
-        "headline": "14-Day No Sugar Diet Food List: Complete Meal Plan With Recipes",
-        "description": "Your complete 14-day no sugar diet food list with breakfast, lunch, dinner and snack ideas.",
+        "headline": "14-Day No Sugar Diet Food List: Free PDF + 50 Recipes",
+        "description": "Download your free PDF with 50 sugar-free recipes for a complete 14-day no sugar diet.",
         "author": {
             "@type": "Organization",
             "name": "Sukali"
@@ -44,18 +44,45 @@ export default function NoSugarDietFoodListPage() {
                     </div>
 
                     <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
-                        14-Day No Sugar Diet Food List: Complete Meal Plan With Recipes
+                        14-Day No Sugar Diet Food List: Free PDF + 50 Recipes
                     </h1>
                     <p className="text-xl text-[#8E8E93] mb-8">
-                        Your complete guide to quitting sugar for 14 days. We have organized everything by meal type and included links to our favorite recipes.
+                        Download your complete food list with 50 sugar-free recipes. Everything organized by meal type for your 14-day sugar detox.
                     </p>
 
-                    <div className="flex items-center gap-4 text-sm text-[#8E8E93] mb-8">
+                    <div className="flex items-center gap-4 text-sm text-[#8E8E93] mb-6">
                         <span>Sukali Team</span>
                         <span>•</span>
-                        <span>January 2025</span>
+                        <span>January 2026</span>
                         <span>•</span>
                         <span>12 min read</span>
+                    </div>
+
+                    {/* Download Section - PROMINENT */}
+                    <div className="bg-gradient-to-r from-[#22c55e]/20 to-[#22c55e]/5 rounded-2xl border-2 border-[#22c55e] p-6 mb-8">
+                        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+                            <div>
+                                <h2 className="text-xl font-bold text-white mb-2">📄 Download Your Free PDF</h2>
+                                <p className="text-[#c4c4c4] text-sm">50 sugar-free recipes organized by meal type. Print it, save it, use it daily.</p>
+                            </div>
+                            <div className="flex flex-col sm:flex-row gap-3 w-full md:w-auto">
+                                <a
+                                    href="/downloads/14-day-no-sugar-diet-food-list.pdf"
+                                    download
+                                    className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-[#22c55e] text-black font-bold rounded-full hover:opacity-90 whitespace-nowrap"
+                                >
+                                    ⬇️ Download PDF
+                                </a>
+                                <a
+                                    href="https://apps.apple.com/us/app/sukali-umax-no-sugar/id6749379303"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="inline-flex items-center justify-center gap-2 px-6 py-3 border-2 border-[#22c55e] text-white font-bold rounded-full hover:bg-[#22c55e]/10 whitespace-nowrap"
+                                >
+                                    📱 Get 100+ in App
+                                </a>
+                            </div>
+                        </div>
                     </div>
 
                     {/* Featured Image */}
