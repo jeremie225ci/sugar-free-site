@@ -105,7 +105,7 @@ export default function CalorieDeficitDietPage() {
                     {/* Top CTA */}
                     <div className="bg-gradient-to-r from-[#22c55e]/20 to-[#22c55e]/5 rounded-2xl border border-[#22c55e]/30 p-4 mb-8">
                         <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-                            <p className="text-white font-medium">Track calories and get low-cal recipes in our app.</p>
+                            <p className="text-white font-medium">Cut sugar to create your deficit easily. Get 100+ sugar-free recipes.</p>
                             <a
                                 href="https://apps.apple.com/us/app/sukali-umax-no-sugar/id6749379303"
                                 target="_blank"
@@ -368,11 +368,17 @@ export default function CalorieDeficitDietPage() {
                             </div>
                         </div>
 
-                        {/* App CTA */}
+                        {/* Sugar = Secret Calorie Bomb Section */}
                         <div className="bg-gradient-to-br from-[#22c55e]/20 to-[#22c55e]/5 rounded-2xl border border-[#22c55e]/30 p-6 mb-10">
-                            <h3 className="text-xl font-bold text-white mb-3">Track Your Calories Easily</h3>
+                            <h3 className="text-xl font-bold text-white mb-3">🍬 The Easiest Way to Create a Calorie Deficit: Cut Sugar</h3>
                             <p className="text-[#c4c4c4] mb-4">
-                                The Sukali app makes calorie tracking simple. Scan any food to see calories and macros instantly, access hundreds of low-calorie recipes, and stay on track with your deficit.
+                                Here is a secret: <strong className="text-white">cutting sugar is the easiest way to create a calorie deficit without feeling deprived</strong>. The average person consumes 300-500 calories daily from added sugar alone. That is already your deficit, right there.
+                            </p>
+                            <p className="text-[#c4c4c4] mb-4">
+                                Sugar is hidden everywhere: sauces, bread, yogurt, granola bars. When you eliminate these hidden sugars, you automatically eat fewer calories without even trying. Plus, removing sugar stabilizes your blood sugar, which means fewer cravings and less hunger.
+                            </p>
+                            <p className="text-[#c4c4c4] mb-4">
+                                The Sukali app helps you spot hidden sugars instantly. Snap a photo of any food and see exactly how much sugar it contains. Access hundreds of sugar-free recipes that are naturally low in calories.
                             </p>
                             <div className="flex flex-wrap gap-3">
                                 <a
@@ -551,9 +557,9 @@ export default function CalorieDeficitDietPage() {
                         {/* Bottom CTA */}
                         <div className="bg-[#1C1C1E] rounded-2xl border border-[#38383A] p-6">
                             <div className="text-center">
-                                <h3 className="text-2xl font-bold text-white mb-3">Ready to Start Your Calorie Deficit?</h3>
+                                <h3 className="text-2xl font-bold text-white mb-3">Ready to Create Your Calorie Deficit?</h3>
                                 <p className="text-[#8E8E93] mb-6 max-w-lg mx-auto">
-                                    Download Sukali to track your calories, access low-calorie recipes, and get personalized meal plans for weight loss.
+                                    Quit sugar and your deficit is almost automatic. Scan any food to check its sugar content and get hundreds of satisfying sugar-free recipes in the Sukali app.
                                 </p>
                                 <div className="flex flex-wrap justify-center gap-3">
                                     <a
@@ -584,7 +590,7 @@ export default function CalorieDeficitDietPage() {
             <StickyDownloadBar />
             <AppPromoPopup
                 title="Want to Lose Weight Faster?"
-                description="Track your calories with ease and get low-calorie recipes tailored for weight loss in the Sukali app."
+                description="Cutting sugar is the easiest way to create a calorie deficit. Scan any food to check hidden sugars and get 100+ satisfying recipes."
             />
         </main>
     )
