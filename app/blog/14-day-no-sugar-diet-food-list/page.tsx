@@ -9,7 +9,7 @@ export default function NoSugarDietFoodListPage() {
     const articleSchema = {
         "@context": "https://schema.org",
         "@type": "Article",
-        "headline": "14-Day No Sugar Diet Food List: Complete Meal Plan + 100 Recipes",
+        "headline": "14-Day No Sugar Diet Food List: Complete Meal Plan - Download App",
         "description": "Your complete 14-day no sugar diet food list with breakfast, lunch, dinner and snack ideas.",
         "author": {
             "@type": "Organization",
@@ -44,7 +44,7 @@ export default function NoSugarDietFoodListPage() {
                     </div>
 
                     <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
-                        14-Day No Sugar Diet Food List: Complete Meal Plan + 100 Recipes
+                        14-Day No Sugar Diet Food List: Complete Meal Plan - Download App
                     </h1>
                     <p className="text-xl text-[#8E8E93] mb-8">
                         Your complete guide to quitting sugar for 14 days. Everything organized by meal type, plus 100+ recipes in our app.
