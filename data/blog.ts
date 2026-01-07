@@ -510,8 +510,8 @@ Your body will thank you. And who knows maybe you will finally lose that dad-gut
     },
     {
         slug: "14-day-no-sugar-diet-food-list",
-        title: "14-Day No Sugar Diet Food List: Free PDF + 50 Recipes [2026]",
-        excerpt: "Download your FREE 14-day no sugar diet food list PDF with 50 sugar-free recipes. Breakfast, lunch, dinner & snacks included.",
+        title: "14-Day No Sugar Diet Food List: Complete Meal Plan + 100 Recipes [2026]",
+        excerpt: "Your complete 14-day no sugar diet food list with breakfast, lunch, dinner and snack ideas. Get 100+ sugar-free recipes in the Sukali app.",
         content: `
 ![14 Day No Sugar Diet Food List](/assets/images/blog-images/sugar-free-foods.png)
 
