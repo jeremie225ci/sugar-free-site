@@ -25,25 +25,75 @@ doc.pipe(fs.createWriteStream(outputPath));
 
 // Colors
 const GREEN = '#22c55e';
-const DARK = '#1C1C1E';
 const GRAY = '#8E8E93';
 
-// Image path
-const imagesDir = path.join(__dirname, '../public/assets/images/recipes');
+// Image paths mapping (image_id to actual filename)
+const imageMap = {
+    'green_detox_smoothie': 'green-detox-smoothie.jpg',
+    'avocado_power_toast': 'avocado_power_toast.jpg',
+    'coconut_chia_pudding': 'coconut-chia-pudding.jpg',
+    'zucchini_noodles_pesto': 'zucchini-noodles-pesto.jpg',
+    'greek_yogurt_parfait': 'greek-yogurt-parfait.jpg',
+    'egg_spinach_scramble': 'egg-spinach-scramble.jpg',
+    'cauliflower_rice_bowl': 'cauliflower-rice-bowl.jpg',
+    'lentil_veggie_soup': 'Carrot-Lentil-Soup-23.jpg',
+    'chicken_avocado_salad': 'chiken-avocado-salad.jpg',
+    'almond_flour_pancakes': 'Almond-flour-pancakes.jpg',
+    'mediterranean_quinoa_bowl': 'mediterranean-quinoa-bowl.jpg',
+    'spicy_tofu_stirfry': 'spicy-tofu-stirfry.jpg',
+    'herb_baked_salmon': 'herb-baked-salmon.jpg',
+    'chickpea_curry': 'chickpea-curry.jpg',
+    'zesty_lemon_chicken': 'zesty-lemon-chicken.jpg',
+    'oat_banana_pancakes': 'oat-banana-pancakes.jpg',
+    'avocado_tuna_salad': 'avocado-tuna-salad.jpg',
+    'veggie_omelette': 'veggie-omelette.jpg',
+    'berry_overnight_oats': 'berry-overnight oats.jpg',
+    'eggplant_parmesan': 'eggplant-parmesan.jpg',
+    'baked_sweet_potato_fries': 'backed-sweet-potato-fries.jpg',
+    'turmeric_golden_milk': 'turmeric-golden-milk.jpg',
+    'protein_power_bowl': 'protein-power-bowl.jpg',
+    'cucumber_mint_water': 'cucumber-mint-water.jpg',
+    'zucchini_fritters': 'zucchini-fritters.jpg',
+    'stuffed_bell_peppers': 'stuffed-bell-peppers.jpg',
+    'garlic_shrimp_skillet': 'garlic-shrimp-skillet.jpg',
+    'cauliflower_pizza_crust': 'cauliflower-pizza-crust.jpg',
+    'greek_salad_bowl': 'greek-salad-bowl.jpg',
+    'spinach_detox_soup': 'spinach-detox-soup.jpg',
+    'houmous_crudites': 'beetroot-hummus.jpg',
+    'beef_broccoli_stirfry': 'Beef-and-Broccoli-2.jpg',
+    'mushroom_spinach_frittata': 'mushroom-spinach-frittata.jpg',
+    'black_bean_corn_salsa': 'Black-Bean-and-Corn-Salsa-8.jpg',
+    'broccoli_cheddar_soup': 'BROCCOLI-CHEDDAR-SOUP-CHELSEASMESSYAPRON-1200-2.webp',
+    'cabbage_carrot_slaw': 'cabbage-and-carrot-salad-featured-image.jpg',
+    'beetroot_hummus': 'beetroot-hummus.jpg'
+};
 
-// Helper to add image if exists
-function addRecipeImage(imageId, x, y, width) {
-    const possibleExtensions = ['.jpg', '.jpeg', '.png', '.webp'];
-    for (const ext of possibleExtensions) {
-        const imagePath = path.join(imagesDir, imageId + ext);
-        if (fs.existsSync(imagePath)) {
-            try {
-                doc.image(imagePath, x, y, { width: width, height: width * 0.6 });
-                return true;
-            } catch (e) {
-                console.log('Could not add image:', imageId);
-                return false;
-            }
+const imagesDir = path.join(__dirname, '../public/assets/images');
+
+// Helper to clean text - remove all non-ASCII characters
+function cleanText(text) {
+    if (!text) return '';
+    return text
+        .replace(/[\u{1F300}-\u{1FFFF}]/gu, '') // Remove emojis
+        .replace(/[^\x00-\x7F]/g, '') // Remove non-ASCII
+        .replace(/\s+/g, ' ') // Clean whitespace
+        .trim();
+}
+
+// Helper to add image
+function addRecipeImage(imageId) {
+    const filename = imageMap[imageId];
+    if (!filename) return false;
+
+    const imagePath = path.join(imagesDir, filename);
+    if (fs.existsSync(imagePath)) {
+        try {
+            doc.image(imagePath, 50, doc.y, { width: 180, height: 120 });
+            doc.moveDown(7);
+            return true;
+        } catch (e) {
+            console.log('Could not add image:', imageId, e.message);
+            return false;
         }
     }
     return false;
@@ -52,43 +102,43 @@ function addRecipeImage(imageId, x, y, width) {
 // ============ PAGE 1: COVER ============
 doc.rect(0, 0, 595.28, 841.89).fill('#000000');
 
-// Title
 doc.fillColor('#FFFFFF')
-    .fontSize(36)
+    .fontSize(38)
     .font('Helvetica-Bold')
-    .text('14-Day No Sugar', 50, 200, { align: 'center' })
-    .text('Diet Food List', 50, 250, { align: 'center' });
+    .text('14-Day No Sugar', 50, 180, { align: 'center' })
+    .text('Diet Food List', 50, 230, { align: 'center' });
 
-// Subtitle
 doc.fillColor(GREEN)
-    .fontSize(22)
+    .fontSize(24)
     .font('Helvetica-Bold')
-    .text('50 Sugar-Free Recipes', 50, 330, { align: 'center' });
+    .text('50 Sugar-Free Recipes', 50, 310, { align: 'center' });
 
-// Description
 doc.fillColor('#CCCCCC')
     .fontSize(14)
     .font('Helvetica')
-    .text('Your complete guide to eating delicious food', 50, 390, { align: 'center' })
-    .text('without added sugar', 50, 410, { align: 'center' });
+    .text('Your complete guide to eating delicious food', 50, 380, { align: 'center' })
+    .text('without added sugar', 50, 400, { align: 'center' });
 
 // App promo box
-doc.rect(50, 500, 495, 120).fillAndStroke('#1C1C1E', GREEN);
+doc.rect(50, 480, 495, 140).fillAndStroke('#1C1C1E', GREEN);
 doc.fillColor('#FFFFFF')
-    .fontSize(18)
+    .fontSize(20)
     .font('Helvetica-Bold')
-    .text('Want 100+ More Recipes?', 70, 520);
+    .text('Want 100+ More Recipes?', 70, 505);
 doc.fillColor('#CCCCCC')
     .fontSize(12)
     .font('Helvetica')
-    .text('Download the Sukali app for hundreds of sugar-free recipes,', 70, 550)
-    .text('meal plans, and instant sugar scanning for any food.', 70, 567);
+    .text('Download the Sukali app for hundreds of sugar-free recipes,', 70, 540)
+    .text('meal plans, and instant sugar scanning for any food.', 70, 557);
 doc.fillColor(GREEN)
     .fontSize(14)
     .font('Helvetica-Bold')
-    .text('Download FREE: apps.apple.com/app/sukali', 70, 595);
+    .text('Download FREE:', 70, 590);
+doc.fillColor('#FFFFFF')
+    .fontSize(12)
+    .font('Helvetica')
+    .text('apps.apple.com/app/sukali', 185, 591);
 
-// Footer
 doc.fillColor(GRAY)
     .fontSize(10)
     .font('Helvetica')
@@ -99,119 +149,103 @@ doc.addPage();
 doc.rect(0, 0, 595.28, 841.89).fill('#FFFFFF');
 
 doc.fillColor('#000000')
-    .fontSize(28)
+    .fontSize(26)
     .font('Helvetica-Bold')
     .text('Welcome to Your Sugar-Free Journey', 50, 50);
 
 doc.fillColor('#333333')
     .fontSize(12)
     .font('Helvetica')
-    .text('This food list contains 50 delicious sugar-free recipes to help you through', 50, 100)
-    .text('your 14-day no sugar diet. Each recipe has been carefully selected to be:', 50, 117);
+    .text('This food list contains 50 delicious sugar-free recipes to help you through your 14-day no sugar diet.', 50, 100, { width: 495 });
 
-doc.fillColor('#333333')
-    .fontSize(12)
-    .font('Helvetica')
-    .text('* Zero added sugar', 70, 150)
-    .text('* Naturally low in sugar', 70, 167)
-    .text('* Easy to prepare', 70, 184)
-    .text('* Delicious and satisfying', 70, 201);
+doc.moveDown(0.5);
+doc.text('Each recipe has been carefully selected to be:', 50);
 
-doc.fillColor('#333333')
-    .fontSize(12)
-    .text('The recipes are organized by meal type:', 50, 240);
+doc.moveDown(0.5);
+doc.text('  - Zero added sugar', 50);
+doc.text('  - Naturally low in sugar', 50);
+doc.text('  - Easy to prepare', 50);
+doc.text('  - Delicious and satisfying', 50);
 
-doc.text('- Breakfast (15 recipes)', 70, 260)
-    .text('- Lunch (15 recipes)', 70, 277)
-    .text('- Dinner (15 recipes)', 70, 294)
-    .text('- Snacks (5 recipes)', 70, 311);
+doc.moveDown(1);
+doc.text('The recipes are organized by meal type:', 50);
+doc.moveDown(0.5);
+doc.text('  - Breakfast (15 recipes)', 50);
+doc.text('  - Lunch (15 recipes)', 50);
+doc.text('  - Dinner (15 recipes)', 50);
+doc.text('  - Snacks (5 recipes)', 50);
 
-doc.fillColor('#333333')
-    .fontSize(12)
-    .text('For each recipe, you will find:', 50, 350);
-
-doc.text('- Ingredients list', 70, 370)
-    .text('- Step-by-step directions', 70, 387)
-    .text('- Preparation and cooking time', 70, 404)
-    .text('- Servings information', 70, 421);
+doc.moveDown(1);
+doc.text('For each recipe, you will find:', 50);
+doc.moveDown(0.5);
+doc.text('  - Ingredients list', 50);
+doc.text('  - Step-by-step directions', 50);
+doc.text('  - Preparation and cooking time', 50);
+doc.text('  - Servings information', 50);
 
 // App CTA box
-doc.rect(50, 480, 495, 140).fillAndStroke('#000000', GREEN);
+doc.rect(50, 450, 495, 150).fillAndStroke('#000000', GREEN);
 doc.fillColor(GREEN)
     .fontSize(18)
     .font('Helvetica-Bold')
-    .text('GET THE SUKALI APP', 70, 500);
+    .text('GET THE SUKALI APP', 70, 475);
 doc.fillColor('#FFFFFF')
     .fontSize(11)
     .font('Helvetica')
-    .text('This PDF contains 50 recipes. The Sukali app has 100+ more, plus:', 70, 530);
+    .text('This PDF contains 50 recipes. The Sukali app has 100+ more, plus:', 70, 505);
 doc.fillColor('#CCCCCC')
     .fontSize(11)
-    .text('- Scan any food to see its sugar content instantly', 70, 555)
-    .text('- Personalized meal plans based on your goals', 70, 572)
-    .text('- Track your sugar-free progress', 70, 589);
+    .text('  - Scan any food to see its sugar content instantly', 70, 530)
+    .text('  - Personalized meal plans based on your goals', 70, 547)
+    .text('  - Track your sugar-free progress', 70, 564);
 
 // ============ RECIPE PAGES ============
-// Get first 50 recipes
 const selectedRecipes = recipes.slice(0, 50);
 
-// Group by meal type
+// Group recipes
 const breakfastKeywords = ['smoothie', 'toast', 'pudding', 'pancake', 'omelette', 'scramble', 'yogurt', 'parfait', 'oat', 'egg', 'overnight', 'frittata'];
-const snackKeywords = ['bar', 'bites', 'hummus', 'dip', 'balls', 'amandes', 'noix', 'water', 'milk'];
-const dinnerKeywords = ['shrimp', 'salmon', 'cod', 'beef', 'steak', 'risotto', 'curry', 'pizza', 'soup', 'stir-fry', 'skewer'];
+const snackKeywords = ['hummus', 'amandes', 'noix', 'water', 'milk', 'beetroot'];
+const dinnerKeywords = ['shrimp', 'salmon', 'cod', 'beef', 'steak', 'risotto', 'pizza', 'soup', 'stir-fry', 'skewer', 'curry'];
 
-const categorized = {
-    breakfast: [],
-    lunch: [],
-    dinner: [],
-    snacks: []
-};
+const categorized = { breakfast: [], lunch: [], dinner: [], snacks: [] };
 
 selectedRecipes.forEach(recipe => {
     const name = recipe.recipe_name.toLowerCase();
     if (breakfastKeywords.some(k => name.includes(k))) {
-        if (categorized.breakfast.length < 15) categorized.breakfast.push(recipe);
+        if (categorized.breakfast.length < 12) categorized.breakfast.push(recipe);
         else categorized.lunch.push(recipe);
     } else if (snackKeywords.some(k => name.includes(k))) {
         if (categorized.snacks.length < 5) categorized.snacks.push(recipe);
         else categorized.lunch.push(recipe);
     } else if (dinnerKeywords.some(k => name.includes(k))) {
-        if (categorized.dinner.length < 15) categorized.dinner.push(recipe);
+        if (categorized.dinner.length < 13) categorized.dinner.push(recipe);
         else categorized.lunch.push(recipe);
-    } else if (categorized.lunch.length < 15) {
+    } else if (categorized.lunch.length < 20) {
         categorized.lunch.push(recipe);
-    } else if (categorized.dinner.length < 15) {
-        categorized.dinner.push(recipe);
     } else {
-        categorized.breakfast.push(recipe);
+        categorized.dinner.push(recipe);
     }
 });
 
 // Function to add recipe
-function addRecipe(recipe, index, showImage) {
-    // Recipe number and name
+function addRecipe(recipe, index, withImage) {
     doc.fillColor(GREEN)
         .fontSize(14)
         .font('Helvetica-Bold')
-        .text(index + '. ' + recipe.recipe_name, 50);
+        .text(index + '. ' + cleanText(recipe.recipe_name), 50);
 
-    // Origin and time
     doc.fillColor(GRAY)
         .fontSize(9)
         .font('Helvetica')
-        .text(recipe.origin + ' | Time: ' + recipe.total_time + ' min | Servings: ' + recipe.servings, 50);
+        .text(cleanText(recipe.origin) + ' | Time: ' + recipe.total_time + ' min | Servings: ' + recipe.servings, 50);
 
     doc.moveDown(0.3);
 
-    // Try to add image
-    if (showImage && recipe.image_id) {
-        const imageAdded = addRecipeImage(recipe.image_id, 50, doc.y, 200);
-        if (imageAdded) {
-            doc.moveDown(8);
-        }
+    // Add image for some recipes
+    if (withImage && recipe.image_id) {
+        addRecipeImage(recipe.image_id);
     }
 
-    // Ingredients
     doc.fillColor('#333333')
         .fontSize(10)
         .font('Helvetica-Bold')
@@ -222,12 +256,11 @@ function addRecipe(recipe, index, showImage) {
         .font('Helvetica');
 
     recipe.ingredients.forEach(ing => {
-        doc.text('- ' + ing, 60);
+        doc.text('  - ' + cleanText(ing), 50);
     });
 
     doc.moveDown(0.3);
 
-    // Directions (abbreviated)
     doc.fillColor('#333333')
         .fontSize(10)
         .font('Helvetica-Bold')
@@ -238,23 +271,19 @@ function addRecipe(recipe, index, showImage) {
         .font('Helvetica');
 
     recipe.directions.slice(0, 4).forEach((dir, i) => {
-        // Clean emojis from directions
-        const cleanDir = dir.replace(/[\u{1F300}-\u{1F9FF}]|[\u{2600}-\u{26FF}]|[\u{2700}-\u{27BF}]|[0-9]\uFE0F?\u20E3|[\u{1F1E0}-\u{1F1FF}]/gu, '').replace(/^\s*/, '');
-        doc.text((i + 1) + '. ' + cleanDir, 60, undefined, { width: 480 });
+        const cleanDir = cleanText(dir);
+        doc.text('  ' + (i + 1) + '. ' + cleanDir, 50, undefined, { width: 490 });
     });
 
-    // Sugar info
     doc.moveDown(0.2);
     doc.fillColor(GREEN)
         .fontSize(9)
         .font('Helvetica')
         .text('Sugar: ' + recipe.sugar_natural_g + 'g natural | ' + recipe.sugar_added_g + 'g added', 50);
 
-    doc.moveDown(0.8);
-
-    // Add separator
-    doc.strokeColor('#EEEEEE').lineWidth(0.5).moveTo(50, doc.y).lineTo(545, doc.y).stroke();
-    doc.moveDown(0.5);
+    doc.moveDown(0.6);
+    doc.strokeColor('#DDDDDD').lineWidth(0.5).moveTo(50, doc.y).lineTo(545, doc.y).stroke();
+    doc.moveDown(0.4);
 }
 
 // Add recipes by category
@@ -267,29 +296,27 @@ const categories = [
 
 let recipeNumber = 1;
 
-categories.forEach((cat, catIndex) => {
+categories.forEach(cat => {
     if (cat.recipes.length === 0) return;
 
     doc.addPage();
     doc.rect(0, 0, 595.28, 841.89).fill('#FFFFFF');
 
-    // Category header
     doc.fillColor(GREEN)
-        .fontSize(24)
+        .fontSize(22)
         .font('Helvetica-Bold')
         .text(cat.name, 50, 50);
 
     doc.moveDown(1);
 
     cat.recipes.forEach((recipe, idx) => {
-        // Check if we need a new page
-        if (doc.y > 680) {
+        if (doc.y > 650) {
             doc.addPage();
             doc.rect(0, 0, 595.28, 841.89).fill('#FFFFFF');
             doc.y = 50;
         }
-        // Show image only for first recipe of each category
-        addRecipe(recipe, recipeNumber, idx === 0);
+        // Add image to every 3rd recipe
+        addRecipe(recipe, recipeNumber, idx % 3 === 0);
         recipeNumber++;
     });
 });
@@ -299,39 +326,36 @@ doc.addPage();
 doc.rect(0, 0, 595.28, 841.89).fill('#000000');
 
 doc.fillColor('#FFFFFF')
-    .fontSize(32)
+    .fontSize(34)
     .font('Helvetica-Bold')
-    .text('Want More Recipes?', 50, 180, { align: 'center' });
+    .text('Want More Recipes?', 50, 160, { align: 'center' });
 
 doc.fillColor('#CCCCCC')
     .fontSize(18)
     .font('Helvetica')
-    .text('This PDF has 50 recipes.', 50, 260, { align: 'center' })
-    .text('The Sukali app has 100+ more!', 50, 290, { align: 'center' });
+    .text('This PDF has 50 recipes.', 50, 240, { align: 'center' })
+    .text('The Sukali app has 100+ more!', 50, 270, { align: 'center' });
 
-// Features
 doc.fillColor('#FFFFFF')
     .fontSize(14)
     .font('Helvetica')
-    .text('* Scan any food for hidden sugars', 150, 370)
-    .text('* 100+ sugar-free recipes', 150, 395)
-    .text('* Personalized meal plans', 150, 420)
-    .text('* Track your sugar-free progress', 150, 445)
-    .text('* New recipes added weekly', 150, 470);
+    .text('  - Scan any food for hidden sugars', 150, 350)
+    .text('  - 100+ sugar-free recipes', 150, 375)
+    .text('  - Personalized meal plans', 150, 400)
+    .text('  - Track your sugar-free progress', 150, 425)
+    .text('  - New recipes added weekly', 150, 450);
 
-// Download box
-doc.rect(100, 530, 395, 100).fillAndStroke(GREEN, GREEN);
+doc.rect(100, 510, 395, 110).fillAndStroke(GREEN, GREEN);
 doc.fillColor('#000000')
-    .fontSize(22)
+    .fontSize(24)
     .font('Helvetica-Bold')
-    .text('Download Sukali FREE', 100, 555, { align: 'center', width: 395 });
+    .text('Download Sukali FREE', 100, 535, { align: 'center', width: 395 });
 doc.fillColor('#000000')
-    .fontSize(14)
+    .fontSize(13)
     .font('Helvetica')
-    .text('iOS: apps.apple.com/app/sukali', 100, 590, { align: 'center', width: 395 })
-    .text('Android: play.google.com/store/apps/sukali', 100, 610, { align: 'center', width: 395 });
+    .text('iOS: apps.apple.com/app/sukali', 100, 575, { align: 'center', width: 395 })
+    .text('Android: play.google.com/store/apps/sukali', 100, 595, { align: 'center', width: 395 });
 
-// Footer
 doc.fillColor(GRAY)
     .fontSize(11)
     .font('Helvetica')
@@ -339,15 +363,9 @@ doc.fillColor(GRAY)
 
 doc.fillColor(GRAY)
     .fontSize(10)
-    .font('Helvetica')
     .text('2026 Sukali | sugar-frees.com', 50, 780, { align: 'center' });
 
-// Finalize
 doc.end();
 
-console.log('PDF created successfully at:', outputPath);
-console.log('Recipes included:');
-console.log('- Breakfast:', categorized.breakfast.length);
-console.log('- Lunch:', categorized.lunch.length);
-console.log('- Dinner:', categorized.dinner.length);
-console.log('- Snacks:', categorized.snacks.length);
+console.log('PDF created successfully!');
+console.log('Recipes: Breakfast=' + categorized.breakfast.length + ', Lunch=' + categorized.lunch.length + ', Dinner=' + categorized.dinner.length + ', Snacks=' + categorized.snacks.length);
