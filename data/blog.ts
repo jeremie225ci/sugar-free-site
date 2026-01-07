@@ -12,6 +12,28 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
     {
+        slug: "calorie-deficit-diet",
+        title: "Calorie Deficit Diet: The Science-Backed Guide to Weight Loss",
+        excerpt: "Master the calorie deficit diet for sustainable weight loss. Calculate your deficit, meal plans, and avoid common mistakes.",
+        content: "",
+        image: "/assets/images/blog-images/calorie-deficit-diet.png",
+        category: "Weight Loss",
+        author: "Sukali Team",
+        date: "2026-01-07",
+        readTime: 15
+    },
+    {
+        slug: "healthy-diet",
+        title: "Healthy Diet: The Complete 2026 Guide to Eating Well",
+        excerpt: "Learn how to build a healthy diet that works. Science-backed nutrition tips, meal ideas, and a complete food list.",
+        content: "",
+        image: "/assets/images/blog-images/healthy-diet.png",
+        category: "Nutrition",
+        author: "Sukali Team",
+        date: "2026-01-07",
+        readTime: 14
+    },
+    {
         slug: "natural-sweeteners",
         title: "Natural Sweeteners: The Complete 2026 Guide to Healthy Sugar Alternatives",
         excerpt: "Discover the best natural sweeteners: stevia, monk fruit, allulose, erythritol and more. Compare benefits, taste, and find your perfect match.",
