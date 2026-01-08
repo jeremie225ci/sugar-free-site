@@ -12,6 +12,28 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
     {
+        slug: "how-to-stop-sugar-cravings",
+        title: "How to Stop Sugar Cravings: 12 Science-Backed Methods That Work",
+        excerpt: "Learn how to stop sugar cravings for good with proven strategies. From protein-rich foods to sleep optimization, discover what actually works.",
+        content: "",
+        image: "/assets/images/blog-images/how-to-stop-sugar-cravings.png",
+        category: "Sugar Cravings",
+        author: "Sukali Team",
+        date: "2026-01-08",
+        readTime: 14
+    },
+    {
+        slug: "how-to-curb-sugar-cravings",
+        title: "How to Curb Sugar Cravings: 15 Quick Tips That Work Instantly",
+        excerpt: "Discover how to curb sugar cravings fast with these 15 proven tips. From healthy swaps to mindset tricks, beat your sweet tooth today.",
+        content: "",
+        image: "/assets/images/blog-images/how-to-curb-sugar-cravings.png",
+        category: "Sugar Cravings",
+        author: "Sukali Team",
+        date: "2026-01-08",
+        readTime: 10
+    },
+    {
         slug: "calorie-deficit-diet",
         title: "Calorie Deficit Diet: The Science-Backed Guide to Weight Loss",
         excerpt: "Master the calorie deficit diet for sustainable weight loss. Calculate your deficit, meal plans, and avoid common mistakes.",
