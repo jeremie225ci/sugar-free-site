@@ -12,6 +12,28 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
     {
+        slug: "glucofort-review",
+        title: "Glucofort Review 2026: Does This Blood Sugar Supplement Work?",
+        excerpt: "Honest Glucofort review with ingredient analysis, benefits, side effects, and user experiences. Find out if this blood sugar supplement is worth trying.",
+        content: "",
+        image: "/assets/images/blog-images/glucofort-review.png",
+        category: "Supplements",
+        author: "Sukali Team",
+        date: "2026-01-09",
+        readTime: 12
+    },
+    {
+        slug: "homemade-whipped-cream",
+        title: "Homemade Whipped Cream (Sugar-Free): 3 Minutes, 3 Ingredients",
+        excerpt: "Learn how to make delicious homemade whipped cream without sugar. This easy 3-ingredient recipe takes just 3 minutes.",
+        content: "",
+        image: "/assets/images/blog-images/homemade-whipped-cream.png",
+        category: "Recipes",
+        author: "Sukali Team",
+        date: "2026-01-09",
+        readTime: 5
+    },
+    {
         slug: "how-to-stop-sugar-cravings",
         title: "How to Stop Sugar Cravings: 12 Science-Backed Methods That Work",
         excerpt: "Learn how to stop sugar cravings for good with proven strategies. From protein-rich foods to sleep optimization, discover what actually works.",
