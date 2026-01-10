@@ -12,6 +12,17 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
     {
+        slug: "best-way-to-lose-belly-fat",
+        title: "Best Way to Lose Belly Fat: What Actually Works in 2026",
+        excerpt: "Discover the best way to lose belly fat backed by science. No gimmicks, no supplements. Just proven strategies that work.",
+        content: "",
+        image: "/assets/images/blog-images/best-way-to-lose-belly-fat.png",
+        category: "Weight Loss",
+        author: "Sukali Team",
+        date: "2026-01-10",
+        readTime: 12
+    },
+    {
         slug: "saxenda",
         title: "Saxenda for Weight Loss: What You Need to Know Before Starting",
         excerpt: "Complete guide to Saxenda (liraglutide) for weight loss. How it works, side effects, cost, and whether natural alternatives might work better.",
