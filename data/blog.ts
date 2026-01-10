@@ -12,6 +12,17 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
     {
+        slug: "saxenda",
+        title: "Saxenda for Weight Loss: What You Need to Know Before Starting",
+        excerpt: "Complete guide to Saxenda (liraglutide) for weight loss. How it works, side effects, cost, and whether natural alternatives might work better.",
+        content: "",
+        image: "/assets/images/blog-images/saxenda-weight-loss.png",
+        category: "Weight Loss",
+        author: "Sukali Team",
+        date: "2026-01-10",
+        readTime: 11
+    },
+    {
         slug: "glucofort-review",
         title: "Glucofort Review 2026: Does This Blood Sugar Supplement Work?",
         excerpt: "Honest Glucofort review with ingredient analysis, benefits, side effects, and user experiences. Find out if this blood sugar supplement is worth trying.",
