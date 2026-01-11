@@ -12,6 +12,28 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
     {
+        slug: "sugar-free",
+        title: "Sugar Free: The Complete Guide to Living Without Added Sugar",
+        excerpt: "Everything you need to know about going sugar free. Benefits, what to eat, and how to make it sustainable long-term.",
+        content: "",
+        image: "/assets/images/blog-images/sugar-free-lifestyle.png",
+        category: "Lifestyle",
+        author: "Sukali Team",
+        date: "2026-01-12",
+        readTime: 15
+    },
+    {
+        slug: "daily-consumption-of-sugar",
+        title: "Daily Consumption of Sugar: How Much Is Too Much?",
+        excerpt: "Discover how much sugar you really eat daily and why it matters. Learn the recommended limits and how to track your intake.",
+        content: "",
+        image: "/assets/images/blog-images/sukali-app-scan.jpg",
+        category: "Nutrition",
+        author: "Sukali Team",
+        date: "2026-01-12",
+        readTime: 10
+    },
+    {
         slug: "best-way-to-lose-belly-fat",
         title: "Best Way to Lose Belly Fat: What Actually Works in 2026",
         excerpt: "Discover the best way to lose belly fat backed by science. No gimmicks, no supplements. Just proven strategies that work.",
