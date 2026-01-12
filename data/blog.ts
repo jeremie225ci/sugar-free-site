@@ -12,6 +12,28 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
     {
+        slug: "sugar-type",
+        title: "Sugar Type: Understanding the Different Types of Sugar",
+        excerpt: "Is brown sugar healthier than white? What about honey or agave? Learn the truth about different types of sugar.",
+        content: "",
+        image: "/assets/images/blog-images/sugar-types.png",
+        category: "Nutrition",
+        author: "Sukali Team",
+        date: "2026-01-12",
+        readTime: 11
+    },
+    {
+        slug: "cutting-out-sugar",
+        title: "Cutting Out Sugar: The Complete Guide to Quitting Sugar",
+        excerpt: "Everything you need to know about cutting out sugar. What to expect, how to handle cravings, and the benefits.",
+        content: "",
+        image: "/assets/images/blog-images/cutting-out-sugar.png",
+        category: "Lifestyle",
+        author: "Sukali Team",
+        date: "2026-01-12",
+        readTime: 13
+    },
+    {
         slug: "sugar-free",
         title: "Sugar Free: The Complete Guide to Living Without Added Sugar",
         excerpt: "Everything you need to know about going sugar free. Benefits, what to eat, and how to make it sustainable long-term.",
