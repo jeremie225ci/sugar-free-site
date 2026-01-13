@@ -12,6 +12,28 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
     {
+        slug: "healthy-sugar",
+        title: "Healthy Sugar: The Complete Guide to Smart Sugar Choices",
+        excerpt: "Learn which sugars are healthiest, how to choose better alternatives, and how to reduce sugar intake while still enjoying sweet foods.",
+        content: "",
+        image: "/assets/images/blog-images/healthy-sugar.png",
+        category: "Nutrition",
+        author: "Sukali Team",
+        date: "2026-01-13",
+        readTime: 9
+    },
+    {
+        slug: "clear-skin-diet",
+        title: "Clear Skin Diet: Foods That Transform Your Skin From Within",
+        excerpt: "Discover the best diet for clear, glowing skin. Learn which foods cause acne and how sugar affects your complexion.",
+        content: "",
+        image: "/assets/images/blog-images/clear-skin-diet.png",
+        category: "Health",
+        author: "Sukali Team",
+        date: "2026-01-13",
+        readTime: 11
+    },
+    {
         slug: "sugar-type",
         title: "Sugar Type: Understanding the Different Types of Sugar",
         excerpt: "Is brown sugar healthier than white? What about honey or agave? Learn the truth about different types of sugar.",
