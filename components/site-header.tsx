@@ -9,6 +9,7 @@ export default function SiteHeader() {
 
   const nav = [
     { href: "/", label: "Home" },
+    { href: "/quiz", label: "Quiz" },
     { href: "/food", label: "Recipes" },
     { href: "/blog", label: "Blog" },
     { href: "/contact", label: "Contact" },
