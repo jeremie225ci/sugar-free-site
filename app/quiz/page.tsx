@@ -51,6 +51,17 @@ const questions: Question[] = [
     },
     {
         id: 4,
+        question: "Do you notice puffiness or bloating in your face, especially in the morning?",
+        emoji: "😮",
+        options: [
+            { text: "No, my face looks normal", points: 0 },
+            { text: "Sometimes, after eating certain foods", points: 1 },
+            { text: "Yes, my face often looks puffy", points: 2 },
+            { text: "Yes, my face is constantly bloated", points: 3 }
+        ]
+    },
+    {
+        id: 5,
         question: "Do you experience bloating, gas, or acid reflux after eating?",
         emoji: "🤢",
         options: [
@@ -61,7 +72,7 @@ const questions: Question[] = [
         ]
     },
     {
-        id: 5,
+        id: 6,
         question: "How would you describe your current weight situation?",
         emoji: "⚖️",
         options: [
@@ -72,7 +83,7 @@ const questions: Question[] = [
         ]
     },
     {
-        id: 6,
+        id: 7,
         question: "Do you carry excess weight around your belly area?",
         emoji: "🎯",
         options: [
@@ -83,7 +94,7 @@ const questions: Question[] = [
         ]
     },
     {
-        id: 7,
+        id: 8,
         question: "How often do you drink sugary beverages (soda, juice, sweetened coffee)?",
         emoji: "🥤",
         options: [
@@ -94,7 +105,7 @@ const questions: Question[] = [
         ]
     },
     {
-        id: 8,
+        id: 9,
         question: "Do you experience energy crashes during the day?",
         emoji: "😴",
         options: [
@@ -105,7 +116,7 @@ const questions: Question[] = [
         ]
     },
     {
-        id: 9,
+        id: 10,
         question: "How do you feel 1-2 hours after eating a sugary snack?",
         emoji: "🍩",
         options: [
@@ -116,7 +127,7 @@ const questions: Question[] = [
         ]
     },
     {
-        id: 10,
+        id: 11,
         question: "Do you read nutrition labels to check sugar content?",
         emoji: "🏷️",
         options: [
@@ -127,7 +138,7 @@ const questions: Question[] = [
         ]
     },
     {
-        id: 11,
+        id: 12,
         question: "Have you tried to reduce sugar before but couldn't maintain it?",
         emoji: "🔄",
         options: [
@@ -138,7 +149,7 @@ const questions: Question[] = [
         ]
     },
     {
-        id: 12,
+        id: 13,
         question: "Do you often feel tired even after sleeping enough?",
         emoji: "😩",
         options: [
@@ -149,7 +160,7 @@ const questions: Question[] = [
         ]
     },
     {
-        id: 13,
+        id: 14,
         question: "What's your main motivation for improving your diet?",
         emoji: "💪",
         options: [
@@ -173,46 +184,45 @@ interface Result {
 
 function getResult(score: number): Result {
     const maxScore = questions.length * 3
-    const percentage = Math.round((score / maxScore) * 100)
 
-    if (score <= 9) {
+    if (score <= 10) {
         return {
             title: "Sugar Conscious",
             emoji: "🌟",
-            description: "Excellent! You have a healthy relationship with sugar. Your body is likely thanking you with stable energy, clear skin, and good digestion.",
-            recommendation: "Keep up the amazing work! The Sukali app can help you discover even more sugar-free recipes and maintain your healthy habits.",
+            description: "You're doing better than most people, but even small amounts of hidden sugar can silently damage your health over time. Prevention is better than cure.",
+            recommendation: "Stay ahead of potential health issues. Download Sukali to scan foods for hidden sugars you might be missing and maintain your healthy habits with 100+ sugar-free recipes.",
             color: "#22c55e",
-            alertLevel: "LOW RISK",
-            alertColor: "#22c55e"
+            alertLevel: "⚠️ PREVENTION RECOMMENDED",
+            alertColor: "#eab308"
         }
-    } else if (score <= 18) {
+    } else if (score <= 21) {
         return {
             title: "Sugar Aware",
             emoji: "👀",
-            description: "You're doing okay, but there's room for improvement. You may be experiencing some mild symptoms like occasional energy dips or minor skin issues related to sugar.",
-            recommendation: "A 14-day sugar challenge could help you feel significantly better. Use Sukali to identify hidden sugars in your diet.",
+            description: "Your body is already showing warning signs. The symptoms you're experiencing - energy dips, skin issues, face puffiness - are directly linked to sugar consumption.",
+            recommendation: "Don't wait until it gets worse. Start a 14-day sugar challenge now with Sukali to identify and eliminate hidden sugars before they cause more damage.",
             color: "#eab308",
-            alertLevel: "MODERATE RISK",
-            alertColor: "#eab308"
+            alertLevel: "⚠️ ACTION NEEDED",
+            alertColor: "#f97316"
         }
-    } else if (score <= 29) {
+    } else if (score <= 32) {
         return {
             title: "Sugar Dependent",
             emoji: "⚠️",
-            description: "Sugar is having a significant impact on your life. The symptoms you're experiencing - energy crashes, cravings, digestive issues, or skin problems - are likely connected to your sugar intake.",
-            recommendation: "Your body is sending clear warning signals. You need to take action now. Start with our 14-day challenge using Sukali to track and reduce your sugar intake.",
+            description: "Sugar is causing serious damage to your body. Your symptoms - weight gain, face bloating, energy crashes, skin problems, digestive issues - are all connected to excess sugar consumption.",
+            recommendation: "Your health is at risk. You need to act NOW. Download Sukali immediately to start your 14-day sugar detox and reverse these symptoms before they become permanent.",
             color: "#f97316",
-            alertLevel: "HIGH RISK",
-            alertColor: "#f97316"
+            alertLevel: "🚨 HIGH RISK - ACT NOW",
+            alertColor: "#ef4444"
         }
     } else {
         return {
             title: "Sugar Addicted",
             emoji: "🚨",
-            description: "Sugar has a strong hold on your body. Many of the symptoms you're experiencing - fatigue, weight gain, skin issues, digestive problems - are likely caused or worsened by excess sugar consumption.",
-            recommendation: "URGENT: Your health is at serious risk. A sugar detox could transform how you feel within just 2 weeks. Download Sukali immediately to start your recovery.",
+            description: "CRITICAL: Sugar has taken control of your body. Your fatigue, weight gain, puffy face, skin problems, and digestive issues are all symptoms of severe sugar damage. This will only get worse without intervention.",
+            recommendation: "URGENT ACTION REQUIRED: Your body is in crisis. Every day you wait, the damage increases. Download Sukali RIGHT NOW to start your emergency 14-day sugar detox. This is not optional.",
             color: "#ef4444",
-            alertLevel: "CRITICAL RISK",
+            alertLevel: "🚨 CRITICAL - IMMEDIATE ACTION REQUIRED",
             alertColor: "#ef4444"
         }
     }
@@ -428,8 +438,8 @@ export default function QuizPage() {
                                             key={index}
                                             onClick={() => handleAnswer(option.points, index)}
                                             className={`w-full text-left p-4 rounded-xl border transition-all duration-200 ${selectedOption === index
-                                                    ? 'bg-[#22c55e] border-[#22c55e] text-black'
-                                                    : 'bg-black/50 border-[#38383A] text-white hover:border-[#22c55e]/50'
+                                                ? 'bg-[#22c55e] border-[#22c55e] text-black'
+                                                : 'bg-black/50 border-[#38383A] text-white hover:border-[#22c55e]/50'
                                                 }`}
                                         >
                                             <span className="font-medium">{option.text}</span>
