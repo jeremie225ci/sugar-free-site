@@ -187,42 +187,42 @@ function getResult(score: number): Result {
 
     if (score <= 10) {
         return {
-            title: "Sugar Conscious",
-            emoji: "🌟",
-            description: "You're doing better than most people, but even small amounts of hidden sugar can silently damage your health over time. Prevention is better than cure.",
-            recommendation: "Stay ahead of potential health issues. Download Sukali to scan foods for hidden sugars you might be missing and maintain your healthy habits with 100+ sugar-free recipes.",
-            color: "#22c55e",
-            alertLevel: "⚠️ PREVENTION RECOMMENDED",
-            alertColor: "#eab308"
+            title: "Hidden Sugar Risk Detected",
+            emoji: "⚠️",
+            description: "Even with a low score, our analysis shows you're likely consuming hidden sugars without realizing it. 73% of packaged foods contain added sugar. These hidden sugars silently damage your health, causing weight gain, skin aging, and energy crashes.",
+            recommendation: "IMPORTANT: Hidden sugars are everywhere - in bread, sauces, yogurt, and foods you'd never suspect. Download Sukali NOW to scan your foods and discover the hidden sugars you're consuming without knowing.",
+            color: "#f97316",
+            alertLevel: "🚨 HIDDEN SUGAR RISK DETECTED",
+            alertColor: "#ef4444"
         }
     } else if (score <= 21) {
         return {
-            title: "Sugar Aware",
-            emoji: "👀",
-            description: "Your body is already showing warning signs. The symptoms you're experiencing - energy dips, skin issues, face puffiness - are directly linked to sugar consumption.",
-            recommendation: "Don't wait until it gets worse. Start a 14-day sugar challenge now with Sukali to identify and eliminate hidden sugars before they cause more damage.",
-            color: "#eab308",
-            alertLevel: "⚠️ ACTION NEEDED",
-            alertColor: "#f97316"
+            title: "Sugar Dependency Developing",
+            emoji: "🚨",
+            description: "Your body is showing clear warning signs of sugar dependency. The symptoms you're experiencing - energy crashes, skin issues, face puffiness, weight gain - are directly caused by sugar. This will get worse without action.",
+            recommendation: "Your health is deteriorating. You need to act NOW before these symptoms become permanent. Download Sukali immediately to start your 14-day sugar detox and reverse the damage.",
+            color: "#ef4444",
+            alertLevel: "🚨 ACTION REQUIRED - HEALTH AT RISK",
+            alertColor: "#ef4444"
         }
     } else if (score <= 32) {
         return {
-            title: "Sugar Dependent",
-            emoji: "⚠️",
-            description: "Sugar is causing serious damage to your body. Your symptoms - weight gain, face bloating, energy crashes, skin problems, digestive issues - are all connected to excess sugar consumption.",
-            recommendation: "Your health is at risk. You need to act NOW. Download Sukali immediately to start your 14-day sugar detox and reverse these symptoms before they become permanent.",
-            color: "#f97316",
-            alertLevel: "🚨 HIGH RISK - ACT NOW",
+            title: "Severe Sugar Damage",
+            emoji: "🚨",
+            description: "ALERT: Sugar is causing serious damage to your body. Your symptoms - weight gain, bloated face, constant fatigue, skin problems, digestive issues - are all direct consequences of sugar toxicity in your system.",
+            recommendation: "URGENT: Your body is in crisis. Every day you wait, the damage increases. Download Sukali RIGHT NOW to start your emergency sugar detox. This cannot wait.",
+            color: "#ef4444",
+            alertLevel: "🚨 SEVERE DAMAGE - IMMEDIATE ACTION REQUIRED",
             alertColor: "#ef4444"
         }
     } else {
         return {
-            title: "Sugar Addicted",
+            title: "Critical Sugar Addiction",
             emoji: "🚨",
-            description: "CRITICAL: Sugar has taken control of your body. Your fatigue, weight gain, puffy face, skin problems, and digestive issues are all symptoms of severe sugar damage. This will only get worse without intervention.",
-            recommendation: "URGENT ACTION REQUIRED: Your body is in crisis. Every day you wait, the damage increases. Download Sukali RIGHT NOW to start your emergency 14-day sugar detox. This is not optional.",
+            description: "CRITICAL ALERT: Sugar has taken complete control of your body. Your extreme fatigue, rapid weight gain, puffy face, skin damage, and constant digestive problems are signs of severe sugar poisoning. Without immediate intervention, these conditions will worsen dramatically.",
+            recommendation: "EMERGENCY: Your body is in crisis mode. You are at serious risk of developing diabetes, heart disease, and other life-threatening conditions. Download Sukali IMMEDIATELY - every hour you delay causes more permanent damage.",
             color: "#ef4444",
-            alertLevel: "🚨 CRITICAL - IMMEDIATE ACTION REQUIRED",
+            alertLevel: "🚨🚨 CRITICAL EMERGENCY - ACT NOW 🚨🚨",
             alertColor: "#ef4444"
         }
     }
