@@ -73,6 +73,17 @@ const questions: Question[] = [
     },
     {
         id: 6,
+        question: "Do you carry excess weight around your belly area?",
+        emoji: "🎯",
+        options: [
+            { text: "No, my weight is evenly distributed", points: 0 },
+            { text: "A little bit", points: 1 },
+            { text: "Yes, most of my weight is in my belly", points: 2 },
+            { text: "Yes, and it's getting worse", points: 3 }
+        ]
+    },
+    {
+        id: 7,
         question: "How often do you drink sugary beverages (soda, juice, sweetened coffee)?",
         emoji: "🥤",
         options: [
@@ -83,7 +94,7 @@ const questions: Question[] = [
         ]
     },
     {
-        id: 7,
+        id: 8,
         question: "Do you experience energy crashes during the day?",
         emoji: "😴",
         options: [
@@ -94,7 +105,7 @@ const questions: Question[] = [
         ]
     },
     {
-        id: 8,
+        id: 9,
         question: "How do you feel 1-2 hours after eating a sugary snack?",
         emoji: "🍩",
         options: [
@@ -105,7 +116,7 @@ const questions: Question[] = [
         ]
     },
     {
-        id: 9,
+        id: 10,
         question: "Do you read nutrition labels to check sugar content?",
         emoji: "🏷️",
         options: [
@@ -116,18 +127,18 @@ const questions: Question[] = [
         ]
     },
     {
-        id: 10,
+        id: 11,
         question: "Have you tried to reduce sugar before but couldn't maintain it?",
         emoji: "🔄",
         options: [
+            { text: "No, I successfully reduced and maintained", points: 0 },
             { text: "No, I've never tried", points: 1 },
             { text: "Yes, once, but gave up", points: 2 },
-            { text: "Yes, multiple times without success", points: 3 },
-            { text: "No, I successfully reduced and maintained", points: 0 }
+            { text: "Yes, multiple times without success", points: 3 }
         ]
     },
     {
-        id: 11,
+        id: 12,
         question: "Do you often feel tired even after sleeping enough?",
         emoji: "😩",
         options: [
@@ -138,7 +149,7 @@ const questions: Question[] = [
         ]
     },
     {
-        id: 12,
+        id: 13,
         question: "What's your main motivation for improving your diet?",
         emoji: "💪",
         options: [
@@ -156,40 +167,53 @@ interface Result {
     description: string
     recommendation: string
     color: string
+    alertLevel: string
+    alertColor: string
 }
 
 function getResult(score: number): Result {
-    if (score <= 8) {
+    const maxScore = questions.length * 3
+    const percentage = Math.round((score / maxScore) * 100)
+
+    if (score <= 9) {
         return {
             title: "Sugar Conscious",
             emoji: "🌟",
             description: "Excellent! You have a healthy relationship with sugar. Your body is likely thanking you with stable energy, clear skin, and good digestion.",
             recommendation: "Keep up the amazing work! The Sukali app can help you discover even more sugar-free recipes and maintain your healthy habits.",
-            color: "#22c55e"
+            color: "#22c55e",
+            alertLevel: "LOW RISK",
+            alertColor: "#22c55e"
         }
-    } else if (score <= 16) {
+    } else if (score <= 18) {
         return {
             title: "Sugar Aware",
             emoji: "👀",
             description: "You're doing okay, but there's room for improvement. You may be experiencing some mild symptoms like occasional energy dips or minor skin issues related to sugar.",
             recommendation: "A 14-day sugar challenge could help you feel significantly better. Use Sukali to identify hidden sugars in your diet.",
-            color: "#eab308"
+            color: "#eab308",
+            alertLevel: "MODERATE RISK",
+            alertColor: "#eab308"
         }
-    } else if (score <= 26) {
+    } else if (score <= 29) {
         return {
             title: "Sugar Dependent",
             emoji: "⚠️",
             description: "Sugar is having a significant impact on your life. The symptoms you're experiencing - energy crashes, cravings, digestive issues, or skin problems - are likely connected to your sugar intake.",
-            recommendation: "You would benefit greatly from reducing sugar. Your body is showing clear signs that change is needed. Start with our 14-day challenge using Sukali.",
-            color: "#f97316"
+            recommendation: "Your body is sending clear warning signals. You need to take action now. Start with our 14-day challenge using Sukali to track and reduce your sugar intake.",
+            color: "#f97316",
+            alertLevel: "HIGH RISK",
+            alertColor: "#f97316"
         }
     } else {
         return {
             title: "Sugar Addicted",
             emoji: "🚨",
             description: "Sugar has a strong hold on your body. Many of the symptoms you're experiencing - fatigue, weight gain, skin issues, digestive problems - are likely caused or worsened by excess sugar consumption.",
-            recommendation: "The good news? This is completely reversible. A sugar detox could transform how you feel within just 2 weeks. Download Sukali to start your journey today.",
-            color: "#ef4444"
+            recommendation: "URGENT: Your health is at serious risk. A sugar detox could transform how you feel within just 2 weeks. Download Sukali immediately to start your recovery.",
+            color: "#ef4444",
+            alertLevel: "CRITICAL RISK",
+            alertColor: "#ef4444"
         }
     }
 }
@@ -197,12 +221,14 @@ function getResult(score: number): Result {
 const loadingMessages = [
     "Analyzing your responses...",
     "Calculating your sugar profile...",
-    "Identifying patterns...",
+    "Identifying health patterns...",
+    "Evaluating risk factors...",
     "Preparing personalized recommendations...",
     "Almost there..."
 ]
 
 export default function QuizPage() {
+    const [started, setStarted] = useState(false)
     const [currentQuestion, setCurrentQuestion] = useState(0)
     const [answers, setAnswers] = useState<number[]>([])
     const [showResult, setShowResult] = useState(false)
@@ -231,7 +257,7 @@ export default function QuizPage() {
                 setLoadingMessageIndex(prev =>
                     prev < loadingMessages.length - 1 ? prev + 1 : prev
                 )
-            }, 600)
+            }, 500)
 
             return () => {
                 clearInterval(interval)
@@ -251,7 +277,6 @@ export default function QuizPage() {
                 setCurrentQuestion(currentQuestion + 1)
                 setSelectedOption(null)
             } else {
-                // Show loading animation before results
                 setIsLoading(true)
                 setLoadingProgress(0)
                 setLoadingMessageIndex(0)
@@ -261,8 +286,10 @@ export default function QuizPage() {
 
     const totalScore = answers.reduce((a, b) => a + b, 0)
     const result = getResult(totalScore)
+    const maxScore = questions.length * 3
 
     const restartQuiz = () => {
+        setStarted(false)
         setCurrentQuestion(0)
         setAnswers([])
         setShowResult(false)
@@ -278,11 +305,63 @@ export default function QuizPage() {
             <section className="pt-24 pb-16 md:pt-32 md:pb-24">
                 <div className="mx-auto max-w-2xl px-4">
 
-                    {isLoading ? (
+                    {!started ? (
+                        /* Intro Screen */
+                        <div className="text-center">
+                            <div className="text-7xl mb-6">🩺</div>
+
+                            <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
+                                Sugar Health Assessment
+                            </h1>
+
+                            <p className="text-xl text-[#c4c4c4] mb-8 max-w-lg mx-auto">
+                                Before we can help you, we need to understand your symptoms and relationship with sugar.
+                            </p>
+
+                            <div className="bg-[#1C1C1E] rounded-2xl border border-[#38383A] p-6 mb-8 text-left">
+                                <h3 className="text-lg font-bold text-white mb-4">This quick assessment will help us:</h3>
+                                <ul className="space-y-3 text-[#c4c4c4]">
+                                    <li className="flex items-start gap-3">
+                                        <span className="text-[#22c55e]">✓</span>
+                                        <span>Identify symptoms you may not realize are linked to sugar</span>
+                                    </li>
+                                    <li className="flex items-start gap-3">
+                                        <span className="text-[#22c55e]">✓</span>
+                                        <span>Understand your current sugar dependency level</span>
+                                    </li>
+                                    <li className="flex items-start gap-3">
+                                        <span className="text-[#22c55e]">✓</span>
+                                        <span>Calculate your personal risk score</span>
+                                    </li>
+                                    <li className="flex items-start gap-3">
+                                        <span className="text-[#22c55e]">✓</span>
+                                        <span>Provide personalized recommendations for your situation</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div className="bg-gradient-to-br from-[#f97316]/20 to-[#f97316]/5 rounded-2xl border border-[#f97316]/30 p-4 mb-8">
+                                <p className="text-[#f97316] font-medium">
+                                    ⚠️ Answer honestly for accurate results. This takes only 2 minutes.
+                                </p>
+                            </div>
+
+                            <button
+                                onClick={() => setStarted(true)}
+                                className="px-8 py-4 bg-[#22c55e] text-black font-bold text-lg rounded-full hover:opacity-90 transition-opacity"
+                            >
+                                Start Assessment →
+                            </button>
+
+                            <p className="text-[#8E8E93] text-sm mt-6">
+                                {questions.length} questions • 100% confidential
+                            </p>
+                        </div>
+
+                    ) : isLoading ? (
                         /* Loading Animation */
                         <div className="flex flex-col items-center justify-center min-h-[60vh]">
                             <div className="relative w-40 h-40 mb-8">
-                                {/* Circular progress */}
                                 <svg className="w-full h-full transform -rotate-90">
                                     <circle
                                         cx="80"
@@ -305,7 +384,6 @@ export default function QuizPage() {
                                         className="transition-all duration-100"
                                     />
                                 </svg>
-                                {/* Percentage in center */}
                                 <div className="absolute inset-0 flex items-center justify-center">
                                     <span className="text-4xl font-bold text-white">{Math.round(loadingProgress)}%</span>
                                 </div>
@@ -318,6 +396,7 @@ export default function QuizPage() {
                                 Please wait while we analyze your results
                             </p>
                         </div>
+
                     ) : !showResult ? (
                         <>
                             {/* Progress Bar */}
@@ -376,6 +455,20 @@ export default function QuizPage() {
                     ) : (
                         /* Result */
                         <div className="text-center">
+                            {/* Alert Score Badge */}
+                            <div
+                                className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-6"
+                                style={{ backgroundColor: `${result.alertColor}20`, border: `1px solid ${result.alertColor}` }}
+                            >
+                                <div
+                                    className="w-3 h-3 rounded-full animate-pulse"
+                                    style={{ backgroundColor: result.alertColor }}
+                                />
+                                <span className="font-bold text-sm" style={{ color: result.alertColor }}>
+                                    {result.alertLevel}
+                                </span>
+                            </div>
+
                             <div
                                 className="text-8xl mb-6"
                                 style={{ filter: `drop-shadow(0 0 20px ${result.color}40)` }}
@@ -390,24 +483,47 @@ export default function QuizPage() {
                                 {result.title}
                             </h1>
 
-                            <div className="flex justify-center gap-2 mb-6">
-                                <span className="text-[#8E8E93]">Your score:</span>
-                                <span className="font-bold" style={{ color: result.color }}>{totalScore}/{questions.length * 3}</span>
+                            {/* Score Display */}
+                            <div className="bg-[#1C1C1E] rounded-2xl border border-[#38383A] p-6 mb-6 inline-block">
+                                <div className="flex items-center gap-6">
+                                    <div className="text-center">
+                                        <p className="text-[#8E8E93] text-sm mb-1">Your Score</p>
+                                        <p className="text-3xl font-bold" style={{ color: result.color }}>
+                                            {totalScore}/{maxScore}
+                                        </p>
+                                    </div>
+                                    <div className="h-12 w-px bg-[#38383A]" />
+                                    <div className="text-center">
+                                        <p className="text-[#8E8E93] text-sm mb-1">Risk Level</p>
+                                        <p className="text-3xl font-bold" style={{ color: result.alertColor }}>
+                                            {Math.round((totalScore / maxScore) * 100)}%
+                                        </p>
+                                    </div>
+                                </div>
                             </div>
 
                             <p className="text-lg text-[#c4c4c4] mb-6 max-w-lg mx-auto">
                                 {result.description}
                             </p>
 
-                            <div className="bg-[#1C1C1E] rounded-2xl border border-[#38383A] p-6 mb-8 text-left">
-                                <h3 className="text-lg font-bold text-white mb-3">💡 Our Recommendation</h3>
-                                <p className="text-[#8E8E93]">{result.recommendation}</p>
+                            <div
+                                className="rounded-2xl border p-6 mb-8 text-left"
+                                style={{
+                                    backgroundColor: `${result.alertColor}10`,
+                                    borderColor: `${result.alertColor}50`
+                                }}
+                            >
+                                <h3 className="text-lg font-bold text-white mb-3 flex items-center gap-2">
+                                    <span style={{ color: result.alertColor }}>⚡</span>
+                                    Recommended Action
+                                </h3>
+                                <p className="text-[#c4c4c4]">{result.recommendation}</p>
                             </div>
 
                             <div className="bg-gradient-to-br from-[#22c55e]/20 to-[#22c55e]/5 rounded-2xl border border-[#22c55e]/30 p-6 mb-8">
-                                <h3 className="text-xl font-bold text-white mb-3">Ready to Transform Your Health?</h3>
+                                <h3 className="text-xl font-bold text-white mb-3">Take Control of Your Health Today</h3>
                                 <p className="text-[#c4c4c4] mb-6">
-                                    Download Sukali to scan any food for hidden sugars, get 100+ sugar-free recipes, and track your progress.
+                                    Download Sukali to scan any food for hidden sugars, get 100+ sugar-free recipes, and track your progress toward better health.
                                 </p>
                                 <div className="flex flex-wrap justify-center gap-3">
                                     <a
@@ -449,11 +565,11 @@ export default function QuizPage() {
                 </div>
             </section>
 
-            {!showResult && !isLoading && (
+            {started && !showResult && !isLoading && (
                 <section className="pb-16">
                     <div className="mx-auto max-w-2xl px-4 text-center">
                         <p className="text-[#8E8E93] text-sm">
-                            This quiz takes about 2 minutes. Your answers are confidential and help us provide personalized recommendations.
+                            Your answers are confidential and help us provide accurate recommendations.
                         </p>
                     </div>
                 </section>
