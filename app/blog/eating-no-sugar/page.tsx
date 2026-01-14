@@ -37,7 +37,7 @@ export default function EatingNoSugarPage() {
 
                     <div className="relative aspect-[16/9] rounded-3xl overflow-hidden mb-12 shadow-2xl">
                         <Image
-                            src="/assets/images/blog-images/cutting-out-sugar.png"
+                            src="/assets/images/blog-images/eating-no-sugar.png"
                             alt="Healthy meal without sugar"
                             fill
                             priority
