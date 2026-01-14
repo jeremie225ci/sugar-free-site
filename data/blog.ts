@@ -12,6 +12,28 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
     {
+        slug: "no-sugar-diets",
+        title: "No Sugar Diets: Complete Guide to Sugar-Free Eating",
+        excerpt: "Everything you need to know about no sugar diets. What they are, how to start, what to eat, and the health benefits of eliminating sugar.",
+        content: "",
+        image: "/assets/images/blog-images/no-sugar-diets.png",
+        category: "Diet Guide",
+        author: "Sukali Team",
+        date: "2026-01-14",
+        readTime: 12
+    },
+    {
+        slug: "eating-no-sugar",
+        title: "Eating No Sugar: What Happens to Your Body + How to Start",
+        excerpt: "Discover what happens when you stop eating sugar. Complete guide including benefits, challenges, and tips for success.",
+        content: "",
+        image: "/assets/images/blog-images/eating-no-sugar.png",
+        category: "Lifestyle",
+        author: "Sukali Team",
+        date: "2026-01-14",
+        readTime: 11
+    },
+    {
         slug: "healthy-sugar",
         title: "Healthy Sugar: The Complete Guide to Smart Sugar Choices",
         excerpt: "Learn which sugars are healthiest, how to choose better alternatives, and how to reduce sugar intake while still enjoying sweet foods.",
