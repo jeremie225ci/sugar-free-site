@@ -12,6 +12,39 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
     {
+        slug: "signs-of-too-much-sugar",
+        title: "Signs of Too Much Sugar in Your Body: 12 Warning Signals",
+        excerpt: "Your body is constantly sending you signals. Here are 12 warning signs that you might be eating too much sugar.",
+        content: "",
+        image: "/assets/images/blog-images/signs-of-too-much-sugar.png",
+        category: "Health",
+        author: "Sukali Team",
+        date: "2026-01-16",
+        readTime: 10
+    },
+    {
+        slug: "sugar-free-toffee-caramel",
+        title: "Sugar-Free Toffee and Caramel: Easy 2-3 Ingredient Recipes",
+        excerpt: "Make delicious sugar-free toffee and caramel at home with just a few ingredients. Perfect keto-friendly candy recipes.",
+        content: "",
+        image: "/assets/images/blog-images/sugar-free-toffee-caramel.png",
+        category: "Recipes",
+        author: "Sukali Team",
+        date: "2026-01-16",
+        readTime: 8
+    },
+    {
+        slug: "sugar-free-chocolate",
+        title: "Sugar-Free Chocolate: How to Make Homemade Chocolate Bars",
+        excerpt: "Learn how to make delicious sugar-free chocolate bars at home with just 3 ingredients. Perfect for diabetics.",
+        content: "",
+        image: "/assets/images/blog-images/sugar-free-chocolate.png",
+        category: "Recipes",
+        author: "Sukali Team",
+        date: "2026-01-16",
+        readTime: 9
+    },
+    {
         slug: "no-sugar-diets",
         title: "No Sugar Diets: Complete Guide to Sugar-Free Eating",
         excerpt: "Everything you need to know about no sugar diets. What they are, how to start, what to eat, and the health benefits of eliminating sugar.",
