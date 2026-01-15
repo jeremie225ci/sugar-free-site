@@ -23,11 +23,11 @@ export const blogPosts: BlogPost[] = [
         readTime: 10
     },
     {
-        slug: "sugar-free-toffee-caramel",
-        title: "Sugar-Free Toffee and Caramel: Easy 2-3 Ingredient Recipes",
-        excerpt: "Make delicious sugar-free toffee and caramel at home with just a few ingredients. Perfect keto-friendly candy recipes.",
+        slug: "sugar-free-candy",
+        title: "Sugar Free Candy: Easy Homemade Toffee & Caramel Recipes",
+        excerpt: "Learn how to make delicious sugar free candy at home. Simple recipes for keto toffee and caramel without any sugar.",
         content: "",
-        image: "/assets/images/blog-images/sugar-free-toffee-caramel.png",
+        image: "/assets/images/blog-images/sugar-free-candy.png",
         category: "Recipes",
         author: "Sukali Team",
         date: "2026-01-16",

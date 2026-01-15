@@ -21,7 +21,7 @@ export default function SugarFreeToffeeCaramelPage() {
                     </div>
 
                     <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
-                        Sugar-Free Toffee and Caramel: Simple Homemade Candy
+                        Sugar Free Candy: Easy Homemade Toffee & Caramel
                     </h1>
                     <p className="text-xl text-[#8E8E93] mb-8">
                         You can make incredible toffee with just two ingredients and rich buttery caramel with only three. No sugar needed. Here is exactly how to do it.
@@ -37,7 +37,7 @@ export default function SugarFreeToffeeCaramelPage() {
 
                     <div className="relative aspect-[16/9] rounded-3xl overflow-hidden mb-12 shadow-2xl">
                         <Image
-                            src="/assets/images/blog-images/sugar-free-toffee-caramel.png"
+                            src="/assets/images/blog-images/sugar-free-candy.png"
                             alt="Homemade sugar-free toffee and caramel candy"
                             fill
                             priority
