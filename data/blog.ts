@@ -12,6 +12,17 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
     {
+        slug: "acne",
+        title: "Acne: How Sugar Is Destroying Your Skin (And How to Fix It)",
+        excerpt: "Discover the hidden link between sugar and acne. Learn why cutting sugar clears skin better than expensive products.",
+        content: "",
+        image: "/assets/images/blog-images/acne.png",
+        category: "Skin Health",
+        author: "Sukali Team",
+        date: "2026-01-17",
+        readTime: 12
+    },
+    {
         slug: "signs-of-too-much-sugar",
         title: "Signs of Too Much Sugar in Your Body: 12 Warning Signals",
         excerpt: "Your body is constantly sending you signals. Here are 12 warning signs that you might be eating too much sugar.",
