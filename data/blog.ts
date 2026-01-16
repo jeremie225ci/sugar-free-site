@@ -12,6 +12,17 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
     {
+        slug: "pimple-treatment",
+        title: "Pimple Treatment: The Diet Fix That Works Better Than Products",
+        excerpt: "Learn the most effective pimple treatment that dermatologists rarely mention. Discover how diet clears skin faster than creams.",
+        content: "",
+        image: "/assets/images/blog-images/pimple-treatment.png",
+        category: "Skin Health",
+        author: "Sukali Team",
+        date: "2026-01-17",
+        readTime: 10
+    },
+    {
         slug: "acne",
         title: "Acne: How Sugar Is Destroying Your Skin (And How to Fix It)",
         excerpt: "Discover the hidden link between sugar and acne. Learn why cutting sugar clears skin better than expensive products.",
