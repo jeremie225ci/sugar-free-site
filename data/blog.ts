@@ -12,6 +12,28 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
     {
+        slug: "intermittent-fasting",
+        title: "Intermittent Fasting: The Complete Beginner Guide",
+        excerpt: "Everything you need to know about intermittent fasting. How it works, different methods, benefits, and how to start safely.",
+        content: "",
+        image: "/assets/images/blog-images/intermittent-fasting.png",
+        category: "Diet Guide",
+        author: "Sukali Team",
+        date: "2026-01-17",
+        readTime: 14
+    },
+    {
+        slug: "maintenance-calorie-calculator",
+        title: "Maintenance Calorie Calculator: Find Your Daily Calorie Needs",
+        excerpt: "Use our free calorie calculator to find how many calories you need per day to maintain, lose, or gain weight.",
+        content: "",
+        image: "/assets/images/blog-images/maintenance-calorie-calculator.png",
+        category: "Fitness & Health",
+        author: "Sukali Team",
+        date: "2026-01-17",
+        readTime: 8
+    },
+    {
         slug: "pimple-treatment",
         title: "Pimple Treatment: The Diet Fix That Works Better Than Products",
         excerpt: "Learn the most effective pimple treatment that dermatologists rarely mention. Discover how diet clears skin faster than creams.",
