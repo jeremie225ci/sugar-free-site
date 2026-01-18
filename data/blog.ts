@@ -12,6 +12,28 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
     {
+        slug: "sugar-and-inflammation",
+        title: "Sugar and Inflammation: How Sugar Causes Chronic Inflammation",
+        excerpt: "Learn how sugar causes inflammation in your body and discover the link between sugar consumption and chronic diseases.",
+        content: "",
+        image: "/assets/images/blog-images/sugar-and-inflammation.png",
+        category: "Health",
+        author: "Sukali Team",
+        date: "2026-01-18",
+        readTime: 11
+    },
+    {
+        slug: "reduce-sugar",
+        title: "Reduce Sugar: Simple Steps to Cut Sugar From Your Diet",
+        excerpt: "Learn how to reduce sugar intake with practical tips. Discover easy ways to cut sugar without feeling deprived.",
+        content: "",
+        image: "/assets/images/blog-images/reduce-sugar.png",
+        category: "Diet Guide",
+        author: "Sukali Team",
+        date: "2026-01-18",
+        readTime: 10
+    },
+    {
         slug: "intermittent-fasting",
         title: "Intermittent Fasting: The Complete Beginner Guide",
         excerpt: "Everything you need to know about intermittent fasting. How it works, different methods, benefits, and how to start safely.",
