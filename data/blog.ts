@@ -12,6 +12,28 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
     {
+        slug: "symptoms-of-too-much-sugar",
+        title: "Symptoms of Too Much Sugar in Your Body: 15 Warning Signs",
+        excerpt: "Discover the symptoms of too much sugar in your body. Learn the 15 warning signs that your sugar intake is too high.",
+        content: "",
+        image: "/assets/images/blog-images/symptoms-of-too-much-sugar.png",
+        category: "Health",
+        author: "Sukali Team",
+        date: "2026-01-20",
+        readTime: 12
+    },
+    {
+        slug: "sugar-and-face",
+        title: "Sugar and Face: How Sugar Destroys Your Facial Appearance",
+        excerpt: "Learn how sugar affects your face. Discover why sugar causes puffy face, acne, wrinkles, and premature aging.",
+        content: "",
+        image: "/assets/images/blog-images/sugar-and-face.png",
+        category: "Skin Health",
+        author: "Sukali Team",
+        date: "2026-01-20",
+        readTime: 10
+    },
+    {
         slug: "sugar-and-inflammation",
         title: "Sugar and Inflammation: How Sugar Causes Chronic Inflammation",
         excerpt: "Learn how sugar causes inflammation in your body and discover the link between sugar consumption and chronic diseases.",
