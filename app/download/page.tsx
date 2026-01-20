@@ -19,6 +19,23 @@ export default function DownloadPage() {
         <main className="min-h-screen bg-black overflow-hidden">
             <SiteHeader />
 
+            {/* TikTok In-App Browser Notice */}
+            <div className="fixed top-16 right-0 z-50 md:hidden">
+                <div className="relative">
+                    {/* Arrow pointing to 3 dots */}
+                    <div className="absolute -top-3 right-3 animate-bounce">
+                        <svg className="w-8 h-8 text-[#22c55e] rotate-[-35deg]" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z" />
+                        </svg>
+                    </div>
+
+                    {/* Info bubble */}
+                    <div className="mr-2 mt-6 bg-[#22c55e] text-black px-3 py-2 rounded-xl text-xs font-bold max-w-[180px] shadow-lg animate-pulse">
+                        👆 Tap the 3 dots • • • to open in Safari and download the app
+                    </div>
+                </div>
+            </div>
+
             {/* Hero Section */}
             <section className="relative pt-24 pb-20 md:pt-32 md:pb-32">
                 {/* Background Gradient */}
