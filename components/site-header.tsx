@@ -12,6 +12,7 @@ export default function SiteHeader() {
     { href: "/quiz", label: "Quiz" },
     { href: "/food", label: "Recipes" },
     { href: "/blog", label: "Blog" },
+    { href: "/download", label: "Download" },
     { href: "/contact", label: "Contact" },
   ]
 
