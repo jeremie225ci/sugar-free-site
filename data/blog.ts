@@ -12,6 +12,28 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
     {
+        slug: "processed-sugar",
+        title: "Processed Sugar: What It Is and Why You Should Avoid It",
+        excerpt: "Learn what processed sugar is and why it's harmful. Discover how processed sugar differs from natural sugar.",
+        content: "",
+        image: "/assets/images/blog-images/processed-sugar.png",
+        category: "Nutrition",
+        author: "Sukali Team",
+        date: "2026-01-21",
+        readTime: 10
+    },
+    {
+        slug: "sugar-effects-on-body",
+        title: "Sugar and the Effects on the Body: What Really Happens Inside",
+        excerpt: "Learn what sugar does to your body. Discover the effects of sugar on your brain, liver, heart, skin, and metabolism.",
+        content: "",
+        image: "/assets/images/blog-images/sugar-effects-on-body.png",
+        category: "Health",
+        author: "Sukali Team",
+        date: "2026-01-21",
+        readTime: 12
+    },
+    {
         slug: "symptoms-of-too-much-sugar",
         title: "Symptoms of Too Much Sugar in Your Body: 15 Warning Signs",
         excerpt: "Discover the symptoms of too much sugar in your body. Learn the 15 warning signs that your sugar intake is too high.",
