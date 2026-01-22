@@ -12,6 +12,28 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
     {
+        slug: "calai",
+        title: "Calai App Review 2026: Is This AI Calorie Counter Worth It?",
+        excerpt: "Honest Calai app review. Does this AI calorie counter work for weight loss? Features, pricing, and the best alternative.",
+        content: "",
+        image: "/assets/images/blog-images/calai.png",
+        category: "App Reviews",
+        author: "Sukali Team",
+        date: "2026-01-22",
+        readTime: 12
+    },
+    {
+        slug: "myfitnesspal",
+        title: "MyFitnessPal Review 2026: Is It Still Worth Using?",
+        excerpt: "Complete MyFitnessPal review after years of use. Features, pricing, problems, and the best alternative for weight loss.",
+        content: "",
+        image: "/assets/images/blog-images/myfitnesspal.png",
+        category: "App Reviews",
+        author: "Sukali Team",
+        date: "2026-01-22",
+        readTime: 14
+    },
+    {
         slug: "processed-sugar",
         title: "Processed Sugar: What It Is and Why You Should Avoid It",
         excerpt: "Learn what processed sugar is and why it's harmful. Discover how processed sugar differs from natural sugar.",
