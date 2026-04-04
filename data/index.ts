@@ -158,12 +158,12 @@ export function getSugarVerdict(recipe: Recipe): { level: 'safe' | 'moderate' | 
     const totalSugar = getTotalSugar(recipe);
 
     if (addedSugar > 10 || totalSugar > 15) {
-        return { level: 'high', color: '#ef4444', message: 'Risk for Acne: HIGH' };
+        return { level: 'high', color: '#b85c38', message: 'Risk for Acne: HIGH' };
     }
     if (addedSugar > 5 || totalSugar > 10) {
-        return { level: 'moderate', color: '#f59e0b', message: 'Risk for Acne: MODERATE' };
+        return { level: 'moderate', color: '#c97a5a', message: 'Risk for Acne: MODERATE' };
     }
-    return { level: 'safe', color: '#22c55e', message: 'Safe for Clear Skin ✓' };
+    return { level: 'safe', color: '#5c7f57', message: 'Safe for Clear Skin ✓' };
 }
 
 export function getGlycemicIndex(recipe: Recipe): number {

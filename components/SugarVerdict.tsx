@@ -12,14 +12,18 @@ export default function SugarVerdict({ recipe, showDetails = true }: SugarVerdic
     const totalSugar = getTotalSugar(recipe);
 
     return (
-        <div className="bg-[#1C1C1E] rounded-3xl border border-[#38383A] p-6">
-            {/* Main verdict */}
+        <div className="rounded-[30px] border border-[#ddd1c1] bg-[#fffaf2] p-6 shadow-[0_18px_40px_rgba(52,41,22,0.06)]">
             <div className="flex items-center justify-between mb-4">
-                <h3 className="text-lg font-semibold text-white">Sugar Analysis</h3>
+                <h3
+                    className="text-2xl text-[#1f241d]"
+                    style={{ fontFamily: "var(--font-display)" }}
+                >
+                    Sugar Analysis
+                </h3>
                 <div
-                    className="flex items-center gap-2 px-4 py-2 rounded-full font-bold"
+                    className="flex items-center gap-2 rounded-full px-4 py-2 font-semibold"
                     style={{
-                        backgroundColor: `${verdict.color}15`,
+                        backgroundColor: `${verdict.color}16`,
                         color: verdict.color
                     }}
                 >
@@ -32,42 +36,40 @@ export default function SugarVerdict({ recipe, showDetails = true }: SugarVerdic
 
             {showDetails && (
                 <>
-                    {/* Sugar breakdown */}
                     <div className="grid grid-cols-3 gap-4 mb-6">
-                        <div className="text-center p-4 bg-[#2C2C2E] rounded-2xl">
-                            <div className="text-2xl font-bold text-[#22c55e]">{totalSugar}g</div>
-                            <div className="text-xs text-[#8E8E93] mt-1">Total Sugar</div>
+                        <div className="rounded-2xl bg-[#f3eadf] p-4 text-center">
+                            <div className="text-2xl font-bold text-[#5c7f57]">{totalSugar}g</div>
+                            <div className="mt-1 text-xs text-[#6f685d]">Total Sugar</div>
                         </div>
-                        <div className="text-center p-4 bg-[#2C2C2E] rounded-2xl">
-                            <div className="text-2xl font-bold text-white">{recipe.sugar_natural_g}g</div>
-                            <div className="text-xs text-[#8E8E93] mt-1">Natural 🍎</div>
+                        <div className="rounded-2xl bg-[#f3eadf] p-4 text-center">
+                            <div className="text-2xl font-bold text-[#1f241d]">{recipe.sugar_natural_g}g</div>
+                            <div className="mt-1 text-xs text-[#6f685d]">Natural</div>
                         </div>
-                        <div className="text-center p-4 bg-[#2C2C2E] rounded-2xl">
-                            <div className="text-2xl font-bold" style={{ color: recipe.sugar_added_g === 0 ? '#22c55e' : '#ef4444' }}>
+                        <div className="rounded-2xl bg-[#f3eadf] p-4 text-center">
+                            <div className="text-2xl font-bold" style={{ color: recipe.sugar_added_g === 0 ? '#5c7f57' : '#b85c38' }}>
                                 {recipe.sugar_added_g}g
                             </div>
-                            <div className="text-xs text-[#8E8E93] mt-1">Added 🍬</div>
+                            <div className="mt-1 text-xs text-[#6f685d]">Added</div>
                         </div>
                     </div>
 
-                    {/* Explanation */}
-                    <div className="p-4 bg-[#2C2C2E] rounded-2xl">
-                        <p className="text-sm text-[#8E8E93] leading-relaxed">
+                    <div className="rounded-2xl bg-[#f3eadf] p-4">
+                        <p className="text-sm leading-relaxed text-[#5f5a51]">
                             {verdict.level === 'safe' && (
                                 <>
-                                    <span className="text-[#22c55e] font-medium">Great choice!</span> This recipe contains minimal sugar
+                                    <span className="font-medium text-[#5c7f57]">Great choice.</span> This recipe contains minimal sugar
                                     and is unlikely to trigger acne or blood sugar spikes. The natural sugars come from whole food sources.
                                 </>
                             )}
                             {verdict.level === 'moderate' && (
                                 <>
-                                    <span className="text-[#f59e0b] font-medium">Enjoy in moderation.</span> This recipe has moderate sugar
+                                    <span className="font-medium text-[#c97a5a]">Enjoy in moderation.</span> This recipe has moderate sugar
                                     content. Consider pairing with protein or fiber to slow glucose absorption.
                                 </>
                             )}
                             {verdict.level === 'high' && (
                                 <>
-                                    <span className="text-[#ef4444] font-medium">Caution advised.</span> High sugar content may
+                                    <span className="font-medium text-[#b85c38]">Caution advised.</span> High sugar content may
                                     contribute to inflammation and acne. Consider reducing portion size or finding alternatives.
                                 </>
                             )}

@@ -9,68 +9,73 @@ export default function SiteHeader() {
 
   const nav = [
     { href: "/", label: "Home" },
-    { href: "/quiz", label: "Quiz" },
+    { href: "/blog", label: "Journal" },
     { href: "/food", label: "Recipes" },
-    { href: "/blog", label: "Blog" },
+    { href: "/quiz", label: "Quiz" },
     { href: "/download", label: "Download" },
     { href: "/contact", label: "Contact" },
   ]
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-[#38383A] bg-black/90 backdrop-blur-xl">
-      <div className="mx-auto flex h-16 w-full max-w-6xl items-center justify-between px-4">
-        {/* Logo */}
+    <header className="sticky top-0 z-50 w-full border-b border-[#dfd2c2] bg-[#f6f0e6]/92 backdrop-blur-xl">
+      <div className="mx-auto flex h-20 w-full max-w-6xl items-center justify-between px-4">
         <Link href="/" className="flex items-center gap-3">
-          <div className="w-9 h-9 rounded-xl bg-[#22c55e] flex items-center justify-center">
-            <span className="text-black font-bold text-lg">S</span>
+          <div className="flex h-11 w-11 items-center justify-center rounded-2xl border border-[#dccfbd] bg-white shadow-[0_12px_30px_rgba(54,43,22,0.08)]">
+            <span className="text-lg font-semibold text-[#5c7f57]">S</span>
           </div>
-          <span className="text-white font-bold text-xl">Sugar Free <span className="text-[#22c55e]">AI</span></span>
+          <div className="flex flex-col">
+            <span
+              className="text-[1.75rem] leading-none text-[#1f241d]"
+              style={{ fontFamily: "var(--font-display)" }}
+            >
+              Sukali
+            </span>
+            <span className="text-[10px] uppercase tracking-[0.28em] text-[#7b7468]">
+              Sugar-free rituals
+            </span>
+          </div>
         </Link>
 
-        {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center gap-8">
+        <nav className="hidden items-center gap-8 md:flex">
           {nav.map((item) => (
             <Link
               key={item.href}
               href={item.href}
-              className="text-[#8E8E93] hover:text-white transition-colors text-sm font-medium"
+              className="text-sm font-medium text-[#6b655b] hover:text-[#1f241d]"
             >
               {item.label}
             </Link>
           ))}
         </nav>
 
-        {/* Desktop CTA - Subtle */}
-        <div className="hidden md:flex items-center gap-3">
+        <div className="hidden items-center gap-3 md:flex">
           <a
             href="https://apps.apple.com/us/app/sukali-umax-no-sugar/id6749379303"
             target="_blank"
             rel="noopener noreferrer"
-            className="px-4 py-2 border border-[#38383A] text-[#8E8E93] font-medium text-sm rounded-full hover:border-[#22c55e] hover:text-white transition-colors"
+            className="rounded-full border border-[#cfc2b0] bg-white px-5 py-2.5 text-sm font-semibold text-[#1f241d] shadow-[0_10px_24px_rgba(54,43,22,0.08)] hover:border-[#5c7f57] hover:text-[#5c7f57]"
           >
-            📱 Sukali App
+            Get the app
           </a>
         </div>
 
-        {/* Mobile Menu Button */}
         <button
-          className="md:hidden p-2 text-white"
+          className="rounded-full border border-[#ddd1c1] bg-white p-2 text-[#1f241d] shadow-sm md:hidden"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           aria-label="Toggle menu"
         >
-          {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
         </button>
       </div>
 
-      {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-black border-t border-[#38383A]">
-          <div className="px-4 py-4 space-y-4">
+        <div className="border-t border-[#dfd2c2] bg-[#f9f3ea] md:hidden">
+          <div className="space-y-4 px-4 py-5">
             {nav.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
-                className="block text-white text-lg font-medium py-2"
+                className="block rounded-2xl bg-white px-4 py-3 text-base font-medium text-[#1f241d] shadow-[0_10px_20px_rgba(54,43,22,0.05)]"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 {item.label}
@@ -80,9 +85,9 @@ export default function SiteHeader() {
               href="https://apps.apple.com/us/app/sukali-umax-no-sugar/id6749379303"
               target="_blank"
               rel="noopener noreferrer"
-              className="block w-full text-center px-5 py-3 border border-[#22c55e] text-[#22c55e] font-bold rounded-full mt-4"
+              className="mt-4 block w-full rounded-full bg-[#5c7f57] px-5 py-3 text-center font-semibold text-[#fffaf2]"
             >
-              📱 Download Sukali
+              Download the app
             </a>
           </div>
         </div>

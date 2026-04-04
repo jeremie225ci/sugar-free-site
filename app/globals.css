@@ -3,38 +3,36 @@
 
 @custom-variant dark (&:is(.dark *));
 
-/* Sukali iOS-Native Color Palette */
+/* Sukali editorial palette */
 :root {
-  /* Force dark mode colors as default for iOS-native feel */
-  --background: #000000;
-  --foreground: #ffffff;
-  --card: #1C1C1E;
-  --card-foreground: #ffffff;
-  --popover: #1C1C1E;
-  --popover-foreground: #ffffff;
-  --primary: #22c55e;
-  --primary-foreground: #000000;
-  --secondary: #2C2C2E;
-  --secondary-foreground: #ffffff;
-  --muted: #2C2C2E;
-  --muted-foreground: #8E8E93;
-  --accent: #22c55e;
-  --accent-foreground: #000000;
-  --destructive: #FF453A;
-  --destructive-foreground: #ffffff;
-  --border: #38383A;
-  --input: #2C2C2E;
-  --ring: #22c55e;
-  
-  /* Custom Sukali tokens */
-  --sukali-green: #22c55e;
-  --sukali-green-glow: rgba(34, 197, 94, 0.4);
-  --sukali-card: #1C1C1E;
-  --sukali-card-border: #38383A;
-  --sukali-dark-gray: #2C2C2E;
-  --sukali-text-secondary: #8E8E93;
-  
-  /* Heavy rounded corners for iOS feel */
+  --font-display: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif;
+  --background: #f6f0e6;
+  --foreground: #1f241d;
+  --card: #fffaf2;
+  --card-foreground: #1f241d;
+  --popover: #fffaf2;
+  --popover-foreground: #1f241d;
+  --primary: #5c7f57;
+  --primary-foreground: #fffaf2;
+  --secondary: #eadfcd;
+  --secondary-foreground: #1f241d;
+  --muted: #efe5d7;
+  --muted-foreground: #6f685d;
+  --accent: #c97a5a;
+  --accent-foreground: #fffaf2;
+  --destructive: #b85c38;
+  --destructive-foreground: #fffaf2;
+  --border: #ddd1c1;
+  --input: #fffaf2;
+  --ring: #5c7f57;
+
+  --sukali-green: #5c7f57;
+  --sukali-green-glow: rgba(92, 127, 87, 0.18);
+  --sukali-card: #fffaf2;
+  --sukali-card-border: #ddd1c1;
+  --sukali-dark-gray: #6f685d;
+  --sukali-text-secondary: #6f685d;
+
   --radius: 1.5rem;
   --radius-sm: 1rem;
   --radius-md: 1.25rem;
@@ -43,25 +41,25 @@
 }
 
 .dark {
-  --background: #000000;
-  --foreground: #ffffff;
-  --card: #1C1C1E;
-  --card-foreground: #ffffff;
-  --popover: #1C1C1E;
-  --popover-foreground: #ffffff;
-  --primary: #22c55e;
-  --primary-foreground: #000000;
-  --secondary: #2C2C2E;
-  --secondary-foreground: #ffffff;
-  --muted: #2C2C2E;
-  --muted-foreground: #8E8E93;
-  --accent: #22c55e;
-  --accent-foreground: #000000;
-  --destructive: #FF453A;
-  --destructive-foreground: #ffffff;
-  --border: #38383A;
-  --input: #2C2C2E;
-  --ring: #22c55e;
+  --background: #f6f0e6;
+  --foreground: #1f241d;
+  --card: #fffaf2;
+  --card-foreground: #1f241d;
+  --popover: #fffaf2;
+  --popover-foreground: #1f241d;
+  --primary: #5c7f57;
+  --primary-foreground: #fffaf2;
+  --secondary: #eadfcd;
+  --secondary-foreground: #1f241d;
+  --muted: #efe5d7;
+  --muted-foreground: #6f685d;
+  --accent: #c97a5a;
+  --accent-foreground: #fffaf2;
+  --destructive: #b85c38;
+  --destructive-foreground: #fffaf2;
+  --border: #ddd1c1;
+  --input: #fffaf2;
+  --ring: #5c7f57;
 }
 
 @theme inline {
@@ -88,8 +86,6 @@
   --radius-md: var(--radius-md);
   --radius-lg: var(--radius-lg);
   --radius-xl: var(--radius-xl);
-  
-  /* Sukali custom colors */
   --color-sukali-green: var(--sukali-green);
   --color-sukali-card: var(--sukali-card);
 }
@@ -98,16 +94,32 @@
   * {
     @apply border-border outline-ring/50;
   }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
     @apply bg-background text-foreground antialiased;
-    background-color: #000000;
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, sans-serif;
+    background:
+      radial-gradient(circle at top left, rgba(201, 122, 90, 0.14), transparent 32%),
+      radial-gradient(circle at 82% 8%, rgba(92, 127, 87, 0.18), transparent 26%),
+      linear-gradient(180deg, #fbf7f0 0%, #f6f0e6 100%);
+    font-family: var(--font-geist-sans), -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
+
+  ::selection {
+    background: rgba(92, 127, 87, 0.22);
+    color: #1f241d;
+  }
+
+  a {
+    transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+  }
 }
 
-/* iOS-style scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;
@@ -126,37 +138,30 @@
   background: var(--sukali-text-secondary);
 }
 
-/* Glowing button effect */
 .glow-button {
-  box-shadow: 0 0 20px var(--sukali-green-glow),
-              0 0 40px var(--sukali-green-glow),
-              0 4px 15px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 14px 34px rgba(49, 57, 44, 0.12);
   transition: all 0.3s ease;
 }
 
 .glow-button:hover {
-  box-shadow: 0 0 30px var(--sukali-green-glow),
-              0 0 60px var(--sukali-green-glow),
-              0 6px 20px rgba(0, 0, 0, 0.4);
-  transform: translateY(-2px);
+  box-shadow: 0 20px 44px rgba(49, 57, 44, 0.16);
+  transform: translateY(-1px);
 }
 
-/* Card hover effect */
 .card-hover {
-  transition: all 0.2s ease;
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
 }
 
 .card-hover:hover {
-  transform: scale(1.02);
+  transform: translateY(-2px);
   border-color: var(--sukali-green);
+  box-shadow: 0 18px 40px rgba(46, 52, 40, 0.08);
 }
 
-/* Sticky bottom bar safe area for iOS */
 .safe-area-bottom {
   padding-bottom: env(safe-area-inset-bottom, 20px);
 }
 
-/* Category chip styles */
 .category-chip {
   @apply px-4 py-2 rounded-full text-sm font-medium transition-all;
   background: var(--sukali-card);
@@ -165,30 +170,105 @@
 
 .category-chip.active {
   background: var(--sukali-green);
-  color: #000000;
+  color: #fffaf2;
   border-color: var(--sukali-green);
 }
 
 .category-chip:hover:not(.active) {
   border-color: var(--sukali-green);
+  color: var(--foreground);
 }
 
-/* Sugar badge styles */
 .sugar-badge {
   @apply inline-flex items-center gap-1 px-2 py-1 rounded-full text-xs font-semibold;
 }
 
 .sugar-badge.safe {
-  background: rgba(34, 197, 94, 0.15);
-  color: #22c55e;
+  background: rgba(92, 127, 87, 0.14);
+  color: #5c7f57;
 }
 
 .sugar-badge.moderate {
-  background: rgba(245, 158, 11, 0.15);
-  color: #f59e0b;
+  background: rgba(201, 122, 90, 0.14);
+  color: #c97a5a;
 }
 
 .sugar-badge.high {
-  background: rgba(239, 68, 68, 0.15);
-  color: #ef4444;
+  background: rgba(184, 92, 56, 0.14);
+  color: #b85c38;
+}
+
+.blog-shell > :not(.blog-modern) {
+  color: #1f241d;
+}
+
+.blog-shell > :not(.blog-modern)[class*="bg-black"] {
+  background: transparent !important;
+}
+
+.blog-shell > :not(.blog-modern) > section[class*="bg-black"],
+.blog-shell > :not(.blog-modern) > section[class*="bg-[#0A0A0A]"] {
+  background: transparent !important;
+}
+
+.blog-shell > :not(.blog-modern) [class*="bg-[#1C1C1E]"] {
+  background-color: #fffaf2 !important;
+  box-shadow: 0 18px 40px rgba(52, 41, 22, 0.06);
+}
+
+.blog-shell > :not(.blog-modern) [class*="bg-[#2C2C2E]"],
+.blog-shell > :not(.blog-modern) [class*="bg-black/30"],
+.blog-shell > :not(.blog-modern) [class*="bg-black/50"],
+.blog-shell > :not(.blog-modern) [class*="bg-black/60"] {
+  background-color: #f3eadf !important;
+}
+
+.blog-shell > :not(.blog-modern) [class*="border-[#38383A]"] {
+  border-color: #ddd1c1 !important;
+}
+
+.blog-shell > :not(.blog-modern) [class*="text-white"] {
+  color: #1f241d !important;
+}
+
+.blog-shell > :not(.blog-modern) [class*="text-[#8E8E93]"],
+.blog-shell > :not(.blog-modern) [class*="text-[#c4c4c4]"] {
+  color: #5f5a51 !important;
+}
+
+.blog-shell > :not(.blog-modern) [class*="text-[#22c55e]"] {
+  color: #5c7f57 !important;
+}
+
+.blog-shell > :not(.blog-modern) [class*="bg-[#22c55e]"] {
+  background-color: #5c7f57 !important;
+}
+
+.blog-shell > :not(.blog-modern) [class*="text-black"] {
+  color: #fffaf2 !important;
+}
+
+.blog-shell > :not(.blog-modern) [class*="bg-gradient-to-r"],
+.blog-shell > :not(.blog-modern) [class*="bg-gradient-to-br"],
+.blog-shell > :not(.blog-modern) [class*="bg-gradient-to-b"],
+.blog-shell > :not(.blog-modern) [class*="bg-gradient-to-t"] {
+  background: linear-gradient(135deg, rgba(92, 127, 87, 0.14), rgba(255, 250, 242, 0.98)) !important;
+}
+
+.blog-shell > :not(.blog-modern) .prose,
+.blog-shell > :not(.blog-modern) .prose p,
+.blog-shell > :not(.blog-modern) .prose li,
+.blog-shell > :not(.blog-modern) .prose ul,
+.blog-shell > :not(.blog-modern) .prose ol,
+.blog-shell > :not(.blog-modern) .prose td {
+  color: #5f5a51 !important;
+}
+
+.blog-shell > :not(.blog-modern) .prose h1,
+.blog-shell > :not(.blog-modern) .prose h2,
+.blog-shell > :not(.blog-modern) .prose h3,
+.blog-shell > :not(.blog-modern) .prose h4,
+.blog-shell > :not(.blog-modern) .prose strong,
+.blog-shell > :not(.blog-modern) .prose th {
+  color: #1f241d !important;
 }

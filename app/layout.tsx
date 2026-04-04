@@ -1,29 +1,23 @@
 import type { Metadata, Viewport } from 'next'
-import { Inter } from 'next/font/google'
+import { GeistSans } from 'geist/font/sans'
 import './globals.css'
-
-const inter = Inter({
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-inter',
-})
 
 export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
   maximumScale: 1,
-  themeColor: '#000000',
-  colorScheme: 'dark',
+  themeColor: '#f6f0e6',
+  colorScheme: 'light',
 }
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.sugar-frees.com'),
   title: {
-    default: 'Sukali - Quit Sugar & Clear Acne: Guide, Recipes & Tips',
+    default: 'Sukali | Sugar-Free Guides, Recipes, and Daily Support',
     template: '%s | Sukali'
   },
-  description: 'Learn how to quit sugar and clear acne with Sukali. 74+ sugar-free recipes, food scanning AI, and tips for skin health.',
-  keywords: ['quit sugar', 'acne diet', 'sugar-free recipes', 'skin health', 'sugar scanner', 'sugar-free diet', 'sugar and acne', 'Sukali app'],
+  description: 'Sukali helps you cut sugar with calmer guidance, practical recipes, meal scans, and simple daily support that feels sustainable.',
+  keywords: ['quit sugar', 'sugar-free recipes', 'skin health', 'sugar scanner', 'sugar-free diet', 'cravings', 'Sukali app'],
   authors: [{ name: 'Sukali Team' }],
   creator: 'Sukali',
   publisher: 'Sukali',
@@ -36,8 +30,8 @@ export const metadata: Metadata = {
     locale: 'en_US',
     url: 'https://www.sugar-frees.com',
     siteName: 'Sukali',
-    title: 'Sukali - Quit Sugar & Clear Acne',
-    description: 'The #1 App to Quit Sugar and Clear Acne. 74+ recipes and AI food analysis.',
+    title: 'Sukali | A Calmer Way to Quit Sugar',
+    description: 'Sugar-free guidance, practical recipes, and app support for people who want visible, steady progress.',
     images: [{
       url: 'https://www.sugar-frees.com/images/logo.png',
       width: 512,
@@ -47,8 +41,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Sukali - Quit Sugar',
-    description: 'Learn how to quit sugar and clear acne with Sukali.',
+    title: 'Sukali | A Calmer Way to Quit Sugar',
+    description: 'Guides, recipes, and app support for cutting sugar without the chaos.',
   },
   manifest: '/manifest.json',
   icons: {
@@ -61,7 +55,7 @@ export const metadata: Metadata = {
       { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
     ],
     other: [
-      { rel: 'mask-icon', url: '/images/logo.png', color: '#22c55e' },
+      { rel: 'mask-icon', url: '/images/logo.png', color: '#5c7f57' },
     ],
   },
 }
@@ -72,10 +66,10 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className="dark">
+    <html lang="en">
       <head>
         <meta name="apple-mobile-web-app-capable" content="yes" />
-        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="default" />
         {/* Ahrefs Web Analytics */}
         <script
           src="https://analytics.ahrefs.com/analytics.js"
@@ -83,7 +77,7 @@ export default function RootLayout({
           async
         />
       </head>
-      <body className={`${inter.variable} font-sans min-h-screen bg-black text-white`}>
+      <body className={`${GeistSans.variable} min-h-screen bg-background text-foreground`}>
         {children}
       </body>
     </html>

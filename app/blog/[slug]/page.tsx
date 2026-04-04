@@ -14,20 +14,21 @@ interface PageProps {
 
 export async function generateStaticParams() {
     const posts = getAllPosts();
-    return posts.map((post) => ({
-        slug: post.slug,
-    }));
+    return posts
+        .filter((post) => post.content.trim().length > 0)
+        .map((post) => ({
+            slug: post.slug,
+        }));
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
     const { slug } = await params;
     const post = getPostBySlug(slug);
 
-    if (!post) {
+    if (!post || post.content.trim().length === 0) {
         return { title: "Post Not Found" };
     }
 
-    // Point 3: Semantic Injection
     const semanticKeywords = post.category === "Skin Health"
         ? ['insulin spike', 'sebum production', 'dermatology help', 'acne cure']
         : ['healthy lifestyle', 'no sugar diet', 'skin glowing', 'Sukali app'];
@@ -48,7 +49,6 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     };
 }
 
-// JSON-LD Schema (Point 4 & 5)
 function generateJsonLd(post: any) {
     const faqSchema = {
         "@context": "https://schema.org",
@@ -123,64 +123,64 @@ export default async function BlogPostPage({ params }: PageProps) {
     const { slug } = await params;
     const post = getPostBySlug(slug);
 
-    if (!post) {
+    if (!post || post.content.trim().length === 0) {
         notFound();
     }
 
     const allPosts = getAllPosts();
-    const relatedPosts = allPosts.filter(p => p.slug !== post.slug).slice(0, 2);
+    const relatedPosts = allPosts.filter((p) => p.slug !== post.slug).slice(0, 2);
     const jsonLd = generateJsonLd(post);
 
     return (
-        <main className="min-h-screen bg-black">
+        <main className="blog-modern min-h-screen bg-transparent text-[#1f241d]">
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
             />
             <SiteHeader />
 
-            <article className="max-w-4xl mx-auto px-4 py-12">
-                {/* Breadcrumb */}
-                <div className="flex items-center gap-2 text-sm mb-4">
-                    <Link href="/blog" className="text-[#8E8E93] hover:text-white">
-                        Blog
+            <article className="mx-auto max-w-5xl px-4 py-12 md:py-16">
+                <div className="mb-6 flex items-center gap-2 text-sm text-[#7b7468]">
+                    <Link href="/blog" className="hover:text-[#1f241d]">
+                        Journal
                     </Link>
-                    <span className="text-[#8E8E93]">/</span>
-                    <span className="text-[#22c55e]">{post.category}</span>
+                    <span>/</span>
+                    <span>{post.category}</span>
                 </div>
 
-                {/* App Download Banner */}
-                <div className="bg-gradient-to-r from-[#22c55e]/20 to-[#22c55e]/5 rounded-2xl border border-[#22c55e]/30 p-4 mb-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+                <div className="mb-8 rounded-[28px] border border-[#ddd1c1] bg-[#fffaf2] p-4 shadow-[0_18px_40px_rgba(52,41,22,0.06)] sm:flex sm:items-center sm:justify-between sm:gap-4">
                     <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 rounded-xl bg-[#22c55e] flex items-center justify-center flex-shrink-0">
-                            <span className="text-black font-bold">S</span>
+                        <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-[#5c7f57] text-sm font-semibold text-[#fffaf2]">
+                            S
                         </div>
-                        <p className="text-white text-sm">
-                            <span className="font-semibold">Lose weight in 30 days</span> by tracking sugar with Sukali
+                        <p className="text-sm leading-7 text-[#5f5a51]">
+                            Use the app when you want the daily part of this article to become practical.
                         </p>
                     </div>
                     <a
                         href="https://apps.apple.com/us/app/sukali-umax-no-sugar/id6749379303"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="px-4 py-2 bg-[#22c55e] text-black font-bold rounded-full text-sm whitespace-nowrap hover:bg-[#16a34a] transition-colors"
+                        className="mt-4 inline-flex rounded-full bg-[#1f241d] px-5 py-2.5 text-sm font-semibold text-[#fffaf2] sm:mt-0"
                     >
-                        Download Free
+                        Download the app
                     </a>
                 </div>
 
-                {/* Header */}
-                <header className="mb-8">
-                    <span className="inline-block px-3 py-1 rounded-full bg-[#22c55e]/15 text-[#22c55e] text-sm font-medium mb-4">
+                <header className="mb-10 max-w-4xl">
+                    <span className="inline-flex rounded-full border border-[#d8ccb9] bg-white px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.24em] text-[#7b7468] shadow-sm">
                         {post.category}
                     </span>
-                    <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
+                    <h1
+                        className="mt-5 text-4xl leading-tight text-[#1f241d] md:text-6xl"
+                        style={{ fontFamily: "var(--font-display)" }}
+                    >
                         {post.title}
                     </h1>
-                    <p className="text-xl text-[#8E8E93] mb-6">
+                    <p className="mt-5 text-lg leading-8 text-[#5f5a51]">
                         {post.excerpt}
                     </p>
-                    <div className="flex items-center gap-4 text-sm text-[#8E8E93]">
+                    <div className="mt-6 flex flex-wrap items-center gap-4 text-sm text-[#7b7468]">
                         <span>{post.author}</span>
                         <span>•</span>
                         <span>{new Date(post.date).toLocaleDateString('en-US', {
@@ -193,130 +193,144 @@ export default async function BlogPostPage({ params }: PageProps) {
                     </div>
                 </header>
 
-                {/* Featured Image */}
-                <div className="relative aspect-video rounded-3xl overflow-hidden mb-12 shadow-2xl">
+                <div className="relative mb-12 aspect-[16/9] overflow-hidden rounded-[34px] border border-[#ddd1c1] shadow-[0_20px_50px_rgba(52,41,22,0.12)]">
                     <Image
                         src={post.image}
-                        alt={`Educational image for ${post.title} regarding acne and sugar health`} // Point 7: Alt Text
+                        alt={`Educational image for ${post.title} regarding acne and sugar health`}
                         fill
                         priority
                         className="object-cover"
                     />
                 </div>
 
-                {/* Content */}
-                <div className="prose prose-invert prose-lg max-w-none mb-16
-          prose-headings:text-white prose-headings:font-bold
-          prose-h2:text-2xl prose-h2:mt-12 prose-h2:mb-6
-          prose-h3:text-xl prose-h3:mt-8 prose-h3:mb-4
-          prose-p:text-[#8E8E93] prose-p:leading-relaxed
-          prose-strong:text-white
-          prose-ul:text-[#8E8E93]
-          prose-li:text-[#8E8E93]
-          prose-table:text-[#8E8E93]
-          prose-th:text-white prose-th:bg-[#1C1C1E] prose-th:p-3
-          prose-td:p-3 prose-td:border-[#38383A]
-        ">
-                    {post.content.split('\n').map((paragraph, i) => {
-                        // Handle markdown images ![alt](src)
-                        const imageMatch = paragraph.match(/^!\[(.*?)\]\((.*?)\)$/);
-                        if (imageMatch) {
-                            const altText = imageMatch[1];
-                            const src = imageMatch[2];
-                            return (
-                                <div key={i} className="my-8 relative aspect-video rounded-2xl overflow-hidden">
-                                    <Image
-                                        src={src}
-                                        alt={altText}
-                                        fill
-                                        className="object-contain"
-                                    />
-                                </div>
-                            );
-                        }
-                        if (paragraph.startsWith('## ')) {
-                            return <h2 key={i} className="text-2xl font-bold text-white mt-12 mb-6">{paragraph.replace('## ', '')}</h2>;
-                        }
-                        if (paragraph.startsWith('### ')) {
-                            return <h3 key={i} className="text-xl font-bold text-white mt-8 mb-4">{paragraph.replace('### ', '')}</h3>;
-                        }
-                        if (paragraph.startsWith('**') && paragraph.endsWith('**')) {
-                            return <p key={i} className="text-[#22c55e] font-semibold mb-6">{paragraph.replace(/\*\*/g, '')}</p>;
-                        }
-                        if (paragraph.startsWith('- ')) {
-                            return <li key={i} className="text-[#8E8E93] mb-2 ml-6">{paragraph.replace('- ', '')}</li>;
-                        }
-                        if (paragraph.match(/^\d+\. /)) {
-                            return <li key={i} className="text-[#8E8E93] mb-2 ml-6">{paragraph.replace(/^\d+\. /, '')}</li>;
-                        }
-                        if (paragraph.trim()) {
-                            // Check if paragraph contains inline bold **text**
-                            if (paragraph.includes('**')) {
-                                const parts = paragraph.split(/(\*\*.*?\*\*)/g);
+                <div className="rounded-[34px] border border-[#ddd1c1] bg-[#fffaf2] px-6 py-8 shadow-[0_18px_40px_rgba(52,41,22,0.06)] md:px-10">
+                    <div className="max-w-none">
+                        {post.content.split('\n').map((paragraph, i) => {
+                            const imageMatch = paragraph.match(/^!\[(.*?)\]\((.*?)\)$/);
+                            if (imageMatch) {
+                                const altText = imageMatch[1];
+                                const src = imageMatch[2];
                                 return (
-                                    <p key={i} className="text-[#8E8E93] leading-relaxed mb-6">
-                                        {parts.map((part, j) => {
-                                            if (part.startsWith('**') && part.endsWith('**')) {
-                                                return <span key={j} className="text-[#22c55e] font-semibold">{part.replace(/\*\*/g, '')}</span>;
-                                            }
-                                            return part;
-                                        })}
-                                    </p>
+                                    <div key={i} className="relative my-8 aspect-video overflow-hidden rounded-[24px]">
+                                        <Image
+                                            src={src}
+                                            alt={altText}
+                                            fill
+                                            className="object-contain"
+                                        />
+                                    </div>
                                 );
                             }
-                            return <p key={i} className="text-[#8E8E93] leading-relaxed mb-6">{paragraph}</p>;
-                        }
-                        return null;
-                    })}
+                            if (paragraph.startsWith('## ')) {
+                                return (
+                                    <h2
+                                        key={i}
+                                        className="mt-12 text-3xl leading-tight text-[#1f241d] first:mt-0"
+                                        style={{ fontFamily: "var(--font-display)" }}
+                                    >
+                                        {paragraph.replace('## ', '')}
+                                    </h2>
+                                );
+                            }
+                            if (paragraph.startsWith('### ')) {
+                                return (
+                                    <h3
+                                        key={i}
+                                        className="mt-8 text-2xl leading-tight text-[#1f241d]"
+                                        style={{ fontFamily: "var(--font-display)" }}
+                                    >
+                                        {paragraph.replace('### ', '')}
+                                    </h3>
+                                );
+                            }
+                            if (paragraph.startsWith('**') && paragraph.endsWith('**')) {
+                                return <p key={i} className="mb-6 text-sm font-semibold uppercase tracking-[0.18em] text-[#5c7f57]">{paragraph.replace(/\*\*/g, '')}</p>;
+                            }
+                            if (paragraph.startsWith('- ')) {
+                                return (
+                                    <li key={i} className="ml-6 mb-3 text-base leading-8 text-[#5f5a51]">
+                                        {paragraph.replace('- ', '')}
+                                    </li>
+                                );
+                            }
+                            if (paragraph.match(/^\d+\. /)) {
+                                return (
+                                    <li key={i} className="ml-6 mb-3 text-base leading-8 text-[#5f5a51]">
+                                        {paragraph.replace(/^\d+\. /, '')}
+                                    </li>
+                                );
+                            }
+                            if (paragraph.trim()) {
+                                if (paragraph.includes('**')) {
+                                    const parts = paragraph.split(/(\*\*.*?\*\*)/g);
+                                    return (
+                                        <p key={i} className="mb-6 text-base leading-8 text-[#5f5a51]">
+                                            {parts.map((part, j) => {
+                                                if (part.startsWith('**') && part.endsWith('**')) {
+                                                    return <span key={j} className="font-semibold text-[#1f241d]">{part.replace(/\*\*/g, '')}</span>;
+                                                }
+                                                return part;
+                                            })}
+                                        </p>
+                                    );
+                                }
+                                return <p key={i} className="mb-6 text-base leading-8 text-[#5f5a51]">{paragraph}</p>;
+                            }
+                            return null;
+                        })}
+                    </div>
                 </div>
 
-                {/* CTA */}
-                <div className="bg-gradient-to-br from-[#22c55e]/20 to-[#22c55e]/5 rounded-3xl border border-[#22c55e]/30 p-8 text-center mb-16">
-                    <h3 className="text-2xl font-bold text-white mb-3">
-                        {post.slug === 'how-to-lose-face-fat'
-                            ? 'Want to Lose Face Fat?'
-                            : 'Track Your Sugar-Free Journey'}
+                <div className="mt-12 rounded-[34px] bg-[#1f241d] px-8 py-8 text-center text-[#fffaf2] shadow-[0_24px_60px_rgba(52,41,22,0.16)]">
+                    <h3
+                        className="text-3xl"
+                        style={{ fontFamily: "var(--font-display)" }}
+                    >
+                        Keep this useful after you close the article.
                     </h3>
-                    <p className="text-[#8E8E93] mb-6">
-                        {post.slug === 'how-to-lose-face-fat'
-                            ? 'Download Sukali to track hidden sugars that cause facial bloating. See results in 30 days.'
-                            : 'Download Sukali to scan your food and get personalized skin health advice.'}
+                    <p className="mx-auto mt-3 max-w-2xl text-sm leading-7 text-[#d7cec2]">
+                        Sukali works best when it turns the theory into daily choices: food scans, steadier meals, and visible progress over time.
                     </p>
                     <a
                         href="https://apps.apple.com/us/app/sukali-umax-no-sugar/id6749379303"
-                        className="inline-flex items-center gap-2 px-8 py-4 bg-[#22c55e] text-black font-bold rounded-full"
+                        className="mt-6 inline-flex rounded-full bg-[#fffaf2] px-8 py-4 text-sm font-semibold text-[#1f241d]"
                     >
-                        Download Sukali Free
+                        Download Sukali
                     </a>
                 </div>
 
-                {/* Related Posts */}
                 {relatedPosts.length > 0 && (
-                    <section>
-                        <h3 className="text-2xl font-bold text-white mb-6">Related Articles</h3>
-                        <div className="grid md:grid-cols-2 gap-6">
+                    <section className="mt-12">
+                        <h3
+                            className="mb-6 text-3xl text-[#1f241d]"
+                            style={{ fontFamily: "var(--font-display)" }}
+                        >
+                            Related articles
+                        </h3>
+                        <div className="grid gap-6 md:grid-cols-2">
                             {relatedPosts.map((relatedPost) => (
                                 <Link
                                     key={relatedPost.slug}
                                     href={`/blog/${relatedPost.slug}`}
-                                    className="group"
+                                    className="card-hover overflow-hidden rounded-[28px] border border-[#ddd1c1] bg-[#fffaf2] shadow-[0_18px_40px_rgba(52,41,22,0.06)]"
                                 >
-                                    <article className="bg-[#1C1C1E] rounded-2xl border border-[#38383A] overflow-hidden hover:border-[#22c55e] transition-colors">
-                                        <div className="relative aspect-[16/9]">
-                                            <Image
-                                                src={relatedPost.image}
-                                                alt={relatedPost.title}
-                                                fill
-                                                className="object-cover"
-                                            />
-                                        </div>
-                                        <div className="p-4">
-                                            <h4 className="text-white font-semibold group-hover:text-[#22c55e] transition-colors line-clamp-2">
-                                                {relatedPost.title}
-                                            </h4>
-                                            <span className="text-[#8E8E93] text-sm">{relatedPost.readTime} min read</span>
-                                        </div>
-                                    </article>
+                                    <div className="relative aspect-[16/9]">
+                                        <Image
+                                            src={relatedPost.image}
+                                            alt={relatedPost.title}
+                                            fill
+                                            className="object-cover"
+                                        />
+                                    </div>
+                                    <div className="p-5">
+                                        <h4
+                                            className="text-2xl leading-tight text-[#1f241d]"
+                                            style={{ fontFamily: "var(--font-display)" }}
+                                        >
+                                            {relatedPost.title}
+                                        </h4>
+                                        <span className="mt-3 block text-sm text-[#6f685d]">{relatedPost.readTime} min read</span>
+                                    </div>
                                 </Link>
                             ))}
                         </div>

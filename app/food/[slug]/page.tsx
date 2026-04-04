@@ -2,15 +2,25 @@ import { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { getAllRecipes, getRecipeBySlug, getImagePath, getCategory, getSugarVerdict, getTotalSugar, getGlycemicIndex, Recipe } from '@/data';
+import {
+    getAllRecipes,
+    getRecipeBySlug,
+    getImagePath,
+    getCategory,
+    getSugarVerdict,
+    getTotalSugar,
+    getGlycemicIndex,
+    Recipe
+} from '@/data';
 import SugarVerdict from '@/components/SugarVerdict';
+import SiteHeader from '@/components/site-header';
+import SiteFooter from '@/components/site-footer';
 import StickyDownloadBar from '@/components/StickyDownloadBar';
 
 interface PageProps {
     params: Promise<{ slug: string }>;
 }
 
-// Generate static params for all recipes
 export async function generateStaticParams() {
     const recipes = getAllRecipes();
     return recipes.map((recipe) => ({
@@ -18,7 +28,6 @@ export async function generateStaticParams() {
     }));
 }
 
-// Generate metadata for SEO (Point 2 & 3)
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
     const { slug } = await params;
     const recipe = getRecipeBySlug(slug);
@@ -32,7 +41,6 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     const glycemicIndex = getGlycemicIndex(recipe);
     const foodName = recipe.recipe_name;
 
-    // Point 3: Semantic Entity Injection logic
     const semanticKeywords = totalSugar > 10
         ? ['insulin spike', 'sebum production', 'inflammation trigger', 'hormonal acne']
         : ['skin-safe', 'low glycemic', 'clear skin diet', 'anti-inflammatory'];
@@ -74,7 +82,6 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     };
 }
 
-// JSON-LD Schema (Point 4)
 function generateJsonLd(recipe: Recipe) {
     const verdict = getSugarVerdict(recipe);
     const totalSugar = getTotalSugar(recipe);
@@ -155,8 +162,8 @@ function generateJsonLd(recipe: Recipe) {
                 "acceptedAnswer": {
                     "@type": "Answer",
                     "text": recipe.sugar_added_g === 0
-                        ? `Yes! ${recipe.recipe_name} contains 0g of added sugar and only ${recipe.sugar_natural_g}g of natural sugars, making it an excellent choice for a sugar-free diet.`
-                        : `${recipe.recipe_name} contains ${recipe.sugar_added_g}g of added sugar. ${verdict.level === 'safe' ? 'It can be part of a balanced diet.' : 'Consider reducing portion sizes or finding alternatives.'}`
+                        ? `Yes. ${recipe.recipe_name} contains 0g of added sugar and only ${recipe.sugar_natural_g}g of natural sugars.`
+                        : `${recipe.recipe_name} contains ${recipe.sugar_added_g}g of added sugar. ${verdict.level === 'safe' ? 'It can still fit into a balanced approach.' : 'Consider reducing portion sizes or finding alternatives.'}`
                 }
             },
             {
@@ -165,7 +172,7 @@ function generateJsonLd(recipe: Recipe) {
                 "acceptedAnswer": {
                     "@type": "Answer",
                     "text": verdict.level === 'safe'
-                        ? `${recipe.recipe_name} is unlikely to cause acne. With only ${totalSugar}g of total sugar and ${recipe.sugar_added_g}g added sugar, it's a skin-friendly choice.`
+                        ? `${recipe.recipe_name} is unlikely to cause acne. With only ${totalSugar}g of total sugar and ${recipe.sugar_added_g}g added sugar, it is a skin-friendly choice.`
                         : `${recipe.recipe_name} may contribute to acne due to its sugar content (${totalSugar}g total). High-sugar foods can trigger inflammation and breakouts.`
                 }
             }
@@ -213,10 +220,9 @@ export default async function FoodPage({ params }: PageProps) {
     const totalSugar = getTotalSugar(recipe);
     const jsonLd = generateJsonLd(recipe);
 
-    // Get related recipes
     const allRecipes = getAllRecipes();
     const relatedRecipes = allRecipes
-        .filter(r => r.slug !== recipe.slug && getCategory(r) === category)
+        .filter((r) => r.slug !== recipe.slug && getCategory(r) === category)
         .slice(0, 3);
 
     return (
@@ -226,105 +232,160 @@ export default async function FoodPage({ params }: PageProps) {
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
             />
 
-            <main className="min-h-screen bg-black pb-24 md:pb-12">
-                {/* Header */}
-                <header className="sticky top-0 z-40 bg-black/80 backdrop-blur-xl border-b border-[#38383A]">
-                    <div className="max-w-4xl mx-auto px-4 py-4 flex items-center gap-4">
-                        <Link
-                            href="/food"
-                            className="w-10 h-10 rounded-full bg-[#1C1C1E] flex items-center justify-center"
-                        >
-                            <span className="text-white">←</span>
-                        </Link>
-                        <div className="flex-1 min-w-0">
-                            <p className="text-white font-semibold truncate">{recipe.recipe_name}</p>
-                            <p className="text-[#8E8E93] text-sm">{category} • {recipe.diet_type}</p>
-                        </div>
+            <main className="min-h-screen bg-transparent pb-24 text-[#1f241d] md:pb-12">
+                <SiteHeader />
+
+                <div className="mx-auto max-w-6xl px-4 pb-12 pt-10 md:pt-14">
+                    <div className="mb-8 flex items-center gap-2 text-sm text-[#7b7468]">
+                        <Link href="/" className="hover:text-[#1f241d] transition-colors">Home</Link>
+                        <span>/</span>
+                        <Link href="/food" className="hover:text-[#1f241d] transition-colors">Recipes</Link>
+                        <span>/</span>
+                        <Link href={`/food?category=${category}`} className="capitalize hover:text-[#1f241d] transition-colors">{category}</Link>
                     </div>
-                </header>
 
-                <div className="max-w-4xl mx-auto px-4 py-4 flex items-center gap-2 text-sm text-[#8E8E93]">
-                    <Link href="/" className="hover:text-white transition-colors">Home</Link>
-                    <span>/</span>
-                    <Link href="/food" className="hover:text-white transition-colors">Foods</Link>
-                    <span>/</span>
-                    <span className="text-white truncate">{category}</span>
-                    <span>/</span>
-                    <span className="text-white truncate">{recipe.recipe_name}</span>
-                </div>
+                    <div className="grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-start">
+                        <div className="space-y-6">
+                            <div className="relative aspect-[4/3] overflow-hidden rounded-[34px] border border-[#ddd1c1] shadow-[0_20px_50px_rgba(52,41,22,0.12)]">
+                                <Image
+                                    src={imagePath}
+                                    alt={`Photo of ${recipe.recipe_name} showing sugar content for acne analysis`}
+                                    fill
+                                    priority
+                                    className="object-cover"
+                                />
+                                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#1f241d]/75 to-transparent p-5">
+                                    <span
+                                        className="inline-flex rounded-full px-3 py-1.5 text-sm font-semibold"
+                                        style={{ backgroundColor: `${verdict.color}26`, color: '#fffaf2' }}
+                                    >
+                                        {verdict.message}
+                                    </span>
+                                </div>
+                            </div>
 
-                <div className="max-w-4xl mx-auto px-4 py-6 space-y-6">
-                    {/* Hero Image (Point 7) */}
-                    <div className="relative aspect-[4/3] rounded-3xl overflow-hidden">
-                        <Image
-                            src={imagePath}
-                            alt={`Photo of ${recipe.recipe_name} showing sugar content for acne analysis`}
-                            fill
-                            priority
-                            className="object-cover"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                        <div className="absolute bottom-4 left-4 right-4">
-                            <span
-                                className="inline-block px-3 py-1.5 rounded-full text-sm font-bold mb-2"
-                                style={{ backgroundColor: verdict.color, color: '#000' }}
-                            >
-                                {verdict.message}
+                            <SugarVerdict recipe={recipe} />
+                        </div>
+
+                        <div>
+                            <span className="inline-flex rounded-full border border-[#d8ccb9] bg-white px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.24em] text-[#7b7468] shadow-sm">
+                                {category}
                             </span>
+                            <h1
+                                className="mt-5 text-4xl leading-tight text-[#1f241d] md:text-5xl"
+                                style={{ fontFamily: "var(--font-display)" }}
+                            >
+                                {recipe.recipe_name}
+                            </h1>
+                            <p className="mt-4 text-lg leading-8 text-[#5f5a51]">
+                                A calmer look at this recipe: how much sugar it contains, how it fits into a skin-conscious routine, and whether it belongs in a more stable sugar-free week.
+                            </p>
+
+                            <div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-4">
+                                <div className="rounded-2xl border border-[#ddd1c1] bg-[#fffaf2] p-4 text-center">
+                                    <div className="text-2xl font-semibold text-[#1f241d]">{recipe.total_time}m</div>
+                                    <div className="mt-1 text-xs uppercase tracking-[0.18em] text-[#7b7468]">Total time</div>
+                                </div>
+                                <div className="rounded-2xl border border-[#ddd1c1] bg-[#fffaf2] p-4 text-center">
+                                    <div className="text-2xl font-semibold text-[#1f241d]">{recipe.rating}</div>
+                                    <div className="mt-1 text-xs uppercase tracking-[0.18em] text-[#7b7468]">Rating</div>
+                                </div>
+                                <div className="rounded-2xl border border-[#ddd1c1] bg-[#fffaf2] p-4 text-center">
+                                    <div className="text-2xl font-semibold text-[#1f241d]">{recipe.servings}</div>
+                                    <div className="mt-1 text-xs uppercase tracking-[0.18em] text-[#7b7468]">Servings</div>
+                                </div>
+                                <div className="rounded-2xl border border-[#ddd1c1] bg-[#fffaf2] p-4 text-center">
+                                    <div className="text-2xl font-semibold text-[#1f241d]">{totalSugar}g</div>
+                                    <div className="mt-1 text-xs uppercase tracking-[0.18em] text-[#7b7468]">Sugar</div>
+                                </div>
+                            </div>
+
+                            <div className="mt-8 rounded-[30px] border border-[#ddd1c1] bg-[#fffaf2] p-6 shadow-[0_18px_40px_rgba(52,41,22,0.06)]">
+                                <h2
+                                    className="text-2xl text-[#1f241d]"
+                                    style={{ fontFamily: "var(--font-display)" }}
+                                >
+                                    What to know
+                                </h2>
+                                <div className="mt-5 space-y-3 text-sm leading-7 text-[#5f5a51]">
+                                    <p><span className="font-semibold text-[#1f241d]">Origin:</span> {recipe.origin}</p>
+                                    <p><span className="font-semibold text-[#1f241d]">Diet type:</span> {recipe.diet_type}</p>
+                                    <p><span className="font-semibold text-[#1f241d]">Yield:</span> {recipe.yield}</p>
+                                    <p><span className="font-semibold text-[#1f241d]">Added sugar:</span> {recipe.sugar_added_g}g</p>
+                                    <p><span className="font-semibold text-[#1f241d]">Natural sugar:</span> {recipe.sugar_natural_g}g</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
-                    {/* Title */}
-                    <div>
-                        <h1 className="text-2xl md:text-3xl font-bold text-white mb-2">
-                            Does {recipe.recipe_name} cause acne? Sugar Analysis
-                        </h1>
-                        <p className="text-[#8E8E93]">
-                            {recipe.origin} • {recipe.total_time} min • {recipe.servings} servings
-                        </p>
+                    <div className="mt-12 grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
+                        <section className="rounded-[30px] border border-[#ddd1c1] bg-[#fffaf2] p-6 shadow-[0_18px_40px_rgba(52,41,22,0.06)]">
+                            <h2
+                                className="text-2xl text-[#1f241d]"
+                                style={{ fontFamily: "var(--font-display)" }}
+                            >
+                                Ingredients
+                            </h2>
+                            <ul className="mt-5 space-y-3">
+                                {recipe.ingredients.map((ingredient, i) => (
+                                    <li key={i} className="flex items-start gap-3">
+                                        <span className="mt-2 h-2.5 w-2.5 rounded-full bg-[#5c7f57]" />
+                                        <span className="text-sm leading-7 text-[#4f4a41]">{ingredient}</span>
+                                    </li>
+                                ))}
+                            </ul>
+                        </section>
+
+                        <section className="rounded-[30px] border border-[#ddd1c1] bg-[#fffaf2] p-6 shadow-[0_18px_40px_rgba(52,41,22,0.06)]">
+                            <h2
+                                className="text-2xl text-[#1f241d]"
+                                style={{ fontFamily: "var(--font-display)" }}
+                            >
+                                Directions
+                            </h2>
+                            <ol className="mt-5 space-y-4">
+                                {recipe.directions.map((step, i) => (
+                                    <li key={i} className="flex gap-4">
+                                        <div className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-[#5c7f57] text-sm font-semibold text-[#fffaf2]">
+                                            {i + 1}
+                                        </div>
+                                        <p className="pt-1 text-sm leading-7 text-[#4f4a41]">
+                                            {step.replace(/^\d️⃣\s*/, '')}
+                                        </p>
+                                    </li>
+                                ))}
+                            </ol>
+                        </section>
                     </div>
 
-                    {/* Sugar Verdict */}
-                    <SugarVerdict recipe={recipe} />
-
-                    {/* Ingredients */}
-                    <section className="bg-[#1C1C1E] rounded-3xl border border-[#38383A] p-6">
-                        <h2 className="text-xl font-semibold text-white mb-4">🥗 Ingredients</h2>
-                        <ul className="space-y-3">
-                            {recipe.ingredients.map((ingredient, i) => (
-                                <li key={i} className="flex items-start gap-3">
-                                    <div className="w-5 h-5 rounded-md border border-[#38383A] flex-shrink-0 mt-0.5" />
-                                    <span className="text-white">{ingredient}</span>
-                                </li>
-                            ))}
-                        </ul>
-                    </section>
-
-                    {/* Directions */}
-                    <section className="bg-[#1C1C1E] rounded-3xl border border-[#38383A] p-6">
-                        <h2 className="text-xl font-semibold text-white mb-4">👨‍🍳 Directions</h2>
-                        <ol className="space-y-4">
-                            {recipe.directions.map((step, i) => (
-                                <li key={i} className="flex gap-4">
-                                    <div className="w-8 h-8 rounded-full bg-[#22c55e] text-black font-bold text-sm flex items-center justify-center flex-shrink-0">
-                                        {i + 1}
-                                    </div>
-                                    <p className="text-white flex-1 pt-1">{step.replace(/^\d️⃣\s*/, '')}</p>
-                                </li>
-                            ))}
-                        </ol>
-                    </section>
-
-                    {/* Related Recipes */}
                     {relatedRecipes.length > 0 && (
-                        <section>
-                            <h2 className="text-xl font-semibold text-white mb-4">More {category} recipes</h2>
-                            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                        <section className="mt-12">
+                            <div className="mb-6 flex items-end justify-between gap-4">
+                                <div>
+                                    <h2
+                                        className="text-3xl text-[#1f241d]"
+                                        style={{ fontFamily: "var(--font-display)" }}
+                                    >
+                                        More {category} recipes
+                                    </h2>
+                                    <p className="mt-2 text-sm text-[#6f685d]">
+                                        Keep browsing without dropping out of the site shell.
+                                    </p>
+                                </div>
+                                <Link
+                                    href={`/food?category=${category}`}
+                                    className="hidden rounded-full border border-[#d3c7b8] bg-white px-5 py-3 text-sm font-semibold text-[#1f241d] hover:border-[#5c7f57] hover:text-[#5c7f57] md:inline-flex"
+                                >
+                                    View all
+                                </Link>
+                            </div>
+
+                            <div className="grid grid-cols-1 gap-5 md:grid-cols-3">
                                 {relatedRecipes.map((r) => (
                                     <Link
                                         key={r.slug}
                                         href={`/food/${r.slug}`}
-                                        className="bg-[#1C1C1E] rounded-2xl overflow-hidden border border-[#38383A]"
+                                        className="card-hover overflow-hidden rounded-[28px] border border-[#ddd1c1] bg-[#fffaf2] shadow-[0_18px_40px_rgba(52,41,22,0.06)]"
                                     >
                                         <div className="relative aspect-square">
                                             <Image
@@ -334,9 +395,14 @@ export default async function FoodPage({ params }: PageProps) {
                                                 className="object-cover"
                                             />
                                         </div>
-                                        <div className="p-3">
-                                            <p className="text-white text-sm font-medium line-clamp-2">{r.recipe_name}</p>
-                                            <p className="text-[#22c55e] text-xs mt-1">{getTotalSugar(r)}g sugar</p>
+                                        <div className="p-4">
+                                            <p
+                                                className="text-xl leading-snug text-[#1f241d]"
+                                                style={{ fontFamily: "var(--font-display)" }}
+                                            >
+                                                {r.recipe_name}
+                                            </p>
+                                            <p className="mt-2 text-sm text-[#5f5a51]">{getTotalSugar(r)}g sugar</p>
                                         </div>
                                     </Link>
                                 ))}
@@ -344,21 +410,26 @@ export default async function FoodPage({ params }: PageProps) {
                         </section>
                     )}
 
-                    {/* CTA */}
-                    <div className="bg-gradient-to-r from-[#22c55e]/20 to-[#22c55e]/5 rounded-3xl border border-[#22c55e]/30 p-6 text-center">
-                        <h3 className="text-xl font-bold text-white mb-2">Get personalized recipes</h3>
-                        <p className="text-[#8E8E93] mb-4">
-                            Download Sukali for AI-powered meal planning and acne analysis
+                    <div className="mt-12 rounded-[34px] bg-[#1f241d] px-8 py-8 text-center text-[#fffaf2] shadow-[0_24px_60px_rgba(52,41,22,0.16)]">
+                        <h3
+                            className="text-3xl"
+                            style={{ fontFamily: "var(--font-display)" }}
+                        >
+                            Want help beyond the recipe list?
+                        </h3>
+                        <p className="mx-auto mt-3 max-w-2xl text-sm leading-7 text-[#d7cec2]">
+                            Use Sukali when you want food scans, day-zero tracking, and a more visible sense of progress from one meal to the next.
                         </p>
                         <a
                             href="https://apps.apple.com/us/app/sukali-umax-no-sugar/id6749379303"
-                            className="inline-block glow-button px-6 py-3 bg-[#22c55e] text-black font-bold rounded-full"
+                            className="glow-button mt-6 inline-flex rounded-full bg-[#fffaf2] px-6 py-3 text-sm font-semibold text-[#1f241d]"
                         >
-                            Download Free
+                            Download the app
                         </a>
                     </div>
                 </div>
 
+                <SiteFooter />
                 <StickyDownloadBar />
             </main>
         </>

@@ -2,10 +2,12 @@
 
 import { useState, useMemo, useEffect, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
-import { getAllRecipes, getCategory, Recipe } from '@/data';
-import FoodCard from '@/components/FoodCard';
-import StickyDownloadBar from '@/components/StickyDownloadBar';
 import Link from 'next/link';
+import { getAllRecipes, getCategory } from '@/data';
+import FoodCard from '@/components/FoodCard';
+import SiteHeader from '@/components/site-header';
+import SiteFooter from '@/components/site-footer';
+import StickyDownloadBar from '@/components/StickyDownloadBar';
 
 type Category = 'all' | 'breakfast' | 'snack' | 'dinner';
 
@@ -27,100 +29,129 @@ function FoodListContent() {
     const filteredRecipes = useMemo(() => {
         return recipes.filter((recipe) => {
             const matchesCategory = selectedCategory === 'all' || getCategory(recipe) === selectedCategory;
-            const matchesSearch = searchQuery === '' ||
+            const matchesSearch =
+                searchQuery === '' ||
                 recipe.recipe_name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                recipe.ingredients.some(ing => ing.toLowerCase().includes(searchQuery.toLowerCase()));
+                recipe.ingredients.some((ing) => ing.toLowerCase().includes(searchQuery.toLowerCase()));
             return matchesCategory && matchesSearch;
         });
     }, [recipes, selectedCategory, searchQuery]);
 
-    const categories: { id: Category; label: string; emoji: string }[] = [
-        { id: 'all', label: 'All', emoji: '🍽️' },
-        { id: 'breakfast', label: 'Breakfast', emoji: '🌅' },
-        { id: 'snack', label: 'Snack', emoji: '🥜' },
-        { id: 'dinner', label: 'Dinner', emoji: '🍝' },
+    const categories: { id: Category; label: string }[] = [
+        { id: 'all', label: 'All recipes' },
+        { id: 'breakfast', label: 'Breakfast' },
+        { id: 'snack', label: 'Snacks' },
+        { id: 'dinner', label: 'Dinner' },
     ];
 
     return (
-        <main className="min-h-screen bg-black pb-24 md:pb-12">
-            {/* Header */}
-            <header className="sticky top-0 z-40 bg-black/80 backdrop-blur-xl border-b border-[#38383A]">
-                <div className="max-w-6xl mx-auto px-4 py-4">
-                    <div className="flex items-center justify-between mb-4">
-                        <Link href="/" className="flex items-center gap-2">
-                            <div className="w-8 h-8 rounded-lg bg-[#22c55e] flex items-center justify-center">
-                                <span className="text-black font-bold">S</span>
-                            </div>
-                            <span className="text-xl font-bold text-white">Sugar Free <span className="text-[#22c55e]">AI</span></span>
-                        </Link>
-                        <a
-                            href="https://apps.apple.com/us/app/sukali-umax-no-sugar/id6749379303"
-                            className="hidden md:block px-4 py-2 border border-[#38383A] text-[#8E8E93] font-medium text-sm rounded-full hover:border-[#22c55e] hover:text-white transition-colors"
-                        >
-                            📱 Sukali App
-                        </a>
-                    </div>
+        <main className="min-h-screen bg-transparent pb-24 text-[#1f241d] md:pb-12">
+            <SiteHeader />
 
-                    {/* Search */}
-                    <div className="relative mb-4">
-                        <input
-                            type="text"
-                            placeholder="Search for a recipe..."
-                            value={searchQuery}
-                            onChange={(e) => setSearchQuery(e.target.value)}
-                            className="w-full px-4 py-3 pl-11 bg-[#1C1C1E] border border-[#38383A] rounded-2xl text-white placeholder:text-[#8E8E93] focus:outline-none focus:border-[#22c55e]"
-                        />
-                        <span className="absolute left-4 top-1/2 -translate-y-1/2 text-[#8E8E93]">🔍</span>
-                    </div>
+            <section className="border-b border-[#e2d7ca] pb-10 pt-14 md:pb-14 md:pt-18">
+                <div className="mx-auto max-w-6xl px-4">
+                    <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
+                        <div className="max-w-2xl">
+                            <span className="inline-flex rounded-full border border-[#d8ccb9] bg-white px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.24em] text-[#7b7468] shadow-sm">
+                                Recipes
+                            </span>
+                            <h1
+                                className="mt-5 text-4xl leading-tight text-[#1f241d] md:text-5xl"
+                                style={{ fontFamily: "var(--font-display)" }}
+                            >
+                                A recipe library that finally feels connected to the rest of the site.
+                            </h1>
+                            <p className="mt-4 text-lg leading-8 text-[#5f5a51]">
+                                Search by ingredient, filter by moment of day, and keep the sugar-free part practical instead of chaotic.
+                            </p>
+                        </div>
 
-                    {/* Category filters */}
-                    <div className="flex gap-2 overflow-x-auto pb-2 -mx-4 px-4 scrollbar-hide">
+                        <div className="rounded-[30px] border border-[#ddd1c1] bg-[#fffaf2] p-6 shadow-[0_18px_40px_rgba(52,41,22,0.06)]">
+                            <label htmlFor="recipe-search" className="mb-3 block text-sm font-semibold uppercase tracking-[0.18em] text-[#7b7468]">
+                                Search the library
+                            </label>
+                            <input
+                                id="recipe-search"
+                                type="text"
+                                placeholder="Try avocado, salmon, hummus..."
+                                value={searchQuery}
+                                onChange={(e) => setSearchQuery(e.target.value)}
+                                className="w-full rounded-2xl border border-[#ddd1c1] bg-white px-4 py-3 text-[#1f241d] placeholder:text-[#9d968a] focus:border-[#5c7f57] focus:outline-none"
+                            />
+                            <p className="mt-3 text-sm text-[#6f685d]">
+                                {filteredRecipes.length} recipes currently match your filters.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section className="py-10 md:py-14">
+                <div className="mx-auto max-w-6xl px-4">
+                    <div className="mb-8 flex flex-wrap gap-3">
                         {categories.map((cat) => (
                             <button
                                 key={cat.id}
                                 onClick={() => setSelectedCategory(cat.id)}
-                                className={`category-chip whitespace-nowrap flex items-center gap-2 ${selectedCategory === cat.id ? 'active' : ''
-                                    }`}
+                                className={`category-chip ${selectedCategory === cat.id ? 'active' : ''}`}
                             >
-                                <span>{cat.emoji}</span>
-                                <span>{cat.label}</span>
+                                {cat.label}
                             </button>
                         ))}
                     </div>
-                </div>
-            </header>
 
-            <div className="max-w-6xl mx-auto px-4 py-6">
-                {/* Title */}
-                <div className="mb-6">
-                    <h1 className="text-2xl md:text-3xl font-bold text-white mb-2">
-                        Sugar-Free Recipes
-                    </h1>
-                    <p className="text-[#8E8E93]">
-                        {filteredRecipes.length} recipes analyzed for their sugar content
-                    </p>
-                </div>
-
-                {/* Recipe grid */}
-                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                    {filteredRecipes.map((recipe) => (
-                        <FoodCard key={recipe.slug} recipe={recipe} />
-                    ))}
-                </div>
-
-                {filteredRecipes.length === 0 && (
-                    <div className="text-center py-16">
-                        <p className="text-[#8E8E93] text-lg">No recipes found</p>
-                        <button
-                            onClick={() => { setSelectedCategory('all'); setSearchQuery(''); }}
-                            className="mt-4 px-4 py-2 bg-[#1C1C1E] text-white rounded-full"
+                    <div className="mb-8 flex items-center justify-between gap-4">
+                        <div>
+                            <h2
+                                className="text-3xl text-[#1f241d]"
+                                style={{ fontFamily: "var(--font-display)" }}
+                            >
+                                {selectedCategory === 'all' ? 'All recipes' : `${selectedCategory.charAt(0).toUpperCase()}${selectedCategory.slice(1)} recipes`}
+                            </h2>
+                            <p className="mt-2 text-sm text-[#6f685d]">
+                                Built for people trying to eat better without overcomplicating every meal.
+                            </p>
+                        </div>
+                        <Link
+                            href="/download"
+                            className="hidden rounded-full border border-[#d3c7b8] bg-white px-5 py-3 text-sm font-semibold text-[#1f241d] hover:border-[#5c7f57] hover:text-[#5c7f57] md:inline-flex"
                         >
-                            Clear filters
-                        </button>
+                            Get the app
+                        </Link>
                     </div>
-                )}
-            </div>
 
+                    <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+                        {filteredRecipes.map((recipe) => (
+                            <FoodCard key={recipe.slug} recipe={recipe} />
+                        ))}
+                    </div>
+
+                    {filteredRecipes.length === 0 && (
+                        <div className="mt-12 rounded-[30px] border border-[#ddd1c1] bg-[#fffaf2] px-6 py-14 text-center shadow-[0_18px_40px_rgba(52,41,22,0.06)]">
+                            <h3
+                                className="text-3xl text-[#1f241d]"
+                                style={{ fontFamily: "var(--font-display)" }}
+                            >
+                                No recipe matches that search yet.
+                            </h3>
+                            <p className="mx-auto mt-4 max-w-md text-sm leading-7 text-[#5f5a51]">
+                                Clear the filters or try another ingredient. The recipe library is broad, but the search stays strict.
+                            </p>
+                            <button
+                                onClick={() => {
+                                    setSelectedCategory('all');
+                                    setSearchQuery('');
+                                }}
+                                className="mt-6 rounded-full bg-[#1f241d] px-5 py-3 text-sm font-semibold text-[#fffaf2]"
+                            >
+                                Clear filters
+                            </button>
+                        </div>
+                    )}
+                </div>
+            </section>
+
+            <SiteFooter />
             <StickyDownloadBar />
         </main>
     );
@@ -128,7 +159,7 @@ function FoodListContent() {
 
 export default function FoodListPage() {
     return (
-        <Suspense fallback={<div className="min-h-screen bg-black" />}>
+        <Suspense fallback={<div className="min-h-screen bg-transparent" />}>
             <FoodListContent />
         </Suspense>
     );

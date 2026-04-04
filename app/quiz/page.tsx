@@ -4,6 +4,7 @@ import { useState, useEffect } from "react"
 import Link from "next/link"
 import SiteHeader from "@/components/site-header"
 import SiteFooter from "@/components/site-footer"
+import StickyDownloadBar from "@/components/StickyDownloadBar"
 
 interface Question {
     id: number
@@ -179,31 +180,46 @@ interface Result {
     recommendation: string
     color: string
     alertLevel: string
-    alertColor: string
 }
 
 function getResult(score: number): Result {
-    const maxScore = questions.length * 3
+    if (score <= 10) {
+        return {
+            title: "Low Sugar Friction",
+            emoji: "🌿",
+            description: "Your answers suggest that sugar is not dominating your routine right now. You still may benefit from better label awareness and a more stable meal structure.",
+            recommendation: "Use Sukali for the hidden-sugar checks and recipes that make staying consistent easier when life gets busy.",
+            color: "#5c7f57",
+            alertLevel: "Stable baseline"
+        }
+    }
 
-    // Always show critical result to maximize conversions
+    if (score <= 24) {
+        return {
+            title: "Moderate Sugar Drift",
+            emoji: "🧭",
+            description: "Your answers suggest that sugar shows up often enough to affect energy, cravings, or skin. The issue is probably not one dramatic habit, but repetition.",
+            recommendation: "Focus on meal scans, fewer sugary drinks, and a simpler weekly food routine before trying anything extreme.",
+            color: "#c97a5a",
+            alertLevel: "Needs consistency"
+        }
+    }
+
     return {
-        title: "Critical Sugar Addiction",
-        emoji: "🚨",
-        description: "CRITICAL ALERT: Our analysis reveals dangerous levels of sugar dependency in your system. Your fatigue, weight issues, puffy face, skin problems, and digestive issues are all symptoms of severe sugar damage. Without immediate intervention, these conditions will worsen dramatically.",
-        recommendation: "EMERGENCY: Your body is in crisis mode. You are at serious risk of developing diabetes, heart disease, and other life-threatening conditions. Download Sukali IMMEDIATELY to start your emergency 14-day sugar detox - every hour you delay causes more permanent damage.",
-        color: "#ef4444",
-        alertLevel: "🚨🚨 CRITICAL EMERGENCY - ACT NOW 🚨🚨",
-        alertColor: "#ef4444"
+        title: "High Sugar Load",
+        emoji: "⚠️",
+        description: "Your answers suggest that sugar may be driving a meaningful share of your cravings, crashes, puffiness, or weight friction. A calmer structure could help quickly.",
+        recommendation: "Start with the basics: scan meals, remove the obvious daily sugar hits, and use a simple recipe routine for two focused weeks.",
+        color: "#b85c38",
+        alertLevel: "Needs action now"
     }
 }
 
 const loadingMessages = [
-    "Analyzing your responses...",
-    "Calculating your sugar profile...",
-    "Identifying health patterns...",
-    "Evaluating risk factors...",
-    "Preparing personalized recommendations...",
-    "Almost there..."
+    "Reviewing your answers...",
+    "Mapping your sugar patterns...",
+    "Estimating where friction shows up...",
+    "Preparing your next step...",
 ]
 
 export default function QuizPage() {
@@ -216,12 +232,12 @@ export default function QuizPage() {
     const [loadingProgress, setLoadingProgress] = useState(0)
     const [loadingMessageIndex, setLoadingMessageIndex] = useState(0)
 
-    const progress = ((currentQuestion) / questions.length) * 100
+    const progress = (currentQuestion / questions.length) * 100
 
     useEffect(() => {
         if (isLoading) {
             const interval = setInterval(() => {
-                setLoadingProgress(prev => {
+                setLoadingProgress((prev) => {
                     if (prev >= 100) {
                         clearInterval(interval)
                         setIsLoading(false)
@@ -233,10 +249,10 @@ export default function QuizPage() {
             }, 60)
 
             const messageInterval = setInterval(() => {
-                setLoadingMessageIndex(prev =>
+                setLoadingMessageIndex((prev) =>
                     prev < loadingMessages.length - 1 ? prev + 1 : prev
                 )
-            }, 500)
+            }, 700)
 
             return () => {
                 clearInterval(interval)
@@ -260,7 +276,7 @@ export default function QuizPage() {
                 setLoadingProgress(0)
                 setLoadingMessageIndex(0)
             }
-        }, 300)
+        }, 250)
     }
 
     const totalScore = answers.reduce((a, b) => a + b, 0)
@@ -275,78 +291,79 @@ export default function QuizPage() {
         setSelectedOption(null)
         setIsLoading(false)
         setLoadingProgress(0)
+        setLoadingMessageIndex(0)
     }
 
     return (
-        <main className="min-h-screen bg-black">
+        <main className="min-h-screen bg-transparent text-[#1f241d]">
             <SiteHeader />
 
-            <section className="pt-24 pb-16 md:pt-32 md:pb-24">
-                <div className="mx-auto max-w-2xl px-4">
-
+            <section className="pb-16 pt-12 md:pb-24 md:pt-16">
+                <div className="mx-auto max-w-3xl px-4">
                     {!started ? (
-                        /* Intro Screen */
                         <div className="text-center">
-                            <div className="text-7xl mb-6">🩺</div>
+                            <span className="inline-flex rounded-full border border-[#d8ccb9] bg-white px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.24em] text-[#7b7468] shadow-sm">
+                                Quiz
+                            </span>
 
-                            <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
-                                Sugar Health Assessment
+                            <h1
+                                className="mt-5 text-5xl leading-tight text-[#1f241d] md:text-6xl"
+                                style={{ fontFamily: "var(--font-display)" }}
+                            >
+                                A quick check on how sugar is showing up in your routine.
                             </h1>
 
-                            <p className="text-xl text-[#c4c4c4] mb-8 max-w-lg mx-auto">
-                                Before we can help you, we need to understand your symptoms and relationship with sugar.
+                            <p className="mx-auto mt-5 max-w-2xl text-lg leading-8 text-[#5f5a51]">
+                                This is not a medical diagnosis. It is a short self-check to spot patterns around cravings, energy, food habits, and the kind of friction that usually makes people drift.
                             </p>
 
-                            <div className="bg-[#1C1C1E] rounded-2xl border border-[#38383A] p-6 mb-8 text-left">
-                                <h3 className="text-lg font-bold text-white mb-4">This quick assessment will help us:</h3>
-                                <ul className="space-y-3 text-[#c4c4c4]">
-                                    <li className="flex items-start gap-3">
-                                        <span className="text-[#22c55e]">✓</span>
-                                        <span>Identify symptoms you may not realize are linked to sugar</span>
+                            <div className="mx-auto mt-10 max-w-2xl rounded-[32px] border border-[#ddd1c1] bg-[#fffaf2] p-8 text-left shadow-[0_18px_40px_rgba(52,41,22,0.06)]">
+                                <h2
+                                    className="text-3xl text-[#1f241d]"
+                                    style={{ fontFamily: "var(--font-display)" }}
+                                >
+                                    What this helps with
+                                </h2>
+                                <ul className="mt-6 space-y-3 text-sm leading-7 text-[#5f5a51]">
+                                    <li className="flex gap-3">
+                                        <span className="mt-2 h-2.5 w-2.5 rounded-full bg-[#5c7f57]" />
+                                        <span>Spot whether cravings and crashes are isolated or part of a repeating pattern.</span>
                                     </li>
-                                    <li className="flex items-start gap-3">
-                                        <span className="text-[#22c55e]">✓</span>
-                                        <span>Understand your current sugar dependency level</span>
+                                    <li className="flex gap-3">
+                                        <span className="mt-2 h-2.5 w-2.5 rounded-full bg-[#5c7f57]" />
+                                        <span>See whether sugar may be influencing skin, appetite, puffiness, or energy more than you realize.</span>
                                     </li>
-                                    <li className="flex items-start gap-3">
-                                        <span className="text-[#22c55e]">✓</span>
-                                        <span>Calculate your personal risk score</span>
-                                    </li>
-                                    <li className="flex items-start gap-3">
-                                        <span className="text-[#22c55e]">✓</span>
-                                        <span>Provide personalized recommendations for your situation</span>
+                                    <li className="flex gap-3">
+                                        <span className="mt-2 h-2.5 w-2.5 rounded-full bg-[#5c7f57]" />
+                                        <span>Get a calmer next step instead of a dramatic detox pitch.</span>
                                     </li>
                                 </ul>
-                            </div>
 
-                            <div className="bg-gradient-to-br from-[#f97316]/20 to-[#f97316]/5 rounded-2xl border border-[#f97316]/30 p-4 mb-8">
-                                <p className="text-[#f97316] font-medium">
-                                    ⚠️ Answer honestly for accurate results. This takes only 2 minutes.
-                                </p>
+                                <div className="mt-8 rounded-[24px] bg-[#efe5d7] p-4 text-sm leading-7 text-[#5f5a51]">
+                                    14 questions. About 2 minutes. Better results if you answer honestly instead of optimistically.
+                                </div>
                             </div>
 
                             <button
                                 onClick={() => setStarted(true)}
-                                className="px-8 py-4 bg-[#22c55e] text-black font-bold text-lg rounded-full hover:opacity-90 transition-opacity"
+                                className="glow-button mt-8 rounded-full bg-[#1f241d] px-8 py-4 text-base font-semibold text-[#fffaf2]"
                             >
-                                Start Assessment →
+                                Start the quiz
                             </button>
 
-                            <p className="text-[#8E8E93] text-sm mt-6">
-                                {questions.length} questions • 100% confidential
+                            <p className="mt-4 text-sm text-[#7b7468]">
+                                {questions.length} questions • confidential • no account needed
                             </p>
                         </div>
-
                     ) : isLoading ? (
-                        /* Loading Animation */
-                        <div className="flex flex-col items-center justify-center min-h-[60vh]">
-                            <div className="relative w-40 h-40 mb-8">
-                                <svg className="w-full h-full transform -rotate-90">
+                        <div className="flex min-h-[60vh] flex-col items-center justify-center text-center">
+                            <div className="relative mb-8 h-40 w-40">
+                                <svg className="h-full w-full -rotate-90 transform">
                                     <circle
                                         cx="80"
                                         cy="80"
                                         r="70"
-                                        stroke="#1C1C1E"
+                                        stroke="#e2d7ca"
                                         strokeWidth="8"
                                         fill="none"
                                     />
@@ -354,7 +371,7 @@ export default function QuizPage() {
                                         cx="80"
                                         cy="80"
                                         r="70"
-                                        stroke="#22c55e"
+                                        stroke="#5c7f57"
                                         strokeWidth="8"
                                         fill="none"
                                         strokeLinecap="round"
@@ -364,60 +381,68 @@ export default function QuizPage() {
                                     />
                                 </svg>
                                 <div className="absolute inset-0 flex items-center justify-center">
-                                    <span className="text-4xl font-bold text-white">{Math.round(loadingProgress)}%</span>
+                                    <span className="text-4xl font-semibold text-[#1f241d]">{Math.round(loadingProgress)}%</span>
                                 </div>
                             </div>
 
-                            <p className="text-lg text-[#22c55e] font-medium mb-2 animate-pulse">
+                            <p className="text-lg font-medium text-[#5c7f57]">
                                 {loadingMessages[loadingMessageIndex]}
                             </p>
-                            <p className="text-[#8E8E93] text-sm">
-                                Please wait while we analyze your results
+                            <p className="mt-2 text-sm text-[#6f685d]">
+                                Building a more useful next step than “just try harder”.
                             </p>
                         </div>
-
                     ) : !showResult ? (
                         <>
-                            {/* Progress Bar */}
-                            <div className="mb-8">
-                                <div className="flex justify-between text-sm text-[#8E8E93] mb-2">
-                                    <span>Question {currentQuestion + 1} of {questions.length}</span>
-                                    <span>{Math.round(progress)}% complete</span>
+                            <div className="mb-8 flex items-end justify-between gap-4">
+                                <div>
+                                    <p className="text-sm uppercase tracking-[0.18em] text-[#7b7468]">
+                                        Question {currentQuestion + 1} of {questions.length}
+                                    </p>
+                                    <p className="mt-2 text-sm text-[#6f685d]">
+                                        Move fast. First instincts are usually the most honest.
+                                    </p>
                                 </div>
-                                <div className="h-2 bg-[#1C1C1E] rounded-full overflow-hidden">
-                                    <div
-                                        className="h-full bg-[#22c55e] transition-all duration-500 ease-out"
-                                        style={{ width: `${progress}%` }}
-                                    />
-                                </div>
+                                <p className="text-sm font-semibold text-[#1f241d]">
+                                    {Math.round(progress)}%
+                                </p>
                             </div>
 
-                            {/* Question */}
-                            <div className="bg-[#1C1C1E] rounded-3xl border border-[#38383A] p-8 md:p-10">
+                            <div className="mb-8 h-2 overflow-hidden rounded-full bg-[#e2d7ca]">
+                                <div
+                                    className="h-full bg-[#5c7f57] transition-all duration-500 ease-out"
+                                    style={{ width: `${progress}%` }}
+                                />
+                            </div>
+
+                            <div className="rounded-[34px] border border-[#ddd1c1] bg-[#fffaf2] p-8 shadow-[0_18px_40px_rgba(52,41,22,0.06)] md:p-10">
                                 {questions[currentQuestion].emoji && (
-                                    <div className="text-5xl mb-4">{questions[currentQuestion].emoji}</div>
+                                    <div className="mb-4 text-5xl">{questions[currentQuestion].emoji}</div>
                                 )}
-                                <h2 className="text-2xl md:text-3xl font-bold text-white mb-8">
+                                <h2
+                                    className="text-3xl leading-tight text-[#1f241d] md:text-4xl"
+                                    style={{ fontFamily: "var(--font-display)" }}
+                                >
                                     {questions[currentQuestion].question}
                                 </h2>
 
-                                <div className="space-y-3">
+                                <div className="mt-8 space-y-3">
                                     {questions[currentQuestion].options.map((option, index) => (
                                         <button
                                             key={index}
                                             onClick={() => handleAnswer(option.points, index)}
-                                            className={`w-full text-left p-4 rounded-xl border transition-all duration-200 ${selectedOption === index
-                                                ? 'bg-[#22c55e] border-[#22c55e] text-black'
-                                                : 'bg-black/50 border-[#38383A] text-white hover:border-[#22c55e]/50'
-                                                }`}
+                                            className={`w-full rounded-[22px] border px-5 py-4 text-left text-sm font-medium transition-all duration-200 ${
+                                                selectedOption === index
+                                                    ? 'border-[#5c7f57] bg-[#5c7f57] text-[#fffaf2]'
+                                                    : 'border-[#ddd1c1] bg-white text-[#1f241d] hover:border-[#5c7f57] hover:bg-[#f7f2ea]'
+                                            }`}
                                         >
-                                            <span className="font-medium">{option.text}</span>
+                                            {option.text}
                                         </button>
                                     ))}
                                 </div>
                             </div>
 
-                            {/* Back button */}
                             {currentQuestion > 0 && (
                                 <button
                                     onClick={() => {
@@ -425,136 +450,110 @@ export default function QuizPage() {
                                         setAnswers(answers.slice(0, -1))
                                         setSelectedOption(null)
                                     }}
-                                    className="mt-6 text-[#8E8E93] hover:text-white transition-colors"
+                                    className="mt-6 text-sm text-[#6f685d] hover:text-[#1f241d]"
                                 >
                                     ← Back to previous question
                                 </button>
                             )}
                         </>
                     ) : (
-                        /* Result */
                         <div className="text-center">
-                            {/* Alert Score Badge */}
-                            <div
-                                className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-6"
-                                style={{ backgroundColor: `${result.alertColor}20`, border: `1px solid ${result.alertColor}` }}
+                            <span
+                                className="inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-semibold"
+                                style={{ backgroundColor: `${result.color}18`, color: result.color }}
                             >
-                                <div
-                                    className="w-3 h-3 rounded-full animate-pulse"
-                                    style={{ backgroundColor: result.alertColor }}
-                                />
-                                <span className="font-bold text-sm" style={{ color: result.alertColor }}>
-                                    {result.alertLevel}
-                                </span>
-                            </div>
+                                <span className="h-2.5 w-2.5 rounded-full" style={{ backgroundColor: result.color }} />
+                                {result.alertLevel}
+                            </span>
 
-                            <div
-                                className="text-8xl mb-6"
-                                style={{ filter: `drop-shadow(0 0 20px ${result.color}40)` }}
-                            >
-                                {result.emoji}
-                            </div>
+                            <div className="mt-6 text-7xl">{result.emoji}</div>
 
                             <h1
-                                className="text-4xl md:text-5xl font-bold mb-4"
-                                style={{ color: result.color }}
+                                className="mt-6 text-5xl leading-tight"
+                                style={{ color: result.color, fontFamily: "var(--font-display)" }}
                             >
                                 {result.title}
                             </h1>
 
-                            {/* Score Display */}
-                            <div className="bg-[#1C1C1E] rounded-2xl border border-[#38383A] p-6 mb-6 inline-block">
+                            <div className="mx-auto mt-8 inline-flex rounded-[24px] border border-[#ddd1c1] bg-[#fffaf2] p-6 shadow-[0_18px_40px_rgba(52,41,22,0.06)]">
                                 <div className="flex items-center gap-6">
                                     <div className="text-center">
-                                        <p className="text-[#8E8E93] text-sm mb-1">Your Score</p>
-                                        <p className="text-3xl font-bold" style={{ color: result.color }}>
-                                            {totalScore}/{maxScore}
-                                        </p>
+                                        <p className="text-sm text-[#7b7468]">Your score</p>
+                                        <p className="mt-1 text-3xl font-semibold text-[#1f241d]">{totalScore}/{maxScore}</p>
                                     </div>
-                                    <div className="h-12 w-px bg-[#38383A]" />
+                                    <div className="h-12 w-px bg-[#ddd1c1]" />
                                     <div className="text-center">
-                                        <p className="text-[#8E8E93] text-sm mb-1">Risk Level</p>
-                                        <p className="text-3xl font-bold" style={{ color: result.alertColor }}>
+                                        <p className="text-sm text-[#7b7468]">Intensity</p>
+                                        <p className="mt-1 text-3xl font-semibold text-[#1f241d]">
                                             {Math.round((totalScore / maxScore) * 100)}%
                                         </p>
                                     </div>
                                 </div>
                             </div>
 
-                            <p className="text-lg text-[#c4c4c4] mb-6 max-w-lg mx-auto">
+                            <p className="mx-auto mt-8 max-w-2xl text-lg leading-8 text-[#5f5a51]">
                                 {result.description}
                             </p>
 
                             <div
-                                className="rounded-2xl border p-6 mb-8 text-left"
+                                className="mx-auto mt-8 max-w-2xl rounded-[28px] border p-6 text-left"
                                 style={{
-                                    backgroundColor: `${result.alertColor}10`,
-                                    borderColor: `${result.alertColor}50`
+                                    backgroundColor: `${result.color}10`,
+                                    borderColor: `${result.color}35`
                                 }}
                             >
-                                <h3 className="text-lg font-bold text-white mb-3 flex items-center gap-2">
-                                    <span style={{ color: result.alertColor }}>⚡</span>
-                                    Recommended Action
+                                <h3
+                                    className="text-2xl"
+                                    style={{ color: result.color, fontFamily: "var(--font-display)" }}
+                                >
+                                    Recommended next step
                                 </h3>
-                                <p className="text-[#c4c4c4]">{result.recommendation}</p>
+                                <p className="mt-3 text-sm leading-7 text-[#4f4a41]">
+                                    {result.recommendation}
+                                </p>
                             </div>
 
-                            <div className="bg-gradient-to-br from-[#22c55e]/20 to-[#22c55e]/5 rounded-2xl border border-[#22c55e]/30 p-6 mb-8">
-                                <h3 className="text-xl font-bold text-white mb-3">Take Control of Your Health Today</h3>
-                                <p className="text-[#c4c4c4] mb-6">
-                                    Download Sukali to scan any food for hidden sugars, get 100+ sugar-free recipes, and track your progress toward better health.
+                            <div className="mx-auto mt-8 max-w-2xl rounded-[32px] bg-[#1f241d] p-8 text-[#fffaf2] shadow-[0_24px_60px_rgba(52,41,22,0.16)]">
+                                <h3
+                                    className="text-3xl"
+                                    style={{ fontFamily: "var(--font-display)" }}
+                                >
+                                    Use the app for the part that gets hard in real life.
+                                </h3>
+                                <p className="mt-3 text-sm leading-7 text-[#d7cec2]">
+                                    Scan foods, cut the hidden stuff first, and keep the routine practical enough to survive an ordinary week.
                                 </p>
-                                <div className="flex flex-wrap justify-center gap-3">
+                                <div className="mt-6 flex flex-wrap justify-center gap-3">
                                     <a
                                         href="https://apps.apple.com/us/app/sukali-umax-no-sugar/id6749379303"
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="inline-flex items-center gap-2 px-6 py-3 bg-[#22c55e] text-black font-bold rounded-full hover:opacity-90"
+                                        className="rounded-full bg-[#fffaf2] px-6 py-3 text-sm font-semibold text-[#1f241d]"
                                     >
-                                        Download on iOS
+                                        Download on iPhone
                                     </a>
-                                    <a
-                                        href="https://play.google.com/store/apps/details?id=app.sukali"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="inline-flex items-center gap-2 px-6 py-3 border border-[#38383A] text-white font-medium rounded-full hover:border-[#22c55e]"
+                                    <Link
+                                        href="/blog"
+                                        className="rounded-full border border-white/20 px-6 py-3 text-sm font-semibold text-[#fffaf2]"
                                     >
-                                        Get it on Android
-                                    </a>
+                                        Read the journal
+                                    </Link>
                                 </div>
                             </div>
 
-                            <div className="flex flex-wrap justify-center gap-4">
-                                <button
-                                    onClick={restartQuiz}
-                                    className="text-[#8E8E93] hover:text-white transition-colors"
-                                >
-                                    Take quiz again
-                                </button>
-                                <Link
-                                    href="/blog"
-                                    className="text-[#22c55e] hover:underline"
-                                >
-                                    Read our sugar guides →
-                                </Link>
-                            </div>
+                            <button
+                                onClick={restartQuiz}
+                                className="mt-8 text-sm text-[#6f685d] hover:text-[#1f241d]"
+                            >
+                                Take the quiz again
+                            </button>
                         </div>
                     )}
-
                 </div>
             </section>
 
-            {started && !showResult && !isLoading && (
-                <section className="pb-16">
-                    <div className="mx-auto max-w-2xl px-4 text-center">
-                        <p className="text-[#8E8E93] text-sm">
-                            Your answers are confidential and help us provide accurate recommendations.
-                        </p>
-                    </div>
-                </section>
-            )}
-
             <SiteFooter />
+            <StickyDownloadBar />
         </main>
     )
 }

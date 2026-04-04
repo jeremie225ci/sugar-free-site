@@ -6,8 +6,8 @@ import SiteFooter from "@/components/site-footer";
 import StickyDownloadBar from "@/components/StickyDownloadBar";
 
 export const metadata = {
-    title: "Blog - Sugar-Free Lifestyle & Skin Health Tips",
-    description: "Expert articles on the dangers of sugar, how to quit, and sugar-free tips for a healthier life.",
+    title: "Journal - Sugar-Free Lifestyle & Skin Health Tips",
+    description: "Practical articles on sugar, cravings, skin, labels, and the habits that make a sugar-free life easier.",
 };
 
 
@@ -15,28 +15,38 @@ export default function BlogPage() {
     const posts = getAllPosts();
     const featuredPost = posts[0];
     const otherPosts = posts.slice(1);
+    const formatDate = (value: string) =>
+        new Date(`${value}T00:00:00`).toLocaleDateString("en-US", {
+            month: "short",
+            day: "numeric",
+            year: "numeric",
+        });
 
     return (
-        <main className="min-h-screen bg-black">
+        <main className="blog-modern min-h-screen bg-transparent text-[#1f241d]">
             <SiteHeader />
 
-            <div className="max-w-6xl mx-auto px-4 py-12">
-                {/* Header */}
-                <div className="text-center mb-12">
-                    <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
-                        Sugar Free AI Blog
+            <div className="mx-auto max-w-6xl px-4 py-14 md:py-18">
+                <div className="mb-14 max-w-3xl">
+                    <span className="inline-flex rounded-full border border-[#d8ccb9] bg-white px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.24em] text-[#7b7468] shadow-sm">
+                        Journal
+                    </span>
+                    <h1
+                        className="mt-5 text-5xl leading-tight text-[#1f241d] md:text-6xl"
+                        style={{ fontFamily: "var(--font-display)" }}
+                    >
+                        Writing that makes sugar feel understandable again.
                     </h1>
-                    <p className="text-[#8E8E93] text-lg max-w-2xl mx-auto">
-                        Discover the dangers of sugar, how to quit, and tips for a healthier life.
+                    <p className="mt-4 text-lg leading-8 text-[#5f5a51]">
+                        Practical articles on cravings, labels, skin, puffiness, and the real reasons people stay stuck.
                     </p>
                 </div>
 
-                {/* Featured Post */}
                 <Link
                     href={`/blog/${featuredPost.slug}`}
-                    className="block mb-12 group"
+                    className="card-hover group mb-14 block overflow-hidden rounded-[36px] border border-[#ddd1c1] bg-[#fffaf2] shadow-[0_24px_60px_rgba(52,41,22,0.08)]"
                 >
-                    <article className="grid md:grid-cols-2 gap-6 bg-[#1C1C1E] rounded-3xl border border-[#38383A] overflow-hidden hover:border-[#22c55e] transition-colors">
+                    <article className="grid gap-6 md:grid-cols-2">
                         <div className="relative aspect-[4/3] md:aspect-auto">
                             <Image
                                 src={featuredPost.image}
@@ -45,17 +55,22 @@ export default function BlogPage() {
                                 className="object-cover"
                             />
                         </div>
-                        <div className="p-6 md:p-8 flex flex-col justify-center">
-                            <span className="inline-block px-3 py-1 rounded-full bg-[#22c55e]/15 text-[#22c55e] text-sm font-medium mb-4 w-fit">
-                                {featuredPost.category}
-                            </span>
-                            <h2 className="text-2xl md:text-3xl font-bold text-white mb-3 group-hover:text-[#22c55e] transition-colors">
+                        <div className="flex flex-col justify-center p-6 md:p-8">
+                            <div className="flex flex-wrap items-center gap-3 text-[11px] uppercase tracking-[0.2em] text-[#7b7468]">
+                                <span>{featuredPost.category}</span>
+                                <span className="h-1 w-1 rounded-full bg-[#bcae9a]" />
+                                <span>{formatDate(featuredPost.date)}</span>
+                            </div>
+                            <h2
+                                className="mt-4 text-3xl leading-tight text-[#1f241d] group-hover:text-[#5c7f57] md:text-4xl"
+                                style={{ fontFamily: "var(--font-display)" }}
+                            >
                                 {featuredPost.title}
                             </h2>
-                            <p className="text-[#8E8E93] mb-4">
+                            <p className="mb-5 mt-4 text-base leading-8 text-[#5f5a51]">
                                 {featuredPost.excerpt}
                             </p>
-                            <div className="flex items-center gap-4 text-sm text-[#8E8E93]">
+                            <div className="flex items-center gap-4 text-sm text-[#6b655b]">
                                 <span>{featuredPost.author}</span>
                                 <span>•</span>
                                 <span>{featuredPost.readTime} min read</span>
@@ -64,15 +79,14 @@ export default function BlogPage() {
                     </article>
                 </Link>
 
-                {/* Other Posts Grid */}
-                <div className="grid md:grid-cols-3 gap-6">
+                <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
                     {otherPosts.map((post) => (
                         <Link
                             key={post.slug}
                             href={`/blog/${post.slug}`}
-                            className="group"
+                            className="card-hover group overflow-hidden rounded-[30px] border border-[#ddd1c1] bg-[#fffaf2] shadow-[0_18px_40px_rgba(52,41,22,0.06)]"
                         >
-                            <article className="bg-[#1C1C1E] rounded-3xl border border-[#38383A] overflow-hidden hover:border-[#22c55e] transition-colors h-full">
+                            <article className="h-full">
                                 <div className="relative aspect-[16/10]">
                                     <Image
                                         src={post.image}
@@ -82,16 +96,21 @@ export default function BlogPage() {
                                     />
                                 </div>
                                 <div className="p-5">
-                                    <span className="inline-block px-2.5 py-1 rounded-full bg-[#22c55e]/15 text-[#22c55e] text-xs font-medium mb-3">
-                                        {post.category}
-                                    </span>
-                                    <h3 className="text-lg font-bold text-white mb-2 group-hover:text-[#22c55e] transition-colors line-clamp-2">
+                                    <div className="flex flex-wrap items-center gap-3 text-[11px] uppercase tracking-[0.18em] text-[#7b7468]">
+                                        <span>{post.category}</span>
+                                        <span className="h-1 w-1 rounded-full bg-[#bcae9a]" />
+                                        <span>{formatDate(post.date)}</span>
+                                    </div>
+                                    <h3
+                                        className="mt-3 line-clamp-2 text-2xl leading-snug text-[#1f241d] group-hover:text-[#5c7f57]"
+                                        style={{ fontFamily: "var(--font-display)" }}
+                                    >
                                         {post.title}
                                     </h3>
-                                    <p className="text-[#8E8E93] text-sm mb-3 line-clamp-2">
+                                    <p className="mb-3 mt-3 line-clamp-3 text-sm leading-7 text-[#5f5a51]">
                                         {post.excerpt}
                                     </p>
-                                    <div className="flex items-center gap-3 text-xs text-[#8E8E93]">
+                                    <div className="flex items-center gap-3 text-xs text-[#6b655b]">
                                         <span>{post.readTime} min read</span>
                                     </div>
                                 </div>
@@ -106,4 +125,3 @@ export default function BlogPage() {
         </main>
     );
 }
-
