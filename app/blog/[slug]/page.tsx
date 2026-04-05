@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -29,14 +30,31 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
         return { title: "Post Not Found" };
     }
 
-    const semanticKeywords = post.category === "Skin Health"
-        ? ['insulin spike', 'sebum production', 'dermatology help', 'acne cure']
-        : ['healthy lifestyle', 'no sugar diet', 'skin glowing', 'Sukali app'];
+    const semanticKeywordsByCategory: Record<string, string[]> = {
+        "Skin Health": ["skin health", "diet and skin", "acne triggers", "added sugar"],
+        "Health": ["metabolic health", "blood sugar", "health risks", "nutrition habits"],
+        "Health & Science": ["prediabetes", "blood sugar", "insulin resistance", "metabolic health"],
+        "Diet Guide": ["healthy eating", "added sugar", "meal planning", "nutrition"],
+        "Diet Plans": ["meal planning", "healthy eating", "weight management", "nutrition"],
+        "Nutrition": ["nutrition", "sugar intake", "food choices", "healthy eating"],
+        "Recipes": ["healthy recipes", "low sugar recipes", "meal ideas", "home cooking"],
+        "Lifestyle": ["healthy habits", "daily routine", "wellness", "sugar reduction"],
+        "Fitness & Health": ["health goals", "body metrics", "activity", "metabolic health"],
+        "Tools": ["health tools", "calculators", "nutrition tools", "wellness support"],
+        "App Reviews": ["app review", "health apps", "nutrition apps", "tracking tools"],
+    };
+
+    const semanticKeywords = semanticKeywordsByCategory[post.category] ?? [
+        "healthy lifestyle",
+        "sugar reduction",
+        "nutrition",
+        "Sukali app",
+    ];
 
     return {
         title: post.title,
         description: post.excerpt.length > 155 ? post.excerpt.slice(0, 152) + '...' : post.excerpt,
-        keywords: [post.category, 'acne-free', 'sugar analysis', ...semanticKeywords],
+        keywords: [post.category, "Sukali", "nutrition", ...semanticKeywords],
         alternates: {
             canonical: `https://www.sugar-frees.com/blog/${slug}`,
         },
@@ -50,27 +68,31 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 }
 
 function generateJsonLd(post: any) {
-    const faqSchema = {
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        "mainEntity": [
-            {
-                "@type": "Question",
-                "name": `How does ${post.title.toLowerCase()} relate to acne?`,
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": post.excerpt
-                }
-            }
-        ]
-    };
+    const canonicalUrl = `https://www.sugar-frees.com/blog/${post.slug}`;
+    const imageUrl = post.image.startsWith("http")
+        ? post.image
+        : `https://www.sugar-frees.com${post.image}`;
 
-    const softwareSchema = {
+    const articleSchema = {
         "@context": "https://schema.org",
-        "@type": "SoftwareApplication",
-        "name": "Sukali",
-        "operatingSystem": "iOS",
-        "applicationCategory": "HealthApplication"
+        "@type": "Article",
+        "headline": post.title,
+        "description": post.excerpt,
+        "image": [imageUrl],
+        "author": {
+            "@type": "Organization",
+            "name": post.author,
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Sukali",
+            "url": "https://www.sugar-frees.com",
+        },
+        "datePublished": post.date,
+        "dateModified": post.date,
+        "mainEntityOfPage": canonicalUrl,
+        "articleSection": post.category,
+        "inLanguage": "en-US",
     };
 
     const breadcrumbSchema = {
@@ -99,24 +121,71 @@ function generateJsonLd(post: any) {
                 "@type": "ListItem",
                 "position": 4,
                 "name": post.title,
-                "item": `https://www.sugar-frees.com/blog/${post.slug}`
+                "item": canonicalUrl
             }
         ]
     };
 
-    const medicalSchema = post.category === "Skin Health" ? {
-        "@context": "https://schema.org",
-        "@type": "MedicalWebPage",
-        "name": post.title,
-        "description": post.excerpt,
-        "mainEntity": {
-            "@type": "MedicalCondition",
-            "name": "Acne Vulgaris",
-            "associatedAnatomy": { "@type": "AnatomicalStructure", "name": "Skin" }
-        }
-    } : null;
+    return [articleSchema, breadcrumbSchema];
+}
 
-    return [faqSchema, softwareSchema, breadcrumbSchema, medicalSchema].filter(Boolean);
+function renderInlineContent(text: string, keyPrefix: string): ReactNode[] {
+    const nodes: ReactNode[] = [];
+    const tokenRegex = /(\*\*.*?\*\*|\[([^\]]+)\]\(([^)]+)\))/g;
+    let lastIndex = 0;
+    let match: RegExpExecArray | null;
+    let tokenIndex = 0;
+
+    while ((match = tokenRegex.exec(text)) !== null) {
+        if (match.index > lastIndex) {
+            nodes.push(text.slice(lastIndex, match.index));
+        }
+
+        const token = match[0];
+
+        if (token.startsWith("**") && token.endsWith("**")) {
+            nodes.push(
+                <span key={`${keyPrefix}-bold-${tokenIndex}`} className="font-semibold text-[#1f241d]">
+                    {token.slice(2, -2)}
+                </span>
+            );
+        } else if (match[2] && match[3]) {
+            const label = match[2];
+            const href = match[3];
+            const isInternal = href.startsWith("/");
+
+            nodes.push(
+                isInternal ? (
+                    <Link
+                        key={`${keyPrefix}-link-${tokenIndex}`}
+                        href={href}
+                        className="font-semibold text-[#5c7f57] underline underline-offset-4"
+                    >
+                        {label}
+                    </Link>
+                ) : (
+                    <a
+                        key={`${keyPrefix}-link-${tokenIndex}`}
+                        href={href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="font-semibold text-[#5c7f57] underline underline-offset-4"
+                    >
+                        {label}
+                    </a>
+                )
+            );
+        }
+
+        lastIndex = tokenRegex.lastIndex;
+        tokenIndex += 1;
+    }
+
+    if (lastIndex < text.length) {
+        nodes.push(text.slice(lastIndex));
+    }
+
+    return nodes;
 }
 
 export default async function BlogPostPage({ params }: PageProps) {
@@ -196,7 +265,7 @@ export default async function BlogPostPage({ params }: PageProps) {
                 <div className="relative mb-12 aspect-[16/9] overflow-hidden rounded-[34px] border border-[#ddd1c1] shadow-[0_20px_50px_rgba(52,41,22,0.12)]">
                     <Image
                         src={post.image}
-                        alt={`Educational image for ${post.title} regarding acne and sugar health`}
+                        alt={post.title}
                         fill
                         priority
                         className="object-cover"
@@ -249,32 +318,23 @@ export default async function BlogPostPage({ params }: PageProps) {
                             if (paragraph.startsWith('- ')) {
                                 return (
                                     <li key={i} className="ml-6 mb-3 text-base leading-8 text-[#5f5a51]">
-                                        {paragraph.replace('- ', '')}
+                                        {renderInlineContent(paragraph.replace('- ', ''), `list-${i}`)}
                                     </li>
                                 );
                             }
                             if (paragraph.match(/^\d+\. /)) {
                                 return (
                                     <li key={i} className="ml-6 mb-3 text-base leading-8 text-[#5f5a51]">
-                                        {paragraph.replace(/^\d+\. /, '')}
+                                        {renderInlineContent(paragraph.replace(/^\d+\. /, ''), `ordered-${i}`)}
                                     </li>
                                 );
                             }
                             if (paragraph.trim()) {
-                                if (paragraph.includes('**')) {
-                                    const parts = paragraph.split(/(\*\*.*?\*\*)/g);
-                                    return (
-                                        <p key={i} className="mb-6 text-base leading-8 text-[#5f5a51]">
-                                            {parts.map((part, j) => {
-                                                if (part.startsWith('**') && part.endsWith('**')) {
-                                                    return <span key={j} className="font-semibold text-[#1f241d]">{part.replace(/\*\*/g, '')}</span>;
-                                                }
-                                                return part;
-                                            })}
-                                        </p>
-                                    );
-                                }
-                                return <p key={i} className="mb-6 text-base leading-8 text-[#5f5a51]">{paragraph}</p>;
+                                return (
+                                    <p key={i} className="mb-6 text-base leading-8 text-[#5f5a51]">
+                                        {renderInlineContent(paragraph, `paragraph-${i}`)}
+                                    </p>
+                                );
                             }
                             return null;
                         })}

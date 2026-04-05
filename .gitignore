@@ -26,3 +26,4 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.tsgoogle-services.json
 google-services.json
+.env*.local

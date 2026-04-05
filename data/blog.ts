@@ -12,6 +12,119 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
     {
+        slug: "prediabetes-symptoms",
+        title: "Prediabetes Symptoms and Risks: Why Many People Have No Symptoms",
+        excerpt: "Prediabetes often causes no obvious symptoms. Learn who is at risk, how it is diagnosed, why it matters, and what to do next.",
+        content: `
+**Evidence note**
+
+This article is based on guidance from the CDC, the National Institute of Diabetes and Digestive and Kidney Diseases, and Mayo Clinic materials reviewed in April 2026. It is educational only and does not diagnose disease.
+
+Prediabetes means your blood sugar is higher than normal but not yet high enough for a diagnosis of type 2 diabetes. The difficult part is that many people feel completely fine. According to the CDC, 115.2 million American adults had prediabetes as of February 17, 2026, and 8 in 10 did not know it.
+
+That is why prediabetes matters. It can look quiet on the outside while insulin resistance and blood sugar problems are already building in the background. CDC guidance says prediabetes raises the risk of type 2 diabetes, heart disease, and stroke. Mayo Clinic also notes that long-term damage to the heart, blood vessels, and kidneys may begin even before type 2 diabetes is diagnosed.
+
+## What prediabetes actually means
+
+When you eat, your body turns much of that food into glucose. Insulin helps move that glucose from the bloodstream into your cells. In prediabetes, that system is no longer working efficiently. This is often linked with insulin resistance, which means your cells are not responding to insulin as well as they should.
+
+Prediabetes is not the same as diabetes, but it is not harmless either. NIDDK says people with prediabetes have a high chance of developing type 2 diabetes within 5 to 10 years. Not everyone progresses, but the risk is real enough that it should be taken seriously.
+
+## Does prediabetes cause symptoms?
+
+Usually, no. That is the most important point.
+
+Both CDC and Mayo Clinic emphasize that prediabetes often goes unnoticed for years because it may not cause clear symptoms. Many people expect a warning sign they can feel, but the only way to know for sure is with a blood test.
+
+One visible sign can appear in some people: darkened, velvety patches of skin around the neck, armpits, or groin. This can be a clue that insulin resistance is present. But many people with prediabetes never notice anything unusual.
+
+If someone develops obvious symptoms such as unusual thirst, frequent urination, blurred vision, or unexplained weight loss, that can be more concerning for diabetes rather than prediabetes. At that point, medical evaluation should not be delayed.
+
+## Who is at higher risk?
+
+You do not need to fit every risk factor to have prediabetes. Risk rises when several of them stack together.
+
+NIDDK and CDC highlight common risk factors such as getting older, having overweight or obesity, being physically inactive, having a parent or sibling with type 2 diabetes, or having had gestational diabetes. Risk is also higher in some racial and ethnic groups in the United States, including African American, Hispanic or Latino, American Indian, Asian American, and Pacific Islander communities.
+
+Testing also matters earlier than many people think. NIDDK notes that health professionals may test adults starting at age 35, or earlier if overweight, obesity, or other risk factors are present. If you already know your blood pressure, cholesterol, waist size, or family history are moving in the wrong direction, it is worth discussing screening with a clinician.
+
+## Why the risks are bigger than most people think
+
+Many people hear the word prediabetes and assume it just means "watch your sugar a bit more." That is too casual.
+
+CDC states that prediabetes increases the risk of type 2 diabetes, heart disease, and stroke. Mayo Clinic adds that damage involving the heart, blood vessels, and kidneys may already be underway even before a person reaches the diabetes range. In other words, prediabetes is not only a future problem. It can reflect a metabolic problem that has already started.
+
+The longer blood sugar and insulin resistance remain unmanaged, the more likely they are to travel with other issues like rising blood pressure, abnormal cholesterol, fatty liver, and weight gain around the abdomen. Those patterns often reinforce each other, which is why early action matters so much more than people realize.
+
+## How prediabetes is diagnosed
+
+Only a blood test can diagnose prediabetes. Symptoms alone are not enough.
+
+NIDDK lists three standard ways to identify prediabetes.
+
+**A1C:** 5.7% to 6.4%.
+
+**Fasting plasma glucose:** 100 to 125 mg/dL.
+
+**2-hour oral glucose tolerance test:** 140 to 199 mg/dL.
+
+Your clinician may repeat testing or use a second test to confirm what is going on, especially if the numbers are close to the cutoff or the clinical picture does not fit neatly. If you have risk factors and your first test is normal, that does not always end the discussion. NIDDK notes that repeat testing may still be appropriate over time.
+
+## What to do if you have prediabetes
+
+The goal is not perfection. The goal is to change the direction of your metabolism early enough that it does not keep sliding.
+
+NIDDK says losing a modest amount of weight, around 5% to 7% of starting body weight, can help prevent or delay type 2 diabetes in many adults. Regular physical activity also matters. A common target used in prevention guidance is at least 30 minutes of activity on most days of the week, or about 150 minutes per week, if your clinician says that is appropriate for you.
+
+Food quality matters just as much as calorie math. A lower sugar, lower ultra-processed pattern usually makes blood sugar control easier because it reduces big spikes, improves satiety, and makes it easier to stay consistent. That does not mean you need to fear all carbohydrates. It means building meals around foods that digest more slowly and come with more fiber, protein, and micronutrients.
+
+For many people, the practical first moves are simple: remove sugary drinks, reduce packaged snacks and sweetened breakfast foods, build meals around protein and fiber, walk after meals when possible, and stop pretending hidden sugar is only in desserts. If your clinician recommends it, a CDC-recognized Diabetes Prevention Program can also be a strong next step. Some higher-risk adults may also discuss medication such as metformin with a clinician, but that decision is individualized.
+
+## Can prediabetes be reversed?
+
+In many cases, blood sugar can move back toward the normal range. That is one reason prediabetes should be found early instead of ignored.
+
+CDC and NIDDK both emphasize that progression to type 2 diabetes is not inevitable. Some people lower their blood sugar enough through sustainable changes in food quality, activity, weight, and overall metabolic health that their results return to a non-prediabetes range. Others may not fully reverse it, but they still lower risk by slowing progression and improving blood pressure, weight, and cholesterol.
+
+The worst approach is to treat prediabetes like a vague warning that can wait until next year. The best approach is to treat it like an early window where action still works very well.
+
+## When to talk to a clinician soon
+
+Do not rely on internet content if you think you may already have diabetes or another medical problem that needs prompt evaluation.
+
+Talk to a clinician soon if you have risk factors plus concerns about your blood sugar, or if you have symptoms such as marked thirst, frequent urination, blurred vision, unusual fatigue, numbness, or unexplained weight loss. Those symptoms are not specific enough for self-diagnosis, but they are important enough to justify testing.
+
+If you have already been told you have prediabetes, ask what your actual numbers were, how often you should recheck them, and whether your overall risk profile suggests more intensive follow-up.
+
+## Where Sukali can genuinely help
+
+No app can diagnose prediabetes, replace lab testing, or substitute for a medical professional. That claim would be misleading.
+
+Where Sukali can be genuinely useful is the part that defeats most people in real life: daily food decisions. If you are trying to cut hidden sugar, compare packaged foods, or stay consistent with lower-sugar meals, the app makes that work faster and easier. It helps turn broad advice like "eat better" into concrete actions you can repeat every day.
+
+That matters because prediabetes is rarely improved by one perfect week. It is improved by hundreds of small, repeated decisions. If you want a practical tool to spot sugary products, stay more aware of what you eat, and support a lower-sugar routine, [Sukali](/download) is the part of the system that can help you follow through.
+
+## Sources and medical references
+
+[CDC: Prediabetes Could It Be You? statistics and risk](https://www.cdc.gov/diabetes/communication-resources/prediabetes-statistics.html)
+
+[CDC: Prediabetes and type 2 diabetes overview](https://www.cdc.gov/diabetes-prevention/about-prediabetes-type-2/index.html)
+
+[NIDDK: Insulin Resistance and Prediabetes](https://www.niddk.nih.gov/health-information/diabetes/overview/what-is-diabetes/prediabetes-insulin-resistance)
+
+[NIDDK: Diabetes tests and diagnosis](https://www.niddk.nih.gov/health-information/diabetes/overview/tests-diagnosis)
+
+[NIDDK: Preventing type 2 diabetes](https://www.niddk.nih.gov/health-information/diabetes/overview/preventing-type-2-diabetes)
+
+[Mayo Clinic: Prediabetes symptoms and causes](https://www.mayoclinic.org/diseases-conditions/prediabetes/symptoms-causes/syc-20355278)
+        `,
+        image: "/assets/images/blog-images/prediabetes-symptoms-photo.png",
+        category: "Health & Science",
+        author: "Sukali Team",
+        date: "2026-04-05",
+        readTime: 13
+    },
+    {
         slug: "calai",
         title: "Calai App Review 2026: Is This AI Calorie Counter Worth It?",
         excerpt: "Honest Calai app review. Does this AI calorie counter work for weight loss? Features, pricing, and the best alternative.",
