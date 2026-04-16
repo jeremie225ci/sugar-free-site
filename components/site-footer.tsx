@@ -27,23 +27,22 @@ export default function SiteFooter() {
             <p className="max-w-sm text-sm leading-7 text-[#5f5a51]">
               A calmer home for people who want to cut sugar without turning their life into a punishment.
             </p>
-            <a
-              href="https://apps.apple.com/us/app/sukali-umax-no-sugar/id6749379303"
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              href="/start"
               className="mt-6 inline-flex rounded-full bg-[#1f241d] px-5 py-3 text-sm font-semibold text-[#fffaf2] hover:bg-[#5c7f57]"
             >
-              Download the app
-            </a>
+              Quit sugar now
+            </Link>
           </div>
 
           <div>
             <h4 className="mb-4 text-sm font-semibold uppercase tracking-[0.2em] text-[#7b7468]">Explore</h4>
             <ul className="space-y-2">
               <li><Link href="/" className="text-sm text-[#4f4a41] hover:text-[#5c7f57]">Home</Link></li>
+              <li><Link href="/start" className="text-sm text-[#4f4a41] hover:text-[#5c7f57]">Start</Link></li>
+              <li><Link href="/tools" className="text-sm text-[#4f4a41] hover:text-[#5c7f57]">Tools</Link></li>
               <li><Link href="/blog" className="text-sm text-[#4f4a41] hover:text-[#5c7f57]">Journal</Link></li>
               <li><Link href="/food" className="text-sm text-[#4f4a41] hover:text-[#5c7f57]">Recipes</Link></li>
-              <li><Link href="/quiz" className="text-sm text-[#4f4a41] hover:text-[#5c7f57]">Quiz</Link></li>
               <li><Link href="/contact" className="text-sm text-[#4f4a41] hover:text-[#5c7f57]">Contact</Link></li>
             </ul>
           </div>
@@ -62,14 +61,12 @@ export default function SiteFooter() {
             © {new Date().getFullYear()} Sukali. Sugar-free guidance for everyday life.
           </p>
           <div className="flex items-center gap-4">
-            <a
-              href="https://apps.apple.com/us/app/sukali-umax-no-sugar/id6749379303"
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              href="/download"
               className="rounded-full border border-[#bcae9a] px-5 py-2 text-sm font-medium text-[#1f241d] hover:border-[#5c7f57] hover:text-[#5c7f57]"
             >
-              App Store
-            </a>
+              Download the app
+            </Link>
           </div>
         </div>
       </div>

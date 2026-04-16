@@ -1,4 +1,5 @@
 import { cert, getApps, initializeApp, type App } from "firebase-admin/app"
+import { getAuth } from "firebase-admin/auth"
 import { getFirestore, Timestamp } from "firebase-admin/firestore"
 
 // Lazily initialize Firebase Admin using environment variables.
@@ -24,4 +25,5 @@ function initAdminApp(): App {
 
 const adminApp = initAdminApp()
 export const adminDb = getFirestore(adminApp)
-export { Timestamp } 
+export const adminAuth = getAuth(adminApp)
+export { Timestamp }

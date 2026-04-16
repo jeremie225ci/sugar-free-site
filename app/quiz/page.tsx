@@ -518,25 +518,23 @@ export default function QuizPage() {
                                     className="text-3xl"
                                     style={{ fontFamily: "var(--font-display)" }}
                                 >
-                                    Use the app for the part that gets hard in real life.
+                                    Continue into the full Sukali onboarding.
                                 </h3>
                                 <p className="mt-3 text-sm leading-7 text-[#d7cec2]">
-                                    Scan foods, cut the hidden stuff first, and keep the routine practical enough to survive an ordinary week.
+                                    Keep the momentum on the site: finish the full assessment, unlock your plan, and only then decide whether you want premium support.
                                 </p>
                                 <div className="mt-6 flex flex-wrap justify-center gap-3">
-                                    <a
-                                        href="https://apps.apple.com/us/app/sukali-umax-no-sugar/id6749379303"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
+                                    <Link
+                                        href="/start?source=quiz&from=/quiz"
                                         className="rounded-full bg-[#fffaf2] px-6 py-3 text-sm font-semibold text-[#1f241d]"
                                     >
-                                        Download on iPhone
-                                    </a>
+                                        Quit sugar now
+                                    </Link>
                                     <Link
-                                        href="/blog"
+                                        href="/tools"
                                         className="rounded-full border border-white/20 px-6 py-3 text-sm font-semibold text-[#fffaf2]"
                                     >
-                                        Read the journal
+                                        See the other tools
                                     </Link>
                                 </div>
                             </div>

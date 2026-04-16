@@ -118,10 +118,8 @@ export default function Page() {
               </div>
             </Link>
 
-            <a
-              href="https://apps.apple.com/us/app/sukali-umax-no-sugar/id6749379303"
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              href="/start"
               className="card-hover group overflow-hidden rounded-[32px] border border-[#ddd1c1] bg-[#1f241d] text-[#fffaf2] shadow-[0_18px_40px_rgba(52,41,22,0.1)]"
             >
               <div className="relative aspect-[16/10] bg-[#161410]">
@@ -133,19 +131,19 @@ export default function Page() {
                 />
               </div>
               <div className="p-6">
-                <p className="text-[11px] uppercase tracking-[0.24em] text-[#c8bba8]">App</p>
+                <p className="text-[11px] uppercase tracking-[0.24em] text-[#c8bba8]">Start</p>
                 <h3
                   className="mt-3 text-2xl group-hover:text-[#dce9d7]"
                   style={{ fontFamily: "var(--font-display)" }}
                 >
-                  Use the app when you need daily support.
+                  Start the onboarding on the site.
                 </h3>
                 <p className="mt-3 text-sm leading-7 text-[#d7cec2]">
-                  Scan meals, keep a day-zero photo, and make the invisible part of progress feel visible again.
+                  Save the account, pay on the web, then unlock the app with the same login when you want daily support.
                 </p>
-                <p className="mt-6 text-sm font-semibold text-[#fffaf2]">Download Sukali</p>
+                <p className="mt-6 text-sm font-semibold text-[#fffaf2]">Open the web onboarding</p>
               </div>
-            </a>
+            </Link>
           </div>
         </div>
       </section>

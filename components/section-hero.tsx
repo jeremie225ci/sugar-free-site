@@ -7,7 +7,7 @@ export default function SectionHero() {
   const ritualPoints = [
     "Read practical sugar-free guidance without the fake wellness tone.",
     "Use recipes that feel normal enough to cook on a weekday.",
-    "Pair the site with the app when you want scans, structure, and visible progress.",
+    "Start on the site, then unlock the app with the same account when you want scans and visible progress.",
   ]
 
   return (
@@ -45,19 +45,17 @@ export default function SectionHero() {
             </div>
 
             <div className="mt-10 flex flex-col gap-4 sm:flex-row">
-              <a
-                href="https://apps.apple.com/us/app/sukali-umax-no-sugar/id6749379303"
-                target="_blank"
-                rel="noopener noreferrer"
+              <Link
+                href="/start"
                 className="glow-button inline-flex items-center justify-center rounded-full bg-[#1f241d] px-8 py-4 text-base font-semibold text-[#fffaf2]"
               >
-                Download the app
-              </a>
+                Quit sugar now
+              </Link>
               <Link
-                href="/blog"
+                href="/tools"
                 className="inline-flex items-center justify-center rounded-full border border-[#d3c7b8] bg-white px-8 py-4 text-base font-semibold text-[#1f241d] hover:border-[#5c7f57] hover:text-[#5c7f57]"
               >
-                Browse the journal
+                Explore free tools
               </Link>
             </div>
 
@@ -67,8 +65,8 @@ export default function SectionHero() {
                 <div className="mt-1 text-sm text-[#6b655b]">recipes that feel usable</div>
               </div>
               <div>
-                <div className="text-2xl font-semibold text-[#1f241d]">Day 0</div>
-                <div className="mt-1 text-sm text-[#6b655b]">photo ritual in the app</div>
+                <div className="text-2xl font-semibold text-[#1f241d]">30 days</div>
+                <div className="mt-1 text-sm text-[#6b655b]">reset path inside Sukali</div>
               </div>
               <div>
                 <div className="text-2xl font-semibold text-[#1f241d]">Food scan</div>
@@ -85,7 +83,7 @@ export default function SectionHero() {
               <div className="mb-5 flex items-center justify-between">
                 <div>
                   <p className="text-[11px] uppercase tracking-[0.26em] text-[#7b7468]">Inside Sukali</p>
-                  <p className="mt-1 text-sm text-[#5f5a51]">A site for guidance, an app for daily decisions.</p>
+                  <p className="mt-1 text-sm text-[#5f5a51]">A site for onboarding and checkout, an app for daily support.</p>
                 </div>
                 <span className="rounded-full bg-[#efe5d7] px-3 py-1 text-xs font-medium text-[#5f5a51]">
                   Meals, progress, routine
@@ -107,7 +105,7 @@ export default function SectionHero() {
 
                 <div className="flex flex-col gap-4">
                   <div className="rounded-[24px] border border-[#ded3c6] bg-[#f4ebde] p-4">
-                    <p className="text-[11px] uppercase tracking-[0.22em] text-[#7b7468]">Day 30 view</p>
+                    <p className="text-[11px] uppercase tracking-[0.22em] text-[#7b7468]">Site-to-app handoff</p>
                     <div className="relative mt-3 aspect-[4/5] overflow-hidden rounded-[18px]">
                       <Image
                         src="/assets/images/blog-images/face-transformation-jawline.png"
@@ -123,16 +121,16 @@ export default function SectionHero() {
                     <p className="text-[11px] uppercase tracking-[0.22em] text-[#7b7468]">Why it sticks</p>
                     <div className="mt-3 space-y-3">
                       <div className="flex items-center justify-between text-sm text-[#4f4a41]">
-                        <span>Hidden sugars</span>
-                        <span className="font-semibold text-[#1f241d]">seen faster</span>
+                        <span>Free tools</span>
+                        <span className="font-semibold text-[#1f241d]">rank and convert</span>
                       </div>
                       <div className="flex items-center justify-between text-sm text-[#4f4a41]">
-                        <span>Daily meals</span>
-                        <span className="font-semibold text-[#1f241d]">less guesswork</span>
+                        <span>Web onboarding</span>
+                        <span className="font-semibold text-[#1f241d]">stays on-site</span>
                       </div>
                       <div className="flex items-center justify-between text-sm text-[#4f4a41]">
-                        <span>Visible progress</span>
-                        <span className="font-semibold text-[#1f241d]">more real</span>
+                        <span>App unlock</span>
+                        <span className="font-semibold text-[#1f241d]">same login, no re-buy</span>
                       </div>
                     </div>
                   </div>

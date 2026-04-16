@@ -223,17 +223,15 @@ export default async function BlogPostPage({ params }: PageProps) {
                             S
                         </div>
                         <p className="text-sm leading-7 text-[#5f5a51]">
-                            Use the app when you want the daily part of this article to become practical.
+                            Keep moving without leaving the site: turn this article into a saved account, onboarding flow, and checkout.
                         </p>
                     </div>
-                    <a
-                        href="https://apps.apple.com/us/app/sukali-umax-no-sugar/id6749379303"
-                        target="_blank"
-                        rel="noopener noreferrer"
+                    <Link
+                        href={`/start?source=article&from=/blog/${post.slug}`}
                         className="mt-4 inline-flex rounded-full bg-[#1f241d] px-5 py-2.5 text-sm font-semibold text-[#fffaf2] sm:mt-0"
                     >
-                        Download the app
-                    </a>
+                        Take the test
+                    </Link>
                 </div>
 
                 <header className="mb-10 max-w-4xl">
@@ -349,14 +347,14 @@ export default async function BlogPostPage({ params }: PageProps) {
                         Keep this useful after you close the article.
                     </h3>
                     <p className="mx-auto mt-3 max-w-2xl text-sm leading-7 text-[#d7cec2]">
-                        Sukali works best when it turns the theory into daily choices: food scans, steadier meals, and visible progress over time.
+                        Use the related test or onboarding flow while the article is still fresh, then unlock the app later with the same login if you decide to continue.
                     </p>
-                    <a
-                        href="https://apps.apple.com/us/app/sukali-umax-no-sugar/id6749379303"
+                    <Link
+                        href={`/start?source=article&from=/blog/${post.slug}`}
                         className="mt-6 inline-flex rounded-full bg-[#fffaf2] px-8 py-4 text-sm font-semibold text-[#1f241d]"
                     >
-                        Download Sukali
-                    </a>
+                        Quit sugar now
+                    </Link>
                 </div>
 
                 {relatedPosts.length > 0 && (

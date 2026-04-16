@@ -198,6 +198,40 @@
   color: #b85c38;
 }
 
+@keyframes sukali-float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes sukali-swap {
+  0%, 100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  50% {
+    opacity: 0.82;
+    transform: translateY(2px);
+  }
+}
+
+.onboarding-float {
+  animation: sukali-float 3.6s ease-in-out infinite;
+}
+
+.onboarding-swap {
+  animation: sukali-swap 2.2s ease-in-out infinite;
+}
+
+.onboarding-pattern {
+  background-image:
+    radial-gradient(circle at 20% 20%, rgba(201, 122, 90, 0.12), transparent 24%),
+    radial-gradient(circle at 80% 0%, rgba(92, 127, 87, 0.16), transparent 28%);
+}
+
 .blog-shell > :not(.blog-modern) {
   color: #1f241d;
 }

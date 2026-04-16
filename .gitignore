@@ -5,6 +5,8 @@
 
 # next.js
 /.next/
+/.next.bak-*/
+/.next.dev-broken-*/
 /out/
 
 # production
@@ -15,15 +17,16 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
+.DS_Store
 
 # env files
 .env*
+google-services.json
+serviceAccount*.json
 
 # vercel
 .vercel
 
 # typescript
 *.tsbuildinfo
-next-env.d.tsgoogle-services.json
-google-services.json
-.env*.local
+next-env.d.ts
