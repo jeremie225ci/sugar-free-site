@@ -60,10 +60,20 @@ type Stage =
   | { key: string; type: "social-recovery" }
   | { key: string; type: "rating" }
   | { key: string; type: "account" }
+  | { key: string; type: "week-preview" }
   | { key: string; type: "checkout" }
 
 const averageDependencyScore = 41
 const LOCAL_DRAFT_KEY = "sukali_web_onboarding_draft_v3"
+const weekProgressSlides = [
+  { day: "Day 1", imageSrc: "/assets/images/onboarding-progress/day-1.png" },
+  { day: "Day 2", imageSrc: "/assets/images/onboarding-progress/day-2.png" },
+  { day: "Day 3", imageSrc: "/assets/images/onboarding-progress/day-3.png" },
+  { day: "Day 4", imageSrc: "/assets/images/onboarding-progress/day-4.png" },
+  { day: "Day 5", imageSrc: "/assets/images/onboarding-progress/day-5.png" },
+  { day: "Day 6", imageSrc: "/assets/images/onboarding-progress/day-6.png" },
+  { day: "Day 7", imageSrc: "/assets/images/onboarding-progress/day-7.png" },
+] as const
 
 type LocalOnboardingDraft = {
   stageIndex: number
@@ -140,9 +150,11 @@ export default function WebOnboardingFlow({
   const [error, setError] = useState<string | null>(null)
   const [shouldResumeCheckoutAfterAuth, setShouldResumeCheckoutAfterAuth] = useState(false)
   const [memberSession, setMemberSession] = useState<MemberSession | null>(null)
+  const [weekPreviewIndex, setWeekPreviewIndex] = useState(0)
 
   const db = useMemo(() => getClientDb(), [])
   const advanceTimerRef = useRef<number | null>(null)
+  const weekPreviewScrollRef = useRef<HTMLDivElement | null>(null)
 
   const stages = useMemo<Stage[]>(
     () => [
@@ -173,6 +185,7 @@ export default function WebOnboardingFlow({
       { key: "social-recovery", type: "social-recovery" },
       { key: "rating", type: "rating" },
       { key: "account", type: "account" },
+      { key: "week-preview", type: "week-preview" },
       { key: "checkout", type: "checkout" },
     ],
     [],
@@ -183,6 +196,7 @@ export default function WebOnboardingFlow({
   const totalStages = stages.length
   const symptomsStageIndex = stages.findIndex((stage) => stage.type === "symptoms")
   const accountStageIndex = stages.findIndex((stage) => stage.type === "account")
+  const weekPreviewStageIndex = stages.findIndex((stage) => stage.type === "week-preview")
   const checkoutStageIndex = stages.findIndex((stage) => stage.type === "checkout")
   const isLoggedInUser = Boolean(user && !user.isAnonymous && user.email)
 
@@ -253,7 +267,7 @@ export default function WebOnboardingFlow({
 
           if (shouldResumeCheckout) {
             clearGoogleResumeCheckoutRequested()
-            setStageIndex(checkoutStageIndex)
+            setStageIndex(weekPreviewStageIndex)
           }
         } else if (resume === "checkout" || redirectCompleted || resumeCheckoutRequested) {
           setShouldResumeCheckoutAfterAuth(true)
@@ -277,7 +291,7 @@ export default function WebOnboardingFlow({
     return () => {
       mounted = false
     }
-  }, [accountStageIndex, checkoutStageIndex, resume, source, sourcePath])
+  }, [accountStageIndex, resume, source, sourcePath, weekPreviewStageIndex])
 
   useEffect(() => {
     const auth = getClientAuth()
@@ -396,8 +410,8 @@ export default function WebOnboardingFlow({
     })
     clearGoogleResumeCheckoutRequested()
     setShouldResumeCheckoutAfterAuth(false)
-    setStageIndex(checkoutStageIndex)
-  }, [checkoutStageIndex, isLoggedInUser, shouldResumeCheckoutAfterAuth, stageIndex, user?.email])
+    setStageIndex(weekPreviewStageIndex)
+  }, [isLoggedInUser, shouldResumeCheckoutAfterAuth, stageIndex, user?.email, weekPreviewStageIndex])
 
   useEffect(() => {
     let cancelled = false
@@ -459,11 +473,18 @@ export default function WebOnboardingFlow({
     })
 
     const timer = window.setTimeout(() => {
-      setStageIndex(checkoutStageIndex)
+      setStageIndex(weekPreviewStageIndex)
     }, 180)
 
     return () => window.clearTimeout(timer)
-  }, [checkoutStageIndex, currentStage.type, isLoggedInUser])
+  }, [currentStage.type, isLoggedInUser, weekPreviewStageIndex])
+
+  useEffect(() => {
+    if (currentStage.type !== "week-preview") return
+
+    setWeekPreviewIndex(0)
+    weekPreviewScrollRef.current?.scrollTo({ left: 0, behavior: "auto" })
+  }, [currentStage.type])
 
   async function saveProgress() {
     if (!user) return
@@ -510,6 +531,19 @@ export default function WebOnboardingFlow({
     setStageIndex((current) => {
       if (typeof nextIndex === "number") return Math.max(0, Math.min(nextIndex, totalStages - 1))
       return Math.min(current + 1, totalStages - 1)
+    })
+  }
+
+  function scrollWeekPreviewTo(index: number) {
+    const nextIndex = Math.max(0, Math.min(index, weekProgressSlides.length - 1))
+    setWeekPreviewIndex(nextIndex)
+
+    const scroller = weekPreviewScrollRef.current
+    if (!scroller) return
+
+    scroller.scrollTo({
+      left: scroller.clientWidth * nextIndex,
+      behavior: "smooth",
     })
   }
 
@@ -583,7 +617,7 @@ export default function WebOnboardingFlow({
       // Keep moving into checkout even if remote sync is briefly unavailable.
     }
 
-    setStageIndex(checkoutStageIndex)
+    setStageIndex(weekPreviewStageIndex)
   }
 
   async function handleCheckout() {
@@ -760,7 +794,7 @@ export default function WebOnboardingFlow({
               </div>
 
               <div className="mt-8 rounded-[24px] bg-[#ebe2d4] px-5 py-5 text-base leading-8 text-[#6a645b] md:text-lg">
-                <strong>{quizQuestions.length} questions.</strong> About 2 minutes. Better results if you answer honestly instead of optimistically.
+                <strong>About 3 minutes</strong> to answer all the questions. Better results if you answer honestly instead of optimistically.
               </div>
             </div>
 
@@ -773,7 +807,7 @@ export default function WebOnboardingFlow({
                 Start the quiz
               </button>
               <p className="mt-5 text-sm leading-7 text-[#8a8276]">
-                {quizQuestions.length} questions • confidential • no account needed
+                About 3 minutes • confidential • no account needed
               </p>
             </div>
           </div>
@@ -1296,10 +1330,10 @@ export default function WebOnboardingFlow({
               <div className="mt-8 flex flex-wrap gap-3">
                 <button
                   type="button"
-                  onClick={() => goNext(checkoutStageIndex)}
+                  onClick={() => goNext(weekPreviewStageIndex)}
                   className="glow-button rounded-full bg-[#1f241d] px-7 py-3.5 text-sm font-semibold text-[#fffaf2]"
                 >
-                  Continue to checkout
+                  Continue
                 </button>
                 <button
                   type="button"
@@ -1321,6 +1355,114 @@ export default function WebOnboardingFlow({
               onSuccess={handleAccountSuccess}
             />
           )
+        ) : null}
+
+        {currentStage.type === "week-preview" ? (
+          <StagePanel tone="light">
+            <div className="grid gap-6 lg:grid-cols-[0.92fr_1.08fr]">
+              <div className="flex h-full flex-col">
+                <p className="text-[11px] uppercase tracking-[0.22em] text-[#7b7468]">7-day motivation</p>
+                <h2
+                  className="mt-4 text-4xl leading-tight text-[#1f241d] md:text-5xl"
+                  style={{ fontFamily: "var(--font-display)" }}
+                >
+                  A sugar-free week can change more than cravings.
+                </h2>
+                <p className="mt-5 text-base leading-8 text-[#5f5a51]">
+                  Swipe through these first 7 days before you choose your plan. The point is not perfection. It is to anchor the kind of visible momentum people can start noticing when they stay consistent.
+                </p>
+
+                <div className="mt-8 rounded-[28px] border border-[#ddd1c1] bg-white p-6">
+                  <div className="flex items-center justify-between gap-4">
+                    <div>
+                      <p className="text-lg font-semibold text-[#1f241d]">
+                        {weekProgressSlides[weekPreviewIndex]?.day}
+                      </p>
+                      <p className="mt-1 text-sm leading-7 text-[#5f5a51]">
+                        Swipe across each screenshot to see the full 7-day sequence.
+                      </p>
+                    </div>
+                    <span className="rounded-full bg-[#edf3ea] px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-[#486342]">
+                      {weekPreviewIndex + 1}/{weekProgressSlides.length}
+                    </span>
+                  </div>
+
+                  <div className="mt-5 flex flex-wrap gap-2">
+                    {weekProgressSlides.map((slide, index) => (
+                      <button
+                        key={slide.day}
+                        type="button"
+                        onClick={() => scrollWeekPreviewTo(index)}
+                        className={`rounded-full px-4 py-2 text-xs font-semibold uppercase tracking-[0.18em] transition ${
+                          index === weekPreviewIndex
+                            ? "bg-[#1f241d] text-[#fffaf2]"
+                            : "border border-[#ddd1c1] bg-[#fffaf2] text-[#5f5a51]"
+                        }`}
+                      >
+                        {slide.day}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="mt-8 flex flex-wrap gap-3">
+                  <button
+                    type="button"
+                    onClick={() => scrollWeekPreviewTo(weekPreviewIndex - 1)}
+                    disabled={weekPreviewIndex === 0}
+                    className="rounded-full border border-[#d8ccb9] bg-white px-5 py-3 text-sm font-semibold text-[#1f241d] disabled:cursor-not-allowed disabled:opacity-45"
+                  >
+                    Previous
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() =>
+                      weekPreviewIndex === weekProgressSlides.length - 1
+                        ? goNext(checkoutStageIndex)
+                        : scrollWeekPreviewTo(weekPreviewIndex + 1)
+                    }
+                    className="glow-button rounded-full bg-[#1f241d] px-6 py-3 text-sm font-semibold text-[#fffaf2]"
+                  >
+                    {weekPreviewIndex === weekProgressSlides.length - 1 ? "Continue to checkout" : "Next day"}
+                  </button>
+                  <button
+                    type="button"
+                    onClick={goBack}
+                    className="rounded-full border border-[#d8ccb9] bg-white px-5 py-3 text-sm font-semibold text-[#1f241d]"
+                  >
+                    Back
+                  </button>
+                </div>
+              </div>
+
+              <div className="overflow-hidden rounded-[38px] border border-[#2a3128] bg-[#1f241d] p-4 text-[#fffaf2] shadow-[0_22px_54px_rgba(32,27,18,0.16)]">
+                <div
+                  ref={weekPreviewScrollRef}
+                  onScroll={(event) => {
+                    const target = event.currentTarget
+                    if (!target.clientWidth) return
+                    const nextIndex = Math.round(target.scrollLeft / target.clientWidth)
+                    if (nextIndex !== weekPreviewIndex) {
+                      setWeekPreviewIndex(nextIndex)
+                    }
+                  }}
+                  className="flex snap-x snap-mandatory overflow-x-auto scroll-smooth"
+                >
+                  {weekProgressSlides.map((slide) => (
+                    <div key={slide.day} className="min-w-full snap-center">
+                      <div className="rounded-[28px] border border-white/10 bg-[#101311] p-3">
+                        <img
+                          src={slide.imageSrc}
+                          alt={`${slide.day} without sugar`}
+                          className="h-[540px] w-full rounded-[22px] bg-[#0b0d0c] object-contain"
+                        />
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </StagePanel>
         ) : null}
 
         {currentStage.type === "checkout" ? (
