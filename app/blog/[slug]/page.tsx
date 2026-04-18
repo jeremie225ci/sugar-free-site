@@ -188,6 +188,26 @@ function renderInlineContent(text: string, keyPrefix: string): ReactNode[] {
     return nodes;
 }
 
+function parseImageCaption(altText: string) {
+    const parts = altText
+        .split("|")
+        .map((part) => part.trim())
+        .filter(Boolean);
+
+    if (parts.length === 0) {
+        return { title: "", description: "" };
+    }
+
+    if (parts.length === 1) {
+        return { title: parts[0], description: "" };
+    }
+
+    return {
+        title: parts[0],
+        description: parts.slice(1).join(" | "),
+    };
+}
+
 export default async function BlogPostPage({ params }: PageProps) {
     const { slug } = await params;
     const post = getPostBySlug(slug);
@@ -223,14 +243,14 @@ export default async function BlogPostPage({ params }: PageProps) {
                             S
                         </div>
                         <p className="text-sm leading-7 text-[#5f5a51]">
-                            Keep moving without leaving the site: turn this article into a saved account, onboarding flow, and checkout.
+                            Use the quiz to see if sugar is really affecting your cravings, habits, and progress before you change anything.
                         </p>
                     </div>
                     <Link
-                        href={`/start?source=article&from=/blog/${post.slug}`}
+                        href={`/quiz?source=article-top&from=/blog/${post.slug}`}
                         className="mt-4 inline-flex rounded-full bg-[#1f241d] px-5 py-2.5 text-sm font-semibold text-[#fffaf2] sm:mt-0"
                     >
-                        Take the test
+                        Take the quiz
                     </Link>
                 </div>
 
@@ -277,14 +297,34 @@ export default async function BlogPostPage({ params }: PageProps) {
                             if (imageMatch) {
                                 const altText = imageMatch[1];
                                 const src = imageMatch[2];
+                                const { title, description } = parseImageCaption(altText);
                                 return (
-                                    <div key={i} className="relative my-8 aspect-video overflow-hidden rounded-[24px]">
-                                        <Image
-                                            src={src}
-                                            alt={altText}
-                                            fill
-                                            className="object-contain"
-                                        />
+                                    <div
+                                        key={i}
+                                        className="mx-auto my-10 max-w-xl overflow-hidden rounded-[30px] border border-[#ddd1c1] bg-white shadow-[0_20px_50px_rgba(52,41,22,0.12)]"
+                                    >
+                                        <div className="relative h-[560px] bg-[#f7f2e8] sm:h-[680px]">
+                                            <Image
+                                                src={src}
+                                                alt={title || altText}
+                                                fill
+                                                className="object-contain p-3"
+                                            />
+                                            {(title || description) && (
+                                                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#1f241d]/92 via-[#1f241d]/74 to-transparent px-5 pb-5 pt-20 text-[#fffaf2]">
+                                                    {title && (
+                                                        <p className="text-xl font-semibold leading-tight">
+                                                            {title}
+                                                        </p>
+                                                    )}
+                                                    {description && (
+                                                        <p className="mt-2 text-sm leading-6 text-[#f2e8d8]">
+                                                            {description}
+                                                        </p>
+                                                    )}
+                                                </div>
+                                            )}
+                                        </div>
                                     </div>
                                 );
                             }
@@ -344,16 +384,16 @@ export default async function BlogPostPage({ params }: PageProps) {
                         className="text-3xl"
                         style={{ fontFamily: "var(--font-display)" }}
                     >
-                        Keep this useful after you close the article.
+                        Conclusion
                     </h3>
                     <p className="mx-auto mt-3 max-w-2xl text-sm leading-7 text-[#d7cec2]">
-                        Use the related test or onboarding flow while the article is still fresh, then unlock the app later with the same login if you decide to continue.
+                        Reducing sugar can help you lose weight faster, feel better, and take back control of your eating habits. But the first step is understanding whether sugar is truly affecting your daily life. If you are wondering whether sugar may be a problem for you, take our quiz to find out. It is a simple way to identify your habits, understand your cravings, and see where you stand before starting your journey toward a healthier lifestyle.
                     </p>
                     <Link
-                        href={`/start?source=article&from=/blog/${post.slug}`}
+                        href={`/quiz?source=article-bottom&from=/blog/${post.slug}`}
                         className="mt-6 inline-flex rounded-full bg-[#fffaf2] px-8 py-4 text-sm font-semibold text-[#1f241d]"
                     >
-                        Quit sugar now
+                        Take the quiz
                     </Link>
                 </div>
 
