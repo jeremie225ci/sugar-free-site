@@ -125,28 +125,6 @@ That matters because prediabetes is rarely improved by one perfect week. It is i
         readTime: 13
     },
     {
-        slug: "calai",
-        title: "Calai App Review 2026: Is This AI Calorie Counter Worth It?",
-        excerpt: "Honest Calai app review. Does this AI calorie counter work for weight loss? Features, pricing, and the best alternative.",
-        content: "",
-        image: "/assets/images/blog-images/calai.png",
-        category: "App Reviews",
-        author: "Sukali Team",
-        date: "2026-01-22",
-        readTime: 12
-    },
-    {
-        slug: "myfitnesspal",
-        title: "MyFitnessPal Review 2026: Is It Still Worth Using?",
-        excerpt: "Complete MyFitnessPal review after years of use. Features, pricing, problems, and the best alternative for weight loss.",
-        content: "",
-        image: "/assets/images/blog-images/myfitnesspal.png",
-        category: "App Reviews",
-        author: "Sukali Team",
-        date: "2026-01-22",
-        readTime: 14
-    },
-    {
         slug: "processed-sugar",
         title: "Processed Sugar: What It Is and Why You Should Avoid It",
         excerpt: "Learn what processed sugar is and why it's harmful. Discover how processed sugar differs from natural sugar.",
@@ -793,51 +771,6 @@ Stop guessing and start winning. This isn't just about a 30-day challenge; it's 
         author: "Sukali Team",
         date: "2025-01-04",
         readTime: 10
-    },
-    {
-        slug: "ultimate-weight-loss-diet-guide",
-        title: "The Ultimate Weight Loss Diet: How Fruits and Juices Melt Fat Fast",
-        excerpt: "Discover the ultimate weight loss diet that lets you eat 2200 calories a day and still lose 1lb per day. The secret is the power of natural fruit sugars.",
-        content: `
-![Fruit Diet Results](/assets/images/blog-images/face-transformation-jawline.png)
-
-We’ve all heard the same old advice: "Work out harder," "Eat less," "It’s all about the calorie deficit." But if that were 100% true, why do so many people struggle for months just to lose a few pounds? I recently decided to ignore the traditional noise and try something radical. I started an intensive fruit and juice diet, and the results have been staggering: **17 pounds gone in just 14 days.**
-
-I’m currently eating between **2100 and 2200 calories a day.** By traditional standards, that should barely be a deficit for many people. Yet, the fat is literally melting off. This is the **ultimate weight loss diet** because it targets the hidden reason we stay stuck: the metabolic slowdown caused by processed fructose and liquid sugars.
-
-## Why High Calories Don't Always Mean Fat Gain
-
-When you eat whole fruits and natural juices, you’re getting fiber, vitamins, and energy that your body actually knows how to process. Compare that to a "low calorie" diet soda or a processed "diet" meal filled with stabilizers and hidden chemicals. Your body treats those chemicals like toxins, often slowing down your metabolism to protect itself. 
-
-By flooding my system with what I call "the perfect human food," I’ve essentially hit the reset button on my hormones. My energy levels haven't just stayed stable; they’ve exploded. I spend my lunch breaks walking through nature because I feel so good, not because I'm forcing myself to exercise.
-
-## A Typical Day on the Ultimate Weight Loss Diet
-
-It’s actually quite delicious. For lunch, I usually have a massive 600-calorie smoothie—pineapple, banana, strawberry, and papaya. It’s pure tropical bliss. Because it’s high in natural energy but near zero in fat, my body uses it immediately for fuel instead of storing it. 
-
-I also keep things simple with "convenience snacks" that aren't junk. A bowl of canned peaches or pears (in their own juice, no syrup!) is my go-to when I'm feeling a bit hungry. It satisfies the sweet tooth and the hunger at the same time. This isn't a diet of restriction; it's a diet of high-quality abundance.
-
-## The Physical Transformation
-
-The changes in just two weeks have been visible to everyone. It’s not just the scale. My face has lost that puffy, inflamed look. My jawline is significantly more defined, and my "dad-gut" is finally retreating. 
-
-![Natural Transformation](/assets/images/blog-images/body-transformation-natural.png)
-
-This happens because cutting out refined sugar reduces systemic inflammation. You’re not just losing fat; you’re losing the water weight that your body holds onto when it's constantly inflamed by processed sugar.
-
-## Sukali: The Tool That Guarantees Success
-
-The problem most people face when trying a **weight loss diet** like this is the "hidden sugar" trap. You think you're doing well, but that store-bought "fresh" juice might have 40g of added corn syrup. 
-
-**This is why I use Sukali.** It’s not just an app; it’s a reality check. When you scan a product and see the sugar content, you realize why you weren't losing weight before. Sukali makes the invisible visible. It empowers you to make choices that lead to the type of 1-pound-a-day weight loss I’m experiencing right now. 
-
-If you're ready to stop struggling and start seeing real, week-over-week results, you need to understand what sugar is doing to your body. Sukali is the easiest way to do that. Download it, start scanning, and let the fruit do the rest of the work.
-        `,
-        image: "/assets/images/blog-images/fruit-smoothie-bowl.png",
-        category: "Diet Tips",
-        author: "Sukali Team",
-        date: "2025-01-04",
-        readTime: 12
     },
     {
         slug: "no-sugar-challenge",
@@ -1962,126 +1895,6 @@ Download Sukali to get the full recipes with step-by-step instructions.
         readTime: 4
     },
     {
-        slug: "understanding-glycemic-index",
-        title: "Glycemic Index Explained: What It Means for Your Skin",
-        excerpt: "Learn how the glycemic index affects blood sugar and why it matters for acne prevention.",
-        content: `
-## What is the Glycemic Index?
-
-The Glycemic Index (GI) measures how quickly foods raise blood sugar levels on a scale of 0-100.
-
-### GI Categories
-
-- **Low GI (0-55):** Slow, steady energy release
-- **Medium GI (56-69):** Moderate blood sugar impact
-- **High GI (70+):** Rapid blood sugar spikes
-
-### Why It Matters for Skin
-
-High GI foods cause:
-1. Rapid insulin spikes
-2. Increased inflammation
-3. Excess oil production
-4. Hormonal imbalances
-
-Studies show that low-GI diets can reduce acne by up to 50%.
-
-### Low-GI Food Swaps
-
-| Instead of... | Try... | GI Difference |
-|--------------|--------|---------------|
-| White rice | Quinoa | 73 → 53 |
-| White bread | Whole grain | 75 → 51 |
-| Potato | Sweet potato | 78 → 54 |
-| Cornflakes | Oatmeal | 81 → 55 |
-
-### Practical Tips
-
-1. Pair carbs with protein
-2. Add healthy fats to meals
-3. Choose whole foods over processed
-4. Include fiber-rich vegetables
-
-### Your Personal GI Tracker
-
-Sukali's AI scanner calculates the glycemic impact of any meal. Just take a photo and get instant feedback on how your food choices affect your skin.
-    `,
-        image: "/assets/images/chickpea-curry.jpg",
-        category: "Education",
-        author: "Nutritionist Amy",
-        date: "2024-12-15",
-        readTime: 6
-    },
-    {
-        slug: "meal-prep-sugar-free",
-        title: "Weekly Meal Prep Guide: 7 Days of Sugar-Free Eating",
-        excerpt: "Save time and stay on track with this complete meal prep guide for a sugar-free week.",
-        content: `
-## Your Sugar-Free Week Starts Here
-
-Meal prep is the secret to maintaining a sugar-free lifestyle. Here's how to prepare a full week of delicious, skin-friendly meals.
-
-### Shopping List
-
-**Proteins:**
-- Chicken breast
-- Salmon fillets
-- Eggs
-- Greek yogurt
-
-**Vegetables:**
-- Spinach
-- Broccoli
-- Bell peppers
-- Zucchini
-- Cauliflower
-
-**Pantry Staples:**
-- Olive oil
-- Quinoa
-- Almond butter
-- Chia seeds
-
-### Sunday Prep Session (2 hours)
-
-1. **Cook proteins** - Grill 4 chicken breasts
-2. **Prep vegetables** - Chop and store in containers
-3. **Make bases** - Cook quinoa and cauliflower rice
-4. **Prepare snacks** - Portion nuts and hummus
-
-### Daily Meals
-
-**Breakfast options:**
-- Overnight oats
-- Egg scramble
-- Smoothie packs
-
-**Lunch options:**
-- Quinoa veggie bowl
-- Chicken salad
-- Cauliflower rice bowl
-
-**Dinner options:**
-- Grilled salmon
-- Stuffed bell peppers
-- Chicken stir-fry
-
-### Pro Tips
-
-- Use glass containers for freshness
-- Label everything with dates
-- Freeze portions for later
-- Prep sauces separately
-
-One week of clean eating can transform your skin. Start today!
-    `,
-        image: "/assets/images/mediterranean quinoa bowl.webp",
-        category: "Lifestyle",
-        author: "Coach Maria",
-        date: "2024-12-12",
-        readTime: 7
-    },
-    {
         slug: "does-banana-cause-acne",
         title: "Does Banana Cause Acne? The Shocking Truth About Your Favorite Fruit",
         excerpt: "Think bananas are safe for your skin? Discover how their high sugar content could be triggering your breakouts and what to eat instead.",
@@ -2348,37 +2161,6 @@ Not all coconut milks are created equal. Some are pure, while others are full of
         readTime: 4
     },
     {
-        title: "Soft Chocolate Chip Cookies No Brown Sugar Recipe",
-        slug: "chocolate-chip-cookies-no-brown-sugar",
-        date: "2025-12-28",
-        category: "Recipes",
-        excerpt: "Looking for the perfect soft chocolate chip cookies without brown sugar? This recipe uses natural alternatives to keep that chewy texture without the insulin spike.",
-        image: "/assets/images/no-brown-sugar-cookies.png",
-        author: "Sukali Chef",
-        readTime: 5,
-        content: `Most traditional cookie recipes rely on brown sugar for moisture and chewiness. However, if you are avoiding refined sugars to prevent acne flare-ups, you need a smarter approach. 
-
-### Why skip brown sugar?
-Brown sugar is essentially white sugar with molasses. It has a high glycemic index that can trigger sebum production and worsen hormonal acne. In this recipe, we use a combination of almond flour and a touch of honey or monk fruit to achieve that classic cookie texture.
-
-### Ingredients
-- 2 cups almond flour
-- 1/4 cup coconut oil (solidified)
-- 1/2 cup sugar-free chocolate chips
-- 1 egg
-- 1 tsp vanilla extract
-- 1/4 cup honey or maple syrup alternative
-
-### Instructions
-1. Preheat your oven to 350°F (175°C).
-2. Mix the wet ingredients first (egg, oil, honey).
-3. Fold in the almond flour until a dough forms.
-4. Add chocolate chips and chill the dough for 10 minutes.
-5. Scoop onto a baking sheet and bake for 10-12 minutes.
-
-Pair these with our [Turmeric Golden Milk](/food/turmeric-golden-milk) for a warm skin-safe treat.`
-    },
-    {
         title: "Perfect Sugar Cookie Recipe No Eggs Needed",
         slug: "sugar-cookie-recipe-no-eggs",
         date: "2025-12-28",
@@ -2407,37 +2189,6 @@ Eggs provide structure, but so does applesauce or flax meal. For a crispy edge a
 5. Roll out and cut into shapes. Bake at 350°F for 8-10 minutes.
 
 If you tolerate dairy well, grass-fed butter can be a simpler option than highly processed margarine.`
-    },
-    {
-        title: "Moist Banana Bread No Sugar Recipe (Dermatologist Approved)",
-        slug: "banana-bread-no-sugar-recipe",
-        date: "2025-12-28",
-        category: "Recipes",
-        excerpt: "The ultimate no sugar banana bread recipe. We use the natural sweetness of overripe bananas to create a moist, delicious loaf without the skin-damaging sugar rush.",
-        image: "/assets/images/no-sugar-banana-bread.png",
-        author: "Dr. Sarah Chen",
-        readTime: 8,
-        content: `Bananas are naturally sweet, making them the perfect base for sugar-free baking. Unlike store-bought banana bread which is essentially cake, this recipe is a nutrient-dense fuel for your skin health.
-
-### Why this is Dermatologist Approved
-Conventional banana bread uses up to 1 cup of white sugar. This spikes your blood glucose, leading to glycation—a process where sugar molecules attach to collagen, causing premature aging and acne. Our version keeps the fiber and vitamins while ditching the white stuff.
-
-### Ingredients
-- 3 very ripe bananas
-- 1/3 cup melted coconut oil
-- 1 egg (or flax egg)
-- 1 tsp baking soda
-- 1.5 cups whole grain or almond flour
-- Pinch of salt
-
-### Instructions
-1. Mash the bananas until completely smooth.
-2. Stir in the melted oil and egg.
-3. Add the dry ingredients and mix until just combined.
-4. Pour into a greased loaf pan.
-5. Bake at 350°F (175°C) for 50-60 minutes.
-
-Compare this with our [guide to bananas and breakouts](/blog/does-banana-cause-acne).`
     },
     {
         title: "Healthy Homemade No Sugar Ketchup Recipe",
@@ -2617,6 +2368,7 @@ Mixed nuts are rich in healthy fats and minerals, which is exactly why they work
 4. Let it rise for 1 hour.
 5. Bake at 375°F for 30-35 minutes.`
     }
+
 ];
 
 export function getAllPosts(): BlogPost[] {
