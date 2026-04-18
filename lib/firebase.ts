@@ -15,17 +15,8 @@ let auth: Auth | undefined
 let authPersistenceConfigured = false
 let authPersistencePromise: Promise<void> | null = null
 
-const FIRST_PARTY_AUTH_HOSTS = new Set(["sugar-frees.com", "www.sugar-frees.com"])
-
 export function resolveClientAuthDomain() {
-  const configuredAuthDomain = process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN!
-
-  if (typeof window === "undefined") {
-    return configuredAuthDomain
-  }
-
-  const runtimeHost = window.location.host || ""
-  return FIRST_PARTY_AUTH_HOSTS.has(runtimeHost) ? runtimeHost : configuredAuthDomain
+  return process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN!
 }
 
 export function getClientFirebase() {
