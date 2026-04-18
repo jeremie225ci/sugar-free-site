@@ -219,6 +219,7 @@ export default async function BlogPostPage({ params }: PageProps) {
     const allPosts = getAllPosts();
     const relatedPosts = allPosts.filter((p) => p.slug !== post.slug).slice(0, 2);
     const jsonLd = generateJsonLd(post);
+    const usePortraitHero = post.image.includes("quit-sugar-weight-loss-cover");
 
     return (
         <main className="blog-modern min-h-screen bg-transparent text-[#1f241d]">
@@ -280,13 +281,19 @@ export default async function BlogPostPage({ params }: PageProps) {
                     </div>
                 </header>
 
-                <div className="relative mb-12 aspect-[16/9] overflow-hidden rounded-[34px] border border-[#ddd1c1] shadow-[0_20px_50px_rgba(52,41,22,0.12)]">
+                <div
+                    className={`relative mb-12 overflow-hidden rounded-[34px] border border-[#ddd1c1] shadow-[0_20px_50px_rgba(52,41,22,0.12)] ${
+                        usePortraitHero
+                            ? "mx-auto aspect-[9/16] max-w-xl bg-[#f7f2e8]"
+                            : "aspect-[16/9]"
+                    }`}
+                >
                     <Image
                         src={post.image}
                         alt={post.title}
                         fill
                         priority
-                        className="object-cover"
+                        className={usePortraitHero ? "object-contain p-3" : "object-cover"}
                     />
                 </div>
 

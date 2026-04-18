@@ -12,6 +12,29 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
     {
+        slug: "why-quitting-sugar-helps-you-lose-weight-faster",
+        title: "Why Quitting Sugar Helps You Lose Weight Faster",
+        excerpt: "Quitting sugar can make weight loss easier by lowering cravings, reducing overeating, improving food choices, and helping you feel lighter and more in control.",
+        content: `If weight loss has felt harder than it should, sugar may be one of the reasons. This visual guide breaks down why reducing sugar can make fat loss easier, cravings calmer, and daily food choices more consistent.
+
+![](/assets/images/blog-images/quit-sugar-weight-loss-cover.png)
+
+![](/assets/images/blog-images/quit-sugar-weight-loss-1.png)
+
+![](/assets/images/blog-images/quit-sugar-weight-loss-2.png)
+
+![](/assets/images/blog-images/quit-sugar-weight-loss-3.png)
+
+![](/assets/images/blog-images/quit-sugar-weight-loss-4.png)
+
+![](/assets/images/blog-images/quit-sugar-weight-loss-5.png)`,
+        image: "/assets/images/blog-images/quit-sugar-weight-loss-cover.png",
+        category: "Weight Loss",
+        author: "Sukali Team",
+        date: "2026-04-18",
+        readTime: 4
+    },
+    {
         slug: "prediabetes-symptoms",
         title: "Prediabetes Symptoms and Risks: Why Many People Have No Symptoms",
         excerpt: "Prediabetes often causes no obvious symptoms. Learn who is at risk, how it is diagnosed, why it matters, and what to do next.",
