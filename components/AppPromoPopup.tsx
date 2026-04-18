@@ -12,7 +12,7 @@ interface AppPromoPopupProps {
 
 export default function AppPromoPopup({
     title = "Is sugar really a problem in your life?",
-    description = "Take our quick quiz to see whether sugar is affecting your cravings, your habits, and the way you feel every day."
+    description = "Start the full Sukali assessment to see whether sugar is affecting your cravings, your habits, and the way you feel every day."
 }: AppPromoPopupProps) {
     const [isOpen, setIsOpen] = useState(false)
     const pathname = usePathname()
@@ -63,7 +63,7 @@ export default function AppPromoPopup({
 
                 <div className="relative text-center">
                     <p className="mb-3 text-[11px] uppercase tracking-[0.26em] text-[#7b7468]">
-                        Sukali quiz
+                        Sukali assessment
                     </p>
                     <h2
                         className="mb-3 text-3xl leading-tight text-[#1f241d]"

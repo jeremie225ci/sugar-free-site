@@ -6,10 +6,10 @@ import StickyDownloadBar from "@/components/StickyDownloadBar"
 
 const tools = [
   {
-    href: "/quiz",
-    label: "Sugar Pattern Quiz",
+    href: "/start",
+    label: "Sugar-Free Assessment",
     type: "Assessment",
-    description: "Quick top-of-funnel tool for cravings, crashes, and sugar friction.",
+    description: "The full Sukali onboarding flow that replaces the old short quiz and leads directly into the real conversion journey.",
   },
   {
     href: "/blog/bmi-calculator-women",
@@ -22,12 +22,6 @@ const tools = [
     label: "Maintenance Calories",
     type: "Calculator",
     description: "Useful if you want more practical nutrition intent than a pure article page.",
-  },
-  {
-    href: "/start",
-    label: "Web Onboarding",
-    type: "Conversion flow",
-    description: "The new route that turns SEO traffic into a saved account, checkout, and app handoff.",
   },
 ]
 
@@ -47,7 +41,7 @@ export default function ToolsPage() {
             Free tools that should keep people on the site longer.
           </h1>
           <p className="mt-5 max-w-3xl text-lg leading-8 text-[#5f5a51]">
-            This page gives Sukali one place for quizzes, calculators, and the new web onboarding flow instead of scattering them across isolated article pages.
+            This page gives Sukali one place for the full assessment flow and practical calculators instead of scattering them across isolated article pages.
           </p>
 
           <div className="mt-10 grid gap-5">
