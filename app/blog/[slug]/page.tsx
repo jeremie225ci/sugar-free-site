@@ -250,7 +250,7 @@ export default async function BlogPostPage({ params }: PageProps) {
                         </p>
                     </div>
                     <Link
-                        href={`/quiz?source=article-top&from=/blog/${post.slug}`}
+                        href={`/start?source=article-top&from=${encodeURIComponent(`/blog/${post.slug}`)}`}
                         className="mt-4 inline-flex rounded-full bg-[#1f241d] px-5 py-2.5 text-sm font-semibold text-[#fffaf2] sm:mt-0"
                     >
                         Take the quiz
@@ -425,7 +425,7 @@ export default async function BlogPostPage({ params }: PageProps) {
                         Reducing sugar can help you lose weight faster, feel better, and take back control of your eating habits. But the first step is understanding whether sugar is truly affecting your daily life. If you are wondering whether sugar may be a problem for you, take our quiz to find out. It is a simple way to identify your habits, understand your cravings, and see where you stand before starting your journey toward a healthier lifestyle.
                     </p>
                     <Link
-                        href={`/quiz?source=article-bottom&from=/blog/${post.slug}`}
+                        href={`/start?source=article-bottom&from=${encodeURIComponent(`/blog/${post.slug}`)}`}
                         className="mt-6 inline-flex rounded-full bg-[#fffaf2] px-8 py-4 text-sm font-semibold text-[#1f241d]"
                     >
                         Take the quiz

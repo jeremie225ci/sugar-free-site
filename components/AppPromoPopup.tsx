@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react"
 import Link from "next/link"
+import { usePathname } from "next/navigation"
 import { X } from "lucide-react"
 
 interface AppPromoPopupProps {
@@ -14,6 +15,8 @@ export default function AppPromoPopup({
     description = "Take our quick quiz to see whether sugar is affecting your cravings, your habits, and the way you feel every day."
 }: AppPromoPopupProps) {
     const [isOpen, setIsOpen] = useState(false)
+    const pathname = usePathname()
+    const onboardingHref = `/start?source=article-popup&from=${encodeURIComponent(pathname || "/")}`
 
     useEffect(() => {
         const dismissed = localStorage.getItem("sukali-popup-dismissed")
@@ -74,7 +77,7 @@ export default function AppPromoPopup({
 
                     <div className="flex flex-col gap-3">
                         <Link
-                            href="/quiz?source=article-popup"
+                            href={onboardingHref}
                             className="glow-button inline-flex items-center justify-center gap-3 rounded-full bg-[#1f241d] px-6 py-4 text-lg font-semibold text-[#fffaf2]"
                         >
                             Take the quiz
