@@ -41,6 +41,7 @@ export type ExpertCard = {
   title: string
   quote: string
   body: string
+  imageSrc: string
 }
 
 export type UserStory = {
@@ -48,6 +49,7 @@ export type UserStory = {
   age: string
   weight: string
   quote: string
+  imageSrc: string
 }
 
 export const analysisMessages = [
@@ -408,18 +410,21 @@ export const expertCards: ExpertCard[] = [
     title: "Endocrinologist",
     quote: "Your body does not need added sugar. It only causes inflammation.",
     body: "Cutting industrial sugar reduces bloating, stabilizes hormones and visibly slims the face in just a few days.",
+    imageSrc: "/assets/images/people/expert-laura.png",
   },
   {
     name: "Dr. Ana Lopez",
     title: "Functional Nutritionist",
     quote: "Sugar is the new cigarette.",
     body: "We analyzed thousands of foods. More than 80% contain hidden sugar. Sukali helps you detect and replace them without guesswork.",
+    imageSrc: "/assets/images/people/expert-ana.png",
   },
   {
     name: "Carlos Mendez",
     title: "Wellbeing coach and Sukali collaborator",
     quote: "People do not realize how much energy sugar steals.",
     body: "Clients report clearer skin, less anxiety and a sharper mind after just one week without sugar.",
+    imageSrc: "/assets/images/people/expert-carlos.png",
   },
 ]
 
@@ -430,6 +435,7 @@ export const userStories: UserStory[] = [
     weight: "-8kg in 30 days",
     quote:
       "I thought I could not live without sugar in my coffee. By week 2 with Sukali I no longer need it. My skin is clearer and I have steady energy all day.",
+    imageSrc: "/assets/images/people/user-sophie.jpg",
   },
   {
     name: "Marc D.",
@@ -437,6 +443,7 @@ export const userStories: UserStory[] = [
     weight: "-12kg in 30 days",
     quote:
       "Quitting sugar changed my mindset. No more post-meal crashes. With Sukali's day counter I feel motivated every morning.",
+    imageSrc: "/assets/images/people/user-marc.jpg",
   },
   {
     name: "Lucia R.",
@@ -444,6 +451,7 @@ export const userStories: UserStory[] = [
     weight: "-10kg in 30 days",
     quote:
       'For the first time I understood what I was eating. Sukali\'s AI scanner opened my eyes. I discovered sugar in foods I thought were "healthy".',
+    imageSrc: "/assets/images/people/user-lucia.jpg",
   },
 ]
 
@@ -453,12 +461,14 @@ export const ratingTestimonials = [
     handle: "@emilyj",
     text:
       "Sukali has been a lifesaver for me. The progress tracking and motivational notifications have kept me on track. I have not consumed sugar in 3 months and feel more in control of my life.",
+    imageSrc: "/assets/images/people/testimonial-emily.jpg",
   },
   {
     name: "Sarah Williams",
     handle: "@sarahw",
     text:
       "I was skeptical at first, but Sukali's AI scanner feature has helped me resist temptation. I discovered sugar in foods I thought were healthy.",
+    imageSrc: "/assets/images/people/testimonial-sarah.jpg",
   },
 ]
 
@@ -466,17 +476,20 @@ export const checkoutPlanOptions: Array<{
   key: CheckoutPlanKey
   badge?: string
   title: string
+  price: string
   description: string
 }> = [
   {
     key: "monthly",
     title: "Monthly access",
+    price: "€9.99 / month",
     description: "Flexible billing if you want to start with the shortest commitment.",
   },
   {
     key: "yearly",
     badge: "Best value",
     title: "Yearly access",
+    price: "€49.99 / year",
     description: "Longer commitment for users who already want the full reset and app access.",
   },
 ]

@@ -726,6 +726,7 @@ export default function WebOnboardingFlow({
 
   const progressPercent = ((stageIndex + 1) / totalStages) * 100
   const resultsDifference = dependencyScore - averageDependencyScore
+  const selectedPlanDetails = checkoutPlanOptions.find((plan) => plan.key === selectedPlan) ?? checkoutPlanOptions[0]
 
   return (
     <section className={isIntroStage ? "pb-16 pt-8 md:pb-24 md:pt-10" : "pb-16 pt-10 md:pb-24 md:pt-14"}>
@@ -741,7 +742,7 @@ export default function WebOnboardingFlow({
                   className="mt-4 text-3xl leading-tight text-[#1f241d] md:text-5xl"
                   style={{ fontFamily: "var(--font-display)" }}
                 >
-                  The app onboarding, rebuilt for the web.
+                  Your glow-up plan without sugar.
                 </h1>
               </div>
               <div className="rounded-full border border-[#ddd1c1] bg-[#fffaf2] px-5 py-3 text-sm font-semibold text-[#5f5a51] shadow-sm">
@@ -1182,9 +1183,11 @@ export default function WebOnboardingFlow({
               {expertCards.map((expert) => (
                 <div key={expert.name} className="rounded-[28px] border border-white/10 bg-white/5 p-6">
                   <div className="flex items-start gap-4">
-                    <span className="inline-flex h-14 w-14 items-center justify-center rounded-full bg-[#f6f0e6] text-xl text-[#1f241d]">
-                      {expert.name.charAt(0)}
-                    </span>
+                    <img
+                      src={expert.imageSrc}
+                      alt={expert.name}
+                      className="h-14 w-14 rounded-full border border-white/10 object-cover"
+                    />
                     <div>
                       <p className="text-lg font-semibold text-white">{expert.name}</p>
                       <p className="mt-1 text-sm text-[#d8ccbc]">{expert.title}</p>
@@ -1221,9 +1224,16 @@ export default function WebOnboardingFlow({
               {userStories.map((story) => (
                 <div key={story.name} className="rounded-[28px] border border-white/10 bg-[#2a2218] p-6">
                   <div className="flex items-center justify-between gap-4">
-                    <div>
-                      <p className="text-lg font-semibold text-white">{story.name}</p>
-                      <p className="mt-1 text-sm text-[#d8ccbc]">{story.age}</p>
+                    <div className="flex items-center gap-4">
+                      <img
+                        src={story.imageSrc}
+                        alt={story.name}
+                        className="h-16 w-16 rounded-full border border-white/10 object-cover"
+                      />
+                      <div>
+                        <p className="text-lg font-semibold text-white">{story.name}</p>
+                        <p className="mt-1 text-sm text-[#d8ccbc]">{story.age}</p>
+                      </div>
                     </div>
                     <Badge text={story.weight} dark accent />
                   </div>
@@ -1293,9 +1303,16 @@ export default function WebOnboardingFlow({
               {ratingTestimonials.map((testimonial) => (
                 <div key={testimonial.handle} className="rounded-[28px] border border-[#ddd1c1] bg-white p-6 shadow-[0_16px_34px_rgba(52,41,22,0.04)]">
                   <div className="flex items-center justify-between gap-4">
-                    <div>
-                      <p className="text-lg font-semibold text-[#1f241d]">{testimonial.name}</p>
-                      <p className="mt-1 text-sm text-[#6c665c]">{testimonial.handle}</p>
+                    <div className="flex items-center gap-4">
+                      <img
+                        src={testimonial.imageSrc}
+                        alt={testimonial.name}
+                        className="h-14 w-14 rounded-full border border-[#e6dbcf] object-cover"
+                      />
+                      <div>
+                        <p className="text-lg font-semibold text-[#1f241d]">{testimonial.name}</p>
+                        <p className="mt-1 text-sm text-[#6c665c]">{testimonial.handle}</p>
+                      </div>
                     </div>
                     <div className="flex gap-1 text-lg text-[#f0bb5b]">
                       <span>★</span>
@@ -1359,83 +1376,15 @@ export default function WebOnboardingFlow({
 
         {currentStage.type === "week-preview" ? (
           <StagePanel tone="light">
-            <div className="grid gap-6 lg:grid-cols-[0.92fr_1.08fr]">
-              <div className="flex h-full flex-col">
-                <p className="text-[11px] uppercase tracking-[0.22em] text-[#7b7468]">7-day motivation</p>
-                <h2
-                  className="mt-4 text-4xl leading-tight text-[#1f241d] md:text-5xl"
-                  style={{ fontFamily: "var(--font-display)" }}
-                >
-                  A sugar-free week can change more than cravings.
-                </h2>
-                <p className="mt-5 text-base leading-8 text-[#5f5a51]">
-                  Swipe through these first 7 days before you choose your plan. The point is not perfection. It is to anchor the kind of visible momentum people can start noticing when they stay consistent.
-                </p>
+            <div className="mx-auto flex w-full max-w-5xl flex-col items-center">
+              <h2
+                className="max-w-3xl text-center text-4xl leading-tight text-[#1f241d] md:text-5xl"
+                style={{ fontFamily: "var(--font-display)" }}
+              >
+                A sugar-free week can change more than cravings.
+              </h2>
 
-                <div className="mt-8 rounded-[28px] border border-[#ddd1c1] bg-white p-6">
-                  <div className="flex items-center justify-between gap-4">
-                    <div>
-                      <p className="text-lg font-semibold text-[#1f241d]">
-                        {weekProgressSlides[weekPreviewIndex]?.day}
-                      </p>
-                      <p className="mt-1 text-sm leading-7 text-[#5f5a51]">
-                        Swipe across each screenshot to see the full 7-day sequence.
-                      </p>
-                    </div>
-                    <span className="rounded-full bg-[#edf3ea] px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-[#486342]">
-                      {weekPreviewIndex + 1}/{weekProgressSlides.length}
-                    </span>
-                  </div>
-
-                  <div className="mt-5 flex flex-wrap gap-2">
-                    {weekProgressSlides.map((slide, index) => (
-                      <button
-                        key={slide.day}
-                        type="button"
-                        onClick={() => scrollWeekPreviewTo(index)}
-                        className={`rounded-full px-4 py-2 text-xs font-semibold uppercase tracking-[0.18em] transition ${
-                          index === weekPreviewIndex
-                            ? "bg-[#1f241d] text-[#fffaf2]"
-                            : "border border-[#ddd1c1] bg-[#fffaf2] text-[#5f5a51]"
-                        }`}
-                      >
-                        {slide.day}
-                      </button>
-                    ))}
-                  </div>
-                </div>
-
-                <div className="mt-8 flex flex-wrap gap-3">
-                  <button
-                    type="button"
-                    onClick={() => scrollWeekPreviewTo(weekPreviewIndex - 1)}
-                    disabled={weekPreviewIndex === 0}
-                    className="rounded-full border border-[#d8ccb9] bg-white px-5 py-3 text-sm font-semibold text-[#1f241d] disabled:cursor-not-allowed disabled:opacity-45"
-                  >
-                    Previous
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() =>
-                      weekPreviewIndex === weekProgressSlides.length - 1
-                        ? goNext(checkoutStageIndex)
-                        : scrollWeekPreviewTo(weekPreviewIndex + 1)
-                    }
-                    className="glow-button rounded-full bg-[#1f241d] px-6 py-3 text-sm font-semibold text-[#fffaf2]"
-                  >
-                    {weekPreviewIndex === weekProgressSlides.length - 1 ? "Continue to checkout" : "Next day"}
-                  </button>
-                  <button
-                    type="button"
-                    onClick={goBack}
-                    className="rounded-full border border-[#d8ccb9] bg-white px-5 py-3 text-sm font-semibold text-[#1f241d]"
-                  >
-                    Back
-                  </button>
-                </div>
-              </div>
-
-              <div className="overflow-hidden rounded-[38px] border border-[#2a3128] bg-[#1f241d] p-4 text-[#fffaf2] shadow-[0_22px_54px_rgba(32,27,18,0.16)]">
+              <div className="mt-8 w-full overflow-hidden rounded-[38px] border border-[#2a3128] bg-[#1f241d] p-4 text-[#fffaf2] shadow-[0_22px_54px_rgba(32,27,18,0.16)] md:p-5">
                 <div
                   ref={weekPreviewScrollRef}
                   onScroll={(event) => {
@@ -1450,16 +1399,38 @@ export default function WebOnboardingFlow({
                 >
                   {weekProgressSlides.map((slide) => (
                     <div key={slide.day} className="min-w-full snap-center">
-                      <div className="rounded-[28px] border border-white/10 bg-[#101311] p-3">
+                      <div className="flex h-[58vh] min-h-[440px] items-center justify-center rounded-[28px] bg-[#101311] p-4 md:min-h-[520px]">
                         <img
                           src={slide.imageSrc}
                           alt={`${slide.day} without sugar`}
-                          className="h-[540px] w-full rounded-[22px] bg-[#0b0d0c] object-contain"
+                          className="max-h-full max-w-full rounded-[22px] object-contain"
                         />
                       </div>
                     </div>
                   ))}
                 </div>
+              </div>
+
+              <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
+                <button
+                  type="button"
+                  onClick={() => scrollWeekPreviewTo(weekPreviewIndex - 1)}
+                  disabled={weekPreviewIndex === 0}
+                  className="rounded-full border border-[#d8ccb9] bg-white px-6 py-3 text-sm font-semibold text-[#1f241d] disabled:cursor-not-allowed disabled:opacity-45"
+                >
+                  Previous
+                </button>
+                <button
+                  type="button"
+                  onClick={() =>
+                    weekPreviewIndex === weekProgressSlides.length - 1
+                      ? goNext(checkoutStageIndex)
+                      : scrollWeekPreviewTo(weekPreviewIndex + 1)
+                  }
+                  className="glow-button rounded-full bg-[#1f241d] px-6 py-3 text-sm font-semibold text-[#fffaf2]"
+                >
+                  Next day
+                </button>
               </div>
             </div>
           </StagePanel>
@@ -1498,6 +1469,7 @@ export default function WebOnboardingFlow({
                       <div className="flex items-start justify-between gap-4">
                         <div>
                           <p className="text-lg font-semibold text-[#1f241d]">{plan.title}</p>
+                          <p className="mt-2 text-2xl font-semibold text-[#1f241d]">{plan.price}</p>
                           <p className="mt-2 text-sm leading-7 text-[#5f5a51]">{plan.description}</p>
                         </div>
                         {plan.badge ? (
@@ -1548,6 +1520,7 @@ export default function WebOnboardingFlow({
                   <SummaryRow label="Dependency score" value={`${dependencyScore}%`} />
                   <SummaryRow label="Symptoms selected" value={selectedSymptoms.length ? String(selectedSymptoms.length) : "0"} />
                   <SummaryRow label="Plan" value={selectedPlan === "yearly" ? "Yearly" : "Monthly"} />
+                  <SummaryRow label="Price" value={selectedPlanDetails.price} />
                   <SummaryRow label="Account" value={user?.email ?? "Google or email required"} />
                 </div>
 
