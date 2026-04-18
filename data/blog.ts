@@ -550,11 +550,11 @@ Vegetables should fill half your plate at every meal. Focus on leafy greens, tom
 
 **Eat Several Times Per Week**
 
-Fish and seafood are central to this diet. Salmon, sardines, mackerel, and shrimp are excellent choices. Try our [Herb Baked Salmon](/food/herb-baked-salmon) or [Garlic Shrimp Skillet](/food/garlic-shrimp-skillet). Legumes like lentils, chickpeas, and beans provide plant based protein. Our [Chickpea Curry](/food/chickpea-curry) and [Lentil Veggie Soup](/food/lentil-veggie-soup) are perfect examples.
+Fish and seafood are central to this diet. Salmon, sardines, mackerel, and shrimp are excellent choices. Try our [Herb Baked Salmon](/food/herb-baked-salmon) or [Garlic Shrimp Skillet](/food/garlic-shrimp-skillet). Legumes like lentils, chickpeas, and beans provide plant based protein. Our [Chickpea Curry](/food/chickpea-curry) and [Lentil Veggie Soup](/food/lentil-and-veggie-soup) are perfect examples.
 
 **Eat in Moderation**
 
-Poultry like chicken and turkey a few times per week. Eggs provide protein and are incredibly versatile. Try our [Egg Spinach Scramble](/food/egg-spinach-scramble). Greek yogurt and cheese in small amounts.
+Poultry like chicken and turkey a few times per week. Eggs provide protein and are incredibly versatile. Try our [Egg Spinach Scramble](/food/egg-and-spinach-scramble). Greek yogurt and cheese in small amounts.
 
 **Limit or Avoid**
 
@@ -663,7 +663,7 @@ Here is a complete week of healthy eating designed for weight loss.
 
 **Monday**
 
-Breakfast starts with our [Egg Spinach Scramble](/food/egg-spinach-scramble) served with a slice of whole grain toast. Lunch is a [Greek Salad Bowl](/food/greek-salad-bowl) with grilled chicken. For dinner, try [Herb Baked Salmon](/food/herb-baked-salmon) with steamed broccoli and quinoa. Snack on raw almonds and an apple.
+Breakfast starts with our [Egg Spinach Scramble](/food/egg-and-spinach-scramble) served with a slice of whole grain toast. Lunch is a [Greek Salad Bowl](/food/greek-salad-bowl) with grilled chicken. For dinner, try [Herb Baked Salmon](/food/herb-baked-salmon) with steamed broccoli and quinoa. Snack on raw almonds and an apple.
 
 **Tuesday**
 
@@ -675,7 +675,7 @@ Start with a [Veggie Omelette](/food/veggie-omelette) filled with bell peppers, 
 
 **Thursday**
 
-Breakfast is [Almond Flour Pancakes](/food/almond-flour-pancakes) topped with fresh fruit. Lunch brings a [Kale Quinoa Power Salad](/food/kale-quinoa-power-salad) with lemon tahini dressing. Dinner features [Stuffed Bell Peppers](/food/stuffed-bell-peppers) with lean ground turkey. Snack on a small handful of walnuts.
+Breakfast is [Almond Flour Pancakes](/food/almond-flour-pancakes) topped with fresh fruit. Lunch brings a [Kale Quinoa Power Salad](/food/kale-and-quinoa-power-salad) with lemon tahini dressing. Dinner features [Stuffed Bell Peppers](/food/stuffed-bell-peppers) with lean ground turkey. Snack on a small handful of walnuts.
 
 **Friday**
 
@@ -683,7 +683,7 @@ Morning starts with [Coconut Chia Pudding](/food/coconut-chia-pudding) prepared 
 
 **Saturday**
 
-Breakfast is a [Mushroom Spinach Frittata](/food/mushroom-spinach-frittata) perfect for a relaxed weekend morning. Lunch features [Lentil Veggie Soup](/food/lentil-veggie-soup) with whole grain bread. Dinner is [Beef Broccoli Stir Fry](/food/beef-broccoli-stir-fry) over brown rice. Snack on fresh fruit salad.
+Breakfast is a [Mushroom Spinach Frittata](/food/mushroom-and-spinach-frittata) perfect for a relaxed weekend morning. Lunch features [Lentil Veggie Soup](/food/lentil-and-veggie-soup) with whole grain bread. Dinner is [Beef Broccoli Stir Fry](/food/beef-and-broccoli-stir-fry) over brown rice. Snack on fresh fruit salad.
 
 **Sunday**
 
@@ -999,7 +999,7 @@ Starting a no sugar diet can feel overwhelming. What can you actually eat? What 
 
 ### Day 1-3: Getting Started
 
-**Breakfast:** [Egg & Spinach Scramble](/food/egg-spinach-scramble) or [Green Detox Smoothie](/food/green-detox-smoothie)
+**Breakfast:** [Egg & Spinach Scramble](/food/egg-and-spinach-scramble) or [Green Detox Smoothie](/food/green-detox-smoothie)
 
 **Lunch:** [Greek Salad Bowl](/food/greek-salad-bowl) or [Chicken Avocado Salad](/food/chicken-avocado-salad)
 
@@ -1021,7 +1021,7 @@ Starting a no sugar diet can feel overwhelming. What can you actually eat? What 
 
 **Breakfast:** [Coconut Chia Pudding](/food/coconut-chia-pudding) or [Greek Yogurt Parfait](/food/greek-yogurt-parfait)
 
-**Lunch:** [Cauliflower Rice Bowl](/food/cauliflower-rice-bowl) or [Kale & Quinoa Power Salad](/food/kale-quinoa-power-salad)
+**Lunch:** [Cauliflower Rice Bowl](/food/cauliflower-rice-bowl) or [Kale & Quinoa Power Salad](/food/kale-and-quinoa-power-salad)
 
 **Dinner:** [Garlic Shrimp Skillet](/food/garlic-shrimp-skillet) or [Stuffed Bell Peppers](/food/stuffed-bell-peppers)
 
@@ -1029,9 +1029,9 @@ Starting a no sugar diet can feel overwhelming. What can you actually eat? What 
 
 ### Day 12-14: Finishing Strong
 
-**Breakfast:** [Mushroom & Spinach Frittata](/food/mushroom-spinach-frittata) or [Protein Power Bowl](/food/protein-power-bowl)
+**Breakfast:** [Mushroom & Spinach Frittata](/food/mushroom-and-spinach-frittata) or [Protein Power Bowl](/food/protein-power-bowl)
 
-**Lunch:** [Spinach Detox Soup](/food/spinach-detox-soup) or [Tuna & White Bean Salad](/food/tuna-white-bean-salad)
+**Lunch:** [Spinach Detox Soup](/food/spinach-detox-soup) or [Tuna & White Bean Salad](/food/tuna-and-white-bean-salad)
 
 **Dinner:** [Zesty Lemon Chicken](/food/zesty-lemon-chicken) or [Coconut Curry Vegetables](/food/coconut-curry-vegetables)
 
@@ -2376,7 +2376,7 @@ Brown sugar is essentially white sugar with molasses. It has a high glycemic ind
 4. Add chocolate chips and chill the dough for 10 minutes.
 5. Scoop onto a baking sheet and bake for 10-12 minutes.
 
-Pair these with our [Sugar-Free Milk Analysis](https://www.sugar-frees.com/food/almond-milk) for a skin-safe treat.`
+Pair these with our [Turmeric Golden Milk](/food/turmeric-golden-milk) for a warm skin-safe treat.`
     },
     {
         title: "Perfect Sugar Cookie Recipe No Eggs Needed",
@@ -2406,7 +2406,7 @@ Eggs provide structure, but so does applesauce or flax meal. For a crispy edge a
 4. Gradually add the oat flour.
 5. Roll out and cut into shapes. Bake at 350°F for 8-10 minutes.
 
-Check out why [Butter might be better than margarine](https://www.sugar-frees.com/food/butter) for your skin.`
+If you tolerate dairy well, grass-fed butter can be a simpler option than highly processed margarine.`
     },
     {
         title: "Moist Banana Bread No Sugar Recipe (Dermatologist Approved)",
@@ -2437,7 +2437,7 @@ Conventional banana bread uses up to 1 cup of white sugar. This spikes your bloo
 4. Pour into a greased loaf pan.
 5. Bake at 350°F (175°C) for 50-60 minutes.
 
-Compare this with the [Sugar Content of Regular Bananas](https://www.sugar-frees.com/food/banana).`
+Compare this with our [guide to bananas and breakouts](/blog/does-banana-cause-acne).`
     },
     {
         title: "Healthy Homemade No Sugar Ketchup Recipe",
@@ -2467,7 +2467,7 @@ Condiments are the most common source of hidden sugars. They don't taste 'sweet'
 3. Simmer on low heat for 10-15 minutes to let flavors meld.
 4. Let it cool before storing in a glass jar.
 
-Learn more about [Tomato and Sebum Production](https://www.sugar-frees.com/food/tomato).`
+Tomatoes bring acidity, color, and natural lycopene without the hidden sugar found in store-bought ketchup.`
     },
     {
         title: "Spicy No Sugar BBQ Sauce Recipe for Clear Skin",
@@ -2492,7 +2492,7 @@ Learn more about [Tomato and Sebum Production](https://www.sugar-frees.com/food/
 1. Whisk all ingredients in a pan.
 2. Bring to a slow simmer.
 3. Cook until the sauce thickens to your liking.
-4. Use it as a marinade or dipping sauce for [Grilled Chicken](https://www.sugar-frees.com/food/herbed-grilled-chicken).`
+4. Use it as a marinade or dipping sauce for [Grilled Chicken & Asparagus](/food/grilled-chicken-and-asparagus).`
     },
     {
         title: "Easy Applesauce Recipe No Sugar Added",
@@ -2517,7 +2517,7 @@ Learn more about [Tomato and Sebum Production](https://www.sugar-frees.com/food/
 3. Cover and cook over medium heat for 20 minutes.
 4. Mash with a fork or blend for a smooth texture.
 
-Check the [Sugar Verdict for Apples](https://www.sugar-frees.com/food/apple).`
+Whole apples still contain natural sugar, so portion size matters if you are trying to keep blood sugar steady.`
     },
     {
         title: "Fluffy No Sugar Pancake Recipe (Breakfast Goal)",
@@ -2568,7 +2568,7 @@ Pair with our [Sugar-Free Greek Yogurt Analysis](https://www.sugar-frees.com/foo
 2. Toss with coconut oil and vanilla.
 3. Spread on a baking sheet and bake at 300°F for 20-30 minutes, tossing occasionally.
 
-Read why [Mixed Nuts](https://www.sugar-frees.com/food/mixed-nuts-snack) are a superfood for acne.`
+Mixed nuts are rich in healthy fats and minerals, which is exactly why they work so well in a skin-friendly granola.`
     },
     {
         title: "Creamy No Sugar Ice Cream Recipe (Guilt-Free)",

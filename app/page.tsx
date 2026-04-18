@@ -155,15 +155,6 @@ export default function Page() {
               <span className="inline-flex rounded-full border border-[#d8ccb9] bg-[#fffaf2] px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.24em] text-[#7b7468] shadow-sm">
                 Journal
               </span>
-              <h2
-                className="mt-5 text-4xl leading-tight text-[#1f241d] md:text-5xl"
-                style={{ fontFamily: "var(--font-display)" }}
-              >
-                Recent articles, without the AI-template energy.
-              </h2>
-              <p className="mt-4 text-lg leading-8 text-[#5f5a51]">
-                Writing on sugar, cravings, food labels, and what tends to change first when people stay consistent.
-              </p>
             </div>
             <Link
               href="/blog"

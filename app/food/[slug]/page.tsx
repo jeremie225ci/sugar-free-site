@@ -140,12 +140,6 @@ function generateJsonLd(recipe: Recipe) {
             {
                 "@type": "ListItem",
                 "position": 3,
-                "name": category,
-                "item": `https://www.sugar-frees.com/food?category=${category}`
-            },
-            {
-                "@type": "ListItem",
-                "position": 4,
                 "name": recipe.recipe_name,
                 "item": `https://www.sugar-frees.com/food/${recipe.slug}`
             }
@@ -241,7 +235,7 @@ export default async function FoodPage({ params }: PageProps) {
                         <span>/</span>
                         <Link href="/food" className="hover:text-[#1f241d] transition-colors">Recipes</Link>
                         <span>/</span>
-                        <Link href={`/food?category=${category}`} className="capitalize hover:text-[#1f241d] transition-colors">{category}</Link>
+                        <span className="capitalize">{category}</span>
                     </div>
 
                     <div className="grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-start">
