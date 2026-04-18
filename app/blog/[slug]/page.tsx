@@ -220,6 +220,8 @@ export default async function BlogPostPage({ params }: PageProps) {
     const relatedPosts = allPosts.filter((p) => p.slug !== post.slug).slice(0, 2);
     const jsonLd = generateJsonLd(post);
     const usePortraitHero = post.image.includes("quit-sugar-weight-loss-cover");
+    const isVisualStory = post.slug === "why-quitting-sugar-helps-you-lose-weight-faster";
+    let skippedDuplicateHeroImage = false;
 
     return (
         <main className="blog-modern min-h-screen bg-transparent text-[#1f241d]">
@@ -255,36 +257,40 @@ export default async function BlogPostPage({ params }: PageProps) {
                     </Link>
                 </div>
 
-                <header className="mb-10 max-w-4xl">
+                <header className={`max-w-4xl ${isVisualStory ? "mb-6" : "mb-10"}`}>
                     <span className="inline-flex rounded-full border border-[#d8ccb9] bg-white px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.24em] text-[#7b7468] shadow-sm">
                         {post.category}
                     </span>
-                    <h1
-                        className="mt-5 text-4xl leading-tight text-[#1f241d] md:text-6xl"
-                        style={{ fontFamily: "var(--font-display)" }}
-                    >
-                        {post.title}
-                    </h1>
-                    <p className="mt-5 text-lg leading-8 text-[#5f5a51]">
-                        {post.excerpt}
-                    </p>
-                    <div className="mt-6 flex flex-wrap items-center gap-4 text-sm text-[#7b7468]">
-                        <span>{post.author}</span>
-                        <span>•</span>
-                        <span>{new Date(post.date).toLocaleDateString('en-US', {
-                            year: 'numeric',
-                            month: 'long',
-                            day: 'numeric'
-                        })}</span>
-                        <span>•</span>
-                        <span>{post.readTime} min read</span>
-                    </div>
+                    {!isVisualStory && (
+                        <>
+                            <h1
+                                className="mt-5 text-4xl leading-tight text-[#1f241d] md:text-6xl"
+                                style={{ fontFamily: "var(--font-display)" }}
+                            >
+                                {post.title}
+                            </h1>
+                            <p className="mt-5 text-lg leading-8 text-[#5f5a51]">
+                                {post.excerpt}
+                            </p>
+                            <div className="mt-6 flex flex-wrap items-center gap-4 text-sm text-[#7b7468]">
+                                <span>{post.author}</span>
+                                <span>•</span>
+                                <span>{new Date(post.date).toLocaleDateString('en-US', {
+                                    year: 'numeric',
+                                    month: 'long',
+                                    day: 'numeric'
+                                })}</span>
+                                <span>•</span>
+                                <span>{post.readTime} min read</span>
+                            </div>
+                        </>
+                    )}
                 </header>
 
                 <div
                     className={`relative mb-12 overflow-hidden rounded-[34px] border border-[#ddd1c1] shadow-[0_20px_50px_rgba(52,41,22,0.12)] ${
                         usePortraitHero
-                            ? "mx-auto aspect-[9/16] max-w-xl bg-[#f7f2e8]"
+                            ? "mx-auto aspect-[9/16] max-w-3xl bg-[#efe2d2]"
                             : "aspect-[16/9]"
                     }`}
                 >
@@ -293,11 +299,17 @@ export default async function BlogPostPage({ params }: PageProps) {
                         alt={post.title}
                         fill
                         priority
-                        className={usePortraitHero ? "object-contain p-3" : "object-cover"}
+                        className={usePortraitHero ? "object-contain p-1.5 md:p-2" : "object-cover"}
                     />
                 </div>
 
-                <div className="rounded-[34px] border border-[#ddd1c1] bg-[#fffaf2] px-6 py-8 shadow-[0_18px_40px_rgba(52,41,22,0.06)] md:px-10">
+                <div
+                    className={`rounded-[34px] px-6 py-8 md:px-10 ${
+                        isVisualStory
+                            ? "bg-[#efe2d2]"
+                            : "border border-[#ddd1c1] bg-[#fffaf2] shadow-[0_18px_40px_rgba(52,41,22,0.06)]"
+                    }`}
+                >
                     <div className="max-w-none">
                         {post.content.split('\n').map((paragraph, i) => {
                             const imageMatch = paragraph.match(/^!\[(.*?)\]\((.*?)\)$/);
@@ -305,17 +317,33 @@ export default async function BlogPostPage({ params }: PageProps) {
                                 const altText = imageMatch[1];
                                 const src = imageMatch[2];
                                 const { title, description } = parseImageCaption(altText);
+
+                                if (isVisualStory && !skippedDuplicateHeroImage && src === post.image) {
+                                    skippedDuplicateHeroImage = true;
+                                    return null;
+                                }
+
                                 return (
                                     <div
                                         key={i}
-                                        className="mx-auto my-10 max-w-xl overflow-hidden rounded-[30px] border border-[#ddd1c1] bg-white shadow-[0_20px_50px_rgba(52,41,22,0.12)]"
+                                        className={`mx-auto overflow-hidden ${
+                                            isVisualStory
+                                                ? "my-6 max-w-3xl rounded-[26px] bg-[#efe2d2]"
+                                                : "my-10 max-w-xl rounded-[30px] border border-[#ddd1c1] bg-white shadow-[0_20px_50px_rgba(52,41,22,0.12)]"
+                                        }`}
                                     >
-                                        <div className="relative h-[560px] bg-[#f7f2e8] sm:h-[680px]">
+                                        <div
+                                            className={`relative ${
+                                                isVisualStory
+                                                    ? "aspect-[9/16] bg-[#efe2d2]"
+                                                    : "h-[560px] bg-[#f7f2e8] sm:h-[680px]"
+                                            }`}
+                                        >
                                             <Image
                                                 src={src}
                                                 alt={title || altText}
                                                 fill
-                                                className="object-contain p-3"
+                                                className={isVisualStory ? "object-contain" : "object-contain p-3"}
                                             />
                                             {(title || description) && (
                                                 <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#1f241d]/92 via-[#1f241d]/74 to-transparent px-5 pb-5 pt-20 text-[#fffaf2]">
