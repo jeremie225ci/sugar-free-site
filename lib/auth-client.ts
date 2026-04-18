@@ -756,14 +756,13 @@ export async function signInOrLinkWithGoogle(params: {
         )
       } catch (error: any) {
         if (isGooglePopupBlockedError(error)) {
-          debugAuthEvent("google_popup_blocked_fallback_redirect", {
+          debugAuthEvent("google_popup_blocked_popup_only", {
             currentUser: summarizeUser(currentUser),
             source: params.source,
             sourcePath: params.sourcePath,
-            fallbackMode: "signin_anonymous_single_popup",
+            mode: "signin_anonymous_single_popup",
           })
-          await dispatchGoogleRedirect(auth, provider, anonymousUid, params, currentUser)
-          return null
+          throw new Error("Google sign-in popup was blocked. Please allow popups and try again.")
         }
 
         throw error
@@ -796,14 +795,13 @@ export async function signInOrLinkWithGoogle(params: {
         )
       } catch (error: any) {
         if (isGooglePopupBlockedError(error)) {
-          debugAuthEvent("google_popup_blocked_fallback_redirect", {
+          debugAuthEvent("google_popup_blocked_popup_only", {
             currentUser: summarizeUser(currentUser),
             source: params.source,
             sourcePath: params.sourcePath,
-            fallbackMode: "signin_existing_user",
+            mode: "signin_existing_user",
           })
-          await dispatchGoogleRedirect(auth, provider, anonymousUid, params, currentUser)
-          return null
+          throw new Error("Google sign-in popup was blocked. Please allow popups and try again.")
         }
 
         throw error
