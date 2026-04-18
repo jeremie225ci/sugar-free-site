@@ -15,6 +15,7 @@ type AccountAccessCardProps = {
   subtitle?: string
   initialName?: string
   onSuccess?: (user: User) => void | Promise<void>
+  beforeGoogleAuthStart?: () => void | Promise<void>
   compact?: boolean
   googleSignInEnabled?: boolean
   mode?: AccountAccessMode
@@ -50,6 +51,7 @@ export default function AccountAccessCard({
   subtitle = "Choose the fastest secure route to unlock your personalized plan, protect it from spam, and keep it attached to one real account.",
   initialName = "",
   onSuccess,
+  beforeGoogleAuthStart,
   compact = false,
   googleSignInEnabled = false,
   mode = "signup",
@@ -98,6 +100,7 @@ export default function AccountAccessCard({
       setError(null)
       setInfo(null)
       setIsLoading(true)
+      await beforeGoogleAuthStart?.()
       const user = await signInOrLinkWithGoogle({
         source,
         sourcePath,

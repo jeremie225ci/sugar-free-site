@@ -131,6 +131,23 @@ function getQuestionNumber(questionId: string) {
   return quizQuestions.findIndex((question) => question.id === questionId) + 1
 }
 
+function setResumeCheckoutUrlFlag() {
+  if (typeof window === "undefined") return
+
+  const url = new URL(window.location.href)
+  url.searchParams.set("resume", "checkout")
+  window.history.replaceState({}, "", `${url.pathname}${url.search}${url.hash}`)
+}
+
+function clearResumeCheckoutUrlFlag() {
+  if (typeof window === "undefined") return
+
+  const url = new URL(window.location.href)
+  if (url.searchParams.get("resume") !== "checkout") return
+  url.searchParams.delete("resume")
+  window.history.replaceState({}, "", `${url.pathname}${url.search}${url.hash}`)
+}
+
 export default function WebOnboardingFlow({
   source = "direct",
   sourcePath = "/start",
@@ -267,6 +284,7 @@ export default function WebOnboardingFlow({
 
           if (shouldResumeCheckout) {
             clearGoogleResumeCheckoutRequested()
+            clearResumeCheckoutUrlFlag()
             setStageIndex(weekPreviewStageIndex)
           }
         } else if (resume === "checkout" || redirectCompleted || resumeCheckoutRequested) {
@@ -410,6 +428,7 @@ export default function WebOnboardingFlow({
     })
     clearGoogleResumeCheckoutRequested()
     setShouldResumeCheckoutAfterAuth(false)
+    clearResumeCheckoutUrlFlag()
     setStageIndex(weekPreviewStageIndex)
   }, [isLoggedInUser, shouldResumeCheckoutAfterAuth, stageIndex, user?.email, weekPreviewStageIndex])
 
@@ -473,6 +492,7 @@ export default function WebOnboardingFlow({
     })
 
     const timer = window.setTimeout(() => {
+      clearResumeCheckoutUrlFlag()
       setStageIndex(weekPreviewStageIndex)
     }, 180)
 
@@ -617,6 +637,7 @@ export default function WebOnboardingFlow({
       // Keep moving into checkout even if remote sync is briefly unavailable.
     }
 
+    clearResumeCheckoutUrlFlag()
     setStageIndex(weekPreviewStageIndex)
   }
 
@@ -1368,6 +1389,7 @@ export default function WebOnboardingFlow({
               initialName={profile.name}
               title="Access your plan to quit sugar now."
               subtitle="Use Google or your verified email to unlock your plan, secure the checkout, and keep everything attached to one real identity."
+              beforeGoogleAuthStart={setResumeCheckoutUrlFlag}
               googleSignInEnabled
               onSuccess={handleAccountSuccess}
             />
