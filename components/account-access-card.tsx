@@ -44,6 +44,32 @@ function GoogleLogo() {
   )
 }
 
+function getEmbeddedBrowserLabel() {
+  if (typeof window === "undefined") return null
+
+  const userAgent = window.navigator.userAgent || ""
+
+  const knownEmbeddedBrowsers: Array<{ pattern: RegExp; label: string }> = [
+    { pattern: /Pinterest/i, label: "Pinterest" },
+    { pattern: /Instagram/i, label: "Instagram" },
+    { pattern: /FBAN|FBAV|FB_IAB|Messenger/i, label: "Facebook" },
+    { pattern: /TikTok|BytedanceWebview|musical_ly/i, label: "TikTok" },
+    { pattern: /LinkedInApp/i, label: "LinkedIn" },
+    { pattern: /Snapchat/i, label: "Snapchat" },
+    { pattern: /MicroMessenger/i, label: "WeChat" },
+    { pattern: /Line\//i, label: "LINE" },
+  ]
+
+  const knownMatch = knownEmbeddedBrowsers.find((entry) => entry.pattern.test(userAgent))
+  if (knownMatch) return knownMatch.label
+
+  if (/;\s*wv\)|\bwv\b/i.test(userAgent)) {
+    return "this in-app browser"
+  }
+
+  return null
+}
+
 export default function AccountAccessCard({
   source,
   sourcePath,
@@ -70,6 +96,7 @@ export default function AccountAccessCard({
   const [isVerifyingCode, setIsVerifyingCode] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const [info, setInfo] = useState<string | null>(null)
+  const embeddedBrowserLabel = useMemo(() => getEmbeddedBrowserLabel(), [])
 
   const emailReady = useMemo(() => /\S+@\S+\.\S+/.test(email.trim()), [email])
   const passwordReady = useMemo(() => password.trim().length >= 6, [password])
@@ -100,6 +127,13 @@ export default function AccountAccessCard({
       setError(null)
       setInfo(null)
       setIsLoading(true)
+
+      if (embeddedBrowserLabel) {
+        throw new Error(
+          `Google sign-in is blocked inside ${embeddedBrowserLabel}. Open this page in Safari or Chrome, then try again, or continue with email.`,
+        )
+      }
+
       beforeGoogleAuthStart?.()
       const user = await signInOrLinkWithGoogle({
         source,
@@ -246,6 +280,12 @@ export default function AccountAccessCard({
         </div>
 
         <div className="px-6 py-6 md:px-10 md:py-8">
+          {googleSignInEnabled && embeddedBrowserLabel ? (
+            <div className="mb-5 rounded-[24px] border border-[#efc2b4] bg-[#fff0eb] px-5 py-4 text-sm leading-7 text-[#8d5b48]">
+              Google sign-in is blocked inside <strong>{embeddedBrowserLabel}</strong>. Open this page in Safari or Chrome, or continue with email below.
+            </div>
+          ) : null}
+
           {googleSignInEnabled ? (
             <>
               <button
