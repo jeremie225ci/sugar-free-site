@@ -12,6 +12,16 @@ const nextConfig = {
   async redirects() {
     return [
       {
+        source: "/sitemap",
+        destination: "/sitemap.xml",
+        permanent: true,
+      },
+      {
+        source: "/sitemap_index.xml",
+        destination: "/sitemap.xml",
+        permanent: true,
+      },
+      {
         source: "/food/egg-spinach-scramble",
         destination: "/food/egg-and-spinach-scramble",
         permanent: true,
