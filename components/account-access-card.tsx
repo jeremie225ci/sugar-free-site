@@ -15,7 +15,7 @@ type AccountAccessCardProps = {
   subtitle?: string
   initialName?: string
   onSuccess?: (user: User) => void | Promise<void>
-  beforeGoogleAuthStart?: () => void | Promise<void>
+  beforeGoogleAuthStart?: () => void
   compact?: boolean
   googleSignInEnabled?: boolean
   mode?: AccountAccessMode
@@ -100,7 +100,7 @@ export default function AccountAccessCard({
       setError(null)
       setInfo(null)
       setIsLoading(true)
-      await beforeGoogleAuthStart?.()
+      beforeGoogleAuthStart?.()
       const user = await signInOrLinkWithGoogle({
         source,
         sourcePath,
