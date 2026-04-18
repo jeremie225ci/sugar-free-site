@@ -126,20 +126,10 @@ function isNonBlockingAuthBootstrapError(error: any) {
 }
 
 function shouldUseGoogleRedirectFlow() {
-  if (typeof window === "undefined") return false
-
-  const userAgent = window.navigator.userAgent || ""
-  const isMobileBrowser =
-    /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(userAgent) ||
-    window.matchMedia?.("(pointer: coarse)")?.matches
-  const host = window.location.host || ""
-  const isEphemeralPreview = host.endsWith(".vercel.app")
-
-  // Mobile browsers are much more likely to block or ignore Firebase popups.
-  // Redirect is the more reliable option there on stable domains, while popup
-  // is safer on ephemeral preview URLs because Google OAuth redirect URIs do
-  // not scale with changing preview hosts.
-  return Boolean(isMobileBrowser && !isEphemeralPreview)
+  // Keep prod aligned with dev: always try the popup flow first.
+  // If a browser blocks the popup, the existing fallback below switches to
+  // redirect automatically, which is safer than forcing redirect up front.
+  return false
 }
 
 function isGooglePopupBlockedError(error: any) {
