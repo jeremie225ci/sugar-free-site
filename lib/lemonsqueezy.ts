@@ -57,8 +57,22 @@ export type LemonSubscriptionLookup = {
   renewsAt: string
 }
 
+function normalizeEnvValue(value: string | undefined) {
+  const trimmed = value?.trim() ?? ""
+
+  if (
+    trimmed.length >= 2 &&
+    ((trimmed.startsWith('"') && trimmed.endsWith('"')) ||
+      (trimmed.startsWith("'") && trimmed.endsWith("'")))
+  ) {
+    return trimmed.slice(1, -1).trim()
+  }
+
+  return trimmed
+}
+
 function required(name: string) {
-  const value = process.env[name]
+  const value = normalizeEnvValue(process.env[name])
   if (!value) {
     throw new Error(`Missing required env var: ${name}`)
   }
@@ -66,7 +80,7 @@ function required(name: string) {
 }
 
 function optional(name: string) {
-  return process.env[name]?.trim() ?? ""
+  return normalizeEnvValue(process.env[name])
 }
 
 function getLemonHeaders() {
