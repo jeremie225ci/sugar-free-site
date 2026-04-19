@@ -83,6 +83,12 @@ function optional(name: string) {
   return normalizeEnvValue(process.env[name])
 }
 
+function maskIdentifier(value: string) {
+  if (!value) return "(empty)"
+  if (value.length <= 6) return "*".repeat(value.length)
+  return `${value.slice(0, 3)}…${value.slice(-3)}`
+}
+
 function getLemonHeaders() {
   return {
     Accept: "application/vnd.api+json",
@@ -97,9 +103,9 @@ export function getLemonConfig() {
     legacyVariantId: optional("LEMONSQUEEZY_VARIANT_ID"),
     monthlyVariantId: optional("LEMONSQUEEZY_MONTHLY_VARIANT_ID"),
     yearlyVariantId: optional("LEMONSQUEEZY_YEARLY_VARIANT_ID"),
-    webhookSecret: process.env.LEMONSQUEEZY_WEBHOOK_SECRET ?? "",
-    siteUrl: process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sugar-frees.com",
-    testMode: process.env.LEMONSQUEEZY_TEST_MODE === "true",
+    webhookSecret: normalizeEnvValue(process.env.LEMONSQUEEZY_WEBHOOK_SECRET),
+    siteUrl: normalizeEnvValue(process.env.NEXT_PUBLIC_SITE_URL) || "https://www.sugar-frees.com",
+    testMode: normalizeEnvValue(process.env.LEMONSQUEEZY_TEST_MODE).toLowerCase() === "true",
   }
 }
 
@@ -200,7 +206,9 @@ export async function createHostedCheckout(payload: LemonCheckoutPayload) {
 
   if (!response.ok) {
     const errorText = await response.text()
-    throw new Error(`Lemon Squeezy checkout creation failed: ${response.status} ${errorText}`)
+    throw new Error(
+      `Lemon Squeezy checkout creation failed: ${response.status} ${errorText} (plan=${resolvedPlan.key}, store=${maskIdentifier(config.storeId)}, variant=${maskIdentifier(resolvedPlan.variantId)}, testMode=${String(config.testMode)})`,
+    )
   }
 
   const json = await response.json()
