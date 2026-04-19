@@ -148,6 +148,26 @@ function clearResumeCheckoutUrlFlag() {
   window.history.replaceState({}, "", `${url.pathname}${url.search}${url.hash}`)
 }
 
+function redirectToCheckout(url: string) {
+  if (typeof window === "undefined") return
+
+  const normalizedUrl = String(url ?? "").trim()
+  if (!normalizedUrl) {
+    throw new Error("Missing checkout URL")
+  }
+
+  const anchor = window.document.createElement("a")
+  anchor.href = normalizedUrl
+  anchor.target = "_self"
+  anchor.rel = "noopener noreferrer"
+  anchor.style.display = "none"
+  window.document.body.appendChild(anchor)
+  anchor.click()
+  anchor.remove()
+
+  window.location.assign(normalizedUrl)
+}
+
 export default function WebOnboardingFlow({
   source = "direct",
   sourcePath = "/start",
@@ -165,12 +185,14 @@ export default function WebOnboardingFlow({
   const [analysisMessageIndex, setAnalysisMessageIndex] = useState(0)
   const [statusMessage, setStatusMessage] = useState<string | null>(null)
   const [error, setError] = useState<string | null>(null)
+  const [manualCheckoutUrl, setManualCheckoutUrl] = useState<string | null>(null)
   const [shouldResumeCheckoutAfterAuth, setShouldResumeCheckoutAfterAuth] = useState(false)
   const [memberSession, setMemberSession] = useState<MemberSession | null>(null)
   const [weekPreviewIndex, setWeekPreviewIndex] = useState(0)
 
   const db = useMemo(() => getClientDb(), [])
   const advanceTimerRef = useRef<number | null>(null)
+  const checkoutFallbackTimerRef = useRef<number | null>(null)
   const weekPreviewScrollRef = useRef<HTMLDivElement | null>(null)
 
   const stages = useMemo<Stage[]>(
@@ -415,6 +437,10 @@ export default function WebOnboardingFlow({
       if (advanceTimerRef.current) {
         window.clearTimeout(advanceTimerRef.current)
       }
+
+      if (checkoutFallbackTimerRef.current) {
+        window.clearTimeout(checkoutFallbackTimerRef.current)
+      }
     }
   }, [])
 
@@ -542,12 +568,14 @@ export default function WebOnboardingFlow({
   function goBack() {
     setError(null)
     setStatusMessage(null)
+    setManualCheckoutUrl(null)
     setStageIndex((current) => Math.max(current - 1, 0))
   }
 
   function goNext(nextIndex?: number) {
     setError(null)
     setStatusMessage(null)
+    setManualCheckoutUrl(null)
     setStageIndex((current) => {
       if (typeof nextIndex === "number") return Math.max(0, Math.min(nextIndex, totalStages - 1))
       return Math.min(current + 1, totalStages - 1)
@@ -615,6 +643,9 @@ export default function WebOnboardingFlow({
     })
 
     setUser(currentUser)
+    setError(null)
+    setStatusMessage(null)
+    setManualCheckoutUrl(null)
     clearGoogleResumeCheckoutRequested()
     setShouldResumeCheckoutAfterAuth(false)
 
@@ -662,6 +693,7 @@ export default function WebOnboardingFlow({
         selectedPlan,
       })
       setError(null)
+      setManualCheckoutUrl(null)
       setStatusMessage("Preparing secure checkout...")
       setIsCreatingCheckout(true)
       const idToken = await getCurrentUserIdToken()
@@ -698,7 +730,7 @@ export default function WebOnboardingFlow({
         }),
       })
 
-      const payload = await response.json()
+      const payload = (await response.json().catch(() => null)) as { error?: string; url?: string } | null
 
       if (!response.ok || !payload?.url) {
         debugAuthEvent("checkout_error_response", {
@@ -713,7 +745,19 @@ export default function WebOnboardingFlow({
         selectedPlan,
         checkoutUrl: payload.url,
       })
-      window.location.assign(payload.url)
+      setManualCheckoutUrl(payload.url)
+      setStatusMessage("Redirecting to secure checkout... If nothing opens, use the manual button below.")
+
+      if (checkoutFallbackTimerRef.current) {
+        window.clearTimeout(checkoutFallbackTimerRef.current)
+      }
+
+      checkoutFallbackTimerRef.current = window.setTimeout(() => {
+        setIsCreatingCheckout(false)
+        setStatusMessage("Checkout is ready. If it did not open automatically, use the manual button below.")
+      }, 1800)
+
+      redirectToCheckout(payload.url)
     } catch (err: any) {
       debugAuthEvent("checkout_client_error", {
         selectedPlan,
@@ -1481,7 +1525,10 @@ export default function WebOnboardingFlow({
                     <button
                       key={plan.key}
                       type="button"
-                      onClick={() => setSelectedPlan(plan.key)}
+                      onClick={() => {
+                        setSelectedPlan(plan.key)
+                        setManualCheckoutUrl(null)
+                      }}
                       className={`card-hover rounded-[28px] border px-5 py-5 text-left transition ${
                         selected
                           ? "border-[#5c7f57] bg-[#edf3ea]"
@@ -1532,6 +1579,16 @@ export default function WebOnboardingFlow({
                 >
                   Back
                 </button>
+                {manualCheckoutUrl ? (
+                  <a
+                    href={manualCheckoutUrl}
+                    target="_self"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center rounded-full border border-[#5c7f57] bg-[#edf3ea] px-7 py-3.5 text-sm font-semibold text-[#1f241d]"
+                  >
+                    Open checkout manually
+                  </a>
+                ) : null}
               </div>
             </StagePanel>
 
